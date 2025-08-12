@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OffCrypt – Secure Message Encryption for Android</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        /* Pienet lisäykset lightbox-käyttöä varten */
+        .image-card a { display: block; height: 100%; }
+        .image-card .image-overlay { pointer-events: none; } /* overlay ei estä klikkausta */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-header">
+            <div class="logo-icon">
+                <span class="code-bracket">&lt;</span>
+                <div class="lock-icon">🔒</div>
+                <span class="code-bracket">&gt;</span>
+            </div>
+            <h1>OffCrypt</h1>
+        </div>
+        <p class="header-subtitle">Secure Message Encryption for Android</p>
+        <nav>
+            <ul></ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Modern Image Gallery -->
+        <div class="image-gallery-container">
+            <h2 class="gallery-title">📱 OffCrypt</h2>
+            <div class="image-gallery">
+                
+                <div class="image-card featured">
+                    <a href="OffCrypt.jpg" data-lightbox="offcrypt" data-title="Main Interface — OffCrypt">
+                        <img src="OffCrypt.jpg" alt="OffCrypt main interface">
+                        <div class="image-overlay">
+                            <h3>Main Interface</h3>
+                            <p>Clean, secure messaging</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="OffCrypt-encryption.jpg" data-lightbox="offcrypt" data-title="Encryption — RSA-4096 + AES-256-GCM">
+                        <img src="OffCrypt-encryption.jpg" alt="OffCrypt encryption">
+                        <div class="image-overlay">
+                            <h3>Encryption</h3>
+                            <p>RSA-4096 + AES-256-GCM</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="OffCrypt-security.jpg" data-lightbox="offcrypt" data-title="Security Hub — 36+ features">
+                        <img src="OffCrypt-security.jpg" alt="OffCrypt security features">
+                        <div class="image-overlay">
+                            <h3>Security Hub</h3>
+                            <p>36+ active features</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="OffCrypt-settings.jpg" data-lightbox="offcrypt" data-title="Settings — customizable protection">
+                        <img src="OffCrypt-settings.jpg" alt="OffCrypt settings">
+                        <div class="image-overlay">
+                            <h3>Settings</h3>
+                            <p>Customizable protection</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modern Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Security Features Carousel -->
+        <div class="carousel-container">
+            <h2 class="carousel-title">🔐 Features</h2>
+            <p class="carousel-subtitle">Explore all 36+ security features • <span class="swipe-hint">👆 Swipe or use arrows</span></p>
+            
+            <div class="swiper security-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Cryptography Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card crypto-card">
+                            <div class="product-header">
+                                <h2>🔐 Cryptography</h2>
+                                <p>Encryption algorithms</p>
+                                <div class="slide-counter">1/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🔑 RSA-2048 — Asymmetric public key cryptography</li>
+                                    <li>🔑 RSA-4096 — Asymmetric public key cryptography</li>
+                                    <li>🛡️ AES-256-GCM — Symmetric encryption with authentication</li>
+                                    <li>🔐 PBKDF2 — Password derivation (100,000 iterations)</li>
+                                    <li>🏷️ HmacSHA256 — Ensures message integrity</li>
+                                    <li>⚡ SHA-256 — Cryptographic hash function for keys</li>
+                                    <li>🎲 SecureRandom — Cryptographically secure RNG</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Security Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card advanced-card">
+                            <div class="product-header">
+                                <h2>✨ Advanced Security</h2>
+                                <p>Next-generation protection features</p>
+                                <div class="slide-counter">2/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>✍️ Digital signature — Ensures message authenticity</li>
+                                    <li>🔄 Perfect Forward Secrecy (PFS) — ECDH key exchange</li>
+                                    <li>⏰ Expiring messages — Automatic expiration (1h-1y)</li>
+                                    <li>🔥 Burn After Reading — Automatic message destruction</li>
+                                    <li>🔒 Version Byte — Automatic algorithm detection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attack Protection Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card attack-card">
+                            <div class="product-header">
+                                <h2>🛡️ Attack Protection</h2>
+                                <p>Defense against sophisticated threats</p>
+                                <div class="slide-counter">3/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>⚖️ Constant-time HMAC — Prevents timing attacks</li>
+                                    <li>🔍 Data validation — Verification of cryptographic structures</li>
+                                    <li>❌ Replay attack protection — GCM nonce and metadata</li>
+                                    <li>🔐 Side-channel attack prevention — Secure implementations</li>
+                                    <li>🛡️ MITM attack protection — Certificate pinning</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Safety Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card memory-card">
+                            <div class="product-header">
+                                <h2>🧹 Memory Safety</h2>
+                                <p>Complete sensitive data protection</p>
+                                <div class="slide-counter">4/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🧹 Sensitive data scrubbing — 3x overwrite + zero out</li>
+                                    <li>💾 Char/ByteArray wiping — UTF-8 and memory clearing</li>
+                                    <li>♻️ Aggressive Garbage Collection — 3x memory cleanup</li>
+                                    <li>📋 Log buffer clearing — Android logcat cleanup</li>
+                                    <li>🔄 String pool cleanup — JVM string cache wiping</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UI Security Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card ui-card">
+                            <div class="product-header">
+                                <h2>🖥️ UI Security</h2>
+                                <p>User interface protection</p>
+                                <div class="slide-counter">5/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>📋 Secure Clipboard — Automatic clearing (60s)</li>
+                                    <li>🔒 Lifecycle cleanup — Data destroyed on app close</li>
+                                    <li>⏸️ Background cleanup — Data cleared when backgrounded</li>
+                                    <li>🚨 Burn dialog — Warning for self-destructing messages</li>
+                                    <li>👁️ Screenshot protection — Secure window flags</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Features Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card pro-card">
+                            <div class="product-header">
+                                <h2>⚙️ Features</h2>
+                                <p>Advanced enhancements & storage</p>
+                                <div class="slide-counter">6/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🧠 RSA OAEP + SHA-256 + MGF1 — Modern key encryption</li>
+                                    <li>📜 RSA signature with SHA-512 — Maximum authenticity</li>
+                                    <li>📦 Version Byte detection — Algorithm auto-selection</li>
+                                    <li>🔁 Metadata fallback — Legacy format support</li>
+                                    <li>📤 Encrypted file export — AES-256-GCM format</li>
+                                    <li>🔒 Encrypted RSA keystore — Internal AES storage</li>
+                                    <li>📛 AndroidOpenSSL fallback — Multi-engine support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Summary Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card summary-card">
+                            <div class="product-header">
+                                <h2>🛡️ Complete Security Package</h2>
+                                <p><strong>36+ Active Security Features</strong></p>
+                                <div class="slide-counter">7/7</div>
+                            </div>
+
+                            <div class="features">
+                                <ul class="summary-list">
+                                    <li>🔐 <strong>Cryptography</strong> — RSA-4096 + AES-256-GCM</li>
+                                    <li>🛡️ <strong>Multi-layer attack protection</strong> — Timing, replay & validation</li>
+                                    <li>🧹 <strong>Complete memory safety</strong> — 3x scrubbing & GC</li>
+                                    <li>🔒 <strong>Advanced UI security</strong> — Lifecycle & clipboard protection</li>
+                                    <li>⚙️ <strong>Professional features</strong> — Encrypted storage & validation</li>
+                                    <li>🗑️ <strong>Nuclear reset option</strong> — Complete data destruction</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section">
+            <div class="download-container">
+                <h2 class="download-title">🚀 Download now</h2>
+    
+                <a href="https://github.com/EmptyCode0x86/Off_crypt1/releases/tag/OffCrypt" 
+                   class="button primary-download" target="_blank" rel="noopener noreferrer" 
+                   aria-label="Download OffCrypt">
+                    ⬇️ Download OffCrypt (.apk)
+                </a>
+                <p class="download-info">Free • No ads • Open source </p>
+                
+                <div class="security-badges">
+                    <span class="badge">🔐 RSA-4096</span>
+                    <span class="badge">🛡️ AES-256-GCM</span>
+                    <span class="badge">🔥 Burn After Reading</span>
+                    <span class="badge">⚡ Perfect Forward Secrecy</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.security-swiper', {
+            direction: 'horizontal',
+            loop: false,
+            centeredSlides: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            touchRatio: 1,
+            touchAngle: 45,
+            grabCursor: true,
+            autoHeight: true,
+            effect: 'cards',
+            cardsEffect: { slideShadows: true, transformEl: '.product-card' },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true, dynamicMainBullets: 3 },
+            scrollbar: { el: '.swiper-scrollbar', draggable: true },
+            keyboard: { enabled: true },
+            mousewheel: { enabled: true, forceToAxis: true },
+            breakpoints: {
+                640: { slidesPerView: 1.2, spaceBetween: 20 },
+                768: { slidesPerView: 1.5, spaceBetween: 30 },
+                1024:{ slidesPerView: 1.8, spaceBetween: 40 },
+            }
+        });
+
+        // Lightbox asetuksia (valinnaista)
+        lightbox.option({
+            resizeDuration: 200,
+            fadeDuration: 200,
+            imageFadeDuration: 200,
+            wrapAround: true,
+            alwaysShowNavOnTouchDevices: true
+        });
+    </script>
+</body>
+</html>
