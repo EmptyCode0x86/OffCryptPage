@@ -6,13 +6,6 @@
     <title>OffCrypt – Secure Message Encryption for Android</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
-    <!-- Lightbox CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
-    <style>
-        /* Pienet lisäykset lightbox-käyttöä varten */
-        .image-card a { display: block; height: 100%; }
-        .image-card .image-overlay { pointer-events: none; } /* overlay ei estä klikkausta */
-    </style>
 </head>
 <body>
     <header>
@@ -35,42 +28,54 @@
         <div class="image-gallery-container">
             <div class="image-gallery">
                 
-                <div class="image-card featured">
-                    <a href="OffCrypt.jpg" data-lightbox="offcrypt" data-title="Main Interface — OffCrypt">
-                        <img src="OffCrypt.jpg" alt="">
-                        <div class="image-overlay">
-                         
-                        </div>
-                    </a>
+                <div class="image-card featured" data-image="OffCrypt.jpg" data-title="Main Interface — OffCrypt" data-desc="Clean, secure messaging interface">
+                    <img src="OffCrypt.jpg" alt="">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
 
-                <div class="image-card">
-                    <a href="OffCrypt-encryption.jpg" data-lightbox="offcrypt" data-title="Encryption — RSA-4096 + AES-256-GCM">
-                        <img src="OffCrypt-encryption.jpg" alt="">
-                        <div class="image-overlay">
-                         
-                        </div>
-                    </a>
+                <div class="image-card" data-image="OffCrypt-encryption.jpg" data-title="Encryption — RSA-4096 + AES-256-GCM" data-desc="Advanced encryption process">
+                    <img src="OffCrypt-encryption.jpg" alt="">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
 
-                <div class="image-card">
-                    <a href="OffCrypt-security.jpg" data-lightbox="offcrypt" data-title="Security Hub — 36+ features">
-                        <img src="OffCrypt-security.jpg" alt="">
-                        <div class="image-overlay">
-                        
-                        </div>
-                    </a>
+                <div class="image-card" data-image="OffCrypt-security.jpg" data-title="Security Hub — 36+ features" data-desc="Overview of all security features">
+                    <img src="OffCrypt-security.jpg" alt="">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
 
-                <div class="image-card">
-                    <a href="OffCrypt-settings.jpg" data-lightbox="offcrypt" data-title="Settings — customizable protection">
-                        <img src="OffCrypt-settings.jpg" alt="">
-                        <div class="image-overlay">
-                    
-                        </div>
-                    </a>
+                <div class="image-card" data-image="OffCrypt-settings.jpg" data-title="Settings — customizable protection" data-desc="Advanced configuration options">
+                    <img src="OffCrypt-settings.jpg" alt="">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- Custom Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <div class="modal-nav">
+                    <button class="modal-prev" aria-label="Previous">‹</button>
+                    <button class="modal-next" aria-label="Next">›</button>
+                </div>
+                <img id="modalImage" src="" alt="">
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
+                </div>
+                <div class="modal-counter">
+                    <span id="modalCounter">1 / 4</span>
+                </div>
             </div>
         </div>
 
@@ -270,8 +275,6 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    <!-- Lightbox JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script>
         // Initialize Swiper
         const swiper = new Swiper('.security-swiper', {
@@ -298,16 +301,86 @@
             }
         });
 
-        // Lightbox asetuksia (valinnaista)
-        lightbox.option({
-            resizeDuration: 200,
-            fadeDuration: 200,
-            imageFadeDuration: 200,
-            wrapAround: true,
-            alwaysShowNavOnTouchDevices: true
+        // Custom Image Modal System
+        const imageCards = document.querySelectorAll('.image-card');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalCounter = document.getElementById('modalCounter');
+        const closeBtn = document.querySelector('.modal-close');
+        const prevBtn = document.querySelector('.modal-prev');
+        const nextBtn = document.querySelector('.modal-next');
+        
+        let currentImageIndex = 0;
+        const images = Array.from(imageCards).map(card => ({
+            src: card.dataset.image,
+            title: card.dataset.title,
+            desc: card.dataset.desc
+        }));
+
+        function openModal(index) {
+            currentImageIndex = index;
+            showImage();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function showImage() {
+            const image = images[currentImageIndex];
+            modalImage.src = image.src;
+            modalTitle.textContent = image.title;
+            modalDesc.textContent = image.desc;
+            modalCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage();
+        }
+
+        // Event listeners
+        imageCards.forEach((card, index) => {
+            card.addEventListener('click', () => openModal(index));
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+
+        // Close on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowLeft':
+                    prevImage();
+                    break;
+                case 'ArrowRight':
+                    nextImage();
+                    break;
+            }
         });
     </script>
 </body>
 </html>
-
-
