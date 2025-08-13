@@ -97,7 +97,7 @@ nav a:hover {
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     margin-bottom: 50px;
-    height: 400px;
+    height: 320px;
 }
 
 .image-card {
@@ -117,8 +117,9 @@ nav a:hover {
 .image-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.4s ease;
+    background: #1f1f1f;
 }
 
 .image-overlay {
@@ -240,10 +241,11 @@ nav a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 100%;
+    width: calc(100% + 40px);
+    left: -20px;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0;
     pointer-events: none;
     z-index: 10;
 }
@@ -693,7 +695,7 @@ a.button:hover {
     
     .image-gallery {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 180px 150px;
+        grid-template-rows: 150px 120px;
         height: auto;
         gap: 15px;
     }
@@ -776,7 +778,9 @@ a.button:hover {
     }
     
     .modal-nav {
-        padding: 0 10px;
+        width: calc(100% + 20px);
+        left: -10px;
+        padding: 0;
     }
     
     .modal-prev,
@@ -802,7 +806,7 @@ a.button:hover {
     
     .image-gallery {
         grid-template-columns: 1fr;
-        grid-template-rows: 200px 150px 150px 150px;
+        grid-template-rows: 160px 120px 120px 120px;
         height: auto;
         gap: 15px;
     }
@@ -864,6 +868,12 @@ a.button:hover {
         max-height: 98vh;
         margin: 5px;
         border-radius: 8px;
+    }
+    
+    .modal-nav {
+        width: calc(100% + 10px);
+        left: -5px;
+        padding: 0;
     }
     
     .modal-info {
