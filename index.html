@@ -675,18 +675,25 @@
         }
 
         // Initialize Swiper
-        const swiper = new Swiper('.security-swiper', {
+        // Determine if the user is on a mobile device based on viewport width.
+        // When on a small screen we disable the 3D card effect and swipe interaction
+        // because the animation can be buggy on some mobile devices.
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        // Base configuration used for both mobile and desktop.
+        const swiperOptions = {
             direction: 'horizontal',
             loop: false,
             centeredSlides: true,
             slidesPerView: 1,
             spaceBetween: 20,
-            touchRatio: 1,
+            // Disable touch interaction and 3D transformations on mobile to prevent glitches.
+            touchRatio: isMobile ? 0 : 1,
+            allowTouchMove: !isMobile,
             touchAngle: 45,
             grabCursor: true,
             autoHeight: true,
-            effect: 'cards',
-            cardsEffect: { slideShadows: true, transformEl: '.product-card' },
+            effect: isMobile ? 'slide' : 'cards',
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
             pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true, dynamicMainBullets: 3 },
             scrollbar: { el: '.swiper-scrollbar', draggable: true },
@@ -697,7 +704,15 @@
                 768: { slidesPerView: 1.5, spaceBetween: 30 },
                 1024:{ slidesPerView: 1.8, spaceBetween: 40 },
             }
-        });
+        };
+
+        // Add the card effect configuration only for non-mobile devices.
+        if (!isMobile) {
+            swiperOptions.cardsEffect = { slideShadows: true, transformEl: '.product-card' };
+        }
+
+        // Create a new Swiper instance with the computed options.
+        const swiper = new Swiper('.security-swiper', swiperOptions);
 
         // Custom Image Modal System
         const imageCards = document.querySelectorAll('.image-card');
