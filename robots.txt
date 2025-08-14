@@ -1,0 +1,6 @@
+# Allow all web crawlers to access all content
+User-agent: *
+Disallow:
+
+# Point to the sitemap file
+Sitemap: https://www.dev-offcode.com/sitemap.xml
