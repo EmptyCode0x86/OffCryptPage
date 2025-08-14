@@ -1394,6 +1394,11 @@ footer {
         font-size: 1rem;
         padding: 14px 24px;
     }
+
+    /* Hide swipe hint text on mobile since the swipe animation is disabled */
+    .swipe-hint {
+        display: none;
+    }
     
     .download-info {
         font-size: 0.9rem;
