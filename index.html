@@ -70,14 +70,15 @@
                 <li><a href="#features" class="nav-link">🔐 Features</a></li>
                 <li><a href="" class="nav-link active">📝 Changelog</a></li>
                 <li><a href="#download" class="nav-link">🚀 Download</a></li>
-                <li><a href="#donate" class="nav-link">💝 Donate</a></li>
             </ul>
         </nav>
+        <!-- Mobile navigation toggle -->
+        <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
     </header>
     
     <main>
         <!-- App Description Section -->
-        <div class="intro-section">
+        <section class="intro-section">
             <div class="intro-container">
                 <div class="intro-content">
                     <p class="intro-description">
@@ -103,10 +104,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Modern Horizontal Scrolling Gallery -->
-        <div id="pictures" class="image-gallery-container">
+        <section id="pictures" class="image-gallery-container">
             <div class="gallery-header">
                 <h2 class="gallery-title">📱 Screenshots</h2>
                 <p class="gallery-subtitle">Explore the app interface • <span class="scroll-hint">👈 Scroll horizontally</span></p>
@@ -143,7 +144,7 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
         <!-- Custom Image Modal -->
         <div id="imageModal" class="image-modal">
@@ -169,7 +170,7 @@
         <div class="section-divider"></div>
 
         <!-- Security Features Carousel -->
-        <div id="features" class="carousel-container">
+        <section id="features" class="carousel-container">
             <h2 class="carousel-title">🔐 Features</h2>
             <p class="carousel-subtitle">Explore all 36+ security features • <span class="swipe-hint">👆 Swipe or use arrows</span></p>
             
@@ -336,10 +337,10 @@
                 <div class="swiper-pagination"></div>
                 <div class="swiper-scrollbar"></div>
             </div>
-        </div>
+        </section>
 
         <!-- Download Section -->
-        <div id="download" class="download-section">
+        <section id="download" class="download-section">
             <div class="download-container">
                 <h2 class="download-title">🚀 Download now</h2>
    
@@ -376,427 +377,14 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <style>
-        /* Intro Section Styles */
-        .intro-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 100%);
-            padding: 80px 20px;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-        }
+    <!-- Styles have been moved to styles.css -->
 
-        .intro-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .intro-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .intro-content {
-            text-align: center;
-            color: white;
-        }
-
-        .intro-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-
-        .intro-description {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 48px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            opacity: 0.95;
-        }
-
-        .intro-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .highlight-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.15);
-            transition: all 0.3s ease;
-        }
-
-        .highlight-item:hover {
-            background: rgba(255,255,255,0.12);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-        }
-
-        .highlight-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            font-size: 1rem;
-            text-align: left;
-        }
-
-        /* Support Section in Download Area */
-        .support-divider {
-            width: 150px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
-            margin: 35px auto 25px auto;
-            border-radius: 1px;
-            opacity: 0.8;
-        }
-
-        .support-box {
-            background: rgba(0, 188, 212, 0.08);
-            border: 1px solid #00bcd4;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .support-box:hover {
-            background: rgba(0, 188, 212, 0.12);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.25);
-        }
-
-        .support-box h3 {
-            color: #00bcd4;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .support-box p {
-            color: #b0b0b0;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
-            text-align: center;
-            opacity: 0.85;
-        }
-
-        .donation-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, #00bcd4 0%, #00e676 100%);
-            color: #1f1f1f;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0, 188, 212, 0.3);
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            max-width: 140px;
-        }
-
-        .donation-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
-            background: linear-gradient(135deg, #00e676 0%, #00bcd4 100%);
-        }
-
-        @media (max-width: 768px) {
-            .intro-section {
-                padding: 60px 20px;
-            }
-
-            .intro-title {
-                font-size: 2rem;
-            }
-
-            .intro-description {
-                font-size: 1.1rem;
-                margin-bottom: 36px;
-            }
-
-            .intro-highlights {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .highlight-item {
-                padding: 16px;
-                flex-direction: column;
-                text-align: center;
-                gap: 8px;
-            }
-
-            .highlight-text {
-                text-align: center;
-                font-size: 0.95rem;
-            }
-
-            .support-box {
-                padding: 18px 15px;
-                margin-top: 25px;
-            }
-
-            .support-box h3 {
-                font-size: 1rem;
-            }
-
-            .support-box p {
-                font-size: 0.85rem;
-            }
-
-            .donation-btn {
-                font-size: 0.85rem;
-                padding: 9px 18px;
-                max-width: 130px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .intro-title {
-                font-size: 1.75rem;
-                margin-bottom: 20px;
-            }
-
-            .intro-description {
-                font-size: 1rem;
-                margin-bottom: 32px;
-            }
-
-            .support-box {
-                padding: 15px 12px;
-                margin-top: 20px;
-            }
-
-            .support-box h3 {
-                font-size: 0.95rem;
-            }
-
-            .support-box p {
-                font-size: 0.8rem;
-            }
-
-            .donation-btn {
-                font-size: 0.8rem;
-                padding: 8px 16px;
-                max-width: 120px;
-            }
-        }
-    </style>
-
+    <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    <script>
-        // Navigation smooth scrolling and active states
-        function initNavigation() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('#pictures, #features, #download, #donate');
-            
-            // Smooth scroll to sections
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop - 80; // Account for sticky nav
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Update active states on scroll
-            function updateActiveNav() {
-                let current = '';
-                const scrollPosition = window.scrollY + 150;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            // Initial check and scroll listener
-            window.addEventListener('scroll', updateActiveNav);
-            updateActiveNav(); // Set initial state
-        }
-
-        // Initialize Swiper
-        // Determine if the user is on a mobile device based on viewport width.
-        // When on a small screen we disable the 3D card effect and swipe interaction
-        // because the animation can be buggy on some mobile devices.
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-        // Base configuration used for both mobile and desktop.
-        const swiperOptions = {
-            direction: 'horizontal',
-            loop: false,
-            centeredSlides: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            // Disable touch interaction and 3D transformations on mobile to prevent glitches.
-            touchRatio: isMobile ? 0 : 1,
-            allowTouchMove: !isMobile,
-            touchAngle: 45,
-            grabCursor: true,
-            autoHeight: true,
-            effect: isMobile ? 'slide' : 'cards',
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true, dynamicMainBullets: 3 },
-            scrollbar: { el: '.swiper-scrollbar', draggable: true },
-            keyboard: { enabled: true },
-            mousewheel: { enabled: true, forceToAxis: true },
-            breakpoints: {
-                640: { slidesPerView: 1.2, spaceBetween: 20 },
-                768: { slidesPerView: 1.5, spaceBetween: 30 },
-                1024:{ slidesPerView: 1.8, spaceBetween: 40 },
-            }
-        };
-
-        // Add the card effect configuration only for non-mobile devices.
-        if (!isMobile) {
-            swiperOptions.cardsEffect = { slideShadows: true, transformEl: '.product-card' };
-        }
-
-        // Create a new Swiper instance with the computed options.
-        const swiper = new Swiper('.security-swiper', swiperOptions);
-
-        // Custom Image Modal System
-        const imageCards = document.querySelectorAll('.image-card');
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const modalCounter = document.getElementById('modalCounter');
-        const closeBtn = document.querySelector('.modal-close');
-        const prevBtn = document.querySelector('.modal-prev');
-        const nextBtn = document.querySelector('.modal-next');
-        
-        let currentImageIndex = 0;
-        const images = Array.from(imageCards).map(card => ({
-            src: card.dataset.image,
-            title: card.dataset.title,
-            desc: card.dataset.desc
-        }));
-
-        function openModal(index) {
-            currentImageIndex = index;
-            showImage();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function showImage() {
-            const image = images[currentImageIndex];
-            modalImage.src = image.src;
-            modalTitle.textContent = image.title;
-            modalDesc.textContent = image.desc;
-            modalCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
-        }
-
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            showImage();
-        }
-
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            showImage();
-        }
-
-        // Event listeners
-        imageCards.forEach((card, index) => {
-            card.addEventListener('click', () => openModal(index));
-        });
-
-        closeBtn.addEventListener('click', closeModal);
-        nextBtn.addEventListener('click', nextImage);
-        prevBtn.addEventListener('click', prevImage);
-
-        // Close on backdrop click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
-                closeModal();
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            
-            switch(e.key) {
-                case 'Escape':
-                    closeModal();
-                    break;
-                case 'ArrowLeft':
-                    prevImage();
-                    break;
-                case 'ArrowRight':
-                    nextImage();
-                    break;
-            }
-        });
-
-        // Initialize navigation when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initNavigation);
-    </script>
+    <!-- Application JavaScript -->
+    <script src="script.js" defer></script>
 </body>
 </html>
