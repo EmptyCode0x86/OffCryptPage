@@ -1,0 +1,37 @@
+OffCryptPage Repository License
+
+This repository contains promotional and documentation materials for the OffCrypt application. Different components of this repository are subject to different licensing terms as outlined below.
+
+## Website Content License
+
+All website content including but not limited to text, images, graphics, design elements, layout, and documentation contained in this repository is protected by copyright and is the exclusive property of EmptyCode0x86.
+
+© 2024 EmptyCode0x86. All rights reserved.
+
+The website content may not be reproduced, distributed, transmitted, displayed, published, or broadcast without the prior written permission of the copyright owner. This includes but is not limited to:
+
+- Textual content and documentation
+- Visual design and layout elements  
+- Graphics, logos, and branding materials
+- Screenshots and promotional images
+- Website structure and presentation
+
+## OffCrypt Application License
+
+The OffCrypt Android application referenced and promoted on this website is licensed separately under the GNU General Public License version 3.0 (GPL-3.0).
+
+The OffCrypt application source code, binaries, and related materials are available under GPL-3.0 terms at: https://github.com/EmptyCode0x86/Off_crypt1
+
+Users are free to download, use, modify, and distribute the OffCrypt application in accordance with the GPL-3.0 license terms. The full GPL-3.0 license text is available at: https://www.gnu.org/licenses/gpl-3.0.html
+
+## Contributions to Website Content
+
+Contributions to improve the website content are welcome through pull requests. By submitting a contribution, you agree that your contribution will be subject to the same copyright terms as the existing website content and that you have the necessary rights to make such contributions.
+
+## Contact Information
+
+For questions regarding licensing or permissions, please contact EmptyCode0x86 through the GitHub repository issues or discussions.
+
+---
+
+This license clarification is effective as of the date of this commit and applies to all current and future content in the OffCryptPage repository unless explicitly stated otherwise.
