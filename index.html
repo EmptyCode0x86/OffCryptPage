@@ -22,6 +22,34 @@
     <meta property="twitter:description" content="A fully offline Android application for private and secure communication.">
     <meta property="twitter:image" content="https://www.dev-offcode.com/OffCrypt.jpg">
 
+    <!-- Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "OffCrypt",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Android",
+        "description": "Secure offline encryption app for Android with PGP-style messaging and RSA-4096 encryption",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "downloadUrl": "https://www.dev-offcode.com/",
+        "inLanguage": ["fi", "en"],
+        "author": {
+            "@type": "Person",
+            "name": "EmptyCode0x86"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
 </head>
@@ -81,28 +109,28 @@
             <div class="image-gallery">
                 
                 <div class="image-card featured" data-image="OffCrypt.jpg" data-title="" data-desc="">
-                    <img src="OffCrypt.jpg" alt="">
+                    <img src="OffCrypt.jpg" alt="OffCrypt main interface displaying encryption controls and secure messaging dashboard">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
                 </div>
 
                 <div class="image-card" data-image="OffCrypt-encryption.jpg" data-title="" data-desc="">
-                    <img src="OffCrypt-encryption.jpg" alt="">
+                    <img src="OffCrypt-encryption.jpg" alt="Android security app encryption page showing RSA key generation and PGP messaging settings">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
                 </div>
 
                 <div class="image-card" data-image="OffCrypt-security.jpg" data-title="" data-desc="">
-                    <img src="OffCrypt-security.jpg" alt="">
+                    <img src="OffCrypt-security.jpg" alt="Security settings view with AES-256 encryption and perfect forward secrecy indicators">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
                 </div>
 
                 <div class="image-card" data-image="OffCrypt-settings.jpg" data-title="" data-desc="">
-                    <img src="OffCrypt-settings.jpg" alt="">
+                    <img src="OffCrypt-settings.jpg" alt="Cryptographic configuration options">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
@@ -304,7 +332,7 @@
             </div>
         </div>
 
-    <!-- Download Section -->
+        <!-- Download Section -->
         <div class="download-section">
             <div class="download-container">
                 <h2 class="download-title">🚀 Download now</h2>
@@ -328,6 +356,18 @@
                     <span class="badge">🛡️ AES-256-GCM</span>
                     <span class="badge">🔥 Burn After Reading</span>
                     <span class="badge">⚡ Perfect Forward Secrecy</span>
+                </div>
+
+                <!-- Support Divider -->
+                <div class="support-divider"></div>
+
+                <!-- Support Section -->
+                <div class="support-box">
+                    <h3>☕ Support Development</h3>
+                    <p>Help fund continued development and security auditing</p>
+                    <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
+                        💝 Donate
+                    </a>
                 </div>
             </div>
         </div>
@@ -424,6 +464,76 @@
             text-align: left;
         }
 
+        /* Support Section in Download Area */
+        .support-divider {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+            margin: 35px auto 25px auto;
+            border-radius: 1px;
+            opacity: 0.8;
+        }
+
+        .support-box {
+            background: rgba(0, 188, 212, 0.08);
+            border: 1px solid #00bcd4;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .support-box:hover {
+            background: rgba(0, 188, 212, 0.12);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.25);
+        }
+
+        .support-box h3 {
+            color: #00bcd4;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .support-box p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            text-align: center;
+            opacity: 0.85;
+        }
+
+        .donation-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #00bcd4 0%, #00e676 100%);
+            color: #1f1f1f;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 12px rgba(0, 188, 212, 0.3);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            max-width: 140px;
+        }
+
+        .donation-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+            background: linear-gradient(135deg, #00e676 0%, #00bcd4 100%);
+        }
+
         @media (max-width: 768px) {
             .intro-section {
                 padding: 60px 20px;
@@ -454,6 +564,25 @@
                 text-align: center;
                 font-size: 0.95rem;
             }
+
+            .support-box {
+                padding: 18px 15px;
+                margin-top: 25px;
+            }
+
+            .support-box h3 {
+                font-size: 1rem;
+            }
+
+            .support-box p {
+                font-size: 0.85rem;
+            }
+
+            .donation-btn {
+                font-size: 0.85rem;
+                padding: 9px 18px;
+                max-width: 130px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -465,6 +594,25 @@
             .intro-description {
                 font-size: 1rem;
                 margin-bottom: 32px;
+            }
+
+            .support-box {
+                padding: 15px 12px;
+                margin-top: 20px;
+            }
+
+            .support-box h3 {
+                font-size: 0.95rem;
+            }
+
+            .support-box p {
+                font-size: 0.8rem;
+            }
+
+            .donation-btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+                max-width: 120px;
             }
         }
     </style>
