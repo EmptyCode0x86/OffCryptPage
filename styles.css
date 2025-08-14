@@ -83,12 +83,123 @@ nav a:hover {
     color: #00bcd4;
 }
 
+/* Intro Section Styles */
+.intro-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 100%);
+    padding: 80px 20px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.intro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-content {
+    text-align: center;
+    color: white;
+}
+
+.intro-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.intro-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    opacity: 0.95;
+}
+
+.intro-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.highlight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.highlight-text {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+}
+
 /* Modern Image Gallery */
 .image-gallery-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 60px 20px 40px 20px;
     text-align: center;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #00bcd4, #00e676);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-subtitle {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 40px;
+}
+
+.scroll-hint {
+    color: #00bcd4;
+    font-weight: 600;
 }
 
 .image-gallery {
@@ -406,6 +517,28 @@ nav a:hover {
     box-shadow: 0 12px 35px rgba(0, 188, 212, 0.5);
 }
 
+.secondary-download {
+    display: inline-block;
+    background-color: #00bcd4;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: #1f1f1f;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+.secondary-download:hover {
+    background-color: #00e676;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+}
+
 .download-info {
     color: #b0b0b0;
     font-size: 1rem;
@@ -602,6 +735,124 @@ a.button:hover {
     padding: 14px 30px;
 }
 
+/* Community Section Styles */
+.community-section {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 50%, #2a2a2a 100%);
+    border-top: 2px solid #00bcd4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.community-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.community-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #00bcd4, #00e676);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.product-hunt-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.product-hunt-link:hover {
+    transform: translateY(-5px);
+}
+
+.product-hunt-badge {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #da552f 0%, #ea6943 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(218, 85, 47, 0.3);
+    gap: 16px;
+    min-width: 300px;
+    border: 2px solid #ff6b35;
+}
+
+.ph-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.ph-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.ph-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.ph-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Footer Support Section Styles */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 2px solid #00bcd4;
+}
+
+.support-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.support-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ecf0f1;
+}
+
+.support-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.donation-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.donation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+}
+
 /* Swiper Navigation Customization */
 .swiper-button-next,
 .swiper-button-prev {
@@ -687,6 +938,36 @@ a.button:hover {
     
     .header-subtitle {
         font-size: 1rem;
+    }
+
+    .intro-section {
+        padding: 60px 20px;
+    }
+
+    .intro-title {
+        font-size: 2rem;
+    }
+
+    .intro-description {
+        font-size: 1.1rem;
+        margin-bottom: 36px;
+    }
+
+    .intro-highlights {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .highlight-item {
+        padding: 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .highlight-text {
+        text-align: center;
+        font-size: 0.95rem;
     }
     
     .image-gallery-container {
@@ -793,6 +1074,23 @@ a.button:hover {
     .zoom-icon {
         font-size: 2rem;
     }
+
+    .community-title {
+        font-size: 1.5rem;
+    }
+
+    .product-hunt-badge {
+        min-width: auto;
+        padding: 16px 20px;
+    }
+
+    .ph-title {
+        font-size: 1rem;
+    }
+
+    .ph-subtitle {
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -890,5 +1188,25 @@ a.button:hover {
     
     .zoom-icon {
         font-size: 1.5rem;
+    }
+
+    .intro-title {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+    }
+
+    .intro-description {
+        font-size: 1rem;
+        margin-bottom: 32px;
+    }
+
+    .product-hunt-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .ph-text {
+        text-align: center;
     }
 }
