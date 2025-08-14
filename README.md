@@ -1,1 +1,1 @@
-Showcase page: https://emptycode0x86.github.io/OffCryptPage/
+Showcase page: https://www.dev-offcode.com/
