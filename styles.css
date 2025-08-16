@@ -1564,4 +1564,35 @@ footer {
         padding: 8px 16px;
         max-width: 120px;
     }
+
+    /* === FIX 1: Features-kortit näkyviin mobiilissa === */
+.security-swiper { 
+  height: auto;            /* anna karusellin kasvaa sisällön mukaan */
+  overflow: visible;       /* varmistetaan ettei kortti leikkaannu */
+}
+.security-swiper .swiper-wrapper {
+  align-items: stretch;    /* venytä slide kortin korkeuteen */
+}
+.security-swiper .swiper-slide {
+  height: auto;
+  min-height: 0;           /* ohittaa desktop-min-heightin mobiilissa */
+}
+
+@media (max-width: 768px) {
+  .security-swiper { padding-bottom: 40px; }
+  .security-swiper .swiper-slide { min-height: 0 !important; }
+  .product-card { min-height: unset; } /* sallitaan kortin luonnollinen korkeus */
+}
+
+/* === FIX 2: Social / Donate -nappien tasaus === */
+.support-container { align-items: stretch; } /* yhtä korkeat laatikot gridissä */
+.support-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.support-box .donation-btn,
+.support-box .social-btn {
+  margin-top: auto;        /* nappi alas -> samalle tasolle molemmissa bokseissa */
+}
 }
