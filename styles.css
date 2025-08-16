@@ -1066,6 +1066,56 @@ footer {
     background: linear-gradient(135deg, #00e676 0%, #00bcd4 100%);
 }
 
+/* Support Container for Side-by-Side Layout */
+.support-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Social Media Box Styling */
+.social-media-box {
+    background: rgba(29, 161, 242, 0.08);
+    border: 1px solid #1da1f2;
+    margin-bottom: 0;
+}
+
+.social-media-box:hover {
+    background: rgba(29, 161, 242, 0.12);
+    box-shadow: 0 6px 20px rgba(29, 161, 242, 0.25);
+}
+
+.social-media-box h3 {
+    color: #1da1f2;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(29, 161, 242, 0.3);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 140px;
+}
+
+.social-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(29, 161, 242, 0.4);
+    background: linear-gradient(135deg, #0d8bd9 0%, #1da1f2 100%);
+}
+
 /* Swiper Navigation Customization */
 .swiper-button-next,
 .swiper-button-prev {
@@ -1332,9 +1382,15 @@ footer {
         font-size: 0.8rem;
     }
 
+    .support-container {
+        gap: 15px;
+        max-width: 100%;
+        margin-top: 25px;
+    }
+    
     .support-box {
         padding: 18px 15px;
-        margin-top: 25px;
+        margin-top: 0;
     }
 
     .support-box h3 {
@@ -1346,6 +1402,12 @@ footer {
     }
 
     .support-box .donation-btn {
+        font-size: 0.85rem;
+        padding: 9px 18px;
+        max-width: 130px;
+    }
+
+    .social-btn {
         font-size: 0.85rem;
         padding: 9px 18px;
         max-width: 130px;
@@ -1472,9 +1534,15 @@ footer {
         text-align: center;
     }
 
+    .support-container {
+        gap: 12px;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    
     .support-box {
         padding: 15px 12px;
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     .support-box h3 {
@@ -1486,6 +1554,12 @@ footer {
     }
 
     .support-box .donation-btn {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        max-width: 120px;
+    }
+
+    .social-btn {
         font-size: 0.8rem;
         padding: 8px 16px;
         max-width: 120px;
