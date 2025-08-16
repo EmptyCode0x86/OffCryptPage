@@ -693,7 +693,7 @@ nav a:hover {
 .carousel-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px 60px 20px;
+    padding: 30px 20px 50px 20px;
     text-align: center;
 }
 
@@ -1209,14 +1209,16 @@ footer {
     }
     
     .image-gallery-container {
-        padding: 50px 15px 35px 15px;
+        padding: 40px 15px 25px 15px;
+        margin-bottom: -20px;
     }
     
     .image-gallery {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 120px 100px;
+        grid-template-rows: 100px 85px;
         height: auto;
-        gap: 10px;
+        gap: 8px;
+        margin-bottom: 30px;
     }
     
     .image-card.featured {
@@ -1225,7 +1227,7 @@ footer {
     }
     
     .section-divider {
-        margin: 40px auto;
+        margin: 25px auto 35px auto;
     }
     
     .download-section {
@@ -1352,18 +1354,21 @@ footer {
 
 @media (max-width: 480px) {
     .carousel-container {
-        padding: 40px 10px;
+        padding: 30px 10px;
+        margin-top: -10px;
     }
     
     .image-gallery-container {
-        padding: 40px 10px 30px 10px;
+        padding: 35px 10px 20px 10px;
+        margin-bottom: -15px;
     }
     
     .image-gallery {
         grid-template-columns: 1fr;
-        grid-template-rows: 130px 100px 100px 100px;
+        grid-template-rows: 120px 90px 90px 90px;
         height: auto;
-        gap: 10px;
+        gap: 8px;
+        margin-bottom: 25px;
     }
     
     .image-card.featured {
@@ -1371,7 +1376,7 @@ footer {
     }
     
     .section-divider {
-        margin: 30px auto;
+        margin: 20px auto 30px auto;
     }
     
     .download-section {
