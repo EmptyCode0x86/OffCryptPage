@@ -1174,6 +1174,12 @@ footer {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
     header {
         padding: 20px 15px;
     }
@@ -1600,4 +1606,24 @@ footer {
 .support-box .social-btn {
   margin-top: auto;
   display: inline-flex;
+}
+
+/* Make sure images are fully visible and responsive in modal */
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* Force prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
 }
