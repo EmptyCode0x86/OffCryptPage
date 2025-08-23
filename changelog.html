@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OffCrypt Changelog – Update History</title>
+    <meta name="description" content="OffCrypt v2.0 changelog - Added offline file encryption for Android with military grade AES-256 security, self-destructing files, and secure document sharing features.">
+    <meta name="keywords" content="OffCrypt, changelog, updates, version history, Android, encryption, security">
+    <meta name="author" content="OffCrypt">
+    <meta name="last-modified" content="2025-08-23">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://www.dev-offcode.com/changelog.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dev-offcode.com/changelog.html">
+    <meta property="og:title" content="OffCrypt Changelog – Update History">
+    <meta property="og:description" content="Track the latest updates and improvements for OffCrypt secure messaging app.">
+    <meta property="og:image" content="https://www.dev-offcode.com/OffCrypt.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OffCrypt",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Android",
+        "description": "Secure offline encryption app with comprehensive file encryption features, AES-256-GCM and RSA-4096 security",
+        "url": "https://www.dev-offcode.com/",
+        "author": {
+            "@type": "Person", 
+            "name": "EmptyCode0x86"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "releaseNotes": {
+            "@type": "TechArticle",
+            "headline": "OffCrypt v2.0 - File Encryption Features Added",
+            "datePublished": "2025-08-23",
+            "dateModified": "2025-08-23",
+            "url": "https://www.dev-offcode.com/changelog.html"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    <header>
+        <div class="logo-header">
+            <div class="logo-icon">
+                <span class="code-bracket">&lt;</span>
+                <div class="lock-icon">🔒</div>
+                <span class="code-bracket">&gt;</span>
+            </div>
+            <h1>OffCrypt</h1>
+        </div>
+        <p class="header-subtitle">Secure Message Encryption for Android</p>
+        <nav>
+            <ul id="navTabs" class="nav-tabs">
+                <li><a href="index.html#pictures" class="nav-link">📱 Pictures</a></li>
+                <li><a href="index.html#features" class="nav-link">🔐 Features</a></li>
+                <li><a href="changelog.html" class="nav-link active">📝 Changelog</a></li>
+                <li><a href="index.html#download" class="nav-link">🚀 Download</a></li>
+                <li><a href="index.html#donate" class="nav-link">💝 Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Changelog Hero Section -->
+        <div class="changelog-hero">
+            <div class="changelog-container">
+                <div class="changelog-header">
+                    <h1 class="changelog-title">📝 Changelog</h1>
+                    <p class="changelog-subtitle">Track the latest updates, improvements, and security enhancements</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Changelog Content Section -->
+        <div class="changelog-content">
+            <div class="changelog-container">
+                <!-- Introduction Section -->
+                <div class="changelog-intro">
+                    <p>Welcome to the OffCrypt changelog! This page documents all major updates, new features, security enhancements, and improvements to our secure Android encryption application. Stay informed about the latest developments in OffCrypt's journey to provide the most secure offline encryption solution.</p>
+                    
+                    <p><strong>Latest Release:</strong> OffCrypt v2.0 introduces comprehensive file encryption capabilities with military-grade security, bringing advanced cryptographic features to protect your documents, images, and sensitive files.</p>
+                </div>
+                
+                <div class="changelog-wrapper">
+                    <!-- File Encryption Features -->
+                    <div class="changelog-entry">
+                        <div class="changelog-version">
+                            <span class="version-tag">v2.0</span>
+                            <span class="version-date">August 23, 2025</span>
+                        </div>
+                        <div class="changelog-changes">
+                            <h3>🎉 Major Update: File Encryption Features Added</h3>
+                            <p>Complete file encryption and decryption system with advanced security features, cross-platform compatibility, and user-friendly interface.</p>
+                            
+                            <h4>🔐 Encryption Methods</h4>
+                            <ul>
+                                <li>Password-based encryption (AES-256-GCM with PBKDF2-SHA256)</li>
+                                <li>RSA-2048 encryption for secure file sharing without password exchange</li>
+                                <li>RSA-4096 encryption for maximum security requirements</li>
+                                <li>Hybrid encryption combining AES for file content and RSA for key exchange</li>
+                            </ul>
+
+                            <h4>📁 File Operations</h4>
+                            <ul>
+                                <li>Universal file support - encrypt any file type (documents, images, videos, archives)</li>
+                                <li>Metadata preservation during encryption/decryption process</li>
+                                <li>File integrity verification with cryptographic checksums</li>
+                                <li>Secure file deletion option for original files after encryption</li>
+                                <li>Batch processing capabilities for multiple files</li>
+                            </ul>
+
+                            <h4>🔑 Password Management</h4>
+                            <ul>
+                                <li>Random password generation (24-character secure passwords)</li>
+                                <li>Custom password support for user-defined passwords</li>
+                                <li>Password copy functionality with secure clipboard handling</li>
+                                <li>Automatic clipboard clearing (15-45 seconds based on sensitivity)</li>
+                                <li>Password strength validation and feedback</li>
+                            </ul>
+
+                            <h4>⏰ Disappear File Feature</h4>
+                            <ul>
+                                <li>Self-destructing encrypted files with configurable expiration times</li>
+                                <li>Time-based deletion options</li>
+                                <li>Automatic file removal when expiration time is reached</li>
+                                <li>Timestamp verification prevents tampering with expiration settings</li>
+                                <li>Secure cleanup ensures files cannot be recovered after expiration</li>
+                            </ul>
+
+                            <h4>🛡️ Security Features</h4>
+                            <ul>
+                                <li>Metadata stripping option (removes EXIF data from images)</li>
+                                <li>Secure memory wiping (7 iterations) for sensitive data cleanup</li>
+                                <li>Hardware-backed encryption using Android Keystore integration</li>
+                                <li>Anti-tampering protection with encrypted file format validation</li>
+                                <li>Burn after reading option for immediate deletion after viewing</li>
+                            </ul>
+
+                            <h4>🔐 RSA Key Management</h4>
+                            <ul>
+                                <li>Key pair generation (RSA-2048/4096) with hardware security module</li>
+                                <li>Public key sharing with secure copy/paste functionality</li>
+                                <li>Private key protection with AES-256-GCM encryption at rest</li>
+                                <li>Key format validation (PKCS#8 private, X.509 public keys)</li>
+                                <li>Key backup and recovery options</li>
+                            </ul>
+
+                            <h4>💾 File Format & Structure</h4>
+                            <ul>
+                                <li>Encrypted .enc file format with version control</li>
+                                <li>JSON metadata structure for file information and encryption parameters</li>
+                                <li>Cross-platform compatibility for encrypted files</li>
+                                <li>File signature validation to prevent corrupted file processing</li>
+                                <li>Expiration timestamp embedding for disappear file functionality</li>
+                            </ul>
+
+                            <h4>⚙️ Technical Specifications</h4>
+                            <ul>
+                                <li>Encryption: AES-256-GCM with 12-byte IV and 16-byte authentication tag</li>
+                                <li>Key derivation: PBKDF2-SHA256 with 100,000 iterations and 32-byte salt</li>
+                                <li>RSA padding: OAEP-SHA256-MGF1 for secure key encapsulation</li>
+                                <li>Memory protection: Constant-time operations and secure cleanup</li>
+                                <li>File integrity: HMAC-SHA256 verification for encrypted content</li>
+                            </ul>
+
+                            <h4>📱 User Experience</h4>
+                            <ul>
+                                <li>Intuitive tab-based interface separating encryption/decryption workflows</li>
+                                <li>Real-time encryption progress with detailed status updates</li>
+                                <li>Drag-and-drop file selection with file picker integration</li>
+                                <li>Toast notifications for operation success/failure feedback</li>
+                                <li>Debug logging system for troubleshooting encryption issues</li>
+                                <li>Expiration time picker with user-friendly time selection interface</li>
+                            </ul>
+
+                            <h4>🔄 Workflow Integration</h4>
+                            <ul>
+                                <li>Import encrypted files for reading without permanent decryption</li>
+                                <li>Export encrypted files with sharing integration</li>
+                                <li>File association for .enc file handling</li>
+                                <li>Background processing for large file operations</li>
+                                <li>Memory-efficient streaming for large file encryption/decryption</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        /* Changelog-specific styles */
+        .changelog-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 100%);
+            padding: 80px 20px 60px 20px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .changelog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .changelog-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .changelog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .changelog-header {
+            text-align: center;
+            color: white;
+        }
+
+        .changelog-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .changelog-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .changelog-content {
+            background: #1f1f1f;
+            padding: 80px 20px;
+            min-height: 60vh;
+        }
+
+        .changelog-intro {
+            background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .changelog-intro p {
+            margin: 0 0 15px 0;
+        }
+
+        .changelog-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .changelog-intro strong {
+            color: #00bcd4;
+        }
+
+        .changelog-wrapper {
+            background: linear-gradient(145deg, #2c2c2c 0%, #252525 100%);
+            border-radius: 20px;
+            border: 2px solid #00bcd4;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .changelog-placeholder {
+            padding: 80px 40px;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            opacity: 0.7;
+        }
+
+        .changelog-placeholder h3 {
+            font-size: 1.8rem;
+            color: #00bcd4;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .changelog-placeholder p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Future changelog entry styles */
+        .changelog-entry {
+            border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+            padding: 40px;
+            position: relative;
+        }
+
+        .changelog-entry:last-child {
+            border-bottom: none;
+        }
+
+        .changelog-version {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .version-tag {
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            color: #1f1f1f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .version-date {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .changelog-changes {
+            color: #e0e0e0;
+        }
+
+        .changelog-changes h3 {
+            color: #00e676;
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .changelog-changes h4 {
+            color: #00bcd4;
+            font-size: 1.1rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .changelog-changes ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .changelog-changes li {
+            padding: 5px 0 5px 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .changelog-changes li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #00bcd4;
+            font-weight: bold;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .changelog-hero {
+                padding: 60px 20px 50px 20px;
+            }
+
+            .changelog-title {
+                font-size: 2.2rem;
+            }
+
+            .changelog-subtitle {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .changelog-content {
+                padding: 60px 15px;
+            }
+
+            .changelog-placeholder {
+                padding: 60px 30px;
+            }
+
+            .placeholder-icon {
+                font-size: 3rem;
+            }
+
+            .changelog-placeholder h3 {
+                font-size: 1.5rem;
+            }
+
+            .changelog-placeholder p {
+                font-size: 1rem;
+            }
+
+            .changelog-entry {
+                padding: 30px 25px;
+            }
+
+            .changelog-version {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .changelog-hero {
+                padding: 50px 15px 40px 15px;
+            }
+
+            .changelog-title {
+                font-size: 1.8rem;
+            }
+
+            .changelog-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .changelog-content {
+                padding: 50px 10px;
+            }
+
+            .changelog-placeholder {
+                padding: 50px 20px;
+            }
+
+            .placeholder-icon {
+                font-size: 2.5rem;
+            }
+
+            .changelog-placeholder h3 {
+                font-size: 1.3rem;
+            }
+
+            .changelog-placeholder p {
+                font-size: 0.9rem;
+            }
+
+            .changelog-entry {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+
+    <script>
+        // Simple navigation for changelog page
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Handle navigation to main page sections
+                    if (href.startsWith('index.html#')) {
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
