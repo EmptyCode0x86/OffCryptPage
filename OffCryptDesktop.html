@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="En">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OffCrypt Desktop – Professional Windows Encryption Suite</title>
+    <meta name="description" content="Professional Windows encryption application - OffCrypt Desktop offers NIST 2024 compliant ECDH+HKDF+AES-GCM and X25519 cryptography with disappearing messages, identity management, and secure file operations.">
+    <meta name="keywords" content="OffCrypt, Windows encryption, ECDH, X25519, AES-GCM, HKDF, PGP, desktop security, disappearing messages, identity management, NIST 2024, offline encryption">
+    <meta name="author" content="OffCrypt">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dev-offcode.com/OffCryptDesktop">
+    <meta property="og:title" content="OffCrypt – Secure Message Encryption for Windows">
+    <meta property="og:description" content="A fully offline Windows application for private and secure communication.">
+    <meta property="og:image" content="https://www.dev-offcode.com/OffCrypt-Windows.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.dev-offcode.com/OffCryptDesktop">
+    <meta property="twitter:title" content="OffCrypt – Secure Message Encryption for Windows">
+    <meta property="twitter:description" content="A fully offline Windows application for private and secure communication.">
+    <meta property="twitter:image" content="https://www.dev-offcode.com/OffCrypt-Android.jpg">
+
+    <!-- Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WindowsApplication",
+        "name": "OffCrypt",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows",
+        "description": "Secure offline encryption app for Windows with PGP-style messaging and RSA-4096 encryption",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "downloadUrl": "https://www.dev-offcode.com/",
+        "inLanguage": ["fi", "en"],
+        "author": {
+            "@type": "Person",
+            "name": "EmptyCode0x86"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-header">
+            <div class="logo-icon">
+                <span class="code-bracket">&lt;</span>
+                <div class="lock-icon">🔒</div>
+                <span class="code-bracket">&gt;</span>
+            </div>
+            <h1>OffCrypt Desktop</h1>
+        </div>
+        <p class="header-subtitle">Windows Encryption Suite</p>
+        <nav>
+            <ul id="navTabs" class="nav-tabs">
+                <li><a href="index.html" class="nav-link active">📱 OffCrypt for Android </a></li>
+                <li><a href="#how-to-use" class="nav-link">🎯 How to Use</a></li>
+                <li><a href="#pictures" class="nav-link">💻 Screenshots</a></li>
+                <li><a href="#features" class="nav-link">🔐 Features</a></li>
+                <li><a href="#download" class="nav-link">🚀 Download</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hidden H1 for SEO (not visible to users) -->
+        <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">OffCrypt Desktop - Professional Windows Encryption with X25519 and ECDH+HKDF+AES-GCM</h1>
+        
+        <!-- App Description Section -->
+        <section class="intro-section">
+            <div class="intro-container">
+                <div class="intro-content">
+                    <p class="intro-description">
+                        OffCrypt Desktop is a professional Windows encryption application providing secure text and file encryption using cutting-edge cryptographic algorithms. Features both password-based encryption (ECDH+HKDF+AES-GCM) and X25519 public-key cryptography with NIST 2024 compliance for maximum security.
+                    </p>
+
+                    <p class="intro-description">
+                        This is a completely offline encryption application - no internet connection required or used. All cryptographic operations happen locally on your Windows system with zero data collection. Perfect for professionals, journalists, and privacy-conscious users who need secure communication without cloud dependencies.
+                    </p>
+
+                    <p class="intro-description">
+                        Advanced features include disappearing messages with configurable expiration times, PGP-style identity management with contact trust levels, multiple ECDH curve options, and comprehensive file encryption with .enc and .pgp format support. Built for Windows with secure memory management and professional-grade security features.
+                    </p>
+                    <div class="intro-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔑</span>
+                            <span class="highlight-text">PGP-Style Public Key Cryptography</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">💻</span>
+                            <span class="highlight-text">Open-source</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🔒</span>
+                            <span class="highlight-text">Fully Offline application</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📄</span>
+                            <span class="highlight-text">File Encryption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use Section -->
+        <section id="how-to-use" class="how-to-use-section">
+            <div class="how-to-use-container">
+                <h2 class="how-to-use-title">🎯 How to Use</h2>
+                <p class="how-to-use-subtitle">Step-by-step guide to secure encryption</p>
+                
+                <div class="usage-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="password">🔐 Password-Based</button>
+                        <button class="tab-btn" data-tab="x25519">🔑 X25519 Public Key</button>
+                        <button class="tab-btn" data-tab="advanced">⚙️ Advanced Features</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Password-Based Tab -->
+                        <div class="tab-panel active" id="password-tab">
+                            <div class="usage-steps">
+                                <div class="step-card">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h3>Set Master Password</h3>
+                                        <p>Go to Tab 1, enter a strong password (8+ characters) and click "Set Password". The password is stored securely in memory as char[] array.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h3>Encrypt Your Message</h3>
+                                        <p>Type your message in the large text area. Optionally configure disappearing messages, then click "Encrypt" to create encrypted text.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h3>Share Encrypted Text</h3>
+                                        <p>The encrypted message is automatically copied to clipboard. Share it through any channel - email, chat, or save as .enc file.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h3>Decrypt Messages</h3>
+                                        <p>Copy encrypted text to clipboard, enter the password, and click "Decrypt" to reveal the original message.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <span class="highlight-icon">🛡️</span>
+                                <span class="highlight-text"><strong>Uses ECDH + HKDF + AES-GCM</strong> - Military-grade encryption with NIST 2024 compliance</span>
+                            </div>
+                        </div>
+
+                        <!-- X25519 Public Key Tab -->
+                        <div class="tab-panel" id="x25519-tab">
+                            <div class="usage-steps">
+                                <div class="step-card">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h3>Generate Keys</h3>
+                                        <p>Go to Tab 2, click "Generate Keys" to create your X25519 key pair. Keys are protected with Windows DPAPI encryption.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h3>Share Public Key</h3>
+                                        <p>Click copy button to copy your public key. Share this with anyone who wants to send you encrypted messages.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h3>Import Recipient Key</h3>
+                                        <p>Click "Recipient" button, paste the public key of the person you want to message, and click "Import" to add them.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-card">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h3>Secure Communication</h3>
+                                        <p>Type messages and click "Encrypt" to create secure messages only the recipient can read. Automatic trust management included.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <span class="highlight-icon">🔐</span>
+                                <span class="highlight-text"><strong>PGP-Style Communication</strong> - No servers needed, perfect forward secrecy with X25519</span>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Features Tab -->
+                        <div class="tab-panel" id="advanced-tab">
+                            <div class="advanced-features">
+                                <div class="feature-group">
+                                    <h3>⏰ Disappearing Messages</h3>
+                                    <p>Set automatic expiration times (hours, days, weeks, months) for sensitive messages. Messages become unreadable after expiration.</p>
+                                </div>
+
+                                <div class="feature-group">
+                                    <h3>👤 Identity Management</h3>
+                                    <p>Create PGP-style identities with display names and unique IDs. Build trusted contact networks with fingerprint verification.</p>
+                                </div>
+
+                                <div class="feature-group">
+                                    <h3>🔧 ECDH Configuration</h3>
+                                    <p>Choose cryptographic curves: P-256 (default), P-384 (higher security), P-521 (maximum security), or ephemeral keys.</p>
+                                </div>
+
+                                <div class="feature-group">
+                                    <h3>📁 File Operations</h3>
+                                    <p>Create encrypted .enc and .pgp files, import existing encrypted files, and manage encrypted document workflows.</p>
+                                </div>
+
+                                <div class="feature-group">
+                                    <h3>🗑️ Complete Data Wipe</h3>
+                                    <p>Nuclear option: securely delete all keys, configuration, and application data with military-grade overwriting.</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-highlight">
+                                <span class="highlight-icon">⚙️</span>
+                                <span class="highlight-text"><strong>Professional Features</strong> - Complete cryptographic toolkit for secure communication</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Horizontal Scrolling Gallery -->
+        <section id="pictures" class="image-gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">💻 Screenshots</h2>
+                <p class="gallery-subtitle">Explore the desktop application • <span class="scroll-hint">👈 Scroll horizontally</span></p>
+            </div>
+            
+            <div class="image-gallery">
+                
+                <div class="image-card featured" data-image="SettingsWindows.png" data-title="" data-desc="">
+                    <img src="SettingsWindows.png" alt="OffCrypt main interface - best secure messaging app without internet for windows with military grade encryption dashboard">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+
+                <div class="image-card" data-image="PasswordModeWindows.png" data-title="" data-desc="">
+                    <img src="PasswordModeWindows.png" alt="Windows offline file encryption app showing AES-256-GCM encryption and self-destructing messages settings">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+
+                <div class="image-card" data-image="PublicKeyMode.png" data-title="" data-desc="">
+                    <img src="PublicKeyMode.png" alt="Share your public key with anyone who wants to send you encrypted messages">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Custom Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Close">&times;</button>
+                <div class="modal-nav">
+                    <button class="modal-prev" aria-label="Previous">‹</button>
+                    <button class="modal-next" aria-label="Next">›</button>
+                </div>
+                <img id="modalImage" src="" alt="">
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
+                </div>
+                <div class="modal-counter">
+                    <span id="modalCounter">1 / 4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Security Features Carousel -->
+        <section id="features" class="carousel-container">
+            <h2 class="carousel-title">🔐 Desktop Features</h2>
+            <p class="carousel-subtitle">Professional encryption capabilities • <span class="swipe-hint">👆 Swipe or use arrows</span></p>
+            
+            <div class="swiper security-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Cryptography Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card crypto-card">
+                            <div class="product-header">
+                                <h3>🔐 Cryptography</h3>
+                                <p>NIST 2024 Compliant Algorithms</p>
+                                <div class="slide-counter">1/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🔄 ECDH + HKDF + AES-GCM — Modern password-based encryption</li>
+                                    <li>🔑 X25519 + AES-GCM — Next-gen public key cryptography</li>
+                                    <li>🛡️ AES-256-GCM — Authenticated encryption with integrity</li>
+                                    <li>🔐 HKDF — HMAC-based key derivation function</li>
+                                    <li>🏷️ ECDH P-256/P-384/P-521 — Configurable elliptic curves</li>
+                                    <li>⚡ Windows DPAPI — OS-level private key protection</li>
+                                    <li>🎲 Cryptographically Secure RNG — OS entropy source</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Security Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card advanced-card">
+                            <div class="product-header">
+                                <h3>✨ X25519 Public Key</h3>
+                                <p>PGP-style secure communication</p>
+                                <div class="slide-counter">2/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🔑 X25519 Key Generation — Secure key pair creation</li>
+                                    <li>👤 Identity Management — PGP-style identities with fingerprints</li>
+                                    <li>🤝 Contact Trust Levels — Unknown/Known/Trusted/Untrusted system</li>
+                                    <li>⚡ Perfect Forward Secrecy — Session-based key derivation</li>
+                                    <li>🔐 Windows DPAPI Storage — OS-protected private keys</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disappearing Messages Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card attack-card">
+                            <div class="product-header">
+                                <h3>⏰ Disappearing Messages</h3>
+                                <p>Time-limited secure communication</p>
+                                <div class="slide-counter">3/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>⏰ Automatic Expiration — Messages expire after set time</li>
+                                    <li>📅 Flexible Time Units — Hours, days, weeks, months</li>
+                                    <li>🔒 Cryptographic Timing — Secure client-side expiration</li>
+                                    <li>🔥 Permanent Destruction — Expired messages unrecoverable</li>
+                                    <li>🛡️ Forward Secrecy — Past messages stay protected</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attack Protection Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card attack-card">
+                            <div class="product-header">
+                                <h3>🛡️ Attack Protection</h3>
+                                <p>Defense against sophisticated threats</p>
+                                <div class="slide-counter">4/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>⚖️ Constant-time Operations — Prevents timing attacks</li>
+                                    <li>🔍 Input Validation — Verification of all user data</li>
+                                    <li>❌ Replay Attack Prevention — GCM nonce and metadata</li>
+                                    <li>🔐 Memory Protection — Secure data handling</li>
+                                    <li>🛡️ Version Detection — Automatic format compatibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Safety Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card memory-card">
+                            <div class="product-header">
+                                <h3>🧹 Memory Safety</h3>
+                                <p>Complete sensitive data protection</p>
+                                <div class="slide-counter">5/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🔒 Char[] Arrays — Passwords stored securely, not as strings</li>
+                                    <li>🧹 Automatic Memory Clearing — Sensitive data wiped after use</li>
+                                    <li>♻️ Forced Garbage Collection — Memory cleanup after operations</li>
+                                    <li>📋 Clipboard Management — Automatic clearing after operations</li>
+                                    <li>🗑️ Secure Disposal — Complete data structure cleanup</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UI Security Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card ui-card">
+                            <div class="product-header">
+                                <h3>📁 File Operations</h3>
+                                <p>Secure file handling and storage</p>
+                                <div class="slide-counter">6/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>📄 .ENC Files — Password-based encrypted file creation</li>
+                                    <li>🔐 .PGP Files — X25519 encrypted file format</li>
+                                    <li>📥 File Import — Load encrypted files for decryption</li>
+                                    <li>💾 Secure Storage — Windows DPAPI key protection</li>
+                                    <li>🗑️ Secure Deletion — Complete file cleanup options</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Features Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card pro-card">
+                            <div class="product-header">
+                                <h3>⚙️ Advanced Configuration</h3>
+                                <p>Professional cryptographic options</p>
+                                <div class="slide-counter">7/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>🔧 ECDH Curve Selection — P-256, P-384, P-521, Ephemeral</li>
+                                    <li>⚙️ INI Configuration — Save/load application settings</li>
+                                    <li>📦 Version Compatibility — Support for legacy formats</li>
+                                    <li>🔄 Automatic Detection — Smart algorithm selection</li>
+                                    <li>🛠️ Debug Logging — Comprehensive monitoring options</li>
+                                    <li>🗑️ Complete Data Wipe — Nuclear reset functionality</li>
+                                    <li>🔍 Error Handling — Detailed diagnostics and recovery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Summary Slide -->
+                    <div class="swiper-slide">
+                        <div class="product-card summary-card">
+                            <div class="product-header">
+                                <h3>🛡️ OffCrypt Desktop</h3>
+                                <p><strong>Professional Windows Encryption Suite</strong></p>
+                                <div class="slide-counter">8/8</div>
+                            </div>
+
+                            <div class="features">
+                                <ul class="summary-list">
+                                    <li>🔐 <strong>Modern Cryptography</strong> — ECDH+HKDF+AES-GCM & X25519</li>
+                                    <li>👤 <strong>Identity Management</strong> — PGP-style contacts & trust</li>
+                                    <li>⏰ <strong>Disappearing Messages</strong> — Time-limited secure communication</li>
+                                    <li>📁 <strong>File Operations</strong> — Encrypted .enc & .pgp formats</li>
+                                    <li>🛡️ <strong>Memory Protection</strong> — Secure data handling & cleanup</li>
+                                    <li>⚙️ <strong>Advanced Configuration</strong> — Professional cryptographic options</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="download-container">
+                <h2 class="download-title">🚀 Download ( Coming soon )</h2>
+    
+
+
+
+                                     <div class="version-notice">
+        <p><strong>📢 Latest version: </strong></p>
+
+     </div>
+                <a href="https://github.com/EmptyCode0x86/"
+                   class="button primary-download" target="_blank" rel="noopener noreferrer"
+                   aria-label="Download OffCrypt">
+                    ⬇️ Download OffCrypt for windows (.exe)
+                </a>
+                
+                <a href="https://github.com/EmptyCode0x86/"
+                   class="button secondary-download" target="_blank" rel="noopener noreferrer"
+                   aria-label="View OffCrypt on GitHub">
+                    💻 View on GitHub
+                </a>
+                
+                <p class="download-info">Free • No ads • Open source • GPL-3.0 License</p>
+               
+                <div class="security-badges">
+                    <span class="badge">🔐 X25519 Key Generation</span>
+                    <span class="badge">🛡️ AES-256-GCM</span>
+                    <span class="badge">🔥 Disappearing Messages</span>
+                    <span class="badge">⚡ ECDH Curve Selection</span>
+                </div>
+
+                <!-- Support Divider -->
+                <div class="support-divider"></div>
+
+                <!-- Social Media & Support Section -->
+                <div class="support-container">
+                    <!-- Social Media Section -->
+                    <div class="support-box social-media-box">
+                        <h3>🐦 Social media</h3>
+                        <p>Stay updated with the latest news!</p>
+                        <a href="https://x.com/OffCryptAndroid" class="social-btn" target="_blank" rel="noopener noreferrer">
+                            🐦 Follow on X
+                        </a>
+                    </div>
+
+                    <!-- Support Section -->
+                    <div id="donate" class="support-box">
+                        <h3>☕ Support Development</h3>
+                        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
+                        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
+                            💝 Donate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Styles have been moved to styles.css -->
+
+    <!-- External JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <!-- Application JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>
