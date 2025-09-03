@@ -1237,12 +1237,20 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
     
     .nav-link {
-        padding: 8px 12px;
-        font-size: 0.8rem;
+        padding: 8px 10px;
+        font-size: 0.75rem;
         text-align: center;
         white-space: nowrap;
-        border-radius: 18px;
+        border-radius: 16px;
         min-width: fit-content;
+        line-height: 1.2;
+    }
+    
+    /* OffCryptDesktop.html specific - shorter text for mobile */
+    body:has(h1:contains("Desktop")) .nav-link,
+    .nav-link[href*="Android"] {
+        font-size: 0.7rem;
+        padding: 6px 8px;
     }
 
     .intro-section {
@@ -1449,6 +1457,25 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 @media (max-width: 480px) {
+    /* Extra mobile optimization for navigation */
+    .nav-tabs {
+        padding: 3px;
+        margin: 12px auto 0 auto !important;
+    }
+    
+    .nav-link {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+        border-radius: 14px;
+    }
+    
+    /* OffCryptDesktop.html - even smaller for tiny screens */
+    .nav-link[href*="Android"],
+    .nav-link[href*="how-to-use"] {
+        font-size: 0.65rem;
+        padding: 5px 6px;
+    }
+    
     .carousel-container {
         padding: 30px 10px;
         margin-top: -10px;
@@ -1819,7 +1846,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
   }
   
   .pia-banner-logo img {
-    max-width: 120px !important;
+    max-width: 140px !important;
     height: auto;
   }
 }
@@ -1857,7 +1884,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
   }
   
   .pia-banner-logo img {
-    max-width: 100px !important;
+    max-width: 120px !important;
   }
 }
 
