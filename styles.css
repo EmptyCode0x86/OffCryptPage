@@ -1074,6 +1074,13 @@ footer {
     margin: 0 auto;
 }
 
+/* OffCryptDesktop.html specific styling - 2 columns */
+body:has([src*="OffCryptDesktop"]) .support-container,
+.support-container:has(+ script[src*="OffCryptDesktop"]) {
+    grid-template-columns: 1fr 1fr;
+    max-width: 650px;
+}
+
 /* Social Media Box Styling */
 .social-media-box {
     background: rgba(29, 161, 242, 0.08);
@@ -1755,25 +1762,28 @@ footer {
   }
   
   .pia-banner-content h3 {
-    font-size: 1.1rem !important;
-    margin-bottom: 12px !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 15px !important;
+    line-height: 1.3 !important;
   }
   
   .pia-banner-content p {
-    font-size: 0.9rem !important;
-    margin-bottom: 10px !important;
+    font-size: 1rem !important;
+    margin-bottom: 15px !important;
+    line-height: 1.4 !important;
   }
   
   .pia-banner-btn {
-    padding: 12px 24px !important;
-    font-size: 1rem !important;
+    padding: 14px 28px !important;
+    font-size: 1.1rem !important;
     border-radius: 30px !important;
     display: inline-flex !important;
     width: fit-content !important;
     margin: 0 auto !important;
-    min-height: 44px;
+    min-height: 48px;
     align-items: center !important;
     justify-content: center !important;
+    font-weight: 700 !important;
   }
   
   .pia-banner-logo {
@@ -1798,16 +1808,22 @@ footer {
   }
   
   .pia-banner-content h3 {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.3 !important;
   }
   
   .pia-banner-content p {
-    font-size: 0.85rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.4 !important;
   }
   
   .pia-banner-btn {
-    padding: 10px 20px !important;
-    font-size: 0.9rem !important;
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+    min-height: 44px;
+    font-weight: 700 !important;
   }
   
   .pia-banner-logo img {
