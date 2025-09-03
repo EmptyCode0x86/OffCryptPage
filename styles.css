@@ -1068,7 +1068,7 @@ footer {
 /* Support Container for Side-by-Side Layout */
 .support-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     max-width: 850px;
     margin: 0 auto;
@@ -1212,25 +1212,30 @@ footer {
     .nav-tabs {
         max-width: 100%;
         margin: 15px auto 0 auto !important;
-        padding: 6px;
+        padding: 4px;
         top: 10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .nav-tabs li {
-        flex: 1 1 50%;
-        margin: 2px 0;
+        flex: 0 0 auto;
+        margin: 2px;
+        min-width: 0;
         display: flex;
         justify-content: center;
     }
     
     .nav-link {
-        padding: 6px 10px;
-        font-size: 0.75rem;
+        padding: 8px 12px;
+        font-size: 0.8rem;
         text-align: center;
         white-space: nowrap;
+        border-radius: 18px;
+        min-width: fit-content;
     }
 
     .intro-section {
@@ -1269,16 +1274,27 @@ footer {
     }
     
     .image-gallery {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 100px 85px;
-        height: auto;
-        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding: 10px 0;
         margin-bottom: 30px;
+        height: 200px;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .image-card {
+        flex: 0 0 300px;
+        height: 180px;
+        scroll-snap-align: center;
     }
     
     .image-card.featured {
-        grid-column: span 2;
-        grid-row: span 1;
+        flex: 0 0 350px;
+        grid-column: unset;
+        grid-row: unset;
     }
     
     .section-divider {
@@ -1388,6 +1404,7 @@ footer {
     }
 
     .support-container {
+        grid-template-columns: 1fr;
         gap: 15px;
         max-width: 100%;
         margin-top: 25px;
@@ -1431,15 +1448,26 @@ footer {
     }
     
     .image-gallery {
-        grid-template-columns: 1fr;
-        grid-template-rows: 120px 90px 90px 90px;
-        height: auto;
-        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding: 8px 0;
         margin-bottom: 25px;
+        height: 180px;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .image-card {
+        flex: 0 0 250px;
+        height: 160px;
+        scroll-snap-align: center;
     }
     
     .image-card.featured {
-        grid-row: span 1;
+        flex: 0 0 280px;
+        grid-row: unset;
     }
     
     .section-divider {
@@ -1540,6 +1568,7 @@ footer {
     }
 
     .support-container {
+        grid-template-columns: 1fr;
         gap: 12px;
         max-width: 100%;
         margin-top: 20px;
@@ -1605,6 +1634,185 @@ footer {
 .support-box .social-btn {
   margin-top: auto;
   display: inline-flex;
+}
+
+/* PIA Banner Base Styles */
+.pia-banner-section {
+    padding: 40px 20px !important;
+    background: rgba(0, 188, 212, 0.05) !important;
+    margin: 60px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.pia-banner-container {
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+    background: rgba(0, 188, 212, 0.08) !important;
+    border: 1px solid #00bcd4 !important;
+    border-radius: 20px !important;
+    padding: 25px 35px !important;
+    transition: all 0.3s ease !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pia-banner-content {
+    flex: 1 !important;
+    z-index: 2;
+    position: relative;
+}
+
+.pia-banner-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #00bcd4 0%, #00e676 100%) !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    z-index: 3;
+    position: relative;
+    border: none;
+}
+
+.pia-banner-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2;
+    position: relative;
+}
+
+.pia-banner-logo a {
+    display: block;
+    position: relative;
+    z-index: 3;
+}
+
+.pia-banner-logo img {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pia-banner-logo img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* PIA Buy Now Button Hover Effect */
+.pia-banner-btn:hover,
+.pia-buy-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+  background: linear-gradient(135deg, #00e676 0%, #00bcd4 100%) !important;
+}
+
+/* PIA Horizontal Banner Hover Effects */
+.pia-banner-container:hover {
+  background: rgba(0, 188, 212, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.2);
+}
+
+.pia-banner-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+  background: linear-gradient(135deg, #00e676 0%, #00bcd4 100%);
+}
+
+/* Responsive Design for PIA Banner */
+@media (max-width: 768px) {
+  .pia-banner-section {
+    padding: 30px 15px !important;
+    margin: 40px 0 !important;
+    overflow: hidden;
+  }
+  
+  .pia-banner-container {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 20px !important;
+    padding: 20px 15px !important;
+    max-width: 100% !important;
+    position: relative;
+  }
+  
+  .pia-banner-content {
+    flex: none !important;
+    order: 2;
+  }
+  
+  .pia-banner-content h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .pia-banner-content p {
+    font-size: 0.9rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .pia-banner-btn {
+    padding: 12px 24px !important;
+    font-size: 1rem !important;
+    border-radius: 30px !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+    margin: 0 auto !important;
+    min-height: 44px;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .pia-banner-logo {
+    order: 1 !important;
+    margin-bottom: 10px;
+  }
+  
+  .pia-banner-logo img {
+    max-width: 180px !important;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pia-banner-section {
+    padding: 25px 10px !important;
+    margin: 30px 0 !important;
+  }
+  
+  .pia-banner-container {
+    padding: 18px 12px !important;
+  }
+  
+  .pia-banner-content h3 {
+    font-size: 1rem !important;
+  }
+  
+  .pia-banner-content p {
+    font-size: 0.85rem !important;
+  }
+  
+  .pia-banner-btn {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .pia-banner-logo img {
+    max-width: 150px !important;
+  }
 }
 
 /* Make sure images are fully visible and responsive in modal */
