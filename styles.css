@@ -1187,32 +1187,35 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
     
     header {
-        padding: 20px 15px;
+        padding: 15px 12px;
     }
     
     .logo-header {
-        gap: 10px;
+        gap: 8px;
+        margin-bottom: 6px;
     }
     
     .logo-icon {
-        gap: 6px;
-        font-size: 1.5rem;
+        gap: 5px;
+        font-size: 1.3rem;
     }
     
     .code-bracket {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     
     .lock-icon {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.1;
     }
     
     .header-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-top: 2px;
     }
 
 /* Mobile Navigation Tabs */
@@ -1457,10 +1460,43 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 @media (max-width: 480px) {
+    /* Extra small screen header optimization */
+    header {
+        padding: 12px 10px;
+    }
+    
+    .logo-header {
+        gap: 6px;
+        margin-bottom: 4px;
+    }
+    
+    .logo-icon {
+        gap: 4px;
+        font-size: 1.1rem;
+    }
+    
+    .code-bracket {
+        font-size: 1.2rem;
+    }
+    
+    .lock-icon {
+        font-size: 1.1rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+    
+    .header-subtitle {
+        font-size: 0.85rem;
+        margin-top: 1px;
+    }
+    
     /* Extra mobile optimization for navigation */
     .nav-tabs {
         padding: 3px;
-        margin: 12px auto 0 auto !important;
+        margin: 10px auto 0 auto !important;
     }
     
     .nav-link {
@@ -2347,5 +2383,56 @@ img {
     
     .feature-group p {
         font-size: 0.9rem;
+    }
+}
+
+/* OffCrypt Desktop specific mobile optimizations */
+@media (max-width: 768px) {
+    /* Better mobile experience for OffCrypt Desktop page - universal approach */
+    header h1:contains("Desktop"),
+    h1[title*="Desktop"] {
+        font-size: 1.6rem !important;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Apply to all headers when "Desktop" appears in page content */
+    header:has-text("Desktop") h1 {
+        font-size: 1.6rem !important;
+        letter-spacing: -0.5px;
+    }
+    
+    /* More aggressive mobile styling for longer headers */
+    header h1 {
+        word-break: break-word;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screen for longer titles like "OffCrypt Desktop" */
+    header h1 {
+        font-size: 1.3rem !important;
+        letter-spacing: -0.3px;
+        word-spacing: -2px;
+        line-height: 0.95;
+    }
+    
+    .header-subtitle {
+        font-size: 0.8rem !important;
+        margin-top: 3px;
+    }
+    
+    /* Extra tight navigation for small screens */
+    .nav-tabs {
+        margin: 8px auto 0 auto !important;
+        padding: 2px;
+        gap: 2px;
+    }
+    
+    /* Smaller navigation links for better fit */
+    .nav-link {
+        padding: 5px 6px !important;
+        font-size: 0.65rem !important;
+        white-space: nowrap;
     }
 }
