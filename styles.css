@@ -79,7 +79,7 @@ nav ul {
     position: static;
     z-index: 10;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    max-width: 650px;
+    max-width: 950px;
     margin: 20px auto 0 auto !important;
 }
 
@@ -89,16 +89,17 @@ nav ul {
 
 .nav-link {
     display: block;
-    padding: 12px 20px;
+    padding: 12px 24px;
     color: #e0e0e0;
     text-decoration: none;
     border-radius: 20px;
     transition: all 0.3s ease;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
     background: transparent;
     border: 1px solid transparent;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -1068,10 +1069,11 @@ footer {
 /* Support Container for Side-by-Side Layout */
 .support-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 850px;
+    max-width: 650px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 /* OffCryptDesktop.html specific styling - 2 columns */
