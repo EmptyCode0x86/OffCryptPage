@@ -2,31 +2,66 @@
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+            http://www.google.com/schemas/sitemap-image/1.1
+            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+            
+<!-- Main Pages -->
 <url>
   <loc>https://www.dev-offcode.com/</loc>
-  <lastmod>2025-08-23T12:00:00+00:00</lastmod>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
+    <image:title>OffCrypt Android App</image:title>
+    <image:caption>Secure message encryption app for Android</image:caption>
+  </image:image>
 </url>
-<url>
-  <loc>https://www.dev-offcode.com/changelog.html</loc>
-  <lastmod>2025-08-23T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+
 <url>
   <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
-  <lastmod>2025-09-09T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/ScreenLock1.png</image:loc>
+    <image:title>Screen Lock Builder Interface</image:title>
+    <image:caption>Windows screen lock generator tool</image:caption>
+  </image:image>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/ScreenLock2.png</image:loc>
+    <image:title>Screen Lock Builder Security Settings</image:title>
+    <image:caption>Advanced security options and encryption</image:caption>
+  </image:image>
 </url>
-<url>
-  <loc>https://www.dev-offcode.com/disclaimer.html</loc>
-  <lastmod>2025-09-09T12:00:00+00:00</lastmod>
-  <priority>0.60</priority>
-</url>
+
 <url>
   <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
-  <lastmod>2025-09-09T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/OffCrypt-Windows.jpg</image:loc>
+    <image:title>OffCrypt Desktop Application</image:title>
+    <image:caption>Windows encryption suite with ECDH and AES-GCM</image:caption>
+  </image:image>
 </url>
+
+<url>
+  <loc>https://www.dev-offcode.com/changelog.html</loc>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://www.dev-offcode.com/disclaimer.html</loc>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.50</priority>
+</url>
+
 </urlset>

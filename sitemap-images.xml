@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        
+  <url>
+    <loc>https://www.dev-offcode.com/</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
+      <image:title>OffCrypt Android App</image:title>
+      <image:caption>Secure messaging app for Android with military-grade encryption</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/ScreenLock1.png</image:loc>
+      <image:title>Screen Lock Builder Interface</image:title>
+      <image:caption>Windows screen lock generator with custom messages and security options</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/ScreenLock2.png</image:loc>
+      <image:title>Screen Lock Builder Security Settings</image:title>
+      <image:caption>Advanced security settings and encryption options</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/LockScreen.png</image:loc>
+      <image:title>Example Locked Screen</image:title>
+      <image:caption>Example of locked Windows screen with custom message</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/OffCrypt-Windows.jpg</image:loc>
+      <image:title>OffCrypt Desktop Application</image:title>
+      <image:caption>Windows encryption suite with ECDH+HKDF+AES-GCM and X25519 cryptography</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
+  
+</urlset>

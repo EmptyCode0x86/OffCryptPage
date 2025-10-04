@@ -1,0 +1,54 @@
+/* TEAM */
+Developer: EmptyCode0x86
+Contact: https://www.dev-offcode.com
+From: Finland
+
+/* THANKS */
+Google Fonts: https://fonts.google.com/
+JetBrains Mono: https://www.jetbrains.com/lp/mono/
+
+/* SITE */
+Last update: 2025/01/09
+Language: English / Finnish
+Doctype: HTML5
+IDE: Visual Studio Code
+Standards: W3C, Schema.org, Open Graph
+
+/* PROJECT */
+Name: OffCrypt
+Description: Secure messaging and encryption tools
+Version: 2.1
+URL: https://www.dev-offcode.com
+
+/* TECHNOLOGIES */
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- JSON-LD Structured Data
+- Open Graph Protocol
+- Twitter Cards
+- PWA (Progressive Web App)
+- AES-256-GCM Encryption
+- RSA-4096 Security
+- ECDH Key Exchange
+- X25519 Cryptography
+
+/* SECURITY */
+- HTTPS Only
+- Security Headers
+- Content Security Policy
+- XSS Protection
+- CSRF Protection
+- No Tracking
+- Privacy First
+
+/* SOCIAL */
+Twitter: @OffCryptAndroid
+Instagram: @off.crypt86
+YouTube: @OffCrypt
+GitHub: https://github.com/emptycode0x86
+
+/* LICENSE */
+Open Source: MIT License
+Privacy: No data collection
+Terms: https://www.dev-offcode.com/disclaimer.html

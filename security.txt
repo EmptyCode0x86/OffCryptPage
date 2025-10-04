@@ -1,0 +1,32 @@
+Contact: mailto:security@dev-offcode.com
+Contact: https://www.dev-offcode.com/security
+Expires: 2026-01-09T12:00:00.000Z
+Encryption: https://www.dev-offcode.com/pgp-key.txt
+Acknowledgments: https://www.dev-offcode.com/security-acknowledgments
+Preferred-Languages: en, fi
+Canonical: https://www.dev-offcode.com/.well-known/security.txt
+Policy: https://www.dev-offcode.com/security-policy
+
+# Security Policy
+# 
+# We take security seriously. If you discover a security vulnerability
+# in our software or website, please report it responsibly.
+#
+# What to report:
+# - Remote code execution vulnerabilities
+# - Authentication bypasses
+# - Data exposure issues
+# - Cryptographic weaknesses
+# - Cross-site scripting (XSS)
+# - Cross-site request forgery (CSRF)
+#
+# What NOT to report:
+# - Social engineering attacks
+# - Physical attacks
+# - Denial of service attacks
+# - Issues requiring physical access
+#
+# Response time: We aim to respond within 48 hours
+# and provide updates every 7 days until resolution.
+#
+# Thank you for helping keep our users safe!

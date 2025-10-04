@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="En">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +8,57 @@
     <meta name="description" content="Best secure messaging app without internet - OffCrypt offers military grade encryption for Android with offline file encryption, self-destructing messages, and RSA 4096 security.">
     <meta name="keywords" content="OffCrypt, encryption, security, Android, offline, PGP, RSA, AES, open source, privacy">
     <meta name="author" content="OffCrypt">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    
     <link rel="canonical" href="https://www.dev-offcode.com/">
+    <link rel="alternate" hreflang="en" href="https://www.dev-offcode.com/">
+    <link rel="alternate" hreflang="fi" href="https://www.dev-offcode.com/fi/">
+    <link rel="alternate" hreflang="x-default" href="https://www.dev-offcode.com/">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="OffCrypt-Android.jpg" as="image">
+    
+    <!-- Core Web Vitals optimization -->
+    <meta name="theme-color" content="#00ff88">
+    <meta name="msapplication-TileColor" content="#00ff88">
+    <meta name="msapplication-config" content="/browserconfig.xml">
 
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.dev-offcode.com/">
     <meta property="og:title" content="OffCrypt – Secure Message Encryption for Android">
     <meta property="og:description" content="A fully offline Android application for private and secure communication.">
     <meta property="og:image" content="https://www.dev-offcode.com/OffCrypt-Android.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@OffCryptAndroid">
+    <meta property="twitter:creator" content="@OffCryptAndroid">
     <meta property="twitter:url" content="https://www.dev-offcode.com/">
     <meta property="twitter:title" content="OffCrypt – Secure Message Encryption for Android">
     <meta property="twitter:description" content="A fully offline Android application for private and secure communication.">
     <meta property="twitter:image" content="https://www.dev-offcode.com/OffCrypt-Android.jpg">
+
+    <!-- Social Media Links -->
+    <meta property="og:see_also" content="https://www.instagram.com/off.crypt86/">
+    <meta property="og:see_also" content="https://www.youtube.com/@OffCrypt">
+    <meta name="instagram:site" content="@off.crypt86">
+    <meta name="youtube:channel" content="@OffCrypt">
 
     <!-- Structured Data Schema -->
     <script type="application/ld+json">
@@ -31,21 +69,49 @@
         "applicationCategory": "SecurityApplication",
         "operatingSystem": "Android",
         "description": "Secure offline encryption app for Android with PGP-style messaging and RSA-4096 encryption",
+        "url": "https://www.dev-offcode.com/",
+        "image": "https://www.dev-offcode.com/OffCrypt-Android.jpg",
         "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "EUR"
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
         },
         "downloadUrl": "https://www.dev-offcode.com/",
         "inLanguage": ["fi", "en"],
         "author": {
             "@type": "Person",
-            "name": "EmptyCode0x86"
+            "name": "EmptyCode0x86",
+            "url": "https://www.dev-offcode.com"
         },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OffCrypt",
+            "url": "https://www.dev-offcode.com"
+        },
+        "softwareVersion": "2.0",
+        "datePublished": "2024-01-01",
+        "dateModified": "2025-01-09",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.8",
             "ratingCount": "127"
+        },
+        "featureList": [
+            "AES-256 encryption",
+            "RSA-4096 security",
+            "Offline messaging",
+            "Self-destructing messages",
+            "File encryption",
+            "PGP-style messaging"
+        ],
+        "screenshot": [
+            "https://www.dev-offcode.com/OffCrypt-Android.jpg"
+        ],
+        "softwareHelp": {
+            "@type": "CreativeWork",
+            "name": "OffCrypt Documentation",
+            "url": "https://www.dev-offcode.com/changelog.html"
         }
     }
     </script>
