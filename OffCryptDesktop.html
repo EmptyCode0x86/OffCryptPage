@@ -6,11 +6,8 @@
 
     <title>OffCrypt Desktop – Windows Encryption Suite</title>
     <meta name="description" content="Windows encryption application - OffCrypt Desktop offers NIST 2024 compliant ECDH+HKDF+AES-GCM and X25519 cryptography with disappearing messages, identity management, and secure file operations.">
-    <meta name="keywords" content="OffCrypt, Windows encryption, ECDH, X25519, AES-GCM, HKDF, PGP, desktop security, disappearing messages, identity management, NIST 2024, offline encryption">
     <meta name="author" content="OffCrypt">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="en">
-    <meta name="revisit-after" content="7 days">
     <link rel="canonical" href="https://www.dev-offcode.com/OffCryptDesktop.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -78,6 +75,64 @@
     }
     </script>
 
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is ECDH+HKDF+AES-GCM encryption?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ECDH (Elliptic Curve Diffie-Hellman) generates shared secrets, HKDF (HMAC-based Key Derivation Function) derives encryption keys, and AES-GCM provides authenticated encryption. This combination is NIST 2024 compliant and offers military-grade security."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does OffCrypt Desktop require internet connection?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, OffCrypt Desktop is fully offline. All encryption and decryption operations happen locally on your Windows computer without any network communication."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is X25519 cryptography?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "X25519 is a modern elliptic curve algorithm designed by Daniel J. Bernstein. It provides fast, secure public-key encryption and is recommended by security experts worldwide for its resistance to side-channel attacks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use OffCrypt Desktop for file encryption?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! OffCrypt Desktop supports secure file encryption and decryption for any file type. Files are encrypted using the same NIST-compliant algorithms as text messages."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Windows versions are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OffCrypt Desktop works on Windows 10 and Windows 11. The application requires .NET Framework 4.8 or newer, which is included in modern Windows installations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is OffCrypt Desktop open source?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, OffCrypt Desktop is open source and completely free. You can review the source code, verify the cryptographic implementation, and contribute to the project."
+                }
+            }
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="gallery-simple.css">
 
@@ -128,18 +183,6 @@
     </header>
 
     <main>
-        <!-- Breadcrumb Navigation for SEO (hidden but accessible) -->
-        <nav aria-label="Breadcrumb" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
-            <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
-                <li><a href="https://www.dev-offcode.com/">Home</a></li>
-                <li>›</li>
-                <li>OffCrypt Desktop</li>
-            </ol>
-        </nav>
-
-        <!-- Hidden H1 for SEO (not visible to users) -->
-        <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">OffCrypt Desktop - Windows Encryption with X25519 and ECDH+HKDF+AES-GCM</h1>
-        
         <!-- App Description Section -->
         <section class="intro-section">
             <div class="intro-container">
@@ -315,14 +358,14 @@
             <div class="image-gallery">
                 
                 <div class="image-card featured" data-image="SettingsWindows.png" data-title="" data-desc="">
-                    <img src="SettingsWindows.png" alt="OffCrypt main interface - best secure messaging app without internet for windows with encryption dashboard">
+                    <img src="SettingsWindows.png" alt="OffCrypt Desktop main interface for Windows">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
                 </div>
 
                 <div class="image-card" data-image="PasswordModeWindows.png" data-title="" data-desc="">
-                    <img src="PasswordModeWindows.png" alt="Windows offline file encryption app showing AES-256-GCM encryption and self-destructing messages settings">
+                    <img src="PasswordModeWindows.png" alt="OffCrypt password mode with AES-256-GCM encryption">
                     <div class="image-overlay">
                         <div class="zoom-icon">🔍</div>
                     </div>
