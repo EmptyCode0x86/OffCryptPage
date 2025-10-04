@@ -6,7 +6,6 @@
 
     <title>Screen Lock Builder – Custom Windows Screen Lock Generator</title>
     <meta name="description" content="Screen Lock Builder - Generate portable Windows .exe files to lock user screens with custom messages, AES-256-GCM encryption, and advanced security features.">
-    <meta name="keywords" content="Screen Lock Builder, Windows screen lock, portable exe, AES-256-GCM, custom lock screen, security tool, Windows utility">
     <meta name="author" content="OffCrypt">
 
     <meta property="og:type" content="website">
@@ -43,12 +42,12 @@
             "@type": "Person",
             "name": "EmptyCode0x86"
         },
-        "softwareVersion": "2.0",
+        "softwareVersion": "2.1",
         "releaseNotes": "Modernized version with AES-256-GCM encryption and advanced features"
     }
     </script>
 
-    <link rel="stylesheet" href="stylesBuilder.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
        <header>
@@ -58,19 +57,25 @@
                 <div class="lock-icon">🔒</div>
                 <span class="code-bracket">&gt;</span>
             </div>
-            <h1>Screen Lock Builder v2.1</h1>
+            <h1>Screen Lock Builder</h1>
         </div>
+        <p class="header-subtitle">Custom Windows Screen Lock Generator</p>
         <nav>
             <ul id="navTabs" class="nav-tabs">
+                <li><a href="#pictures" class="nav-link">💻 Screenshots</a></li>
+                <li><a href="#features" class="nav-link">🔐 Features</a></li>
+                <li><a href="#pricing" class="nav-link">💰 Pricing</a></li>
+                <li><a href="#download" class="nav-link">🚀 Download</a></li>
                 <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
                 <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
+                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
             </ul>
         </nav>
     </header>
 
      <main>
-        <!-- Hidden H1 for SEO (not visible to users) -->
-        <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">Screen Lock Builder lets you generate a portable .exe that locks the user's screen</h1>
+        <!-- Main H1 for SEO -->
+        <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">Screen Lock Builder – Custom Windows Screen Lock Generator with AES-256-GCM Encryption</h1>
         
         <!-- App Description Section -->
         <section class="intro-section">
@@ -120,28 +125,38 @@
             </div>
         </section>
 
-        <!-- Screenshots Section -->
-        <section class="image-gallery-container">
+        <!-- Modern Horizontal Scrolling Gallery -->
+        <section id="pictures" class="image-gallery-container">
             <div class="gallery-header">
-                <h2 class="gallery-title">📱 Screenshots</h2>
+                <h2 class="gallery-title">💻 Screenshots</h2>
+                <p class="gallery-subtitle">Explore the Screen Lock Builder interface • <span class="scroll-hint">👈 Scroll horizontally</span></p>
             </div>
-            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
-                <div class="product-card" style="max-width: 500px;">
-                    <img src="ScreenLock1.png" alt="Screen Lock Example 1" style="width: 100%; height: auto; border-radius: 12px;">
+            
+            <div class="image-gallery">
+                
+                <div class="image-card featured" data-image="ScreenLock1.png" data-title="Screen Lock Builder Interface" data-desc="Main interface showing message customization and settings">
+                    <img src="ScreenLock1.png" alt="Screen Lock Builder interface showing message customization and security options">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
-                <div class="product-card" style="max-width: 500px;">
-                    <img src="ScreenLock2.png" alt="Screen Lock Example 2" style="width: 100%; height: auto; border-radius: 12px;">
-                </div>
-            </div>
 
-            <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
-                <div class="product-card" style="max-width: 500px;">
-                    <img src="LockScreen.png" alt="Screen Lock Example 3" style="width: 100%; height: auto; border-radius: 12px;">
+                <div class="image-card" data-image="ScreenLock2.png" data-title="Security Settings" data-desc="Advanced security settings and encryption options">
+                    <img src="ScreenLock2.png" alt="Screen Lock Builder security settings and encryption options">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
                 </div>
-                <div class="product-card" style="max-width: 500px;">
-                    <h3 style="color: #00bcd4; margin-bottom: 15px;">🎥 Demo Video</h3>
-                    <p style="color: #b0b0b0; margin-bottom: 20px; text-align: center;">Watch how Screen Lock Builder works</p>
-                    <div style="position: relative; width: 100%; height: 280px; border-radius: 12px; overflow: hidden;">
+
+                <div class="image-card" data-image="LockScreen.png" data-title="Locked Screen Example" data-desc="Example of locked Windows screen with custom message">
+                    <img src="LockScreen.png" alt="Example of locked Windows screen with custom message">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+
+                <div class="image-card" data-image="youtube-demo" data-title="Demo Video" data-desc="Watch how Screen Lock Builder works">
+                    <div style="position: relative; width: 100%; height: 280px; border-radius: 12px; overflow: hidden; background: #1a1a1a;">
                         <iframe
                             src="https://www.youtube.com/embed/bHJDuHsxq3w"
                             style="width: 100%; height: 100%; border: none;"
@@ -149,46 +164,210 @@
                             allowfullscreen>
                         </iframe>
                     </div>
+                    <div class="image-overlay">
+                        <div class="zoom-icon">▶️</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Custom Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modalImage" src="" alt="">
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
                 </div>
             </div>
-            
-            <!-- Blue divider line -->
-            <div style="position: relative; margin: 40px 0;">
-                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00bcd4, transparent); opacity: 0.8;"></div>
-                <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: #00bcd4; border-radius: 2px; box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);"></div>
-            </div>
-            
-            <!-- Features Section - Centered below images -->
-            <div style="display: flex; justify-content: center; margin-top: 60px;">
-                <div class="ui-card product-card" style="max-width: 600px;">
-                    <div class="product-header">
-                        <h2>🖥️ Features</h2>
-                        <p>Screen lock builder v2.1<br></p>
+        </div>
+
+        <!-- Modern Section Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="features-container">
+                <h2 class="features-title">Screen Lock Builder Features</h2>
+                <p class="features-subtitle">Screen locking capabilities for Windows</p>
+                
+                <div class="features-grid">
+                    <!-- Core Functionality -->
+                    <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <h3>Core Functionality</h3>
+                            <p>Essential screen locking features</p>
+                            <ul class="feature-list">
+                                <li>🔒 Creates portable .exe files</li>
+                                <li>🖥️ Locks user's screen</li>
+                                <li>✏️ Customizable lock message</li>
+                                <li>📝 Custom executable name</li>
+                            </ul>
+                        </div>
+
+                        <!-- Security & Protection -->
+                        <div class="feature-card">
+                            <div class="feature-icon">🔐</div>
+                            <h3>Security & Protection</h3>
+                            <p>Advanced security mechanisms</p>
+                            <ul class="feature-list">
+                                <li>🔐 AES-256-GCM encryption</li>
+                                <li>🛡️ Blacklist protection (148+ words)</li>
+                                <li>🔍 38 regex patterns</li>
+                                <li>🚫 Ransomware prevention</li>
+                                <li>🚫 Disable Task Manager</li>
+                                <li>⌨️ Block Command Prompt</li>
+                            </ul>
+                        </div>
+
+                        <!-- Automation Features -->
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Automation Features</h3>
+                            <p>Smart automation tools</p>
+                            <ul class="feature-list">
+                                <li>🚀 Auto-startup capability</li>
+                                <li>⏰ Auto-close with timer</li>
+                                <li>📅 Configurable date/time</li>
+                                <li>🔄 System boot integration</li>
+                            </ul>
+                        </div>
+
                     </div>
-                    <div class="features">
-                         <div class="features">
-      <ul>
-          <li>💻 Creates executable files that lock the user's screen</li>
-          <li>✏️ Customizable lock screen message</li>
-          <li>🔐 AES-256-GCM Encrypted password</li>
-          <li>🛡️ Advanced blacklist protection (Custom screen text) (148+ words, 38 regex patterns) prevents ransomware-type messages</li>
-          <li>🚫 Option to disable Task Manager during lock</li>
-          <li>⌨️ Option to block Command Prompt during lock</li>
-          <li>🚀 Auto-startup capability to run on system boot</li>
-          <li>📝 Customizable executable name</li>
-          <li>⏰ Auto-close lock screen feature with configurable date/time</li>
-      </ul>
-  
+                </div>
+            </section>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="pricing-table">
+                <div class="pricing-header">
+                    <h2>Pricing Plans</h2>
+                    <p>Choose the plan that works best for you</p>
+                </div>
+                
+                <div class="pricing-cards">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <div class="plan-badge free-badge">Free</div>
+                        <h3>Free Plan</h3>
+                        <div class="price-container">
+                            <span class="price">$0</span>
+                            <span class="price-period">forever</span>
+                        </div>
+                        <p class="plan-description">Perfect for basic screen locking needs</p>
+                        <ul class="features-list">
+                            <li>✅ Basic screen lock functionality</li>
+                            <li>✅ Customizable lock screen message</li>
+                            <li>✅ AES-256-GCM encrypted password</li>
+                            <li>✅ Blacklist protection (148+ words)</li>
+                            <li>✅ Portable .exe generation</li>
+                            <li>✅ Basic auto-close timer</li>
+                            <li>✅ Dev-offcode branding ( lock screen )</li>
+                            <li>❌ Settings Save/Load</li>
+                            <li>❌ File Locker feature</li>
+                            <li>❌ Website blocking</li>
+                            <li>❌ Advanced scheduling</li>
+                            <li>❌ UI themes & customization</li>
+                            <li>❌ Builder program lock</li>
+                            <li>❌ Future updates</li>
                         </ul>
+                        <a href="#download" class="plan-button free-button">Get Started Free</a>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="pricing-card premium">
+                        <div class="plan-badge premium-badge">Coming Soon</div>
+                        <h3>Premium Plan</h3>
+                        <div class="price-container">
+                            <span class="price">TBA</span>
+                            <span class="price-period">coming soon</span>
+                        </div>
+                        <p class="plan-description">Advanced features for power users</p>
+                        <ul class="features-list">
+                            <li>✅ Basic screen lock functionality</li>
+                            <li>✅ Customizable lock screen message</li>
+                            <li>✅ AES-256-GCM encrypted password</li>
+                            <li>✅ Enhanced blacklist protection</li>
+                            <li>✅ Portable .exe generation</li>
+                            <li>✅ Config System - Save/Load</li>
+                            <li>✅ File Locker feature</li>
+                            <li>✅ Website blocking</li>
+                            <li>✅ Scheduled Auto Start</li>
+                            <li>✅ UI themes & customization</li>
+                            <li>✅ Builder program lock</li>
+                            <li>❌ Dev-offcode branding</li>
+                            <li>✅ All future updates</li>
+                        </ul>
+                        <a href="disclaimer.html" class="plan-button premium-button disabled">Coming Soon</a>
+                    </div>
+
+                    <!-- Lifetime Plan -->
+                    <div class="pricing-card lifetime">
+                        <div class="plan-badge lifetime-badge">Coming Soon</div>
+                        <h3>Lifetime Plan</h3>
+                        <div class="price-container">
+                            <span class="price">TBA</span>
+                            <span class="price-period">coming soon</span>
+                        </div>
+                        <p class="plan-description">Everything included, forever</p>
+                        <ul class="features-list">
+                            <li>✅ Basic screen lock functionality</li>
+                            <li>✅ Customizable lock screen message</li>
+                            <li>✅ AES-256-GCM encrypted password</li>
+                            <li>✅ Enhanced blacklist protection</li>
+                            <li>✅ Portable .exe generation</li>
+                            <li>✅ Config System - Save/Load</li>
+                            <li>✅ File Locker feature</li>
+                            <li>✅ Website blocking</li>
+                            <li>✅ Scheduled Auto Start</li>
+                            <li>✅ UI themes & customization</li>
+                            <li>✅ Builder program lock</li>
+                            <li>❌ Dev-offcode branding ( lock screen )</li>
+                            <li>✅ All future updates</li>
+                            <li>✅ Remote control (web-based)</li>
+                            <li>✅ Priority support</li>
+                        </ul>
+                        <a href="disclaimer.html" class="plan-button lifetime-button disabled">Coming Soon</a>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <h4>Is this software safe to use?</h4>
+                            <p>Yes! Screen Lock Builder uses military-grade AES-256-GCM encryption to protect your password. The source code is open and auditable, ensuring complete transparency and security.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Will this work on my Windows version?</h4>
+                            <p>Screen Lock Builder works on Windows 7, 8, 10, and 11. The generated .exe files are portable and don't require installation on the target computer.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>What happens if I forget my password?</h4>
+                            <p>Unfortunately, if you forget your password, there's no way to recover it due to the strong encryption. We recommend writing down your password in a secure location or using a password manager.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>Is the generated .exe file detectable by antivirus?</h4>
+                            <p>Some antivirus programs may flag the .exe file as suspicious due to its screen locking behavior. This is normal for security software. You can add an exception or whitelist the file if needed.</p>
+                        </div>
+                       
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Modern Section Divider -->
+        <div class="section-divider"></div>
+
         <!-- Download Section -->
         <section id="download" class="download-section">
             <div class="download-container">
-                <h2 class="download-title">🚀 Download now</h2>
+                <h2 class="download-title">Download Screen Lock Builder</h2>
     
                 <div class="version-notice">
                     <p><strong>📢 Latest v2.1 available.</strong></p>
@@ -204,8 +383,8 @@
                 <p class="download-info">• Free •</p>
 
                 <!-- VirusTotal Links -->
-                <div style="margin-top: 20px; margin-bottom: 30px;">
-                    <p style="color: #888; font-size: 0.9em; margin-bottom: 10px;">VirusTotal Scans:</p>
+                <div style="margin-top: 15px; margin-bottom: 15px;">
+                    <p style="color: #888; font-size: 0.9em; margin-bottom: 8px;">VirusTotal Scans:</p>
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                         <a href="https://www.virustotal.com/gui/file/16594cd92c32cde26e3df8b48feb03e6e6806d71abf12189ca405a751ab01d5b/detection"
                            class="button"
@@ -224,18 +403,14 @@
                             🔍 Builder Scan
                         </a>
                     </div>
-                    <p style="color: #888; font-size: 0.8em; margin-top: 10px; font-style: italic;">Note: Stub is detected by a few AV engines due to heuristics, main program is clean</p>
+                    <p style="color: #888; font-size: 0.8em; margin-top: 8px; font-style: italic;">Note: Stub is detected by a few AV engines due to heuristics, main program is clean</p>
                 </div>
 
-                <!-- Support Divider -->
-                <div class="support-divider"></div>
-
-               <!-- Social Media & Support Section -->
-                
-<div class="support-container">
+                <!-- Social Media & Support Section -->
+                <div class="support-container">
     <!-- Social Media Section -->
     <div class="support-box social-media-box">
-        <h3>🐦 Social media</h3>
+        <h3>Follow on Social Media</h3>
         <p>Follow on social media!</p>
         <div class="social-buttons-grid">
             <a href="https://x.com/OffCryptAndroid" class="social-btn social-x" target="_blank" rel="noopener noreferrer">
@@ -253,15 +428,14 @@
         </div>
     </div>
 
-
-                    <!-- Support Section -->
-                    <div id="donate" class="support-box">
-                        <h3>☕ Support Development</h3>
-                        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
-                        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
-                            💝 Donate
-                        </a>
-                    </div>
+    <!-- Support Section -->
+    <div id="donate" class="support-box">
+        <h3>Support Development</h3>
+        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
+        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
+            💝 Donate
+        </a>
+    </div>
                 </div>
             </div>
         </section>
