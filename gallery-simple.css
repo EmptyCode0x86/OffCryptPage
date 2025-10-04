@@ -192,8 +192,29 @@
 /* Responsive */
 @media (max-width: 768px) {
     .image-gallery {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         gap: 1rem;
+        padding: 10px 0;
+        margin-bottom: 30px;
+        height: 200px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .image-card {
+        flex: 0 0 300px;
+        height: 180px;
+        scroll-snap-align: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-card.featured {
+        flex: 0 0 350px;
+        height: 180px;
     }
 
     .gallery-title {
@@ -202,10 +223,33 @@
 
     .modal-content {
         padding: 1rem;
+        max-width: 95vw;
+        max-height: 95vh;
     }
 
     .modal-content img {
         max-height: calc(90vh - 6rem);
+    }
+
+    /* Ensure touch events work on mobile */
+    .image-card {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Vähennetään tummaa taustaa mobiilissa */
+    .image-gallery-container {
+        background: rgba(10, 10, 10, 0.3);
+    }
+
+    .image-card {
+        background: rgba(10, 10, 10, 0.4);
+        border: 1px solid rgba(0, 255, 136, 0.2);
     }
 }
 
@@ -218,10 +262,54 @@
         font-size: 1.5rem;
     }
 
+    .image-gallery {
+        height: 160px;
+        gap: 0.8rem;
+    }
+
+    .image-card {
+        flex: 0 0 250px;
+        height: 140px;
+    }
+
+    .image-card.featured {
+        flex: 0 0 280px;
+        height: 140px;
+    }
+
+    .modal-content {
+        max-width: 98vw;
+        max-height: 98vh;
+        margin: 5px;
+        padding: 0.8rem;
+    }
+
+    .modal-content img {
+        max-height: calc(95vh - 4rem);
+    }
+
     .modal-close,
     .close {
         width: 35px;
         height: 35px;
         font-size: 1.2rem;
+        top: 5px;
+        right: 5px;
+    }
+
+    /* Better touch targets for mobile */
+    .image-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Vielä kirkkaampaa pienille näytöille */
+    .image-gallery-container {
+        background: rgba(10, 10, 10, 0.2);
+    }
+
+    .image-card {
+        background: rgba(10, 10, 10, 0.3);
+        border: 1px solid rgba(0, 255, 136, 0.15);
     }
 }
