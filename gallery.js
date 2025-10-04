@@ -29,23 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.removeEventListener('wheel', preventScroll);
     }
 
-    // Lisää click event jokaiselle kortille (toimii myös touch-eventeillä)
-    imageCards.forEach(function(card) {
-        // Click event
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openImageModal(this);
-        });
-
-        // Touch event for mobile devices
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openImageModal(this);
-        });
-    });
-
     // Modal opening function
     function openImageModal(card) {
         // Hae tiedot
@@ -82,7 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             // KUVA
-            const imgSrc = dataImage || card.querySelector('img')?.src;
+            const imgElement = card.querySelector('img');
+            const imgSrc = dataImage || (imgElement ? imgElement.src : '');
             if (imgSrc) {
                 modalContent.innerHTML = `
                     <span class="close">&times;</span>
@@ -108,6 +92,31 @@ document.addEventListener('DOMContentLoaded', function() {
             newCloseBtn.addEventListener('click', closeModal);
         }
     }
+
+    // Lisää click event jokaiselle kortille (toimii myös touch-eventeillä)
+    imageCards.forEach(function(card) {
+        // Click event
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+                openImageModal(this);
+            } catch (error) {
+                console.error('Error opening image modal:', error);
+            }
+        });
+
+        // Touch event for mobile devices
+        card.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+                openImageModal(this);
+            } catch (error) {
+                console.error('Error opening image modal:', error);
+            }
+        });
+    });
 
     // Sulje modal kun klikataan taustaa
     modal.addEventListener('click', function(e) {

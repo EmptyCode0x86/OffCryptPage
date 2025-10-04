@@ -110,6 +110,10 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.95);
+    /* Firefox compatibility */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
 }
 
 .image-modal.active {
@@ -136,6 +140,9 @@
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    /* Firefox compatibility */
+    -moz-object-fit: contain;
+    -webkit-object-fit: contain;
 }
 
 /* Close Button - TOIMII VARMASTI */
