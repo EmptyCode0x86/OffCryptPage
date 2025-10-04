@@ -50,9 +50,14 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery-simple.css">
+
     <!-- PIA Affiliate Script -->
     <script type='text/javascript'>
       window.__pia_affiliate_id = 5404
@@ -94,10 +99,11 @@
                 <li><a href="changelog.html" class="nav-link">📝 Changelog</a></li>
                 <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
                 <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Screen Lock Builder</a></li>
+                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
         <!-- Hidden H1 for SEO (not visible to users) -->
         <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">OffCrypt - Secure Android Encryption App with RSA-4096 and AES-256</h1>
@@ -138,6 +144,9 @@
                 </div>
             </div>
         </section>
+
+        <!-- Modern Section Divider -->
+        <div class="section-divider"></div>
 
         <!-- Modern Horizontal Scrolling Gallery -->
         <section id="pictures" class="image-gallery-container">
@@ -210,195 +219,122 @@
         <!-- Modern Divider -->
         <div class="section-divider"></div>
 
-        <!-- Security Features Carousel -->
-        <section id="features" class="carousel-container">
-            <h2 class="carousel-title">🔐 Features</h2>
-            <p class="carousel-subtitle">Explore all 36+ security features • <span class="swipe-hint">👆 Swipe or use arrows</span></p>
-            
-            <div class="swiper security-swiper">
-                <div class="swiper-wrapper">
-
-                    <!-- Cryptography Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card crypto-card">
-                            <div class="product-header">
-                                <h3>🔐 Cryptography</h3>
-                                <p>Encryption algorithms</p>
-                                <div class="slide-counter">1/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>🔑 RSA-2048 — Asymmetric public key cryptography</li>
-                                    <li>🔑 RSA-4096 — Asymmetric public key cryptography</li>
-                                    <li>🛡️ AES-256-GCM — Symmetric encryption with authentication</li>
-                                    <li>🔐 PBKDF2 — Password derivation (100,000 iterations)</li>
-                                    <li>🏷️ HmacSHA256 — Ensures message integrity</li>
-                                    <li>⚡ SHA-256 — Cryptographic hash function for keys</li>
-                                    <li>🎲 SecureRandom — Cryptographically secure RNG</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Advanced Security Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card advanced-card">
-                            <div class="product-header">
-                                <h3>✨ Advanced Security</h3>
-                                <p>Next-generation protection features</p>
-                                <div class="slide-counter">2/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>✍️ Digital signature — Ensures message authenticity</li>
-                                    <li>🔄 Perfect Forward Secrecy (PFS) — ECDH key exchange</li>
-                                    <li>⏰ Expiring messages — Automatic expiration (1h-1y)</li>
-                                    <li>🔥 Burn After Reading — Automatic message destruction</li>
-                                    <li>🔒 Version Byte — Automatic algorithm detection</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Attack Protection Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card attack-card">
-                            <div class="product-header">
-                                <h3>🛡️ Attack Protection</h3>
-                                <p>Defense against sophisticated threats</p>
-                                <div class="slide-counter">3/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>⚖️ Constant-time HMAC — Prevents timing attacks</li>
-                                    <li>🔍 Data validation — Verification of cryptographic structures</li>
-                                    <li>❌ Replay attack protection — GCM nonce and metadata</li>
-                                    <li>🔐 Side-channel attack prevention — Secure implementations</li>
-                                    <li>🛡️ MITM attack protection — Certificate pinning</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Memory Safety Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card memory-card">
-                            <div class="product-header">
-                                <h3>🧹 Memory Safety</h3>
-                                <p>Complete sensitive data protection</p>
-                                <div class="slide-counter">4/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>🧹 Sensitive data scrubbing — 3x overwrite + zero out</li>
-                                    <li>💾 Char/ByteArray wiping — UTF-8 and memory clearing</li>
-                                    <li>♻️ Aggressive Garbage Collection — 3x memory cleanup</li>
-                                    <li>📋 Log buffer clearing — Android logcat cleanup</li>
-                                    <li>🔄 String pool cleanup — JVM string cache wiping</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- UI Security Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card ui-card">
-                            <div class="product-header">
-                                <h3>🖥️ UI Security</h3>
-                                <p>User interface protection</p>
-                                <div class="slide-counter">5/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>📋 Secure Clipboard — Automatic clearing (60s)</li>
-                                    <li>🔒 Lifecycle cleanup — Data destroyed on app close</li>
-                                    <li>⏸️ Background cleanup — Data cleared when backgrounded</li>
-                                    <li>🚨 Burn dialog — Warning for self-destructing messages</li>
-                                    <li>👁️ Screenshot protection — Secure window flags</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Professional Features Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card pro-card">
-                            <div class="product-header">
-                                <h3>⚙️ Features</h3>
-                                <p>Advanced enhancements & storage</p>
-                                <div class="slide-counter">6/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul>
-                                    <li>🧠 RSA OAEP + SHA-256 + MGF1 — Modern key encryption</li>
-                                    <li>📜 RSA signature with SHA-512 — Maximum authenticity</li>
-                                    <li>📦 Version Byte detection — Algorithm auto-selection</li>
-                                    <li>🔁 Metadata fallback — Legacy format support</li>
-                                    <li>📤 Encrypted file export — AES-256-GCM format</li>
-                                    <li>🔒 Encrypted RSA keystore — Internal AES storage</li>
-                                    <li>📛 AndroidOpenSSL fallback — Multi-engine support</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Security Summary Slide -->
-                    <div class="swiper-slide">
-                        <div class="product-card summary-card">
-                            <div class="product-header">
-                                <h3>🛡️ Complete Security Package</h3>
-                                <p><strong>36+ Active Security Features</strong></p>
-                                <div class="slide-counter">7/7</div>
-                            </div>
-
-                            <div class="features">
-                                <ul class="summary-list">
-                                    <li>🔐 <strong>Cryptography</strong> — RSA-4096 + AES-256-GCM</li>
-                                    <li>🛡️ <strong>Multi-layer attack protection</strong> — Timing, replay & validation</li>
-                                    <li>🧹 <strong>Complete memory safety</strong> — 3x scrubbing & GC</li>
-                                    <li>🔒 <strong>Advanced UI security</strong> — Lifecycle & clipboard protection</li>
-                                    <li>⚙️ <strong>Professional features</strong> — Encrypted storage & validation</li>
-                                    <li>🗑️ <strong>Nuclear reset option</strong> — Complete data destruction</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="features-container">
+                <h2 class="features-title">🔐 Features</h2>
+                <p class="features-subtitle">Explore all 36+ security features</p>
                 
-                <!-- Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-scrollbar"></div>
+                <div class="features-grid">
+                    <!-- Cryptography Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>Modern Cryptography</h3>
+                        <p>Encryption algorithms</p>
+                        <ul class="feature-list">
+                            <li>🔑 RSA-2048 & RSA-4096</li>
+                            <li>🛡️ AES-256-GCM encryption</li>
+                            <li>🔐 PBKDF2 key derivation</li>
+                            <li>🏷️ HmacSHA256 integrity</li>
+                            <li>⚡ SHA-256 hash functions</li>
+                            <li>🎲 SecureRandom generation</li>
+                        </ul>
+                    </div>
+
+                    <!-- Advanced Security Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>Advanced Security</h3>
+                        <p>Protection features</p>
+                        <ul class="feature-list">
+                            <li>✍️ Digital signatures</li>
+                            <li>🔄 Perfect Forward Secrecy</li>
+                            <li>⏰ Expiring messages</li>
+                            <li>🔥 Burn After Reading</li>
+                            <li>🔒 Version detection</li>
+                        </ul>
+                    </div>
+
+                    <!-- Attack Protection Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Attack Protection</h3>
+                        <p>Defense against sophisticated threats</p>
+                        <ul class="feature-list">
+                            <li>⚖️ Constant-time operations</li>
+                            <li>🔍 Data validation</li>
+                            <li>❌ Replay attack prevention</li>
+                            <li>🔐 Side-channel protection</li>
+                            <li>🛡️ MITM protection</li>
+                        </ul>
+                    </div>
+
+                    <!-- Memory Safety Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🧹</div>
+                        <h3>Memory Safety</h3>
+                        <p>Complete sensitive data protection</p>
+                        <ul class="feature-list">
+                            <li>🧹 Data scrubbing (3x overwrite)</li>
+                            <li>💾 Char/ByteArray wiping</li>
+                            <li>♻️ Aggressive Garbage Collection</li>
+                            <li>📋 Log buffer clearing</li>
+                            <li>🔄 String pool cleanup</li>
+                        </ul>
+                    </div>
+
+                    <!-- UI Security Feature -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>UI Security</h3>
+                        <p>Advanced interface protection</p>
+                        <ul class="feature-list">
+                            <li>📋 Secure Clipboard</li>
+                            <li>🔒 Lifecycle cleanup</li>
+                            <li>⏸️ Background cleanup</li>
+                            <li>🚨 Burn dialog warnings</li>
+                            <li>👁️ Screenshot protection</li>
+                        </ul>
+                    </div>
+
+                    <!-- Professional Features -->
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Features</h3>
+                        <p>Advanced cryptographic capabilities</p>
+                        <ul class="feature-list">
+                            <li>🧠 RSA OAEP + SHA-256</li>
+                            <li>📜 RSA signature with SHA-512</li>
+                            <li>📦 Version Byte detection</li>
+                            <li>🔁 Metadata fallback</li>
+                            <li>📤 Encrypted file export</li>
+                            <li>🔒 Encrypted RSA keystore</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- PIA Horizontal Banner -->
-        <section class="pia-banner-section" style="padding: 40px 20px; background: rgba(0, 188, 212, 0.05); margin: 60px 0;">
-            <div class="pia-banner-container" style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; background: rgba(0, 188, 212, 0.08); border: 1px solid #00bcd4; border-radius: 20px; padding: 25px 35px; transition: all 0.3s ease;">
-                <div class="pia-banner-content" style="flex: 1;">
-                    <h3 style="color: #00bcd4; font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">🔒 Complete Your Privacy Protection</h3>
-                    <p style="color: #b0b0b0; font-size: 0.85rem; margin-bottom: 8px; opacity: 0.9;">You've secured your messages with OffCrypt - now protect your internet connection too</p>
-                    <p style="color: #00bcd4; font-size: 0.8rem; margin-bottom: 15px; font-weight: 500;"><strong>Multi-hop:</strong> Channel traffic through additional servers for extra encryption layers</p>
-                    <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="pia-banner-btn" title='Get Private Internet Access VPN' style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #00bcd4 0%, #00e676 100%); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; cursor: pointer;">
+        <section class="pia-banner-section">
+            <div class="pia-banner-container">
+                <div class="pia-banner-content">
+                    <h3>🔒 Complete Your Privacy Protection</h3>
+                    <p>You've secured your messages with OffCrypt - now protect your internet connection too</p>
+                    <p class="pia-highlight"><strong>Multi-hop:</strong> Channel traffic through additional servers for extra encryption layers</p>
+                    <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="pia-banner-btn" title='Get Private Internet Access VPN'>
                         🛡️ Complete Protection
                     </a>
                 </div>
-                <div class="pia-banner-logo" style="display: flex; align-items: center; justify-content: center;">
+                <div class="pia-banner-logo">
                     <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' title='Private Internet Access VPN'>
-                        <img alt='Private Internet Access - Complete Privacy Protection' border='0' src='PIALogo.png' style="max-width: 220px; height: auto; cursor: pointer;">
+                        <img alt='Private Internet Access - Complete Privacy Protection' border='0' src='PIALogo.png'>
                     </a>
                 </div>
             </div>
         </section>
 
+       
         <!-- Download Section -->
         <section id="download" class="download-section">
             <div class="download-container">
@@ -456,14 +392,14 @@
         </div>
     </div>
 
-                    <!-- Support Section -->
-                    <div id="donate" class="support-box">
-                        <h3>☕ Support Development</h3>
-                        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
-                        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
-                            💝 Donate
-                        </a>
-                    </div>
+    <!-- Support Section -->
+    <div id="donate" class="support-box">
+        <h3>☕ Support Development</h3>
+        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
+        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
+            💝 Donate
+        </a>
+    </div>
                 </div>
             </div>
         </section>
@@ -471,9 +407,8 @@
 
     <!-- Styles have been moved to styles.css -->
 
-    <!-- External JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
+    <script src="gallery.js" defer></script>
 </body>
 </html>

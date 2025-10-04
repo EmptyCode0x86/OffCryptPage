@@ -75,9 +75,10 @@
         <p class="header-subtitle">Secure Message Encryption for Android</p>
         <nav>
             <ul id="navTabs" class="nav-tabs">
-              <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
+                <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
                 <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
-                  <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Lock Builder</a></li>
+                <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Screen Lock Builder</a></li>
+                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
             </ul>
         </nav>
     </header>
@@ -213,11 +214,16 @@
     <style>
         /* Changelog-specific styles */
         .changelog-hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 100%);
+            background: var(--gradient-card);
             padding: 80px 20px 60px 20px;
             margin: 0;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-top: none;
+            border-bottom: none;
         }
 
         .changelog-hero::before {
@@ -226,23 +232,20 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
-            pointer-events: none;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
         }
 
         .changelog-hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00bcd4, transparent);
-            opacity: 0.8;
-            z-index: 2;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
         }
 
         .changelog-container {
@@ -276,19 +279,50 @@
         }
 
         .changelog-content {
-            background: #1f1f1f;
+            background: var(--gradient-card);
             padding: 80px 20px;
             min-height: 60vh;
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-top: none;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .changelog-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
+        }
+
+        .changelog-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
         }
 
         .changelog-intro {
-            background: linear-gradient(145deg, #2a2a2a 0%, #1f1f1f 100%);
-            border: 1px solid rgba(0, 188, 212, 0.3);
-            border-radius: 12px;
+            background: var(--gradient-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 0;
             padding: 30px;
             margin-bottom: 40px;
-            color: #e0e0e0;
+            color: var(--text-primary);
             line-height: 1.6;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-left: 3px solid var(--accent-primary);
         }
 
         .changelog-intro p {
@@ -300,40 +334,43 @@
         }
 
         .changelog-intro strong {
-            color: #00bcd4;
+            color: var(--accent-primary);
         }
 
         .changelog-wrapper {
-            background: linear-gradient(145deg, #2c2c2c 0%, #252525 100%);
-            border-radius: 20px;
-            border: 2px solid #00bcd4;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
+            background: var(--gradient-card);
+            border-radius: 0;
+            border: 1px solid var(--border-primary);
+            box-shadow: var(--shadow-subtle);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             overflow: hidden;
+            border-left: 3px solid var(--accent-primary);
         }
 
         .changelog-placeholder {
             padding: 80px 40px;
             text-align: center;
-            color: #e0e0e0;
+            color: var(--text-primary);
         }
 
         .placeholder-icon {
             font-size: 4rem;
             margin-bottom: 30px;
             opacity: 0.7;
+            color: var(--accent-primary);
         }
 
         .changelog-placeholder h3 {
             font-size: 1.8rem;
-            color: #00bcd4;
+            color: var(--accent-primary);
             margin-bottom: 20px;
             font-weight: 600;
         }
 
         .changelog-placeholder p {
             font-size: 1.1rem;
-            color: #b0b0b0;
+            color: var(--text-secondary);
             line-height: 1.6;
             max-width: 500px;
             margin: 0 auto;
@@ -341,7 +378,7 @@
 
         /* Future changelog entry styles */
         .changelog-entry {
-            border-bottom: 1px solid rgba(0, 188, 212, 0.2);
+            border-bottom: 1px solid var(--border-primary);
             padding: 40px;
             position: relative;
         }
@@ -367,23 +404,23 @@
         }
 
         .version-date {
-            color: #b0b0b0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
         .changelog-changes {
-            color: #e0e0e0;
+            color: var(--text-primary);
         }
 
         .changelog-changes h3 {
-            color: #00e676;
+            color: var(--accent-primary);
             font-size: 1.3rem;
             margin: 0 0 15px 0;
             font-weight: 700;
         }
 
         .changelog-changes h4 {
-            color: #00bcd4;
+            color: var(--accent-secondary);
             font-size: 1.1rem;
             margin: 20px 0 10px 0;
             font-weight: 600;
@@ -405,7 +442,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #00bcd4;
+            color: var(--accent-primary);
             font-weight: bold;
         }
 
@@ -512,5 +549,4 @@
         });
     </script>
 </body>
-
 </html>
