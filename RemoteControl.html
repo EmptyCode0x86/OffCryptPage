@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Remote Control System – Manage Windows Devices from Your Browser</title>
+    <meta name="description" content="Web Remote Control System for Windows devices. Control devices from the browser, automate tasks with Mouse Bot, transfer files, and view device status in real time. Built with ASP.NET Core, Blazor, SignalR, and .NET 9.">
+    <meta name="keywords" content="web remote control, Windows device management, remote automation, Mouse Bot, file transfer, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, web interface, device control, remote access">
+    <meta name="author" content="ScreenLocker V2 Web">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dev-offcode.com/RemoteControl.html">
+    <meta property="og:title" content="Web Remote Control System – Manage Windows Devices from Your Browser">
+    <meta property="og:description" content="Control Windows devices from the browser, automate tasks, transfer files, and see status in real time.">
+    <meta property="og:image" content="https://www.dev-offcode.com/RemtoControlpnlPIC.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.dev-offcode.com/RemoteControl.html">
+    <meta property="twitter:title" content="Web Remote Control System – Manage Windows Devices from Your Browser">
+    <meta property="twitter:description" content="Control Windows devices from the browser, automate tasks, transfer files, and see status in real time.">
+    <meta property="twitter:image" content="https://www.dev-offcode.com/RemtoControlpnlPIC.png">
+
+    <link rel="canonical" href="https://www.dev-offcode.com/RemoteControl.html">
+
+    <!-- Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Web Remote Control System",
+        "applicationCategory": "RemoteControlApplication",
+        "operatingSystem": "Windows",
+        "description": "Remote control for Windows devices with a web interface. Includes device control, Mouse Bot automation, file transfer, and real-time status.",
+        "offers": {
+            "@type": "Offer",
+            "price": "Free",
+            "priceCurrency": "USD"
+        },
+        "downloadUrl": "https://www.dev-offcode.com/Web-RemoteControl.html",
+        "inLanguage": ["en"],
+        "author": {
+            "@type": "Person",
+            "name": "ScreenLocker V2 Web Team"
+        },
+        "softwareVersion": "2.7.0",
+        "releaseNotes": "Professional remote control system with ASP.NET Core backend, Blazor frontend, and Windows agent integration"
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles-modernRemote.css">
+    <link rel="stylesheet" href="gallery-simpleRemote.css">
+</head>
+<body>
+    <!-- Coding Background Animation -->
+    <div class="coding-bg">
+        <div class="coding-element">if (security) {</div>
+        <div class="coding-element">encrypt(data);</div>
+        <div class="coding-element">return true;</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">const key = generateKey();</div>
+        <div class="coding-element">AES.encrypt(message, key);</div>
+        <div class="coding-element">function secure() {</div>
+        <div class="coding-element">let encrypted = {};</div>
+        <div class="coding-element">for (let i = 0; i < data.length; i++) {</div>
+        <div class="coding-element">encrypted[i] = data[i] ^ key;</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">return encrypted;</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">class Crypto {</div>
+        <div class="coding-element">constructor() {</div>
+        <div class="coding-element">this.algorithm = 'AES-256';</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">encrypt(text) {</div>
+        <div class="coding-element">return this.process(text);</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">const crypto = new Crypto();</div>
+        <div class="coding-element">crypto.encrypt('secret');</div>
+        <div class="coding-element">RSA.generateKeyPair();</div>
+        <div class="coding-element">hash = SHA256(data);</div>
+        <div class="coding-element">signature = sign(hash, privateKey);</div>
+        <div class="coding-element">verify(signature, publicKey);</div>
+        <div class="coding-element">const iv = randomBytes(16);</div>
+        <div class="coding-element">const cipher = createCipher('aes-256-gcm');</div>
+        <div class="coding-element">cipher.update(plaintext);</div>
+        <div class="coding-element">const encrypted = cipher.final();</div>
+        <div class="coding-element">return { encrypted, iv, tag };</div>
+        <div class="coding-element">}</div>
+        <div class="coding-element">function decrypt(encrypted, key, iv, tag) {</div>
+        <div class="coding-element">const decipher = createDecipher('aes-256-gcm');</div>
+        <div class="coding-element">decipher.setAuthTag(tag);</div>
+        <div class="coding-element">let decrypted = decipher.update(encrypted);</div>
+        <div class="coding-element">decrypted += decipher.final();</div>
+        <div class="coding-element">return decrypted;</div>
+        <div class="coding-element">}</div>
+    </div>
+
+       <header>
+        <div class="logo-header">
+            <div class="logo-icon">
+                <span class="code-bracket">&lt;</span>
+                <div class="lock-icon">🔒</div>
+                <span class="code-bracket">&gt;</span>
+            </div>
+            <h1>Web Remote Control System</h1>
+        </div>
+        <p class="header-subtitle">Control Windows devices from your browser</p>
+        <nav>
+            <ul id="navTabs" class="nav-tabs">
+                <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Screen Lock Builder</a></li>
+                <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
+                <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
+                <li><a href="https://github.com/ScreenLockerV2-Web" class="nav-link" target="_blank" rel="noopener noreferrer">🐙 GitHub</a></li>
+                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+     <main>
+        <!-- Main H1 for SEO -->
+        <h1 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">Web Remote Control System – Manage Windows Devices from Your Browser</h1>
+
+        <!-- App Description Section -->
+        <section class="intro-section">
+            <div class="intro-container">
+                <div class="intro-content">
+                   <p class="intro-description">
+    Web Remote Control System lets you manage Windows devices directly from your browser. You can view device status in real time, send control commands, automate actions with Mouse Bot, and move files between your computer and the remote device — without being physically present.
+</p>
+
+<p class="intro-description">
+    <strong>Screen locker:</strong> Lock a Windows desktop from the web UI. The lock runs fullscreen, blocks common shortcuts, and requires a password to exit. You can trigger lock/unlock remotely and see the current state (online, locked, offline). The connection is handled by a lightweight Windows agent.
+</p>
+
+<p class="intro-description">
+    <strong>Mouse Bot Automation:</strong> Create simple step-by-step scripts to move the mouse, click, type text, wait, and start programs. Scripts can be saved, loaded, edited, and executed on demand. Useful for repeating the same actions or assisting with routine tasks.
+</p>
+
+<p class="intro-description">
+    <strong>File Transfer:</strong> Upload and download files and browse folders on the remote device. The browser shows directory contents, supports quick paths, and offers optional encryption when sending files. Progress and results are shown in the UI.
+</p>
+
+<p class="intro-description">
+    <strong>Real‑time Status:</strong> Device state and operation results update live using SignalR. The system stack includes ASP.NET Core (API + SignalR), Blazor Server for the web UI, SQLite via EF Core for storage, and a Windows agent that executes commands.
+</p>
+
+<p class="intro-description"><em>Coming soon.</em></p>
+                    <div class="intro-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🖥️</span>
+                            <span class="highlight-text">Remote lock screen</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">🤖</span>
+                            <span class="highlight-text">Mouse Bot Automation</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📁</span>
+                            <span class="highlight-text">Secure File Transfer</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">📱</span>
+                            <span class="highlight-text">Real-time Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Horizontal Scrolling Gallery -->
+        <section id="pictures" class="image-gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">💻 Screenshot & Video Showcase</h2>
+            </div>
+            
+            <div class="image-gallery">
+                
+                <div class="image-card featured" data-image="RemtoControlpnlPIC.png" data-title="Web Remote Control Interface" data-desc="Web interface for device control, file transfer, and automation">
+                    <img src="RemtoControlpnlPIC.png" alt="Web Remote Control System interface">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+                <div class="image-card" data-image="youtube-demo" data-title="Web Remote Control Demo" data-desc="Short demo of device control, automation, and file transfer">
+                    <div style="position: relative; width: 100%; height: 280px; border-radius: 12px; overflow: hidden; background: #1a1a1a;">
+                        <iframe
+                            src="https://www.youtube.com/embed/AXyisyWNtYY"
+                            style="width: 100%; height: 100%; border: none;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="image-overlay">
+                        <div class="zoom-icon">▶️</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Custom Image Modal -->
+        <div id="imageModal" class="image-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modalImage" src="" alt="">
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDesc"></p>
+                </div>
+            </div>
+        </div>
+
+                <!-- Social Media & Support Section -->
+                <div class="support-container">
+    <!-- Social Media Section -->
+    <div class="support-box social-media-box">
+        <h3>Social media</h3>
+        <p>Follow on social media!</p>
+        <div class="social-buttons-grid">
+            <a href="https://x.com/OffCryptAndroid" class="social-btn social-x" target="_blank" rel="noopener noreferrer">
+                🐦 Follow on X
+            </a>
+            <a href="https://www.instagram.com/off.crypt86/" class="social-btn social-instagram" target="_blank" rel="noopener noreferrer">
+                📸 Follow on Instagram
+            </a>
+            <a href="https://www.tiktok.com/@offcrypt0" class="social-btn social-tiktok" target="_blank" rel="noopener noreferrer">
+                🎵 Follow on TikTok
+            </a>
+            <a href="https://www.youtube.com/@OffCrypt" class="social-btn social-youtube" target="_blank" rel="noopener noreferrer">
+                ▶️ Follow on YouTube
+            </a>
+        </div>
+    </div>
+
+    <!-- Support Section -->
+    <div id="donate" class="support-box">
+        <h3>Support Web Remote Control System</h3>
+        <p>If this tool helps you, you can support the project</p>
+        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
+            💝 Donate
+        </a>
+    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Styles have been moved to styles.css -->
+
+    <!-- External JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <!-- Application JavaScript -->
+    <script src="script.js" defer></script>
+    <script src="gallery.js" defer></script>
+    
+    <!-- Dynamic Code Animation Script with Typewriter Effect -->
+    <script>
+        // Cryptography-focused code snippets that will cycle through
+        const codeSnippets = [
+            // AES Encryption
+            "const crypto = require('crypto');",
+            "const algorithm = 'aes-256-gcm';",
+            "const key = crypto.randomBytes(32);",
+            "const iv = crypto.randomBytes(16);",
+            "const cipher = crypto.createCipher(algorithm, key);",
+            "cipher.setAAD(Buffer.from('additional data'));",
+            "let encrypted = cipher.update(plaintext, 'utf8', 'hex');",
+            "encrypted += cipher.final('hex');",
+            "const authTag = cipher.getAuthTag();",
+            "return { encrypted, iv, authTag };",
+            "}",
+            "function decryptAES(encrypted, key, iv, authTag) {",
+            "const decipher = crypto.createDecipher(algorithm, key);",
+            "decipher.setAAD(Buffer.from('additional data'));",
+            "decipher.setAuthTag(authTag);",
+            "let decrypted = decipher.update(encrypted, 'hex', 'utf8');",
+            "decrypted += decipher.final('utf8');",
+            "return decrypted;",
+            "}",
+            // RSA Encryption
+            "const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {",
+            "modulusLength: 2048,",
+            "publicKeyEncoding: {",
+            "type: 'spki',",
+            "format: 'pem'",
+            "},",
+            "privateKeyEncoding: {",
+            "type: 'pkcs8',",
+            "format: 'pem'",
+            "}",
+            "});",
+            "const encrypted = crypto.publicEncrypt(publicKey, Buffer.from(plaintext));",
+            "const decrypted = crypto.privateDecrypt(privateKey, encrypted);",
+            "// Hash Functions",
+            "const hash = crypto.createHash('sha256');",
+            "hash.update(data);",
+            "const digest = hash.digest('hex');",
+            "const hmac = crypto.createHmac('sha256', secretKey);",
+            "hmac.update(data);",
+            "const signature = hmac.digest('hex');",
+            "// Password Hashing",
+            "const salt = crypto.randomBytes(16);",
+            "const hash = crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512');",
+            "const argon2 = require('argon2');",
+            "const hashedPassword = await argon2.hash(password);",
+            "const verified = await argon2.verify(hashedPassword, password);",
+            "// Key Derivation",
+            "const derivedKey = crypto.pbkdf2Sync(password, salt, 100000, 32, 'sha256');",
+            "const hkdf = crypto.createHmac('sha256', inputKey);",
+            "hkdf.update(info);",
+            "const derivedKey = hkdf.digest();",
+            "// Digital Signatures",
+            "const sign = crypto.createSign('RSA-SHA256');",
+            "sign.update(data);",
+            "const signature = sign.sign(privateKey, 'hex');",
+            "const verify = crypto.createVerify('RSA-SHA256');",
+            "verify.update(data);",
+            "const isValid = verify.verify(publicKey, signature, 'hex');",
+            "// ChaCha20 Encryption",
+            "const chacha20 = require('chacha20');",
+            "const key = crypto.randomBytes(32);",
+            "const nonce = crypto.randomBytes(12);",
+            "const encrypted = chacha20.encrypt(plaintext, key, nonce);",
+            "const decrypted = chacha20.decrypt(encrypted, key, nonce);",
+            "// Elliptic Curve Cryptography",
+            "const { generateKeyPairSync } = require('crypto');",
+            "const { publicKey, privateKey } = generateKeyPairSync('ec', {",
+            "namedCurve: 'prime256v1'",
+            "});",
+            "const ecdh = crypto.createECDH('prime256v1');",
+            "ecdh.generateKeys();",
+            "const sharedSecret = ecdh.computeSecret(otherPublicKey);",
+            "// AES-GCM Implementation",
+            "class AESGCM {",
+            "constructor(key) {",
+            "this.key = key;",
+            "}",
+            "encrypt(plaintext, iv) {",
+            "const cipher = crypto.createCipher('aes-256-gcm', this.key);",
+            "cipher.setAAD(Buffer.from('authenticated data'));",
+            "let encrypted = cipher.update(plaintext, 'utf8', 'hex');",
+            "encrypted += cipher.final('hex');",
+            "const authTag = cipher.getAuthTag();",
+            "return { encrypted, iv, authTag };",
+            "}",
+            "decrypt(encrypted, iv, authTag) {",
+            "const decipher = crypto.createDecipher('aes-256-gcm', this.key);",
+            "decipher.setAAD(Buffer.from('authenticated data'));",
+            "decipher.setAuthTag(authTag);",
+            "let decrypted = decipher.update(encrypted, 'hex', 'utf8');",
+            "decrypted += decipher.final('utf8');",
+            "return decrypted;",
+            "}",
+            "}",
+            "// Random Number Generation",
+            "const randomBytes = crypto.randomBytes(32);",
+            "const randomInt = crypto.randomInt(0, 1000);",
+            "const randomUUID = crypto.randomUUID();",
+            "// Base64 Encoding/Decoding",
+            "const encoded = Buffer.from(plaintext).toString('base64');",
+            "const decoded = Buffer.from(encoded, 'base64').toString('utf8');",
+            "// Cryptographic Constants",
+            "const AES_KEY_SIZE = 256;",
+            "const RSA_KEY_SIZE = 2048;",
+            "const IV_SIZE = 16;",
+            "const SALT_SIZE = 32;",
+            "const HASH_ITERATIONS = 100000;",
+            "// Security Best Practices",
+            "if (crypto.getCiphers().includes('aes-256-gcm')) {",
+            "console.log('AES-256-GCM is available');",
+            "}",
+            "const timingSafeEqual = crypto.timingSafeEqual(a, b);",
+            "const constantTimeCompare = (a, b) => {",
+            "if (a.length !== b.length) return false;",
+            "let result = 0;",
+            "for (let i = 0; i < a.length; i++) {",
+            "result |= a[i] ^ b[i];",
+            "}",
+            "return result === 0;",
+            "};"
+        ];
+
+        // Typewriter effect for individual element
+        async function typewriterEffect(element, text, speed = 30) {
+            element.textContent = '';
+            element.style.opacity = '1';
+
+            for (let i = 0; i < text.length; i++) {
+                element.textContent += text[i];
+                await new Promise(resolve => setTimeout(resolve, speed));
+            }
+        }
+
+        // Create additional code elements with typewriter effect
+        function createAdditionalCodeElements() {
+            const codingBg = document.querySelector('.coding-bg');
+
+            // Add more code elements to fill the background
+            for (let i = 0; i < 35; i++) {
+                const codeElement = document.createElement('div');
+                codeElement.className = 'coding-element extra-code';
+                codeElement.textContent = ''; // Start empty for typewriter effect
+                codeElement.style.left = Math.random() * 100 + '%';
+                codeElement.style.top = Math.random() * 100 + '%';
+                codeElement.style.fontSize = (Math.random() * 0.3 + 0.6) + 'rem'; // 0.6-0.9rem
+                codeElement.style.opacity = Math.random() * 0.3 + 0.3; // 0.3-0.6 opacity
+                codingBg.appendChild(codeElement);
+            }
+        }
+
+        // Function to update code elements with typewriter effect
+        async function updateCodeElements() {
+            const elements = document.querySelectorAll('.coding-element');
+            const elementsArray = Array.from(elements);
+
+            // Randomly select elements to update
+            const numToUpdate = Math.floor(Math.random() * 5) + 3; // Update 3-7 elements
+            const selectedElements = [];
+
+            for (let i = 0; i < numToUpdate && i < elementsArray.length; i++) {
+                const randomIndex = Math.floor(Math.random() * elementsArray.length);
+                const element = elementsArray[randomIndex];
+                if (!selectedElements.includes(element)) {
+                    selectedElements.push(element);
+                }
+            }
+
+            // Type out new snippets
+            for (const element of selectedElements) {
+                const randomSnippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                const speed = Math.random() * 30 + 20; // 20-50ms per character
+                typewriterEffect(element, randomSnippet, speed);
+                await new Promise(resolve => setTimeout(resolve, 300)); // Slight delay between elements
+            }
+        }
+
+        // Start the animation with random intervals
+        function startCodeAnimation() {
+            updateCodeElements();
+            const nextUpdate = Math.random() * 500 + 1000; // 4-7 seconds
+            setTimeout(startCodeAnimation, nextUpdate);
+        }
+
+        // Add CSS for extra code elements
+        function addExtraStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .coding-element {
+                    transition: opacity 0.3s ease;
+                }
+
+                .extra-code {
+                    font-family: 'Courier New', monospace;
+                    pointer-events: none;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Start everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            addExtraStyles();
+            createAdditionalCodeElements();
+            startCodeAnimation();
+        });
+    </script>
+</body>
+</html>
