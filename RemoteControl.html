@@ -50,6 +50,77 @@
 
     <link rel="stylesheet" href="styles-modernRemote.css">
     <link rel="stylesheet" href="gallery-simpleRemote.css">
+
+    <style>
+        /* Modern social buttons override */
+        .social-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            position: relative;
+            z-index: 6;
+            pointer-events: auto;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 7;
+            pointer-events: auto;
+        }
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            filter: brightness(1.05);
+        }
+        .social-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            filter: brightness(0.98);
+        }
+        .social-btn:focus {
+            outline: 2px solid rgba(0, 212, 255, 0.6);
+            outline-offset: 2px;
+            border-color: rgba(0, 212, 255, 0.4);
+        }
+        /* Network-specific accents */
+        .social-x { background: linear-gradient(135deg, #111827, #0f172a); }
+        .social-instagram { background: linear-gradient(135deg, #f58529, #dd2a7b 50%, #8134af); }
+        .social-tiktok { background: linear-gradient(135deg, #25f4ee, #fe2c55); }
+        .social-youtube { background: linear-gradient(135deg, #ff4d4f, #d9363e); }
+        /* Optional icon scale on hover if icons added later */
+        .social-btn:hover .icon { transform: scale(1.06); }
+        @media (max-width: 480px) {
+            .social-buttons-grid { grid-template-columns: 1fr 1fr; }
+            .social-btn { padding: 10px 12px; font-size: 0.95rem; }
+        }
+
+        /* Ensure gallery overlays do not block clicks below */
+        .image-card { position: relative; }
+        .image-overlay { pointer-events: none; }
+
+        /* Make sure donate button is clickable */
+        .support-container, .support-box, .donation-btn {
+            position: relative;
+            z-index: 5;
+        }
+        .donation-btn {
+            display: inline-block;
+            pointer-events: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Coding Background Animation -->
