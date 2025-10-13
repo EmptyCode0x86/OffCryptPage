@@ -51,6 +51,18 @@
 </url>
 
 <url>
+  <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
+    <image:title>Web Remote Control System Interface</image:title>
+    <image:caption>Web-based remote control for Windows devices with automation and file transfer</image:caption>
+  </image:image>
+</url>
+
+<url>
   <loc>https://www.dev-offcode.com/changelog.html</loc>
   <lastmod>2025-01-09T12:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>

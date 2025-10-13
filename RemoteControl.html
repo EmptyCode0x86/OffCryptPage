@@ -8,6 +8,14 @@
     <meta name="description" content="Web Remote Control System for Windows devices. Control devices from the browser, automate tasks with Mouse Bot, transfer files, and view device status in real time. Built with ASP.NET Core, Blazor, SignalR, and .NET 9.">
     <meta name="keywords" content="web remote control, Windows device management, remote automation, Mouse Bot, file transfer, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, web interface, device control, remote access">
     <meta name="author" content="ScreenLocker V2 Web">
+    <meta name="robots" content="index, follow">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dev-offcode.com/RemoteControl.html">
@@ -22,6 +30,23 @@
     <meta property="twitter:image" content="https://www.dev-offcode.com/RemoteControlpnlPIC.png">
 
     <link rel="canonical" href="https://www.dev-offcode.com/RemoteControl.html">
+    <link rel="alternate" hreflang="en" href="https://www.dev-offcode.com/RemoteControl.html">
+    <link rel="alternate" hreflang="fi" href="https://www.dev-offcode.com/fi/RemoteControl.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dev-offcode.com/RemoteControl.html">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles-modernRemote.css" as="style">
+    <link rel="preload" href="gallery-simpleRemote.css" as="style">
+    <link rel="preload" href="RemoteControlpnlPIC.png" as="image">
+
+    <!-- Core Web Vitals optimization -->
+    <meta name="theme-color" content="#00ff88">
+    <meta name="msapplication-TileColor" content="#00ff88">
 
     <!-- Structured Data Schema -->
     <script type="application/ld+json">
@@ -45,6 +70,64 @@
         },
         "softwareVersion": "2.7.0",
         "releaseNotes": "Professional remote control system with ASP.NET Core backend, Blazor frontend, and Windows agent integration"
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Web Remote Control System?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Web Remote Control System is a web-based application that lets you manage Windows devices directly from your browser. You can view device status in real time, send control commands, automate actions with Mouse Bot, and transfer files between your computer and the remote device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work remotely over the internet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The system uses ASP.NET Core backend with SignalR for real-time communication. A lightweight Windows agent runs on the target device to execute commands. The connection is established through the web interface."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Mouse Bot Automation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Mouse Bot allows you to create simple step-by-step scripts to move the mouse, click, type text, wait, and start programs. Scripts can be saved, loaded, edited, and executed on demand. It's useful for repeating the same actions or assisting with routine tasks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I transfer files securely?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! The system includes file transfer functionality. You can upload and download files, browse folders on the remote device, and optionally encrypt files when sending them. Progress and results are shown in the UI in real-time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What technologies does it use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The system stack includes ASP.NET Core (API + SignalR) for backend, Blazor Server for the web UI, SQLite via EF Core for storage, and a Windows agent (C#/.NET) that executes commands on the target device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it secure to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The system includes optional encryption for file transfers and requires authentication. However, always ensure you have proper authorization to access and control remote devices. This tool is intended for authorized use only."
+                }
+            }
+        ]
     }
     </script>
 

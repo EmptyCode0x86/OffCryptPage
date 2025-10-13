@@ -43,5 +43,15 @@
       <image:license>https://www.dev-offcode.com/license</image:license>
     </image:image>
   </url>
-  
+
+  <url>
+    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
+      <image:title>Web Remote Control System Interface</image:title>
+      <image:caption>Web-based remote control system for Windows devices with real-time monitoring and automation</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
+
 </urlset>

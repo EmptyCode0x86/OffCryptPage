@@ -82,8 +82,8 @@
       ]
     },
     {
-      "name": "Desktop App",
-      "short_name": "Desktop",
+      "name": "OffCrypt Desktop",
+      "short_name": "OffCrypt desktop",
       "description": "OffCrypt Desktop for Windows",
       "url": "/OffCryptDesktop.html",
       "icons": [
