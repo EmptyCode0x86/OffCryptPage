@@ -441,7 +441,413 @@ nav a:hover {
     color: var(--text-primary);
 }
 
-/* Gallery styles removed - handled by gallery-simple.css */
+/* Ultra Modern Image Gallery */
+.image-gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    background: var(--gradient-card);
+    border-radius: 0;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.image-gallery-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-border);
+    z-index: 1;
+}
+
+.image-gallery-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-border);
+    z-index: 1;
+}
+
+.image-gallery-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    opacity: 0.6;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.gallery-title {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.gallery-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.scroll-hint {
+    color: var(--accent-primary);
+    font-weight: 600;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive Grid Layout */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Modern Image Card Design */
+.image-card {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--gradient-card);
+    border: 1px solid var(--border-primary);
+    border-left: 3px solid var(--accent-primary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: var(--shadow-subtle);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    aspect-ratio: 16 / 10;
+    min-height: 250px;
+}
+
+.image-card.featured {
+    grid-column: span 2;
+    border-left-width: 4px;
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--secondary-bg);
+    filter: brightness(0.9);
+}
+
+/* Modern Overlay with Theme Colors */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+        rgba(0, 255, 136, 0.95) 0%,
+        rgba(0, 212, 255, 0.95) 50%,
+        rgba(255, 107, 53, 0.9) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.zoom-icon {
+    font-size: 3.5rem;
+    color: var(--primary-bg);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
+
+.image-overlay-text {
+    color: var(--primary-bg);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover Effects */
+.image-card:hover {
+    transform: translateY(-8px) translateX(4px);
+    box-shadow: var(--shadow-glow);
+    border-left-color: var(--accent-secondary);
+}
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-card:hover .zoom-icon {
+    transform: scale(1.15);
+}
+
+.image-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.image-card.featured:hover {
+    box-shadow: var(--shadow-glow-blue);
+    border-left-color: var(--accent-primary);
+}
+
+/* Ultra Modern Image Modal / Lightbox */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.image-modal.active {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Modal Backdrop with Theme */
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+}
+
+/* Modal Content with Modern Design */
+.modal-content {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: var(--gradient-card);
+    border-radius: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-primary);
+    border-left: 4px solid var(--accent-primary);
+    box-shadow:
+        var(--shadow-primary),
+        0 0 60px rgba(0, 255, 136, 0.2),
+        0 0 120px rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-border);
+    z-index: 1;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+    background: var(--secondary-bg);
+}
+
+/* Modern Close Button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--gradient-card);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-primary);
+    border-left: 3px solid var(--accent-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.modal-close:hover {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--accent-secondary);
+    border-left-color: var(--accent-secondary);
+    transform: translateX(4px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Modern Navigation Buttons */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none;
+    z-index: 10001;
+}
+
+.modal-prev,
+.modal-next {
+    background: var(--gradient-card);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-primary);
+    border-left: 3px solid var(--accent-primary);
+    width: 60px;
+    height: 60px;
+    border-radius: 0;
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: all;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--accent-secondary);
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
+
+.modal-prev:hover {
+    transform: translateX(-4px) scale(1.05);
+}
+
+.modal-next:hover {
+    transform: translateX(4px) scale(1.05);
+}
+
+.modal-prev:active,
+.modal-next:active {
+    transform: scale(0.95);
+}
+
+/* Modal Info Section */
+.modal-info {
+    padding: 1.5rem 2rem;
+    background: var(--gradient-card);
+    border-top: 1px solid var(--border-primary);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.modal-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.modal-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Modal Counter Badge */
+.modal-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--gradient-card);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-primary);
+    border-left: 3px solid var(--accent-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-subtle);
+    z-index: 10001;
+}
 
 /* Modern Section Divider */
 .section-divider {
@@ -2078,9 +2484,35 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         font-size: 0.95rem;
     }
     
+    .image-gallery-container {
+        padding: 40px 15px 25px 15px;
+        margin-bottom: -20px;
+    }
     
+    .image-gallery {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding: 10px 0;
+        margin-bottom: 30px;
+        height: 200px;
+        scroll-snap-type: x mandatory;
+    }
     
+    .image-card {
+        flex: 0 0 300px;
+        height: 180px;
+        scroll-snap-align: center;
+    }
     
+    .image-card.featured {
+    grid-column: span 2;
+    border-left-width: 4px;
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
     
     .section-divider {
         margin: 40px auto 50px auto;
@@ -2148,9 +2580,33 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
     
     /* Mobile Modal */
+    .modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        margin: 10px;
+    }
     
+    .modal-nav {
+        width: calc(100% + 20px);
+        left: -10px;
+        padding: 0;
+    }
     
+    .modal-prev,
+    .modal-next {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
     
+    .zoom-icon {
+    font-size: 3.5rem;
+    color: var(--primary-bg);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
 
     .community-title {
         font-size: 1.5rem;
@@ -2270,9 +2726,35 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         margin-top: -10px;
     }
     
+    .image-gallery-container {
+        padding: 35px 10px 20px 10px;
+        margin-bottom: -15px;
+    }
     
+    .image-gallery {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        padding: 8px 0;
+        margin-bottom: 25px;
+        height: 180px;
+        scroll-snap-type: x mandatory;
+    }
     
+    .image-card {
+        flex: 0 0 250px;
+        height: 160px;
+        scroll-snap-align: center;
+    }
     
+    .image-card.featured {
+    grid-column: span 2;
+    border-left-width: 4px;
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
     
     .section-divider {
         margin: 30px auto 40px auto;
@@ -2322,11 +2804,39 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
     
     /* Mobile Modal Adjustments */
+    .modal-content {
+        max-width: 98vw;
+        max-height: 98vh;
+        margin: 5px;
+        border-radius: 8px;
+    }
     
+    .modal-nav {
+        width: calc(100% + 10px);
+        left: -5px;
+        padding: 0;
+    }
     
+    .modal-info {
+        padding: 15px;
+    }
     
+    .modal-info h3 {
+        font-size: 1rem;
+    }
     
+    .modal-info p {
+        font-size: 0.85rem;
+    }
     
+    .zoom-icon {
+    font-size: 3.5rem;
+    color: var(--primary-bg);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+}
 
     .intro-title {
         font-size: 1.75rem;
@@ -3329,6 +3839,14 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 /* Make sure images are fully visible and responsive in modal */
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+    background: var(--secondary-bg);
+}
 
 /* Force prevent horizontal scrolling */
 html, body {
@@ -3787,22 +4305,79 @@ img {
 
 /* Responsive Design for Gallery */
 @media (max-width: 1200px) {
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 
+    .image-card.featured {
+        grid-column: span 1;
+    }
 }
 
 @media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 
+    .gallery-title {
+        font-size: 2.25rem;
+    }
 
+    .gallery-subtitle {
+        font-size: 1.1rem;
+    }
 
+    .image-card {
+        min-height: 200px;
+    }
 
+    .modal-content {
+        max-width: 98vw;
+        max-height: 98vh;
+    }
 
+    .modal-close {
+        width: 44px;
+        height: 44px;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+    }
 
+    .modal-prev,
+    .modal-next {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
 
+    .modal-counter {
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .image-gallery-container {
+        padding: 2rem 1rem;
+    }
 
+    .gallery-title {
+        font-size: 1.75rem;
+    }
 
+    .modal-nav {
+        padding: 0 5px;
+    }
 
+    .modal-prev,
+    .modal-next {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
 }
 
