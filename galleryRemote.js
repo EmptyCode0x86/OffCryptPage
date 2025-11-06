@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Etsi modal
     const modal = document.getElementById('imageModal');
     const imageCards = document.querySelectorAll('.image-card');
+    let currentImageIndex = 0;
 
     if (!modal || imageCards.length === 0) {
         console.log('Gallery elements not found');
@@ -18,69 +19,154 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
+    // Navigaatio-funktio
+    function navigateImage(direction) {
+        const newIndex = currentImageIndex + direction;
+        if (newIndex >= 0 && newIndex < imageCards.length) {
+            currentImageIndex = newIndex;
+            openImageModalAtIndex(currentImageIndex);
+        }
+    }
+
+    // Modal opening function with navigation support
+    function openImageModalAtIndex(index) {
+        currentImageIndex = index;
+        const card = imageCards[index];
+
+        // Hae tiedot
+        const dataImage = card.dataset.image || '';
+        const imgTitle = card.dataset.title || '';
+        const imgDesc = card.dataset.desc || '';
+
+        // Etsi modal-content
+        const modalContent = modal.querySelector('.modal-content');
+        if (!modalContent) return;
+
+        // Tarkista onko video vai kuva
+        if (dataImage === 'youtube-demo' || dataImage.includes('youtube')) {
+            // VIDEO - etsi iframe kortista
+            const iframe = card.querySelector('iframe');
+            if (iframe) {
+                const videoSrc = iframe.src;
+                modalContent.innerHTML = `
+                    <span class="close">&times;</span>
+                    <button class="modal-nav-btn modal-prev" aria-label="Previous">‹</button>
+                    <button class="modal-nav-btn modal-next" aria-label="Next">›</button>
+                    <div style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto;">
+                        <iframe src="${videoSrc}"
+                                style="width: 100%; height: 600px; border: none;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    ${imgTitle || imgDesc ? `
+                    <div class="modal-info">
+                        ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
+                        ${imgDesc ? `<p>${imgDesc}</p>` : ''}
+                    </div>
+                    ` : ''}
+                `;
+            }
+        } else {
+            // KUVA
+            const imgSrc = dataImage || card.querySelector('img')?.src;
+            if (imgSrc) {
+                modalContent.innerHTML = `
+                    <span class="close">&times;</span>
+                    <button class="modal-nav-btn modal-prev" aria-label="Previous">‹</button>
+                    <button class="modal-nav-btn modal-next" aria-label="Next">›</button>
+                    <img src="${imgSrc}" alt="${imgTitle}" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto;">
+                    ${imgTitle || imgDesc ? `
+                    <div class="modal-info">
+                        ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
+                        ${imgDesc ? `<p>${imgDesc}</p>` : ''}
+                    </div>
+                    ` : ''}
+                `;
+            }
+        }
+
+        // Näytä modal
+        modal.classList.add('active');
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+
+        // Lisää close event uudelle napille
+        const newCloseBtn = modal.querySelector('.close');
+        if (newCloseBtn) {
+            newCloseBtn.addEventListener('click', closeModal);
+        }
+
+        // Lisää navigaatio-napit
+        const prevBtn = modal.querySelector('.modal-prev');
+        const nextBtn = modal.querySelector('.modal-next');
+
+        if (prevBtn) {
+            prevBtn.onclick = function(e) {
+                e.stopPropagation();
+                navigateImage(-1);
+            };
+            // Piilota jos ensimmäinen kuva
+            prevBtn.style.display = currentImageIndex === 0 ? 'none' : 'block';
+        }
+
+        if (nextBtn) {
+            nextBtn.onclick = function(e) {
+                e.stopPropagation();
+                navigateImage(1);
+            };
+            // Piilota jos viimeinen kuva
+            nextBtn.style.display = currentImageIndex === imageCards.length - 1 ? 'none' : 'block';
+        }
+    }
+
     // Lisää click event jokaiselle kortille
-    imageCards.forEach(function(card) {
+    imageCards.forEach(function(card, index) {
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+        let isTouchMoving = false;
+
+        // Track touch start position
+        card.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            isTouchMoving = false;
+        }, { passive: true });
+
+        // Track if user is scrolling
+        card.addEventListener('touchmove', function(e) {
+            const touchMoveX = e.touches[0].clientX;
+            const touchMoveY = e.touches[0].clientY;
+            const deltaX = Math.abs(touchMoveX - touchStartX);
+            const deltaY = Math.abs(touchMoveY - touchStartY);
+
+            // If moved more than 10px, consider it scrolling
+            if (deltaX > 10 || deltaY > 10) {
+                isTouchMoving = true;
+            }
+        }, { passive: true });
+
+        // Click event
         card.addEventListener('click', function() {
-            // Hae tiedot
-            const dataImage = this.dataset.image || '';
-            const imgTitle = this.dataset.title || '';
-            const imgDesc = this.dataset.desc || '';
-
-            // Etsi modal-content
-            const modalContent = modal.querySelector('.modal-content');
-            if (!modalContent) return;
-
-            // Tarkista onko video vai kuva
-            if (dataImage === 'youtube-demo' || dataImage.includes('youtube')) {
-                // VIDEO - etsi iframe kortista
-                const iframe = this.querySelector('iframe');
-                if (iframe) {
-                    const videoSrc = iframe.src;
-                    modalContent.innerHTML = `
-                        <span class="close">&times;</span>
-                        <div style="position: relative; width: 100%; max-width: 1000px; margin: 0 auto;">
-                            <iframe src="${videoSrc}"
-                                    style="width: 100%; height: 600px; border: none;"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                        ${imgTitle || imgDesc ? `
-                        <div class="modal-info">
-                            ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
-                            ${imgDesc ? `<p>${imgDesc}</p>` : ''}
-                        </div>
-                        ` : ''}
-                    `;
-                }
-            } else {
-                // KUVA
-                const imgSrc = dataImage || this.querySelector('img')?.src;
-                if (imgSrc) {
-                    modalContent.innerHTML = `
-                        <span class="close">&times;</span>
-                        <img src="${imgSrc}" alt="${imgTitle}" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto;">
-                        ${imgTitle || imgDesc ? `
-                        <div class="modal-info">
-                            ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
-                            ${imgDesc ? `<p>${imgDesc}</p>` : ''}
-                        </div>
-                        ` : ''}
-                    `;
-                }
-            }
-
-            // Näytä modal
-            modal.classList.add('active');
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-
-            // Lisää close event uudelle napille
-            const newCloseBtn = modal.querySelector('.close');
-            if (newCloseBtn) {
-                newCloseBtn.addEventListener('click', closeModal);
-            }
+            openImageModalAtIndex(index);
         });
+
+        // Touch event for mobile devices - only trigger if not scrolling
+        card.addEventListener('touchend', function(e) {
+            const touchEndTime = Date.now();
+            const touchDuration = touchEndTime - touchStartTime;
+
+            // Only open modal if:
+            // 1. User didn't scroll (isTouchMoving is false)
+            // 2. Touch duration was less than 500ms (quick tap)
+            if (!isTouchMoving && touchDuration < 500) {
+                e.preventDefault();
+                e.stopPropagation();
+                openImageModalAtIndex(index);
+            }
+        }, { passive: false });
     });
 
     // Sulje modal kun klikataan taustaa
@@ -90,10 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sulje modal ESC-näppäimellä
+    // Sulje modal ESC-näppäimellä ja navigoi nuolinäppäimillä
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (!modal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
             closeModal();
+        } else if (e.key === 'ArrowLeft') {
+            navigateImage(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateImage(1);
         }
     });
 });

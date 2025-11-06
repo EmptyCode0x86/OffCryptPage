@@ -167,6 +167,48 @@
     background: #111111;
 }
 
+/* Navigation Arrows - MODERNIT JA THEME-SOPIVAT */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.9);
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    line-height: 1;
+    user-select: none;
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+.modal-nav-btn:hover {
+    background: #00ff88;
+    color: #0a0a0a;
+    border-color: #00d4ff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.modal-nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 /* Modal Info */
 .modal-info {
     text-align: center;
@@ -207,6 +249,21 @@
     .modal-content img {
         max-height: calc(90vh - 6rem);
     }
+
+    /* Pienemmät navigaationapit mobiilissa */
+    .modal-nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .modal-prev {
+        left: 10px;
+    }
+
+    .modal-next {
+        right: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -223,5 +280,20 @@
         width: 35px;
         height: 35px;
         font-size: 1.2rem;
+    }
+
+    /* Vielä pienemmät nuolet pienillä näytöillä */
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .modal-prev {
+        left: 5px;
+    }
+
+    .modal-next {
+        right: 5px;
     }
 }
