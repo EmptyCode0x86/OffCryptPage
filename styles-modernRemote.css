@@ -57,7 +57,7 @@ body::before {
         radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
         radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
         radial-gradient(circle at 60% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
-    animation: backgroundShift 25s ease-in-out infinite;
+    /* animation removed for static background */
     pointer-events: none;
     z-index: -2;
 }
@@ -74,13 +74,13 @@ body::after {
         linear-gradient(90deg, transparent 98%, rgba(0, 102, 255, 0.03) 100%),
         linear-gradient(0deg, transparent 98%, rgba(0, 212, 255, 0.02) 100%);
     background-size: 50px 50px, 30px 30px;
-    animation: matrixRain 20s linear infinite;
+    /* animation removed for static background */
     pointer-events: none;
     z-index: -1;
 }
 
-/* Advanced Particle System Background */
-.coding-bg {
+/* Static Background Container */
+.static-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -89,93 +89,41 @@ body::after {
     pointer-events: none;
     z-index: -3;
     overflow: hidden;
-    background: radial-gradient(circle at 20% 20%, rgba(0, 102, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
+    background:
+        radial-gradient(circle at 15% 15%, rgba(0, 102, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(0, 212, 255, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 35% 65%, rgba(139, 92, 246, 0.03) 0%, transparent 35%),
+        radial-gradient(circle at 75% 25%, rgba(16, 185, 129, 0.02) 0%, transparent 35%);
 }
 
-/* Security-themed code lines */
-.coding-element {
+/* Geometric accent circles for depth - static positioning */
+.static-bg::before {
+    content: '';
     position: absolute;
-    color: var(--accent-blue);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    opacity: 0.2;
-    text-shadow: 0 0 6px currentColor;
-    font-weight: 500;
-    white-space: nowrap;
-    animation: codeTypewriter 8s linear infinite;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    opacity: 0.4;
 }
 
-/* Different types of security elements */
-.coding-element:nth-child(odd) {
-    color: var(--accent-cyan);
-    animation: codeTypewriter 10s linear infinite;
-    opacity: 0.15;
+.static-bg::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -80px;
+    right: -80px;
+    opacity: 0.4;
 }
 
-.coding-element:nth-child(3n) {
-    color: var(--accent-purple);
-    animation: codeTypewriter 12s linear infinite;
-    font-size: 14px;
-    opacity: 0.12;
-}
+/* Code element styles removed - no longer using animated elements */
 
-.coding-element:nth-child(4n) {
-    color: var(--accent-green);
-    animation: codeTypewriter 9s linear infinite;
-    font-size: 18px;
-    opacity: 0.18;
-}
-
-.coding-element:nth-child(5n) {
-    color: var(--accent-orange);
-    animation: codeTypewriter 11s linear infinite;
-    font-size: 12px;
-    opacity: 0.1;
-}
-
-/* Position particles randomly */
-.coding-element:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-.coding-element:nth-child(2) { top: 20%; left: 15%; animation-delay: 2s; }
-.coding-element:nth-child(3) { top: 30%; left: 25%; animation-delay: 4s; }
-.coding-element:nth-child(4) { top: 40%; left: 35%; animation-delay: 6s; }
-.coding-element:nth-child(5) { top: 50%; left: 45%; animation-delay: 8s; }
-.coding-element:nth-child(6) { top: 60%; left: 55%; animation-delay: 10s; }
-.coding-element:nth-child(7) { top: 70%; left: 65%; animation-delay: 12s; }
-.coding-element:nth-child(8) { top: 80%; left: 75%; animation-delay: 14s; }
-.coding-element:nth-child(9) { top: 15%; left: 85%; animation-delay: 1s; }
-.coding-element:nth-child(10) { top: 25%; left: 95%; animation-delay: 3s; }
-.coding-element:nth-child(11) { top: 35%; left: 8%; animation-delay: 5s; }
-.coding-element:nth-child(12) { top: 45%; left: 18%; animation-delay: 7s; }
-.coding-element:nth-child(13) { top: 55%; left: 28%; animation-delay: 9s; }
-.coding-element:nth-child(14) { top: 65%; left: 38%; animation-delay: 11s; }
-.coding-element:nth-child(15) { top: 75%; left: 48%; animation-delay: 13s; }
-.coding-element:nth-child(16) { top: 85%; left: 58%; animation-delay: 15s; }
-.coding-element:nth-child(17) { top: 5%; left: 68%; animation-delay: 1.5s; }
-.coding-element:nth-child(18) { top: 12%; left: 78%; animation-delay: 3.5s; }
-.coding-element:nth-child(19) { top: 22%; left: 88%; animation-delay: 5.5s; }
-.coding-element:nth-child(20) { top: 32%; left: 12%; animation-delay: 7.5s; }
-.coding-element:nth-child(21) { top: 42%; left: 22%; animation-delay: 9.5s; }
-.coding-element:nth-child(22) { top: 52%; left: 32%; animation-delay: 11.5s; }
-.coding-element:nth-child(23) { top: 62%; left: 42%; animation-delay: 13.5s; }
-.coding-element:nth-child(24) { top: 72%; left: 52%; animation-delay: 15.5s; }
-.coding-element:nth-child(25) { top: 82%; left: 62%; animation-delay: 17.5s; }
-.coding-element:nth-child(26) { top: 8%; left: 72%; animation-delay: 2.5s; }
-.coding-element:nth-child(27) { top: 18%; left: 82%; animation-delay: 4.5s; }
-.coding-element:nth-child(28) { top: 28%; left: 92%; animation-delay: 6.5s; }
-.coding-element:nth-child(29) { top: 38%; left: 2%; animation-delay: 8.5s; }
-.coding-element:nth-child(30) { top: 48%; left: 42%; animation-delay: 10.5s; }
-.coding-element:nth-child(31) { top: 58%; left: 52%; animation-delay: 12.5s; }
-.coding-element:nth-child(32) { top: 68%; left: 62%; animation-delay: 14.5s; }
-.coding-element:nth-child(33) { top: 78%; left: 72%; animation-delay: 16.5s; }
-.coding-element:nth-child(34) { top: 88%; left: 82%; animation-delay: 18.5s; }
-.coding-element:nth-child(35) { top: 3%; left: 92%; animation-delay: 3.2s; }
-.coding-element:nth-child(36) { top: 13%; left: 2%; animation-delay: 5.2s; }
-.coding-element:nth-child(37) { top: 23%; left: 12%; animation-delay: 7.2s; }
-.coding-element:nth-child(38) { top: 33%; left: 22%; animation-delay: 9.2s; }
-.coding-element:nth-child(39) { top: 43%; left: 32%; animation-delay: 11.2s; }
-.coding-element:nth-child(40) { top: 53%; left: 42%; animation-delay: 13.2s; }
+/* Position particles removed - no longer using animated elements */
 
 @keyframes codeTypewriter {
     0% {

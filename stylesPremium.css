@@ -1704,9 +1704,18 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    justify-items: center;
+    max-width: 650px;
+    margin: 30px auto 0 auto;
+    align-items: stretch;
+}
+
+.support-container .support-box,
+.support-container .social-media-box {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    width: 100%;
 }
 
 /* OffCryptDesktop.html specific styling - 2 columns */
@@ -1722,13 +1731,9 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 0;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1759,31 +1764,35 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 .social-buttons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 10px;
     margin-top: auto;
-    padding: 10px;
+    padding: 0;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Base Social Button Styling */
 .social-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     color: #ffffff;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 8px 12px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.85rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-    max-width: 140px;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
 .social-btn::before {
@@ -1802,8 +1811,8 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 .social-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Platform-Specific Styling */
@@ -2112,15 +2121,8 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         font-size: 0.8rem;
     }
 
-    .support-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        max-width: 100%;
-        margin: 30px auto 0 auto;
-        display: flex;
-        flex-direction: column;
-    }
-    
+    /* Support container stays side-by-side on all screen sizes */
+
     .support-box {
         padding: 20px 15px;
         margin-top: 0;
@@ -2144,9 +2146,9 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
 
     .social-btn {
-        font-size: 0.85rem;
-        padding: 10px 14px;
-        min-height: 40px;
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        min-height: 36px;
     }
 
     .social-media-grid {
@@ -2279,15 +2281,8 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         text-align: center;
     }
 
-    .support-container {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        max-width: 100%;
-        margin-top: 25px;
-        grid-template-columns: none;
-    }
-    
+    /* Support container stays side-by-side on all screen sizes */
+
     .support-box {
         padding: 18px 15px;
         margin-top: 0;
@@ -2312,10 +2307,10 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
 
     .social-btn {
-        font-size: 0.8rem;
-        padding: 10px 16px;
-        min-height: 40px;
-        max-width: 120px;
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        min-height: 36px;
+        width: 100%;
     }
 
     .social-media-grid {
@@ -2346,10 +2341,13 @@ body:has([src*="OffCryptDesktop"]) .support-container,
   clear: both;
   overflow: hidden;
 }
-.support-box .donation-btn,
-.support-box .social-btn {
+.support-box .donation-btn {
   margin-top: auto;
   display: inline-flex;
+}
+
+.support-box .social-btn {
+  width: 100%;
 }
 
 /* Pricing Section Styles */
