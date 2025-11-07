@@ -41,8 +41,8 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-modernRemote.css" as="style">
-    <link rel="preload" href="gallery-simpleRemote.css" as="style">
+    <link rel="preload" href="stylesPremium.css" as="style">
+    <link rel="preload" href="gallery-simple.css" as="style">
     <link rel="preload" href="RemoteControlpnlPIC.png" as="image">
 
     <!-- Core Web Vitals optimization -->
@@ -132,79 +132,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-modernRemote.css">
-    <link rel="stylesheet" href="gallery-simpleRemote.css">
-
-    <style>
-        /* Modern social buttons override */
-        .social-buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
-            position: relative;
-            z-index: 6;
-            pointer-events: auto;
-        }
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 16px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            background: linear-gradient(135deg, #1f2937, #111827);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-            cursor: pointer;
-            position: relative;
-            z-index: 7;
-            pointer-events: auto;
-        }
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-            filter: brightness(1.05);
-        }
-        .social-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            filter: brightness(0.98);
-        }
-        .social-btn:focus {
-            outline: 2px solid rgba(0, 212, 255, 0.6);
-            outline-offset: 2px;
-            border-color: rgba(0, 212, 255, 0.4);
-        }
-        /* Network-specific accents */
-        .social-x { background: linear-gradient(135deg, #111827, #0f172a); }
-        .social-instagram { background: linear-gradient(135deg, #f58529, #dd2a7b 50%, #8134af); }
-        .social-tiktok { background: linear-gradient(135deg, #25f4ee, #fe2c55); }
-        .social-youtube { background: linear-gradient(135deg, #ff4d4f, #d9363e); }
-        /* Optional icon scale on hover if icons added later */
-        .social-btn:hover .icon { transform: scale(1.06); }
-        @media (max-width: 480px) {
-            .social-buttons-grid { grid-template-columns: 1fr 1fr; }
-            .social-btn { padding: 10px 12px; font-size: 0.95rem; }
-        }
-
-        /* Ensure gallery overlays do not block clicks below */
-        .image-card { position: relative; }
-        .image-overlay { pointer-events: none; }
-
-        /* Make sure donate button is clickable */
-        .support-container, .support-box, .donation-btn {
-            position: relative;
-            z-index: 5;
-        }
-        .donation-btn {
-            display: inline-block;
-            pointer-events: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="stylesPremium.css">
+    <link rel="stylesheet" href="gallery-simple.css">
 
     <!-- Video Schema -->
     <script type="application/ld+json">
@@ -234,50 +163,6 @@
     </script>
 </head>
 <body>
-    <!-- Coding Background Animation -->
-    <div class="coding-bg">
-        <div class="coding-element">if (security) {</div>
-        <div class="coding-element">encrypt(data);</div>
-        <div class="coding-element">return true;</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">const key = generateKey();</div>
-        <div class="coding-element">AES.encrypt(message, key);</div>
-        <div class="coding-element">function secure() {</div>
-        <div class="coding-element">let encrypted = {};</div>
-        <div class="coding-element">for (let i = 0; i < data.length; i++) {</div>
-        <div class="coding-element">encrypted[i] = data[i] ^ key;</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">return encrypted;</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">class Crypto {</div>
-        <div class="coding-element">constructor() {</div>
-        <div class="coding-element">this.algorithm = 'AES-256';</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">encrypt(text) {</div>
-        <div class="coding-element">return this.process(text);</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">const crypto = new Crypto();</div>
-        <div class="coding-element">crypto.encrypt('secret');</div>
-        <div class="coding-element">RSA.generateKeyPair();</div>
-        <div class="coding-element">hash = SHA256(data);</div>
-        <div class="coding-element">signature = sign(hash, privateKey);</div>
-        <div class="coding-element">verify(signature, publicKey);</div>
-        <div class="coding-element">const iv = randomBytes(16);</div>
-        <div class="coding-element">const cipher = createCipher('aes-256-gcm');</div>
-        <div class="coding-element">cipher.update(plaintext);</div>
-        <div class="coding-element">const encrypted = cipher.final();</div>
-        <div class="coding-element">return { encrypted, iv, tag };</div>
-        <div class="coding-element">}</div>
-        <div class="coding-element">function decrypt(encrypted, key, iv, tag) {</div>
-        <div class="coding-element">const decipher = createDecipher('aes-256-gcm');</div>
-        <div class="coding-element">decipher.setAuthTag(tag);</div>
-        <div class="coding-element">let decrypted = decipher.update(encrypted);</div>
-        <div class="coding-element">decrypted += decipher.final();</div>
-        <div class="coding-element">return decrypted;</div>
-        <div class="coding-element">}</div>
-    </div>
-
        <header>
         <div class="logo-header">
             <div class="logo-icon">
@@ -312,7 +197,7 @@
 </p>
 
 <p class="intro-description">
-    <strong>Mouse Bot Automation:</strong> Create simple step-by-step scripts to move the mouse, click, type text, wait, and start programs. Scripts can be saved, loaded, edited, and executed on demand. You can also take screenshots of the desktop during script execution to monitor progress. Useful for repeating the same actions or assisting with routine tasks.
+    <strong>Automation:</strong> Create simple step-by-step scripts to move the mouse, click, type text, wait, and start programs. Scripts can be saved, loaded, edited, and executed on demand. You can also take screenshots of the desktop during script execution to monitor progress. Useful for repeating the same actions or assisting with routine tasks.
 </p>
 
 <p class="intro-description">
@@ -331,7 +216,7 @@
                         </div>
                         <div class="highlight-item">
                             <span class="highlight-icon">🤖</span>
-                            <span class="highlight-text">Mouse Bot Automation</span>
+                            <span class="highlight-text">Automation</span>
                         </div>
                         <div class="highlight-item">
                             <span class="highlight-icon">📁</span>
@@ -403,11 +288,14 @@
             </div>
         </div>
 
+        <!-- Modern Section Divider -->
+        <div class="section-divider"></div>
+
                 <!-- Social Media & Support Section -->
                 <div class="support-container">
     <!-- Social Media Section -->
     <div class="support-box social-media-box">
-        <h3>Social media</h3>
+        <h3>🐦 Social media</h3>
         <p>Follow on social media!</p>
         <div class="social-buttons-grid">
             <a href="https://x.com/OffCryptAndroid" class="social-btn social-x" target="_blank" rel="noopener noreferrer">
@@ -427,8 +315,8 @@
 
     <!-- Support Section -->
     <div id="donate" class="support-box">
-        <h3>Support Web Remote Control System</h3>
-        <p>If this tool helps you, you can support the project</p>
+        <h3>☕ Support Development</h3>
+        <p>Thank you for exploring Web Remote Control System! If you like the app or find it useful, please consider supporting the project</p>
         <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
             💝 Donate
         </a>
@@ -446,216 +334,5 @@
     <script src="script.js" defer></script>
     <script src="gallery.js" defer></script>
     
-    <!-- Dynamic Code Animation Script with Typewriter Effect -->
-    <script>
-        // Cryptography-focused code snippets that will cycle through
-        const codeSnippets = [
-            // AES Encryption
-            "const crypto = require('crypto');",
-            "const algorithm = 'aes-256-gcm';",
-            "const key = crypto.randomBytes(32);",
-            "const iv = crypto.randomBytes(16);",
-            "const cipher = crypto.createCipher(algorithm, key);",
-            "cipher.setAAD(Buffer.from('additional data'));",
-            "let encrypted = cipher.update(plaintext, 'utf8', 'hex');",
-            "encrypted += cipher.final('hex');",
-            "const authTag = cipher.getAuthTag();",
-            "return { encrypted, iv, authTag };",
-            "}",
-            "function decryptAES(encrypted, key, iv, authTag) {",
-            "const decipher = crypto.createDecipher(algorithm, key);",
-            "decipher.setAAD(Buffer.from('additional data'));",
-            "decipher.setAuthTag(authTag);",
-            "let decrypted = decipher.update(encrypted, 'hex', 'utf8');",
-            "decrypted += decipher.final('utf8');",
-            "return decrypted;",
-            "}",
-            // RSA Encryption
-            "const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {",
-            "modulusLength: 2048,",
-            "publicKeyEncoding: {",
-            "type: 'spki',",
-            "format: 'pem'",
-            "},",
-            "privateKeyEncoding: {",
-            "type: 'pkcs8',",
-            "format: 'pem'",
-            "}",
-            "});",
-            "const encrypted = crypto.publicEncrypt(publicKey, Buffer.from(plaintext));",
-            "const decrypted = crypto.privateDecrypt(privateKey, encrypted);",
-            "// Hash Functions",
-            "const hash = crypto.createHash('sha256');",
-            "hash.update(data);",
-            "const digest = hash.digest('hex');",
-            "const hmac = crypto.createHmac('sha256', secretKey);",
-            "hmac.update(data);",
-            "const signature = hmac.digest('hex');",
-            "// Password Hashing",
-            "const salt = crypto.randomBytes(16);",
-            "const hash = crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512');",
-            "const argon2 = require('argon2');",
-            "const hashedPassword = await argon2.hash(password);",
-            "const verified = await argon2.verify(hashedPassword, password);",
-            "// Key Derivation",
-            "const derivedKey = crypto.pbkdf2Sync(password, salt, 100000, 32, 'sha256');",
-            "const hkdf = crypto.createHmac('sha256', inputKey);",
-            "hkdf.update(info);",
-            "const derivedKey = hkdf.digest();",
-            "// Digital Signatures",
-            "const sign = crypto.createSign('RSA-SHA256');",
-            "sign.update(data);",
-            "const signature = sign.sign(privateKey, 'hex');",
-            "const verify = crypto.createVerify('RSA-SHA256');",
-            "verify.update(data);",
-            "const isValid = verify.verify(publicKey, signature, 'hex');",
-            "// ChaCha20 Encryption",
-            "const chacha20 = require('chacha20');",
-            "const key = crypto.randomBytes(32);",
-            "const nonce = crypto.randomBytes(12);",
-            "const encrypted = chacha20.encrypt(plaintext, key, nonce);",
-            "const decrypted = chacha20.decrypt(encrypted, key, nonce);",
-            "// Elliptic Curve Cryptography",
-            "const { generateKeyPairSync } = require('crypto');",
-            "const { publicKey, privateKey } = generateKeyPairSync('ec', {",
-            "namedCurve: 'prime256v1'",
-            "});",
-            "const ecdh = crypto.createECDH('prime256v1');",
-            "ecdh.generateKeys();",
-            "const sharedSecret = ecdh.computeSecret(otherPublicKey);",
-            "// AES-GCM Implementation",
-            "class AESGCM {",
-            "constructor(key) {",
-            "this.key = key;",
-            "}",
-            "encrypt(plaintext, iv) {",
-            "const cipher = crypto.createCipher('aes-256-gcm', this.key);",
-            "cipher.setAAD(Buffer.from('authenticated data'));",
-            "let encrypted = cipher.update(plaintext, 'utf8', 'hex');",
-            "encrypted += cipher.final('hex');",
-            "const authTag = cipher.getAuthTag();",
-            "return { encrypted, iv, authTag };",
-            "}",
-            "decrypt(encrypted, iv, authTag) {",
-            "const decipher = crypto.createDecipher('aes-256-gcm', this.key);",
-            "decipher.setAAD(Buffer.from('authenticated data'));",
-            "decipher.setAuthTag(authTag);",
-            "let decrypted = decipher.update(encrypted, 'hex', 'utf8');",
-            "decrypted += decipher.final('utf8');",
-            "return decrypted;",
-            "}",
-            "}",
-            "// Random Number Generation",
-            "const randomBytes = crypto.randomBytes(32);",
-            "const randomInt = crypto.randomInt(0, 1000);",
-            "const randomUUID = crypto.randomUUID();",
-            "// Base64 Encoding/Decoding",
-            "const encoded = Buffer.from(plaintext).toString('base64');",
-            "const decoded = Buffer.from(encoded, 'base64').toString('utf8');",
-            "// Cryptographic Constants",
-            "const AES_KEY_SIZE = 256;",
-            "const RSA_KEY_SIZE = 2048;",
-            "const IV_SIZE = 16;",
-            "const SALT_SIZE = 32;",
-            "const HASH_ITERATIONS = 100000;",
-            "// Security Best Practices",
-            "if (crypto.getCiphers().includes('aes-256-gcm')) {",
-            "console.log('AES-256-GCM is available');",
-            "}",
-            "const timingSafeEqual = crypto.timingSafeEqual(a, b);",
-            "const constantTimeCompare = (a, b) => {",
-            "if (a.length !== b.length) return false;",
-            "let result = 0;",
-            "for (let i = 0; i < a.length; i++) {",
-            "result |= a[i] ^ b[i];",
-            "}",
-            "return result === 0;",
-            "};"
-        ];
-
-        // Typewriter effect for individual element
-        async function typewriterEffect(element, text, speed = 30) {
-            element.textContent = '';
-            element.style.opacity = '1';
-
-            for (let i = 0; i < text.length; i++) {
-                element.textContent += text[i];
-                await new Promise(resolve => setTimeout(resolve, speed));
-            }
-        }
-
-        // Create additional code elements with typewriter effect
-        function createAdditionalCodeElements() {
-            const codingBg = document.querySelector('.coding-bg');
-
-            // Add more code elements to fill the background
-            for (let i = 0; i < 35; i++) {
-                const codeElement = document.createElement('div');
-                codeElement.className = 'coding-element extra-code';
-                codeElement.textContent = ''; // Start empty for typewriter effect
-                codeElement.style.left = Math.random() * 100 + '%';
-                codeElement.style.top = Math.random() * 100 + '%';
-                codeElement.style.fontSize = (Math.random() * 0.3 + 0.6) + 'rem'; // 0.6-0.9rem
-                codeElement.style.opacity = Math.random() * 0.3 + 0.3; // 0.3-0.6 opacity
-                codingBg.appendChild(codeElement);
-            }
-        }
-
-        // Function to update code elements with typewriter effect
-        async function updateCodeElements() {
-            const elements = document.querySelectorAll('.coding-element');
-            const elementsArray = Array.from(elements);
-
-            // Randomly select elements to update
-            const numToUpdate = Math.floor(Math.random() * 5) + 3; // Update 3-7 elements
-            const selectedElements = [];
-
-            for (let i = 0; i < numToUpdate && i < elementsArray.length; i++) {
-                const randomIndex = Math.floor(Math.random() * elementsArray.length);
-                const element = elementsArray[randomIndex];
-                if (!selectedElements.includes(element)) {
-                    selectedElements.push(element);
-                }
-            }
-
-            // Type out new snippets
-            for (const element of selectedElements) {
-                const randomSnippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                const speed = Math.random() * 30 + 20; // 20-50ms per character
-                typewriterEffect(element, randomSnippet, speed);
-                await new Promise(resolve => setTimeout(resolve, 300)); // Slight delay between elements
-            }
-        }
-
-        // Start the animation with random intervals
-        function startCodeAnimation() {
-            updateCodeElements();
-            const nextUpdate = Math.random() * 500 + 1000; // 4-7 seconds
-            setTimeout(startCodeAnimation, nextUpdate);
-        }
-
-        // Add CSS for extra code elements
-        function addExtraStyles() {
-            const style = document.createElement('style');
-            style.textContent = `
-                .coding-element {
-                    transition: opacity 0.3s ease;
-                }
-
-                .extra-code {
-                    font-family: 'Courier New', monospace;
-                    pointer-events: none;
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        // Start everything when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            addExtraStyles();
-            createAdditionalCodeElements();
-            startCodeAnimation();
-        });
-    </script>
 </body>
 </html>
