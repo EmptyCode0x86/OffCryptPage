@@ -3722,29 +3722,21 @@ img {
 
 /* Purchase Instructions Box Styling */
 .purchase-instructions-box {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 136, 0.3);
-    border-top: 3px solid #00ff88;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-primary);
+    border-top: 3px solid var(--accent-primary);
     border-radius: 16px;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow-primary);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) or (-moz-backdrop-filter: blur(30px)) {
-    .purchase-instructions-box {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid var(--border-primary);
-        border-top: 3px solid var(--accent-primary);
-        box-shadow: var(--shadow-primary);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        -moz-backdrop-filter: blur(30px);
-    }
+    /* Backdrop filter directly in main class - no @supports needed */
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
 }
 
 .purchase-instructions-box::before {
@@ -4072,29 +4064,21 @@ img {
 
 /* Terms of Service Box Styling */
 .terms-of-service-box {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    border-top: 3px solid #ff6b35;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-primary);
+    border-top: 3px solid var(--accent-tertiary);
     border-radius: 16px;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow-primary);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) or (-moz-backdrop-filter: blur(30px)) {
-    .terms-of-service-box {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid var(--border-primary);
-        border-top: 3px solid var(--accent-tertiary);
-        box-shadow: var(--shadow-primary);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
-        -moz-backdrop-filter: blur(30px);
-    }
+    /* Backdrop filter directly in main class - no @supports needed */
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
 }
 
 .terms-of-service-box::before {
