@@ -3724,6 +3724,7 @@ img {
     max-width: 900px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     box-shadow: var(--shadow-primary);
     position: relative;
     overflow: hidden;
@@ -3779,6 +3780,9 @@ img {
     background: var(--glass-bg);
     border: 1px solid var(--border-secondary);
     border-radius: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
 }
 
 .instructions-overview h4 {
@@ -3816,6 +3820,9 @@ img {
     background: var(--glass-bg);
     border: 1px solid var(--border-secondary);
     border-radius: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
 }
 
 .instructions-section h4 {
@@ -3932,6 +3939,9 @@ img {
     border: 1px solid var(--border-secondary);
     border-radius: 0;
     text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
 }
 
 .instructions-contact h4 {
@@ -4040,6 +4050,7 @@ img {
     max-width: 900px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     box-shadow: var(--shadow-primary);
     position: relative;
     overflow: hidden;
