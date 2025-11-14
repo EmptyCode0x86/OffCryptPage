@@ -3722,8 +3722,8 @@ img {
 
 /* Purchase Instructions Box Styling */
 .purchase-instructions-box {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 255, 136, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
     border-top: 3px solid #00ff88;
     border-radius: 16px;
     padding: 3rem;
@@ -3790,8 +3790,8 @@ img {
 .instructions-overview {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -3835,8 +3835,8 @@ img {
 .instructions-section {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -3958,8 +3958,8 @@ img {
 .instructions-contact {
     margin-top: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 16px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -4069,8 +4069,8 @@ img {
 
 /* Terms of Service Box Styling */
 .terms-of-service-box {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(0, 255, 136, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.3);
     border-top: 3px solid #ff6b35;
     border-radius: 16px;
     padding: 3rem;
@@ -4129,7 +4129,7 @@ img {
 .terms-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid var(--border-secondary);
     border-radius: 12px;
 }
