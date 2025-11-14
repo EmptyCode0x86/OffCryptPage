@@ -3713,3 +3713,495 @@ img {
     }
 }
 
+/* Purchase Instructions Box Styling */
+.purchase-instructions-box {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-primary);
+    border-top: 3px solid var(--accent-primary);
+    border-radius: 0;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.purchase-instructions-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.purchase-instructions-box:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
+
+.purchase-instructions-box:hover::before {
+    opacity: 0.02;
+}
+
+.instructions-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.instructions-intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.instructions-overview {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-secondary);
+    border-radius: 0;
+}
+
+.instructions-overview h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.instructions-overview p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.instructions-steps-overview {
+    list-style: none;
+    padding-left: 0;
+}
+
+.instructions-steps-overview li {
+    padding: 0.75rem 0;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-secondary);
+    font-size: 1rem;
+}
+
+.instructions-steps-overview li:last-child {
+    border-bottom: none;
+}
+
+.instructions-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-secondary);
+    border-radius: 0;
+}
+
+.instructions-section h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-primary);
+}
+
+.instructions-subsection {
+    margin-bottom: 1.5rem;
+}
+
+.instructions-subsection:last-child {
+    margin-bottom: 0;
+}
+
+.instructions-subsection h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.instructions-subsection h5:first-child {
+    margin-top: 0;
+}
+
+.instructions-subsection ul,
+.instructions-subsection ol {
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.instructions-subsection ul li,
+.instructions-subsection ol li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.instructions-subsection ul li strong,
+.instructions-subsection ol li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.instructions-subsection code {
+    background: var(--quaternary-bg);
+    color: var(--accent-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--border-primary);
+}
+
+.instructions-subsection p {
+    color: var(--text-secondary);
+    margin: 1rem 0;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.instructions-warning {
+    background: rgba(255, 107, 53, 0.1);
+    border-left: 3px solid var(--accent-tertiary);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    color: var(--text-primary);
+}
+
+.instructions-warning strong {
+    color: var(--accent-tertiary);
+}
+
+.instructions-checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.instructions-checklist li {
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-secondary);
+    line-height: 1.7;
+}
+
+.instructions-checklist li:last-child {
+    border-bottom: none;
+}
+
+.instructions-checklist code {
+    background: var(--quaternary-bg);
+    color: var(--accent-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--border-primary);
+}
+
+.instructions-contact {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-secondary);
+    border-radius: 0;
+    text-align: center;
+}
+
+.instructions-contact h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.instructions-contact p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.instructions-contact ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.instructions-contact ul li {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.instructions-contact ul li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.instructions-contact code {
+    background: var(--quaternary-bg);
+    color: var(--accent-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--border-primary);
+}
+
+.instructions-contact a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.instructions-contact a:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+}
+
+.instructions-updated {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Responsive Design for Purchase Instructions */
+@media (max-width: 768px) {
+    .purchase-instructions-box {
+        padding: 2rem 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .instructions-title {
+        font-size: 1.5rem;
+    }
+
+    .instructions-intro {
+        font-size: 1rem;
+    }
+
+    .instructions-overview,
+    .instructions-section,
+    .instructions-contact {
+        padding: 1rem;
+    }
+
+    .instructions-section h4 {
+        font-size: 1.3rem;
+    }
+
+    .instructions-subsection h5 {
+        font-size: 1.1rem;
+    }
+
+    .instructions-subsection ul,
+    .instructions-subsection ol {
+        padding-left: 1.5rem;
+    }
+}
+
+/* Terms of Service Box Styling */
+.terms-of-service-box {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-primary);
+    border-top: 3px solid var(--accent-tertiary);
+    border-radius: 0;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terms-of-service-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.terms-of-service-box:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--accent-secondary);
+    box-shadow: var(--shadow-glow);
+}
+
+.terms-of-service-box:hover::before {
+    opacity: 0.02;
+}
+
+.terms-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.terms-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-secondary);
+    border-radius: 0;
+}
+
+.terms-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.terms-section h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-primary);
+}
+
+.terms-section p {
+    color: var(--text-secondary);
+    margin: 1rem 0;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.terms-section p strong {
+    color: var(--accent-tertiary);
+    font-weight: 600;
+}
+
+.terms-section ul {
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.terms-section ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.terms-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.terms-section ul li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.terms-section code {
+    background: var(--quaternary-bg);
+    color: var(--accent-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--border-primary);
+}
+
+.terms-acceptance {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 107, 53, 0.1);
+    border: 2px solid var(--accent-tertiary);
+    border-radius: 0;
+    text-align: center;
+}
+
+.terms-acceptance p {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.terms-acceptance p strong {
+    color: var(--accent-tertiary);
+}
+
+/* Responsive Design for Terms of Service */
+@media (max-width: 768px) {
+    .terms-of-service-box {
+        padding: 2rem 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .terms-title {
+        font-size: 1.5rem;
+    }
+
+    .terms-section {
+        padding: 1rem;
+    }
+
+    .terms-section h4 {
+        font-size: 1.2rem;
+    }
+
+    .terms-section ul li {
+        padding-left: 1.25rem;
+    }
+
+    .terms-acceptance {
+        padding: 1rem;
+    }
+
+    .terms-acceptance p {
+        font-size: 1rem;
+    }
+}
+
