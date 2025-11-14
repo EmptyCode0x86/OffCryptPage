@@ -3741,6 +3741,9 @@ img {
         border: 1px solid var(--border-primary);
         border-top: 3px solid var(--accent-primary);
         box-shadow: var(--shadow-primary);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
     }
 }
 
@@ -4088,6 +4091,9 @@ img {
         border: 1px solid var(--border-primary);
         border-top: 3px solid var(--accent-tertiary);
         box-shadow: var(--shadow-primary);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
     }
 }
 
