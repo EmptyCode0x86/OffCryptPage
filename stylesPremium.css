@@ -93,6 +93,7 @@ header {
     background: var(--gradient-card);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     border: 1px solid var(--border-primary);
     padding: 2rem 1.5rem;
     text-align: center;
@@ -202,6 +203,7 @@ nav ul {
     padding: 0.5rem;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     border: 1px solid var(--border-primary);
     position: static;
     z-index: 10;
@@ -397,6 +399,7 @@ nav a:hover {
     border-radius: 0;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     border: 1px solid var(--border-primary);
     border-left: 3px solid var(--accent-primary);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -451,6 +454,7 @@ nav a:hover {
     border: 1px solid var(--border-primary);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     box-shadow: var(--shadow-primary);
     margin: 0;
     overflow: hidden;
@@ -561,6 +565,7 @@ nav a:hover {
     font-weight: 600;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    -moz-backdrop-filter: blur(20px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -687,6 +692,8 @@ nav a:hover {
     margin: 20px auto;
     max-width: 500px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
     text-align: center;
 }
 
@@ -789,6 +796,8 @@ nav a:hover {
     max-width: 400px;
     min-height: 450px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
     transform: translateY(0);
     z-index: 1;
 }
@@ -2103,10 +2112,6 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     .swiper-button-prev::after {
         font-size: 16px !important;
     }
-    
-    /* Mobile Modal */
-        font-size: 1.5rem;
-    }
 
     .product-hunt-badge {
         min-width: auto;
@@ -2850,6 +2855,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     border: 1px solid var(--border-primary);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
+    -moz-backdrop-filter: blur(30px);
     box-shadow: var(--shadow-primary);
     margin: 0;
     border-top: none;
@@ -3766,7 +3772,7 @@ img {
 .instructions-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #00ff88; /* Fallback color for Firefox */
     margin-bottom: 1.5rem;
     text-align: center;
     background: var(--gradient-primary);
@@ -3794,11 +3800,9 @@ img {
 
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
     .instructions-overview {
-        background: var(--glass-bg);
+        background: rgba(255, 255, 255, 0.08); /* Slightly more opaque for Firefox */
         border: 1px solid var(--border-secondary);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        -moz-backdrop-filter: blur(10px);
+        /* Removed backdrop-filter to avoid nested backdrop-filter bug in Firefox */
     }
 }
 
@@ -3842,11 +3846,9 @@ img {
 
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
     .instructions-section {
-        background: var(--glass-bg);
+        background: rgba(255, 255, 255, 0.08); /* Slightly more opaque for Firefox */
         border: 1px solid var(--border-secondary);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        -moz-backdrop-filter: blur(10px);
+        /* Removed backdrop-filter to avoid nested backdrop-filter bug in Firefox */
     }
 }
 
@@ -3969,11 +3971,9 @@ img {
 
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
     .instructions-contact {
-        background: var(--glass-bg);
+        background: rgba(255, 255, 255, 0.08); /* Slightly more opaque for Firefox */
         border: 1px solid var(--border-secondary);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        -moz-backdrop-filter: blur(10px);
+        /* Removed backdrop-filter to avoid nested backdrop-filter bug in Firefox */
     }
 }
 
@@ -4125,7 +4125,7 @@ img {
 .terms-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #00ff88; /* Fallback color for Firefox */
     margin-bottom: 2rem;
     text-align: center;
     background: var(--gradient-primary);
