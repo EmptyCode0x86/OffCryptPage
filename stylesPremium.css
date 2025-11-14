@@ -3722,18 +3722,18 @@ img {
 
 /* Purchase Instructions Box Styling */
 .purchase-instructions-box {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--gradient-card);
     border: 1px solid var(--border-primary);
     border-top: 3px solid var(--accent-primary);
-    border-radius: 16px;
+    border-left: 3px solid var(--accent-primary);
+    border-radius: 20px;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    box-shadow: var(--shadow-primary);
+    box-shadow: var(--shadow-primary), 0 0 30px rgba(0, 255, 136, 0.1);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Backdrop filter directly in main class - no @supports needed */
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     -moz-backdrop-filter: blur(30px);
@@ -3753,9 +3753,11 @@ img {
 }
 
 .purchase-instructions-box:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     border-top-color: var(--accent-secondary);
-    box-shadow: var(--shadow-glow);
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-primary), 0 0 40px rgba(0, 255, 136, 0.2), var(--shadow-glow);
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
 }
 
 .purchase-instructions-box:hover::before {
@@ -3785,17 +3787,18 @@ img {
 .instructions-overview {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+    border: 1px solid var(--border-secondary);
+    border-left: 3px solid var(--accent-secondary);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
-@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
-    .instructions-overview {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid var(--border-secondary);
-    }
+.instructions-overview:hover {
+    transform: translateX(4px);
+    border-left-color: var(--accent-primary);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 212, 255, 0.1);
 }
 
 .instructions-overview h4 {
@@ -3830,18 +3833,20 @@ img {
 .instructions-section {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+    border: 1px solid var(--border-secondary);
+    border-left: 3px solid var(--accent-secondary);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
-@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
-    .instructions-section {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid var(--border-secondary);
-    }
+.instructions-section:hover {
+    transform: translateX(4px);
+    border-left-color: var(--accent-primary);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 212, 255, 0.1);
 }
+
 
 .instructions-section h4 {
     font-size: 1.5rem;
@@ -3953,19 +3958,21 @@ img {
 .instructions-contact {
     margin-top: 2.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: var(--gradient-card);
+    border: 1px solid var(--border-primary);
+    border-left: 3px solid var(--accent-primary);
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-subtle), 0 0 20px rgba(0, 255, 136, 0.05);
+    transition: all 0.3s ease;
 }
 
-@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
-    .instructions-contact {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid var(--border-secondary);
-    }
+.instructions-contact:hover {
+    transform: translateY(-2px);
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-primary), 0 0 25px rgba(0, 255, 136, 0.1);
 }
+
 
 .instructions-contact h4 {
     font-size: 1.5rem;
@@ -4064,18 +4071,18 @@ img {
 
 /* Terms of Service Box Styling */
 .terms-of-service-box {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--gradient-card);
     border: 1px solid var(--border-primary);
     border-top: 3px solid var(--accent-tertiary);
-    border-radius: 16px;
+    border-left: 3px solid var(--accent-tertiary);
+    border-radius: 20px;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    box-shadow: var(--shadow-primary);
+    box-shadow: var(--shadow-primary), 0 0 30px rgba(255, 107, 53, 0.1);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Backdrop filter directly in main class - no @supports needed */
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     -moz-backdrop-filter: blur(30px);
@@ -4095,9 +4102,11 @@ img {
 }
 
 .terms-of-service-box:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     border-top-color: var(--accent-secondary);
-    box-shadow: var(--shadow-glow);
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--shadow-primary), 0 0 40px rgba(255, 107, 53, 0.2), var(--shadow-glow-orange);
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
 }
 
 .terms-of-service-box:hover::before {
@@ -4119,9 +4128,18 @@ img {
 .terms-section {
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(17, 17, 17, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
     border: 1px solid var(--border-secondary);
-    border-radius: 12px;
+    border-left: 3px solid var(--accent-tertiary);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 107, 53, 0.05);
+    transition: all 0.3s ease;
+}
+
+.terms-section:hover {
+    transform: translateX(4px);
+    border-left-color: var(--accent-secondary);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 107, 53, 0.1);
 }
 
 .terms-section:last-of-type {
