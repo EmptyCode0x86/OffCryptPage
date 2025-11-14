@@ -3715,20 +3715,29 @@ img {
 
 /* Purchase Instructions Box Styling */
 .purchase-instructions-box {
-    background: var(--gradient-card);
-    border: 1px solid var(--border-primary);
-    border-top: 3px solid var(--accent-primary);
+    background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-top: 3px solid #00ff88;
     border-radius: 0;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    -moz-backdrop-filter: blur(30px);
-    box-shadow: var(--shadow-primary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) or (-moz-backdrop-filter: blur(30px)) {
+    .purchase-instructions-box {
+        background: var(--gradient-card);
+        border: 1px solid var(--border-primary);
+        border-top: 3px solid var(--accent-primary);
+        box-shadow: var(--shadow-primary);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
+    }
 }
 
 .purchase-instructions-box::before {
@@ -3777,12 +3786,20 @@ img {
 .instructions-overview {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-secondary);
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.15);
     border-radius: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
+    .instructions-overview {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-secondary);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+    }
 }
 
 .instructions-overview h4 {
@@ -3817,12 +3834,20 @@ img {
 .instructions-section {
     margin-bottom: 2.5rem;
     padding: 1.5rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-secondary);
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.15);
     border-radius: 0;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
+    .instructions-section {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-secondary);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+    }
 }
 
 .instructions-section h4 {
@@ -3935,13 +3960,21 @@ img {
 .instructions-contact {
     margin-top: 2.5rem;
     padding: 1.5rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--border-secondary);
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.15);
     border-radius: 0;
     text-align: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) or (-moz-backdrop-filter: blur(10px)) {
+    .instructions-contact {
+        background: var(--glass-bg);
+        border: 1px solid var(--border-secondary);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+    }
 }
 
 .instructions-contact h4 {
@@ -4041,20 +4074,29 @@ img {
 
 /* Terms of Service Box Styling */
 .terms-of-service-box {
-    background: var(--gradient-card);
-    border: 1px solid var(--border-primary);
-    border-top: 3px solid var(--accent-tertiary);
+    background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-top: 3px solid #ff6b35;
     border-radius: 0;
     padding: 3rem;
     margin: 2rem auto;
     max-width: 900px;
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    -moz-backdrop-filter: blur(30px);
-    box-shadow: var(--shadow-primary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@supports (backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px)) or (-moz-backdrop-filter: blur(30px)) {
+    .terms-of-service-box {
+        background: var(--gradient-card);
+        border: 1px solid var(--border-primary);
+        border-top: 3px solid var(--accent-tertiary);
+        box-shadow: var(--shadow-primary);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
+    }
 }
 
 .terms-of-service-box::before {
