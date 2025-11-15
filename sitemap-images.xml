@@ -53,5 +53,21 @@
       <image:license>https://www.dev-offcode.com/license</image:license>
     </image:image>
   </url>
+  
+  <url>
+    <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>
+      <image:title>Screen Lock Builder Premium Interface</image:title>
+      <image:caption>Advanced Windows screen lock builder with premium features</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/PremiumSettings.png</image:loc>
+      <image:title>Premium Builder Settings</image:title>
+      <image:caption>Advanced configuration options for premium users</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
 
 </urlset>

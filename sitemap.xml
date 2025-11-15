@@ -11,7 +11,7 @@
 <!-- Main Pages -->
 <url>
   <loc>https://www.dev-offcode.com/</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
   <image:image>
@@ -23,7 +23,7 @@
 
 <url>
   <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.90</priority>
   <image:image>
@@ -37,11 +37,41 @@
     <image:caption>Advanced security options and encryption</image:caption>
   </image:image>
 </url>
-<url>  <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>  <lastmod>2025-11-06T12:00:00+00:00</lastmod>  <changefreq>monthly</changefreq>  <priority>0.90</priority>  <image:image>    <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>    <image:title>Screen Lock Builder Premium Interface</image:title>    <image:caption>Advanced Windows screen lock builder with premium features</image:caption>  </image:image>  <image:image>    <image:loc>https://www.dev-offcode.com/PremiumSettings.png</image:loc>    <image:title>Premium Builder Settings</image:title>    <image:caption>Advanced configuration options for premium users</image:caption>  </image:image></url>
+
+<url>
+  <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>
+    <image:title>Screen Lock Builder Premium Interface</image:title>
+    <image:caption>Advanced Windows screen lock builder with premium features</image:caption>
+  </image:image>
+  <image:image>
+    <image:loc>https://www.dev-offcode.com/PremiumSettings.png</image:loc>
+    <image:title>Premium Builder Settings</image:title>
+    <image:caption>Advanced configuration options for premium users</image:caption>
+  </image:image>
+</url>
+
+<url>
+  <loc>https://www.dev-offcode.com/PurchasePremium.html</loc>
+  <lastmod>2025-01-28T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+
+<url>
+  <loc>https://www.dev-offcode.com/PurchasedProduct.html</loc>
+  <lastmod>2025-01-28T12:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
 
 <url>
   <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.85</priority>
   <image:image>
@@ -53,7 +83,7 @@
 
 <url>
   <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
   <image:image>
@@ -65,14 +95,14 @@
 
 <url>
   <loc>https://www.dev-offcode.com/changelog.html</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.70</priority>
 </url>
 
 <url>
   <loc>https://www.dev-offcode.com/disclaimer.html</loc>
-  <lastmod>2025-01-09T12:00:00+00:00</lastmod>
+  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.50</priority>
 </url>
