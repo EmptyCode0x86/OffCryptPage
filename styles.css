@@ -4254,6 +4254,11 @@ body.menu-open .hamburger::after {
     .menu-text {
         font-size: 0.9rem;
     }
+
+    .image-gallery-container {
+        margin-left: -220px;
+        padding-left: 220px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -4663,8 +4668,8 @@ body.menu-open .hamburger::after {
 
     /* Vähennetään tummaa taustaa mobiilissa */
     .image-gallery-container {
-        margin-left: -220px;
-        padding-left: 220px;
+        margin-left: 0;
+        padding-left: 2rem;
         background: rgba(10, 10, 10, 0.3);
     }
 
