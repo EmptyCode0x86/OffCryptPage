@@ -2,7 +2,7 @@
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>OffCrypt Desktop – Windows Encryption Suite</title>
     <meta name="description" content="OffCrypt Desktop - Windows encryption app with NIST 2024 compliant ECDH+HKDF+AES-GCM and X25519 cryptography. Disappearing messages, identity management, secure file operations.">
@@ -192,28 +192,90 @@
     <!-- End Twitter conversion tracking base code -->
 </head>
 <body>
-    <header>
-        <div class="logo-header">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
             <div class="logo-icon">
                 <span class="code-bracket">&lt;</span>
                 <div class="lock-icon">🔒</div>
                 <span class="code-bracket">&gt;</span>
             </div>
-            <h1>OffCrypt Desktop</h1>
+            <h1 class="sidebar-title">OffCrypt</h1>
         </div>
-        <p class="header-subtitle">Windows Encryption Suite</p>
-        <nav>
-            <ul id="navTabs" class="nav-tabs">
-                <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
-                <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Screen Lock Builder</a></li>
-                <li><a href="ScreenLockBuilderPremium.html" class="nav-link">🔒 Screen Lock Builder Premium</a></li>
-                <li><a href="RemoteControl.html" class="nav-link">💻 Web Remote Control</a></li>
-                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
+
+        <nav class="sidebar-nav">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-link">
+                        <span class="menu-icon">📱</span>
+                        <span class="menu-text">Android App</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="OffCryptDesktop.html" class="menu-link">
+                        <span class="menu-icon">💻</span>
+                        <span class="menu-text">Desktop App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilder.html" class="menu-link">
+                        <span class="menu-icon">🔒</span>
+                        <span class="menu-text">Screen Lock Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilderPremium.html" class="menu-link">
+                        <span class="menu-icon">⭐</span>
+                        <span class="menu-text">Premium Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="RemoteControl.html" class="menu-link">
+                        <span class="menu-icon">🌐</span>
+                        <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
+                        <span class="menu-icon">💝</span>
+                        <span class="menu-text">Donate</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-    </header>
 
-    <main>
+        <div class="sidebar-footer">
+            <p class="footer-text">Social media</p>
+            <div class="sidebar-social-divider"></div>
+            <div class="sidebar-social">
+                <a href="https://x.com/OffCryptAndroid" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on X">
+                    <span class="sidebar-social-icon">🐦</span>
+                    <span class="sidebar-social-label">X</span>
+                </a>
+                <a href="https://www.instagram.com/off.crypt86/" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on Instagram">
+                    <span class="sidebar-social-icon">📸</span>
+                    <span class="sidebar-social-label">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@offcrypt0" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on TikTok">
+                    <span class="sidebar-social-icon">🎵</span>
+                    <span class="sidebar-social-label">TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@OffCrypt" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on YouTube">
+                    <span class="sidebar-social-icon">▶️</span>
+                    <span class="sidebar-social-label">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+        <main>
         <!-- App Description Section -->
         <section class="intro-section">
             <div class="intro-container">
@@ -539,71 +601,32 @@
 
         <!-- Download Section -->
         <section id="download" class="download-section">
-            <div class="download-container">
+            <div class="download-container download-container-desktop">
                 <h2 class="download-title">🚀 Download</h2>
-    
 
 
+                <div class="version-notice">
+                    <p><strong>📢 Latest version: v1.0</strong></p>
+                </div>
 
-                                     <div class="version-notice">
-        <p><strong>📢 Latest version: v1.0 </strong></p>
-
-     </div>
                 <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/releases/download/OffCryptDesktop/OffCrypt.exe"
                    class="button primary-download" target="_blank" rel="noopener noreferrer"
-                   aria-label="Download OffCrypt">
+                   aria-label="Download OffCrypt for Windows">
                     ⬇️ Download OffCrypt for windows (.exe)
                 </a>
-                
-                <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/"
-                   class="button secondary-download" target="_blank" rel="noopener noreferrer"
-                   aria-label="View OffCrypt on GitHub">
-                    💻 View on GitHub
-                </a>
-                
+
                 <p class="download-info">Free • No ads • Open source • GPL-3.0 License</p>
-               
-                <div class="security-badges">
-                    <span class="badge">🔐 X25519 Key Generation</span>
-                    <span class="badge">🛡️ AES-256-GCM</span>
-                    <span class="badge">🔥 Disappearing Messages</span>
-                    <span class="badge">⚡ ECDH Curve Selection</span>
+
+                <p class="download-info">View on GitHub:</p>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/"
+                       class="button secondary-download" target="_blank" rel="noopener noreferrer"
+                       aria-label="View OffCrypt on GitHub">
+                        💻 View on GitHub
+                    </a>
                 </div>
 
-                <!-- Support Divider -->
-                <div class="support-divider"></div>
-
-              <div class="support-container">
-    <!-- Social Media Section -->
-    <div class="support-box social-media-box">
-        <h3>🐦 Social media</h3>
-        <p>Follow on social media!</p>
-        <div class="social-buttons-grid">
-            <a href="https://x.com/OffCryptAndroid" class="social-btn social-x" target="_blank" rel="noopener noreferrer">
-                🐦 Follow on X
-            </a>
-            <a href="https://www.instagram.com/off.crypt86/" class="social-btn social-instagram" target="_blank" rel="noopener noreferrer">
-                📸 Follow on Instagram
-            </a>
-            <a href="https://www.tiktok.com/@offcrypt0" class="social-btn social-tiktok" target="_blank" rel="noopener noreferrer">
-                🎵 Follow on TikTok
-            </a>
-            <a href="https://www.youtube.com/@OffCrypt" class="social-btn social-youtube" target="_blank" rel="noopener noreferrer">
-                ▶️ Follow on YouTube
-            </a>
-        </div>
-    </div>
-
-    <!-- Support Section -->
-    <div id="donate" class="support-box">
-        <h3>☕ Support Development</h3>
-        <p>Thank you for exploring OffCrypt! If you like the app or find it useful, please consider supporting the project</p>
-        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
-            💝 Donate
-        </a>
-    </div>
-
-                </div>
             </div>
         </section>
     </main>

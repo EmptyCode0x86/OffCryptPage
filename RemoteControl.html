@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Web Remote Control System – Manage Windows Devices from Your Browser</title>
     <meta name="description" content="Web Remote Control System for Windows devices. Control from browser, automate with Mouse Bot, transfer files, view device status in real time. Built with ASP.NET Core, Blazor, SignalR.">
@@ -40,6 +40,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="stylesPremium.css" as="style">
     <link rel="preload" href="gallery-simple.css" as="style">
     <link rel="preload" href="RemoteControlpnlPIC.png" as="image">
@@ -131,8 +132,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="stylesPremium.css">
-    <link rel="stylesheet" href="gallery-simple.css">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Video Schema -->
     <script type="application/ld+json">
@@ -142,7 +142,7 @@
         "name": "Web Remote Control System - Device Control Demo",
         "description": "Short demo of device control, automation, and file transfer using the Web Remote Control System for Windows devices.",
         "thumbnailUrl": "https://img.youtube.com/vi/AXyisyWNtYY/maxresdefault.jpg",
-        "uploadDate": "2024-01-01T00:00:00Z",
+        "uploadDate": "2024-01-01",
         "embedUrl": "https://www.youtube.com/embed/AXyisyWNtYY",
         "contentUrl": "https://www.youtube.com/watch?v=AXyisyWNtYY"
     }
@@ -155,35 +155,97 @@
         "name": "Web Remote Control System - Screen Lock Demo",
         "description": "Short demo of remote screen locking functionality using the Web Remote Control System.",
         "thumbnailUrl": "https://img.youtube.com/vi/-_gzRpHyFBg/maxresdefault.jpg",
-        "uploadDate": "2024-01-01T00:00:00Z",
+        "uploadDate": "2024-01-01",
         "embedUrl": "https://www.youtube.com/embed/-_gzRpHyFBg",
         "contentUrl": "https://www.youtube.com/watch?v=-_gzRpHyFBg"
     }
     </script>
 </head>
 <body>
-       <header>
-        <div class="logo-header">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
             <div class="logo-icon">
                 <span class="code-bracket">&lt;</span>
                 <div class="lock-icon">🔒</div>
                 <span class="code-bracket">&gt;</span>
             </div>
-            <h1>Web Remote Control System</h1>
+            <h1 class="sidebar-title">OffCrypt</h1>
         </div>
-        <p class="header-subtitle">Remote control computer via browser</p>
-        <nav>
-            <ul id="navTabs" class="nav-tabs">
-             
-                <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
-                <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
-                <li><a href="ScreenLockBuilder.html" class="nav-link">🔒 Screen Lock Builder</a></li>
-                <li><a href="ScreenLockBuilderPremium.html" class="nav-link">🔒 Screen Lock Builder Premium</a></li>
-                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
-            </ul>
-        </nav>    </header>
 
-     <main>
+        <nav class="sidebar-nav">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-link">
+                        <span class="menu-icon">📱</span>
+                        <span class="menu-text">Android App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="OffCryptDesktop.html" class="menu-link">
+                        <span class="menu-icon">💻</span>
+                        <span class="menu-text">Desktop App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilder.html" class="menu-link">
+                        <span class="menu-icon">🔒</span>
+                        <span class="menu-text">Screen Lock Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilderPremium.html" class="menu-link">
+                        <span class="menu-icon">⭐</span>
+                        <span class="menu-text">Premium Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="RemoteControl.html" class="menu-link">
+                        <span class="menu-icon">🌐</span>
+                        <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
+                        <span class="menu-icon">💝</span>
+                        <span class="menu-text">Donate</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Social media</p>
+            <div class="sidebar-social-divider"></div>
+            <div class="sidebar-social">
+                <a href="https://x.com/OffCryptAndroid" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on X">
+                    <span class="sidebar-social-icon">🐦</span>
+                    <span class="sidebar-social-label">X</span>
+                </a>
+                <a href="https://www.instagram.com/off.crypt86/" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on Instagram">
+                    <span class="sidebar-social-icon">📸</span>
+                    <span class="sidebar-social-label">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@offcrypt0" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on TikTok">
+                    <span class="sidebar-social-icon">🎵</span>
+                    <span class="sidebar-social-label">TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@OffCrypt" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on YouTube">
+                    <span class="sidebar-social-icon">▶️</span>
+                    <span class="sidebar-social-label">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+        <main>
         <section class="intro-section">
             <div class="intro-container">
                 <div class="intro-content">
@@ -286,44 +348,8 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modern Section Divider -->
-        <div class="section-divider"></div>
-
-                <!-- Social Media & Support Section -->
-                <div class="support-container">
-    <!-- Social Media Section -->
-    <div class="support-box social-media-box">
-        <h3>🐦 Social media</h3>
-        <p>Follow on social media!</p>
-        <div class="social-buttons-grid">
-            <a href="https://x.com/OffCryptAndroid" class="social-btn social-x" target="_blank" rel="noopener noreferrer">
-                🐦 Follow on X
-            </a>
-            <a href="https://www.instagram.com/off.crypt86/" class="social-btn social-instagram" target="_blank" rel="noopener noreferrer">
-                📸 Follow on Instagram
-            </a>
-            <a href="https://www.tiktok.com/@offcrypt0" class="social-btn social-tiktok" target="_blank" rel="noopener noreferrer">
-                🎵 Follow on TikTok
-            </a>
-            <a href="https://www.youtube.com/@OffCrypt" class="social-btn social-youtube" target="_blank" rel="noopener noreferrer">
-                ▶️ Follow on YouTube
-            </a>
-        </div>
+        </main>
     </div>
-
-    <!-- Support Section -->
-    <div id="donate" class="support-box">
-        <h3>☕ Support Development</h3>
-        <p>Thank you for exploring Web Remote Control System! If you like the app or find it useful, please consider supporting the project</p>
-        <a href="https://ko-fi.com/emptyc0de" class="donation-btn" rel="nofollow">
-            💝 Donate
-        </a>
-    </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
     <!-- Styles have been moved to styles.css -->
 
@@ -332,6 +358,6 @@
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
     <script src="gallery.js" defer></script>
-    
+
 </body>
 </html>

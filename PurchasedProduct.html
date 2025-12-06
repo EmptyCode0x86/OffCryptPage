@@ -47,31 +47,93 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
-    <link rel="stylesheet" href="stylesPremium.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo-header">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
             <div class="logo-icon">
                 <span class="code-bracket">&lt;</span>
                 <div class="lock-icon">🔒</div>
                 <span class="code-bracket">&gt;</span>
             </div>
-            <h1>Windows Screen Lock Builder Premium</h1>
+            <h1 class="sidebar-title">OffCrypt</h1>
         </div>
-        <p class="header-subtitle">Activation Instructions</p>
-        <nav>
-            <ul id="navTabs" class="nav-tabs">
-                <li><a href="ScreenLockBuilderPremium.html" class="nav-link">← Back to Premium</a></li>
-                <li><a href="RemoteControl.html" class="nav-link">💻 Web Remote Control</a></li>
-                <li><a href="index.html" class="nav-link">📱 OffCrypt - Android</a></li>
-                <li><a href="OffCryptDesktop.html" class="nav-link">💻 OffCrypt - Desktop</a></li>
-                <li><a href="https://ko-fi.com/emptyc0de" class="nav-link" target="_blank" rel="noopener noreferrer">💝 Donate</a></li>
+
+        <nav class="sidebar-nav">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-link">
+                        <span class="menu-icon">📱</span>
+                        <span class="menu-text">Android App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="OffCryptDesktop.html" class="menu-link">
+                        <span class="menu-icon">💻</span>
+                        <span class="menu-text">Desktop App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilder.html" class="menu-link">
+                        <span class="menu-icon">🔒</span>
+                        <span class="menu-text">Screen Lock Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="ScreenLockBuilderPremium.html" class="menu-link">
+                        <span class="menu-icon">⭐</span>
+                        <span class="menu-text">Premium Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="RemoteControl.html" class="menu-link">
+                        <span class="menu-icon">🌐</span>
+                        <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
+                        <span class="menu-icon">💝</span>
+                        <span class="menu-text">Donate</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-    </header>
 
-    <main>
+        <div class="sidebar-footer">
+            <p class="footer-text">Social media</p>
+            <div class="sidebar-social-divider"></div>
+            <div class="sidebar-social">
+                <a href="https://x.com/OffCryptAndroid" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on X">
+                    <span class="sidebar-social-icon">🐦</span>
+                    <span class="sidebar-social-label">X</span>
+                </a>
+                <a href="https://www.instagram.com/off.crypt86/" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on Instagram">
+                    <span class="sidebar-social-icon">📸</span>
+                    <span class="sidebar-social-label">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@offcrypt0" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on TikTok">
+                    <span class="sidebar-social-icon">🎵</span>
+                    <span class="sidebar-social-label">TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@OffCrypt" target="_blank" rel="noopener noreferrer" aria-label="Follow OffCrypt on YouTube">
+                    <span class="sidebar-social-icon">▶️</span>
+                    <span class="sidebar-social-label">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+        <main>
         <!-- Activation Instructions Section -->
         <section class="download-section">
             <div class="download-container">
@@ -221,7 +283,8 @@
                 </div>
             </div>
         </section>
-    </main>
+        </main>
+    </div>
 
     <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
