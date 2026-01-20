@@ -1,0 +1,217 @@
+/**
+ * Cookie Consent Banner Styles
+ * Matches OffCrypt dark theme with glassmorphism
+ */
+
+/* Cookie Banner Container */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    padding: 0;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease;
+}
+
+.cookie-banner-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cookie-banner-hiding {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Banner Content */
+.cookie-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 32px;
+    background: rgba(20, 20, 25, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4),
+                0 -2px 8px rgba(0, 255, 136, 0.1);
+}
+
+/* Text Section */
+.cookie-banner-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.cookie-icon {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.cookie-message {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cookie-message strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.cookie-message p {
+    margin: 0;
+    color: #b0b0b0;
+}
+
+.cookie-link {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.cookie-link:hover {
+    color: #00e676;
+    text-decoration: underline;
+}
+
+/* Buttons Section */
+.cookie-banner-buttons {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.cookie-btn .btn-icon {
+    font-size: 1rem;
+}
+
+/* Reject Button */
+.cookie-btn-reject {
+    background: rgba(255, 255, 255, 0.08);
+    color: #b0b0b0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cookie-btn-reject:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.cookie-btn-reject:active {
+    transform: translateY(0);
+}
+
+/* Accept Button */
+.cookie-btn-accept {
+    background: linear-gradient(135deg, #00ff88 0%, #00e676 100%);
+    color: #0a0a0c;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
+}
+
+.cookie-btn-accept:hover {
+    background: linear-gradient(135deg, #00e676 0%, #00cc66 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 255, 136, 0.4);
+}
+
+.cookie-btn-accept:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 255, 136, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cookie-banner-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .cookie-banner-text {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .cookie-icon {
+        font-size: 2.5rem;
+    }
+
+    .cookie-message strong {
+        font-size: 1rem;
+    }
+
+    .cookie-message p {
+        font-size: 0.9rem;
+    }
+
+    .cookie-banner-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .cookie-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-banner-content {
+        padding: 16px;
+    }
+
+    .cookie-banner-buttons {
+        flex-direction: column;
+    }
+
+    .cookie-btn {
+        width: 100%;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .cookie-banner {
+        transition: none;
+    }
+
+    .cookie-btn {
+        transition: none;
+    }
+}

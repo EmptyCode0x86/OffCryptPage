@@ -198,33 +198,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="gallery-simple.css">
 
-    <!-- PIA Affiliate Script -->
-    <script type='text/javascript'>
-        window.__pia_affiliate_id = 5404
-            ; (function () {
-                var wa = document.createElement('script')
-                wa.type = 'text/javascript'
-                wa.async = true
-                wa.src = 'https://www.privateinternetaccess.com/affiliate.min.js'
-                var s = document.getElementsByTagName('script')[0]
-                s.parentNode.insertBefore(wa, s)
-            })()
-    </script>
-
-    <!-- Twitter conversion tracking base code -->
-    <script>
-        !function (e, t, n, s, u, a) {
-            e.twq || (s = e.twq = function () {
-                s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
-            }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js',
-                a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))
-        }(window, document, 'script');
-        twq('config', 'qg0d8');
-    </script>
-    <!-- End Twitter conversion tracking base code -->
-
-    <!-- Ahrefs Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="RJwHY6ZleUxbf9RWbtqXOA" async></script>
+    <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
 </head>
 
 <body>
@@ -275,6 +249,12 @@
                     <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
                         <span class="menu-icon">💝</span>
                         <span class="menu-text">Donate</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="PrivacyPolicy.html" class="menu-link">
+                        <span class="menu-icon">🔐</span>
+                        <span class="menu-text">Privacy Policy</span>
                     </a>
                 </li>
             </ul>
@@ -614,6 +594,10 @@
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
     <script src="gallery.js" defer></script>
+
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="cookie-consent.css">
+    <script src="cookie-consent.js" defer></script>
 </body>
 
 </html>
