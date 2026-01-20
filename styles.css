@@ -100,10 +100,13 @@ body::after {
 }
 
 @keyframes gridPulse {
-    0%, 100% { 
+
+    0%,
+    100% {
         opacity: 0.55;
     }
-    50% { 
+
+    50% {
         opacity: 0.8;
     }
 }
@@ -183,8 +186,17 @@ header::after {
 }
 
 @keyframes subtlePulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.02); opacity: 0.9; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
 }
 
 header h1 {
@@ -373,6 +385,135 @@ nav a:hover {
     margin: 0 auto;
 }
 
+/* Hero Title */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* Hero Glow Divider */
+.hero-glow-divider {
+    width: 200px;
+    height: 2px;
+    margin: 1.5rem auto 2rem auto;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 188, 212, 0.5) 20%,
+            rgba(0, 188, 212, 0.9) 50%,
+            rgba(0, 188, 212, 0.5) 80%,
+            transparent 100%);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+    border-radius: 1px;
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin: 0.5rem 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Hero Tagline */
+.hero-tagline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.tagline-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 102, 255, 0.08);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tagline-item:hover {
+    background: rgba(0, 102, 255, 0.15);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.tagline-divider {
+    color: var(--accent-primary);
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+/* Hero CTA Buttons */
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.hero-btn.primary {
+    background: var(--accent-primary);
+    color: white;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+}
+
+.hero-btn.primary:hover {
+    background: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+}
+
+.hero-btn.secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-primary);
+}
+
+.hero-btn.secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    background: rgba(0, 102, 255, 0.05);
+    transform: translateY(-3px);
+}
+
+/* Lead Text - First paragraph emphasis */
+.intro-description.lead-text {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
 .intro-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -475,16 +616,20 @@ nav a:hover {
     top: 50%;
     left: 5%;
     right: 5%;
-    height: 2px; /* PAKSUMPI VIIVA */
+    height: 2px;
+    /* PAKSUMPI VIIVA */
     transform: translateY(-50%);
     background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(0, 188, 212, 0.3) 10%, /* KIRKKAAMPI SININEN */
-        rgba(0, 188, 212, 0.8) 50%, /* VAHVA KESKELLÄ */
-        rgba(0, 188, 212, 0.3) 90%, /* KIRKKAAMPI SININEN */
-        transparent 100%
-    );
-    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* GLOW EFEKTI */
+            transparent 0%,
+            rgba(0, 188, 212, 0.3) 10%,
+            /* KIRKKAAMPI SININEN */
+            rgba(0, 188, 212, 0.8) 50%,
+            /* VAHVA KESKELLÄ */
+            rgba(0, 188, 212, 0.3) 90%,
+            /* KIRKKAAMPI SININEN */
+            transparent 100%);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+    /* GLOW EFEKTI */
 }
 
 .section-divider::after {
@@ -518,14 +663,16 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding-left: 260px; /* SIVUPALKIN OFFSET */
+    padding-left: 260px;
+    /* SIVUPALKIN OFFSET */
     padding-right: 2rem;
     box-sizing: border-box;
 }
 
 /* OffCryptDesktop.html erikseen */
 .download-container-desktop {
-    padding-left: 50px; /* VÄHENNETTY PADDING DESKTOP VERSIOLLE */
+    padding-left: 50px;
+    /* VÄHENNETTY PADDING DESKTOP VERSIOLLE */
 }
 
 .download-title {
@@ -534,9 +681,12 @@ nav a:hover {
     text-align: center;
     margin-bottom: 1rem;
     color: var(--text-primary);
-    max-width: 800px; /* SAMA KUIN PRICING-HEADER */
-    margin-left: auto; /* KESKITYS */
-    margin-right: auto; /* KESKITYS */
+    max-width: 800px;
+    /* SAMA KUIN PRICING-HEADER */
+    margin-left: auto;
+    /* KESKITYS */
+    margin-right: auto;
+    /* KESKITYS */
 }
 
 .download-description {
@@ -551,8 +701,10 @@ nav a:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 3rem auto; /* AUTO KESKITYS */
-    max-width: 900px; /* MAX-WIDTH RAJOITUS */
+    margin: 3rem auto;
+    /* AUTO KESKITYS */
+    max-width: 900px;
+    /* MAX-WIDTH RAJOITUS */
 }
 
 .badge {
@@ -668,11 +820,13 @@ nav a:hover {
 .download-info {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    margin: 0 auto; /* SAMA KUIN PRICING-HEADER P */
+    margin: 0 auto;
+    /* SAMA KUIN PRICING-HEADER P */
     font-style: italic;
     font-weight: 500;
     text-align: center;
-    max-width: 600px; /* SAMA KUIN PRICING-HEADER P */
+    max-width: 600px;
+    /* SAMA KUIN PRICING-HEADER P */
     display: block;
 }
 
@@ -732,8 +886,8 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -761,8 +915,15 @@ nav a:hover {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 /* Swiper Carousel Styling */
@@ -795,7 +956,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
@@ -1125,7 +1286,7 @@ a.button:hover {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 40%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1334,26 +1495,26 @@ a.button:hover {
         padding: 40px 15px;
         min-height: auto;
     }
-    
+
     .disclaimer-card {
         padding: 30px 20px;
     }
-    
+
     .disclaimer-header h2 {
         font-size: 2rem;
     }
-    
+
     .disclaimer-item {
         flex-direction: column;
         text-align: center;
         gap: 15px;
     }
-    
+
     .disclaimer-actions {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .disclaimer-btn {
         min-width: 200px;
         width: 100%;
@@ -1377,7 +1538,7 @@ a.button:hover {
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 30% 40%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 80% 80%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1498,19 +1659,19 @@ a.button:hover {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .screenshot-card.featured {
         grid-column: span 1;
     }
-    
+
     .screenshots-title {
         font-size: 2rem;
     }
-    
+
     .screenshot-image img {
         height: 200px;
     }
-    
+
     .screenshot-card.featured .screenshot-image img {
         height: 250px;
     }
@@ -1752,6 +1913,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     margin-bottom: 8px;
     text-align: center;
 }
+
 .social-media-box p {
     color: #b0b0b0;
     font-size: 0.9rem;
@@ -1861,9 +2023,17 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Swiper Navigation Customization */
@@ -1924,48 +2094,50 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 /* Modern Mobile Responsiveness */
 @media (max-width: 768px) {
-    html, body {
+
+    html,
+    body {
         overflow-x: hidden;
         width: 100%;
         position: relative;
     }
-    
+
     header {
         padding: 1.5rem 1rem;
         margin: 0 0.5rem;
         margin-bottom: 1rem;
         border-radius: 1.5rem;
     }
-    
+
     .logo-header {
         gap: 1rem;
         margin-bottom: 1rem;
     }
-    
+
     .logo-icon {
         gap: 0.5rem;
         font-size: 2rem;
     }
-    
+
     .code-bracket {
         font-size: 2rem;
     }
-    
+
     .lock-icon {
         font-size: 2rem;
     }
-    
+
     header h1 {
         font-size: 2.5rem;
         line-height: 1.1;
     }
-    
+
     .header-subtitle {
         font-size: 1.1rem;
         margin-top: 0.5rem;
     }
 
-/* Mobile Navigation Tabs */
+    /* Mobile Navigation Tabs */
     .nav-tabs {
         max-width: 100%;
         margin: 15px auto 0 auto !important;
@@ -1978,7 +2150,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         -webkit-overflow-scrolling: touch;
         gap: 0.25rem;
     }
-    
+
     .nav-tabs li {
         flex: 0 0 auto;
         margin: 0;
@@ -1986,7 +2158,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         display: flex;
         justify-content: center;
     }
-    
+
     .nav-link {
         padding: 8px 10px;
         font-size: 0.75rem;
@@ -1996,7 +2168,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         min-width: fit-content;
         line-height: 1.2;
     }
-    
+
     /* OffCryptDesktop.html specific - shorter text for mobile */
     body:has(h1:contains("Desktop")) .nav-link,
     .nav-link[href*="Android"] {
@@ -2033,83 +2205,83 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         text-align: center;
         font-size: 0.95rem;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     .section-divider {
         width: 100%;
         max-width: 100%;
         margin-left: 0;
     }
-    
+
     .download-section {
         padding: 60px 15px;
         box-sizing: border-box;
     }
-    
+
     .download-title {
         font-size: 2rem;
     }
-    
+
     .download-description {
         font-size: 1.1rem;
     }
-    
+
     .security-badges {
         gap: 10px;
     }
-    
+
     .badge {
         font-size: 0.8rem;
         padding: 6px 12px;
     }
-    
+
     .carousel-title {
         font-size: 2rem;
     }
-    
+
     .carousel-subtitle {
         font-size: 1rem;
         padding: 0 20px;
     }
-    
+
     .product-card {
         width: 95%;
         padding: 25px 20px;
         min-height: 400px;
     }
-    
+
     .product-header h2 {
         font-size: 1.4rem;
     }
-    
+
     .features ul {
         padding: 15px;
     }
-    
+
     .features li {
         font-size: 0.9rem;
         margin-bottom: 8px;
     }
-    
+
     .swiper-button-next,
     .swiper-button-prev {
         width: 40px !important;
         height: 40px !important;
         margin-top: -20px !important;
     }
-    
+
     .swiper-button-next::after,
     .swiper-button-prev::after {
         font-size: 16px !important;
     }
-    
+
     /* Mobile Modal */
-    
-    
-    
+
+
+
 
     .community-title {
         font-size: 1.5rem;
@@ -2136,7 +2308,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         display: flex;
         flex-direction: column;
     }
-    
+
     .support-box {
         padding: 20px 15px;
         margin-top: 0;
@@ -2172,119 +2344,120 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 @media (max-width: 480px) {
+
     /* Extra small screen header optimization */
     header {
         padding: 12px 10px;
     }
-    
+
     .logo-header {
         gap: 6px;
         margin-bottom: 4px;
     }
-    
+
     .logo-icon {
         gap: 4px;
         font-size: 1.1rem;
     }
-    
+
     .code-bracket {
         font-size: 1.2rem;
     }
-    
+
     .lock-icon {
         font-size: 1.1rem;
     }
-    
+
     header h1 {
         font-size: 1.5rem;
         line-height: 1;
     }
-    
+
     .header-subtitle {
         font-size: 0.85rem;
         margin-top: 1px;
     }
-    
+
     /* Extra mobile optimization for navigation */
     .nav-tabs {
         padding: 3px;
         margin: 10px auto 0 auto !important;
     }
-    
+
     .nav-link {
         padding: 6px 8px;
         font-size: 0.7rem;
         border-radius: 14px;
     }
-    
+
     /* OffCryptDesktop.html - even smaller for tiny screens */
     .nav-link[href*="Android"],
     .nav-link[href*="how-to-use"] {
         font-size: 0.65rem;
         padding: 5px 6px;
     }
-    
+
     .carousel-container {
         padding: 30px 10px;
         margin-top: -10px;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     .section-divider {
         margin-left: 0;
         width: 100%;
         max-width: 100%;
     }
-    
+
     .download-section {
         padding: 50px 10px;
         box-sizing: border-box;
     }
-    
+
     .download-title {
         font-size: 1.8rem;
     }
-    
+
     .download-description {
         font-size: 1rem;
         padding: 0 10px;
     }
-    
+
     .primary-download {
         font-size: 1rem;
         padding: 14px 24px;
     }
-    
+
     .download-info {
         font-size: 0.9rem;
     }
-    
+
     .security-badges {
         gap: 8px;
     }
-    
+
     .badge {
         font-size: 0.75rem;
         padding: 5px 10px;
     }
-    
+
     .product-card {
         width: 98%;
         padding: 20px 15px;
     }
-    
+
     .slide-counter {
         top: 10px;
         right: 10px;
         padding: 4px 8px;
         font-size: 0.7rem;
     }
-    
+
     /* Mobile Modal Adjustments */
-    
+
     .intro-title {
         font-size: 1.75rem;
         margin-bottom: 20px;
@@ -2313,7 +2486,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
         margin-top: 25px;
         grid-template-columns: none;
     }
-    
+
     .support-box {
         padding: 18px 15px;
         margin-top: 0;
@@ -2355,33 +2528,45 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 /* === FIX: Features-korttien leikkaus & nappien tasaus (robust) === */
 /* Yliaja mobiilissa slidejen min-height */
 @media (max-width: 768px) {
-  .security-swiper { padding-bottom: 40px; }
-  .security-swiper .swiper-slide { min-height: 0 !important; }
-  .product-card { min-height: unset; height: auto; }
+    .security-swiper {
+        padding-bottom: 40px;
+    }
+
+    .security-swiper .swiper-slide {
+        min-height: 0 !important;
+    }
+
+    .product-card {
+        min-height: unset;
+        height: auto;
+    }
 }
 
 /* Support-laatikoiden napit samalle tasolle */
-.support-container { 
-  align-items: stretch; 
+.support-container {
+    align-items: stretch;
 }
+
 .support-box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  clear: both;
-  overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    clear: both;
+    overflow: hidden;
 }
+
 .support-box .donation-btn,
 .support-box .social-btn {
-  margin-top: auto;
-  display: inline-flex;
+    margin-top: auto;
+    display: inline-flex;
 }
 
 /* Pricing Section Styles */
 .pricing-section {
     padding: 80px 20px;
-    background: rgba(0, 0, 0, 0.85); /* MODERNIMPI TUMMA TAUSTA */
+    background: rgba(0, 0, 0, 0.85);
+    /* MODERNIMPI TUMMA TAUSTA */
     position: relative;
     overflow: hidden;
 }
@@ -2394,7 +2579,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     right: 0;
     bottom: 0;
     background: radial-gradient(circle at 20% 80%, rgba(0, 188, 212, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
+        radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -2416,12 +2601,14 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(0, 188, 212, 0.3); /* HIENO GLOW */
+    text-shadow: 0 0 30px rgba(0, 188, 212, 0.3);
+    /* HIENO GLOW */
 }
 
 .pricing-header p {
     font-size: 1.2rem;
-    color: var(--text-secondary); /* YHTENÄINEN VÄRI */
+    color: var(--text-secondary);
+    /* YHTENÄINEN VÄRI */
     max-width: 600px;
     margin: 0 auto;
 }
@@ -2434,31 +2621,40 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 .pricing-card {
-    background: rgba(0, 0, 0, 0.7); /* TUMMEMPI TAUSTA ILMAN BLURIA */
-    border-radius: 24px; /* PYÖREÄMMÄT KULMAT */
+    background: rgba(0, 0, 0, 0.7);
+    /* TUMMEMPI TAUSTA ILMAN BLURIA */
+    border-radius: 24px;
+    /* PYÖREÄMMÄT KULMAT */
     padding: 1.5rem 1.5rem 1rem 1.5rem;
     text-align: center;
     position: relative;
-    border: 1px solid var(--border-primary); /* YHTENÄINEN BORDER */
+    border: 1px solid var(--border-primary);
+    /* YHTENÄINEN BORDER */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-subtle); /* MODERNIMPI VARJO */
+    box-shadow: var(--shadow-subtle);
+    /* MODERNIMPI VARJO */
 }
 
 .pricing-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-glow); /* MODERNI GLOW */
-    border-color: var(--accent-primary); /* SININEN BORDER */
+    box-shadow: var(--shadow-glow);
+    /* MODERNI GLOW */
+    border-color: var(--accent-primary);
+    /* SININEN BORDER */
 }
 
 .pricing-card.premium {
-    border-color: var(--accent-secondary); /* VAALEANPUNAINEN BORDER */
+    border-color: var(--accent-secondary);
+    /* VAALEANPUNAINEN BORDER */
     transform: scale(1.05);
-    box-shadow: 0 8px 32px rgba(0, 102, 255, 0.2); /* HIENOVARAINEN GLOW */
+    box-shadow: 0 8px 32px rgba(0, 102, 255, 0.2);
+    /* HIENOVARAINEN GLOW */
 }
 
 .pricing-card.premium:hover {
     transform: scale(1.05) translateY(-8px);
-    box-shadow: var(--shadow-glow); /* YHTENÄINEN GLOW */
+    box-shadow: var(--shadow-glow);
+    /* YHTENÄINEN GLOW */
     border-color: var(--accent-secondary);
 }
 
@@ -2504,20 +2700,24 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 .price {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--accent-primary); /* YHTENÄINEN SININEN */
+    color: var(--accent-primary);
+    /* YHTENÄINEN SININEN */
     display: block;
-    text-shadow: 0 0 20px rgba(0, 188, 212, 0.4); /* GLOW */
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+    /* GLOW */
 }
 
 .price-period {
     font-size: 0.8rem;
-    color: var(--text-secondary); /* YHTENÄINEN VÄRI */
+    color: var(--text-secondary);
+    /* YHTENÄINEN VÄRI */
     margin-left: 5px;
 }
 
 .plan-description {
     font-size: 0.85rem;
-    color: var(--text-secondary); /* YHTENÄINEN VÄRI */
+    color: var(--text-secondary);
+    /* YHTENÄINEN VÄRI */
     margin-bottom: 10px;
     line-height: 1.3;
 }
@@ -2554,11 +2754,13 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 }
 
 .feature-included {
-    color: #10b981; /* Green checkmark */
+    color: #10b981;
+    /* Green checkmark */
 }
 
 .feature-excluded {
-    color: #ef4444; /* Red X */
+    color: #ef4444;
+    /* Red X */
 }
 
 /* Dimmed text for disabled features */
@@ -2698,8 +2900,8 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -2881,25 +3083,25 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     .how-to-use-section {
         padding: 60px 15px;
     }
-    
+
     .how-to-use-title {
         font-size: 2.5rem;
     }
-    
+
     .usage-methods {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .method-card {
         padding: 2rem;
     }
-    
+
     .advanced-features-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
-    
+
     .feature-item {
         padding: 15px;
     }
@@ -2930,10 +3132,10 @@ main .features-section,
 .main-wrapper .features-section,
 .main-wrapper .download-section,
 
- {
-    margin-left: -260px !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
+{
+margin-left: -260px !important;
+width: 100vw !important;
+max-width: 100vw !important;
 }
 
 /* Responsive adjustments */
@@ -2942,10 +3144,10 @@ main .features-section,
     main .features-section,
     .main-wrapper .features-section,
     .main-wrapper .download-section,
-    
-     {
-        margin-left: -220px !important;
-    }
+
+    {
+    margin-left: -220px !important;
+}
 }
 
 @media (max-width: 768px) {
@@ -2953,12 +3155,12 @@ main .features-section,
     main .features-section,
     .main-wrapper .features-section,
     .main-wrapper .download-section,
-    
-     {
-        margin-left: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
+
+    {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
 }
 
 /* Ensure container has proper padding for sidebar */
@@ -2968,6 +3170,7 @@ main .features-section,
 }
 
 @media (max-width: 1024px) {
+
     .features-container,
     .download-container {
         padding-left: 220px;
@@ -2979,6 +3182,7 @@ main .features-section,
 }
 
 @media (max-width: 768px) {
+
     .features-container,
     .download-container {
         padding-left: 2rem;
@@ -3033,10 +3237,10 @@ main .features-section,
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-        rgba(0, 102, 255, 0.08) 0%, 
-        transparent 50%, 
-        rgba(0, 212, 255, 0.04) 100%);
+    background: linear-gradient(135deg,
+            rgba(0, 102, 255, 0.08) 0%,
+            transparent 50%,
+            rgba(0, 212, 255, 0.04) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
@@ -3065,7 +3269,7 @@ main .features-section,
 
 .feature-card:hover {
     transform: translateY(-8px);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(0, 102, 255, 0.2);
     border-color: rgba(0, 102, 255, 0.4);
@@ -3094,6 +3298,7 @@ main .features-section,
         filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.6));
         text-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
     }
+
     100% {
         color: var(--accent-secondary);
         filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
@@ -3178,16 +3383,16 @@ main .features-section,
         padding-left: 15px !important;
         width: 100% !important;
     }
-    
+
     .features-title {
         font-size: 2.5rem;
     }
-    
+
     .features-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .feature-card {
         padding: 2rem;
     }
@@ -3198,39 +3403,39 @@ main .features-section,
     .pricing-section {
         padding: 60px 15px;
     }
-    
+
     .pricing-header h2 {
         font-size: 2.5rem;
     }
-    
+
     .pricing-cards {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .pricing-card {
         padding: 2rem;
     }
-    
+
     .pricing-card.premium {
         transform: none;
     }
-    
+
     .pricing-card.premium:hover {
         transform: translateY(-10px);
     }
-    
+
     /* Single column for mobile */
     .features-list {
         grid-template-columns: 1fr;
         gap: 0.3rem;
     }
-    
+
     .faq-container {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .faq-item {
         padding: 20px;
     }
@@ -3238,12 +3443,12 @@ main .features-section,
 
 /* Mobile spacing fixes */
 @media (max-width: 768px) {
-  .support-box {
-    float: none;
-    clear: both;
-    display: block;
-    position: static;
-  }
+    .support-box {
+        float: none;
+        clear: both;
+        display: block;
+        position: static;
+    }
 }
 
 /* PIA Banner Base Styles */
@@ -3323,9 +3528,9 @@ main .features-section,
 /* PIA Buy Now Button Hover Effect */
 .pia-banner-btn:hover,
 .pia-buy-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5);
-  background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.5);
+    background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%) !important;
 }
 
 /* PIA Horizontal Banner Hover Effects */
@@ -3335,112 +3540,113 @@ main .features-section,
 
 /* Responsive Design for PIA Banner */
 @media (max-width: 768px) {
-  .pia-banner-section {
-    padding: 20px 10px !important;
-    margin: 30px 0 !important;
-    overflow: hidden;
-  }
-  
-  .pia-banner-container {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 15px !important;
-    padding: 15px 12px !important;
-    max-width: 100% !important;
-    position: relative;
-    border-radius: 15px !important;
-  }
-  
-  .pia-banner-content {
-    flex: none !important;
-    order: 2;
-  }
-  
-  .pia-banner-content h3 {
-    font-size: 0.95rem !important;
-    margin-bottom: 8px !important;
-    line-height: 1.3 !important;
-  }
-  
-  .pia-banner-content p {
-    font-size: 0.8rem !important;
-    margin-bottom: 10px !important;
-    line-height: 1.3 !important;
-  }
-  
-  .pia-banner-btn {
-    padding: 8px 16px !important;
-    font-size: 0.85rem !important;
-    border-radius: 20px !important;
-    display: inline-flex !important;
-    width: fit-content !important;
-    margin: 0 auto !important;
-    min-height: 36px;
-    align-items: center !important;
-    justify-content: center !important;
-    font-weight: 600 !important;
-  }
-  
-  .pia-banner-logo {
-    order: 1 !important;
-    margin-bottom: 5px;
-  }
-  
-  .pia-banner-logo img {
-    max-width: 140px !important;
-    height: auto;
-  }
+    .pia-banner-section {
+        padding: 20px 10px !important;
+        margin: 30px 0 !important;
+        overflow: hidden;
+    }
+
+    .pia-banner-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 15px !important;
+        padding: 15px 12px !important;
+        max-width: 100% !important;
+        position: relative;
+        border-radius: 15px !important;
+    }
+
+    .pia-banner-content {
+        flex: none !important;
+        order: 2;
+    }
+
+    .pia-banner-content h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
+    }
+
+    .pia-banner-content p {
+        font-size: 0.8rem !important;
+        margin-bottom: 10px !important;
+        line-height: 1.3 !important;
+    }
+
+    .pia-banner-btn {
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+        border-radius: 20px !important;
+        display: inline-flex !important;
+        width: fit-content !important;
+        margin: 0 auto !important;
+        min-height: 36px;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: 600 !important;
+    }
+
+    .pia-banner-logo {
+        order: 1 !important;
+        margin-bottom: 5px;
+    }
+
+    .pia-banner-logo img {
+        max-width: 140px !important;
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
-  .pia-banner-section {
-    padding: 15px 8px !important;
-    margin: 20px 0 !important;
-  }
-  
-  .pia-banner-container {
-    padding: 12px 10px !important;
-    border-radius: 12px !important;
-    gap: 12px !important;
-  }
-  
-  .pia-banner-content h3 {
-    font-size: 0.9rem !important;
-    margin-bottom: 6px !important;
-    line-height: 1.2 !important;
-  }
-  
-  .pia-banner-content p {
-    font-size: 0.75rem !important;
-    margin-bottom: 8px !important;
-    line-height: 1.2 !important;
-  }
-  
-  .pia-banner-btn {
-    padding: 6px 12px !important;
-    font-size: 0.8rem !important;
-    min-height: 32px;
-    font-weight: 600 !important;
-    border-radius: 16px !important;
-  }
-  
-  .pia-banner-logo img {
-    max-width: 120px !important;
-  }
+    .pia-banner-section {
+        padding: 15px 8px !important;
+        margin: 20px 0 !important;
+    }
+
+    .pia-banner-container {
+        padding: 12px 10px !important;
+        border-radius: 12px !important;
+        gap: 12px !important;
+    }
+
+    .pia-banner-content h3 {
+        font-size: 0.9rem !important;
+        margin-bottom: 6px !important;
+        line-height: 1.2 !important;
+    }
+
+    .pia-banner-content p {
+        font-size: 0.75rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+    }
+
+    .pia-banner-btn {
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+        min-height: 32px;
+        font-weight: 600 !important;
+        border-radius: 16px !important;
+    }
+
+    .pia-banner-logo img {
+        max-width: 120px !important;
+    }
 }
 
 /* Make sure images are fully visible and responsive in modal */
 
 /* Force prevent horizontal scrolling */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Ensure all images are responsive */
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* How to Use Section Styling */
@@ -3571,8 +3777,15 @@ img {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Usage Steps Styling */
@@ -3668,7 +3881,7 @@ img {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
-    
+
     .feature-group {
         -webkit-box-flex: 1;
         -webkit-flex: 1 1 300px;
@@ -3740,93 +3953,93 @@ img {
 
 /* Mobile Responsiveness for How to Use */
 @media (max-width: 768px) {
-    
+
     .tab-buttons {
         flex-direction: column;
     }
-    
+
     .tab-btn {
         border-right: none;
         border-bottom: 1px solid rgba(0, 188, 212, 0.2);
         padding: 15px 18px;
         font-size: 0.9rem;
     }
-    
+
     .tab-btn:last-child {
         border-bottom: none;
     }
-    
+
     .tab-content {
         padding: 30px 20px;
     }
-    
+
     .usage-steps {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .step-card {
         padding: 20px;
         flex-direction: column;
         text-align: center;
         gap: 12px;
     }
-    
+
     .step-number {
         width: 35px;
         height: 35px;
         font-size: 1rem;
     }
-    
+
     .advanced-features {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    
+
     .feature-group {
         padding: 20px;
     }
-    
+
     .feature-highlight {
         padding: 18px;
     }
-    
+
     .feature-highlight .highlight-icon {
         font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    
+
     .tab-btn {
         padding: 12px 15px;
         font-size: 0.85rem;
     }
-    
+
     .tab-content {
         padding: 25px 15px;
     }
-    
+
     .step-card {
         padding: 18px;
     }
-    
+
     .step-content h3 {
         font-size: 1.1rem;
     }
-    
+
     .step-content p {
         font-size: 0.9rem;
     }
-    
+
     .feature-group {
         padding: 18px;
     }
-    
+
     .feature-group h3 {
         font-size: 1rem;
     }
-    
+
     .feature-group p {
         font-size: 0.9rem;
     }
@@ -3834,19 +4047,20 @@ img {
 
 /* OffCrypt Desktop specific mobile optimizations */
 @media (max-width: 768px) {
+
     /* Better mobile experience for OffCrypt Desktop page - universal approach */
     header h1:contains("Desktop"),
     h1[title*="Desktop"] {
         font-size: 1.6rem !important;
         letter-spacing: -0.5px;
     }
-    
+
     /* Apply to all headers when "Desktop" appears in page content */
     header:has-text("Desktop") h1 {
         font-size: 1.6rem !important;
         letter-spacing: -0.5px;
     }
-    
+
     /* More aggressive mobile styling for longer headers */
     header h1 {
         word-break: break-word;
@@ -3855,6 +4069,7 @@ img {
 }
 
 @media (max-width: 480px) {
+
     /* Extra small screen for longer titles like "OffCrypt Desktop" */
     header h1 {
         font-size: 1.3rem !important;
@@ -3862,19 +4077,19 @@ img {
         word-spacing: -2px;
         line-height: 0.95;
     }
-    
+
     .header-subtitle {
         font-size: 0.8rem !important;
         margin-top: 3px;
     }
-    
+
     /* Extra tight navigation for small screens */
     .nav-tabs {
         margin: 8px auto 0 auto !important;
         padding: 2px;
         gap: 0.125rem;
     }
-    
+
     /* Smaller navigation links for better fit */
     .nav-link {
         padding: 5px 6px !important;
@@ -3884,25 +4099,11 @@ img {
 }
 
 /* Responsive Design for Gallery */
-@media (max-width: 1200px) {
+@media (max-width: 1200px) {}
 
-}
+@media (max-width: 768px) {}
 
-@media (max-width: 768px) {
-
-
-
-
-
-
-
-}
-
-@media (max-width: 480px) {
-
-
-
-}
+@media (max-width: 480px) {}
 
 
 /* ============================================
@@ -4114,10 +4315,9 @@ li.menu-item.active .menu-text,
     width: 60%;
     height: 1px;
     background: linear-gradient(90deg,
-        transparent,
-        rgba(148, 163, 184, 0.7),
-        transparent
-    );
+            transparent,
+            rgba(148, 163, 184, 0.7),
+            transparent);
     opacity: 0.5;
 }
 
@@ -4368,10 +4568,10 @@ body.menu-open .hamburger::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-        rgba(0, 102, 255, 0.08) 0%, 
-        transparent 50%, 
-        rgba(0, 212, 255, 0.04) 100%);
+    background: linear-gradient(135deg,
+            rgba(0, 102, 255, 0.08) 0%,
+            transparent 50%,
+            rgba(0, 212, 255, 0.04) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;
@@ -4400,7 +4600,7 @@ body.menu-open .hamburger::after {
 
 .image-card:hover {
     transform: translateY(-8px);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(0, 102, 255, 0.2);
     border-color: rgba(0, 102, 255, 0.4);
@@ -4803,9 +5003,9 @@ body.menu-open .hamburger::after {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg,
-        rgba(0, 102, 255, 0.05) 0%,
-        transparent 50%,
-        rgba(0, 212, 255, 0.03) 100%);
+            rgba(0, 102, 255, 0.05) 0%,
+            transparent 50%,
+            rgba(0, 212, 255, 0.03) 100%);
     pointer-events: none;
 }
 
@@ -4930,9 +5130,9 @@ body.menu-open .hamburger::after {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg,
-        rgba(255, 107, 53, 0.05) 0%,
-        transparent 50%,
-        rgba(255, 107, 53, 0.02) 100%);
+            rgba(255, 107, 53, 0.05) 0%,
+            transparent 50%,
+            rgba(255, 107, 53, 0.02) 100%);
     pointer-events: none;
 }
 
@@ -5064,6 +5264,7 @@ body.menu-open .hamburger::after {
 
 /* Responsive Design for Purchase Pages */
 @media (max-width: 768px) {
+
     .purchase-instructions-box,
     .terms-of-service-box,
     .instructions-contact {
@@ -5087,6 +5288,7 @@ body.menu-open .hamburger::after {
 }
 
 @media (max-width: 480px) {
+
     .purchase-instructions-box,
     .terms-of-service-box,
     .instructions-contact {
