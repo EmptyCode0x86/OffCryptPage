@@ -66,6 +66,18 @@ body {
     width: 100%;
 }
 
+/* Global Link Styles */
+a {
+    color: var(--accent-tertiary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+}
+
 /* Animated Background */
 body::before {
     content: '';
