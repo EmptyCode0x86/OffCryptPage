@@ -743,6 +743,8 @@
                                 license</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
+                                <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">⚡ Instant Delivery
+                                    & Download</p>
                                 <p style="margin-bottom: 0.5rem;"><strong>Payment Methods:</strong></p>
                                 <p style="margin: 0.25rem 0;">💳 Stripe</p>
                             </div>
@@ -876,7 +878,32 @@
                     </div>
                 </div>
     </div>
+    </div>
     </section>
+
+    <script>
+        // Check for referral code in URL
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refCode = urlParams.get('ref');
+
+            if (refCode) {
+                // Find all links to PurchasePremium.html
+                const purchaseLinks = document.querySelectorAll('a[href^="PurchasePremium.html"]');
+
+                purchaseLinks.forEach(link => {
+                    // Append ref code to existing href
+                    const currentHref = link.getAttribute('href');
+                    const separator = currentHref.includes('?') ? '&' : '?';
+                    link.setAttribute('href', `${currentHref}${separator}ref=${refCode}`);
+                });
+
+                // Optional: Store in localStorage in case they navigate away and come back
+                localStorage.setItem('offcrypt_ref', refCode);
+                console.log('Referral code active:', refCode);
+            }
+        });
+    </script>
 
     <div
         style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; margin-top: 50px; margin-bottom: 50px;">
