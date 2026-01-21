@@ -414,7 +414,7 @@ nav a:hover {
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--text-muted);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0.5rem 0 0 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
