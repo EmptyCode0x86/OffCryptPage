@@ -166,30 +166,32 @@
                             <h4>Immediate Delivery</h4>
                             <ul>
                                 <li><strong>When:</strong> Immediately after your purchase is completed</li>
-                                <li><strong>How:</strong> The Authenticator application download link will be available
-                                    directly on the Stripe checkout page after successful payment</li>
-                                <li><strong>Delivery Service:</strong> Stripe (secure payment platform)</li>
-                                <li><strong>What to Look For:</strong> Download the Authenticator application from the
-                                    Stripe confirmation page. You will also receive a confirmation email.</li>
+                                <li><strong>How:</strong> You will be automatically redirected to a <strong>Success
+                                        Page</strong> displaying your <strong>Activation Code</strong> and
+                                    <strong>Download Link</strong>.</li>
+                                <li><strong>Delivery Service:</strong> Automated System (Instant)</li>
+                                <li><strong>What to Look For:</strong> Do not close the window after payment! You will
+                                    see your key (e.g., <code>SLPREM-xxxx...</code>) and a "Download Software" button on
+                                    the screen.</li>
                             </ul>
                         </div>
 
                         <div class="instructions-section">
-                            <h4>Download and Run</h4>
+                            <h4>Download and Activate</h4>
                             <ol>
-                                <li>Download the Authenticator application from the Stripe confirmation page after
-                                    completing your purchase</li>
-                                <li>Save the <code>Authenticator.exe</code> file to your computer</li>
-                                <li><strong>System Requirements:</strong> Windows operating system</li>
-                                <li>Run the executable file (you may see a Windows security warning - this is normal for
-                                    downloaded executables)</li>
+                                <li>Click the <strong>"Download Software"</strong> button on the Success Page to get the
+                                    Premium Builder.</li>
+                                <li><strong>Copy</strong> your Activation Code from the same page (use the "Copy Code"
+                                    button).</li>
+                                <li>Run the software and click "Activate Premium" when prompted.</li>
+                                <li>Paste your code to unlock all features instantly.</li>
                             </ol>
                         </div>
 
                         <div class="instructions-section">
-                            <h4>Screen Lock Builder Premium Delivery</h4>
-                            <p>After sending your Authentication ID, you will receive the <strong>Screen Lock Builder
-                                    Premium</strong> software download link via email within <strong>24 hours</strong>.
+                            <h4>No Waiting Time</h4>
+                            <p>Forget waiting 24 hours! Your license is generated <strong>instantly</strong>. You can
+                                start using the Premium features literally seconds after payment.
                             </p>
                         </div>
                     </div>
@@ -250,10 +252,10 @@
                         <div class="terms-section">
                             <h4>License Activation</h4>
                             <ul>
-                                <li>Manual verification of Authentication ID is required for security</li>
-                                <li>Processing time: Up to 24 hours after Authentication ID submission</li>
-                                <li>License activation is automatic upon first run with valid license file</li>
-                                <li>User is responsible for keeping Authentication ID secure and confidential</li>
+                                <li>Activation is <strong>instant and automatic</strong>.</li>
+                                <li>No manual verification required.</li>
+                                <li>Your specific computer is automatically recognized and authorized.</li>
+                                <li>Keep your Activation Code safe – it is your proof of purchase.</li>
                             </ul>
                         </div>
 
@@ -372,6 +374,51 @@
 
     <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
+    <script>
+        // Apply discount code if present
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check URL first, then localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            let refCode = urlParams.get('ref') || localStorage.getItem('offcrypt_ref');
+
+            if (refCode) {
+                console.log('Applying discount code:', refCode);
+
+                // 1. Update Stripe Link
+                const stripeButton = document.querySelector('a[href*="buy.stripe.com"]');
+                if (stripeButton) {
+                    const currentHref = stripeButton.getAttribute('href');
+                    // Stripe expects "prefilled_promo_code" parameter
+                    stripeButton.setAttribute('href', `${currentHref}?prefilled_promo_code=${refCode}`);
+                }
+
+                // 2. Show Discount Banner
+                const purchaseBox = document.querySelector('.instructions-contact');
+                if (purchaseBox) {
+                    const banner = document.createElement('div');
+                    banner.style.backgroundColor = 'rgba(0, 255, 136, 0.15)';
+                    banner.style.border = '1px solid #00ff88';
+                    banner.style.borderRadius = '8px';
+                    banner.style.padding = '10px';
+                    banner.style.marginBottom = '15px';
+                    banner.style.textAlign = 'center';
+                    banner.style.color = '#00ff88';
+                    banner.innerHTML = `<strong>🎉 Best Deal Active!</strong><br><small>Discount code <code>${refCode}</code> applied at checkout</small>`;
+
+                    // Insert after title
+                    const title = purchaseBox.querySelector('h4');
+                    purchaseBox.insertBefore(banner, title.nextSibling);
+
+                    // Update price text to indicate discount
+                    const priceText = stripeButton.innerText;
+                    if (priceText.includes('$45')) {
+                        stripeButton.innerHTML = '⬇️ Purchase with Discount';
+                    }
+                }
+            }
+        });
+    </script>
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
 
