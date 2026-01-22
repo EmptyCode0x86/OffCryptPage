@@ -5411,3 +5411,52 @@ body.menu-open .hamburger::after {
 /* Fix for oversize pricing card */
 .pricing-cards { justify-content: center; }
 .pricing-card { max-width: 450px; margin-left: auto; margin-right: auto; }
+
+/* Pricing Info Box Styling */
+.pricing-info-box {
+    background: rgba(0, 102, 255, 0.1);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.price-increase-notice {
+    color: #00ff88;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.updates-notice {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Guarantee Box Styling */
+.guarantee-box {
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.glow-check {
+    color: #00d4ff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
+}
+
+.guarantee-box .updates-notice {
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
+}
