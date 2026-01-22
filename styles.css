@@ -2627,9 +2627,11 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Optimized grid */
     gap: 30px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+    /* Reduced margin */
 }
 
 .pricing-card {
@@ -2637,14 +2639,17 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     /* TUMMEMPI TAUSTA ILMAN BLURIA */
     border-radius: 24px;
     /* PYÖREÄMMÄT KULMAT */
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 2rem;
+    /* Reduced padding */
     text-align: center;
     position: relative;
     border: 1px solid var(--border-primary);
-    /* YHTENÄINEN BORDER */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-subtle);
-    /* MODERNIMPI VARJO */
+    max-width: 400px;
+    /* Limit width */
+    margin: 0 auto;
+    /* Center */
 }
 
 .pricing-card:hover {
@@ -3142,37 +3147,33 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 /* Break out of main-wrapper - Adjust for sidebar */
 main .features-section,
 .main-wrapper .features-section,
-.main-wrapper .download-section,
-
-{
-margin-left: -260px !important;
-width: 100vw !important;
-max-width: 100vw !important;
+.main-wrapper .download-section {
+    margin-left: -260px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+
     .features-section,
     main .features-section,
     .main-wrapper .features-section,
-    .main-wrapper .download-section,
-
-    {
-    margin-left: -220px !important;
-}
+    .main-wrapper .download-section {
+        margin-left: -220px !important;
+    }
 }
 
 @media (max-width: 768px) {
+
     .features-section,
     main .features-section,
     .main-wrapper .features-section,
-    .main-wrapper .download-section,
-
-    {
-    margin-left: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
+    .main-wrapper .download-section {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
 /* Ensure container has proper padding for sidebar */
@@ -5315,4 +5316,95 @@ body.menu-open .hamburger::after {
     .download-title {
         font-size: 1.8rem;
     }
+}
+
+/* Smart Automation Cards (AI Features) */
+.ai-card {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 102, 255, 0.15);
+    border-color: rgba(0, 102, 255, 0.4);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.ai-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 102, 255, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.ai-card:hover::before {
+    opacity: 1;
+}
+
+.ai-card .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.4));
+    text-align: left;
+}
+
+.ai-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #fff, #b3d1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: left;
+}
+
+.ai-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.ai-card .feature-list {
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 102, 255, 0.1);
+    padding-top: 1rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.ai-card .feature-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    display: block;
+}
+
+.ai-card .feature-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-secondary);
+    font-weight: bold;
 }
