@@ -5408,3 +5408,6 @@ body.menu-open .hamburger::after {
     color: var(--accent-secondary);
     font-weight: bold;
 }
+/* Fix for oversize pricing card */
+.pricing-cards { justify-content: center; }
+.pricing-card { max-width: 450px; margin-left: auto; margin-right: auto; }
