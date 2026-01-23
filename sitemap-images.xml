@@ -45,6 +45,28 @@
   </url>
 
   <url>
+    <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/OffCodeAutomation.png</image:loc>
+      <image:title>OffCode Automation Tool Interface</image:title>
+      <image:caption>Windows desktop automation tool main interface</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/VisualReader2.png</image:loc>
+      <image:title>Visual Reader Advanced</image:title>
+      <image:caption>Advanced text scanning overlay for dynamic content monitoring</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/VisualMarkers.png</image:loc>
+      <image:title>Visual Markers System</image:title>
+      <image:caption>Precision screen markers for automated clicking</image:caption>
+      <image:license>https://www.dev-offcode.com/license</image:license>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
     <image:image>
       <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
