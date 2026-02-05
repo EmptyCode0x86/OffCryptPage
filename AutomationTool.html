@@ -9,7 +9,7 @@
     <meta name="description"
         content="Windows desktop automation tool - OCR text detection, UI Automation, mouse/keyboard simulation. Automate social media, web tasks, gaming, and more with action sequences.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-02-04">
+    <meta name="last-modified" content="2026-02-05">
     <meta name="keywords"
         content="windows automation, desktop automation, automation tool, ocr automation, script automation, windows automation tool, auto clicker, auto typer, web automation, bot maker">
     <meta name="robots" content="index, follow">
@@ -79,6 +79,7 @@
         "screenshot": [
             "https://www.dev-offcode.com/OffCodeAutomation.png",
             "https://www.dev-offcode.com/ScannerTriggerP.png",
+            "https://www.dev-offcode.com/LoadTextFile.png",
             "https://www.dev-offcode.com/VisualReader.png",
             "https://www.dev-offcode.com/VisualReader2.png",
             "https://www.dev-offcode.com/VisualMarkers.png"
@@ -118,10 +119,10 @@
                 "https://www.youtube.com/@OffCrypt"
             ]
         },
-        "softwareVersion": "1.0",
-        "releaseNotes": "Initial release of Offcode Automation Tool with OCR, UI Automation, and script automation features",
+        "softwareVersion": "1.1",
+        "releaseNotes": "Scheduled start queue (multiple times, add/remove), improved hotkeys (F1/F2, Numpad 1-4), text list for automation, and documentation updates",
         "datePublished": "2025-01-22",
-        "dateModified": "2026-02-04"
+        "dateModified": "2026-02-05"
     }
     </script>
 
@@ -192,6 +193,22 @@
                     "@type": "Answer",
                     "text": "Create an action sequence by adding steps like Wait for Text, Click, Type, Copy, Paste, and more. Press F1 to start the automation and F2 to stop."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Scheduled Start work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Add one or more date/time values to the schedule queue with '+Add to queue'. Enable Scheduled start; at each time the script runs automatically and that entry is removed. Use 'Remove selected' to remove a time from the list."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I use different text each loop (text list)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open the Text list window via '+Get text from file'. Load lines from a file or add manually, then add the 'Get text from list' action to your script from that window. When the script runs that step, the next line is copied to the clipboard and marked used; the next action can paste or type it. Optional random order lets each run use a random unused line."
+                }
             }
         ]
     }
@@ -208,7 +225,7 @@
             {"@type": "HowToStep", "name": "Open Visual Reader", "text": "Launch Offcode Automation Tool and open the Visual Reader panel."},
             {"@type": "HowToStep", "name": "Configure scanner shape", "text": "Choose Circle or Rectangle scanning area and adjust size."},
             {"@type": "HowToStep", "name": "Enable scanner", "text": "Check 'Enable scanner' to start the Visual Reader overlay."},
-            {"@type": "HowToStep", "name": "Add Visual Markers", "text": "Press F3 to add numbered markers at mouse position for important click spots."},
+            {"@type": "HowToStep", "name": "Add Visual Markers", "text": "Choose a hotkey (e.g. 1–9, F3–F12, Numpad) in Settings and press it to add numbered markers at mouse position."},
             {"@type": "HowToStep", "name": "Create trigger actions", "text": "Add [WAIT FOR TEXT] or [WAIT GONE] actions to your script for conditional automation."},
             {"@type": "HowToStep", "name": "Start automation", "text": "Press F1 to start the automation. Press F2 to stop at any time."}
         ]
@@ -385,6 +402,14 @@
                                 <span class="highlight-icon">📝</span>
                                 <span class="highlight-text">Action Sequences</span>
                             </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">⏰</span>
+                                <span class="highlight-text">Scheduled Start</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">📋</span>
+                                <span class="highlight-text">Text list</span>
+                            </div>
                         </div>
 
                     </div>
@@ -413,6 +438,15 @@
                         data-title="OffCode Automation Tool"
                         data-desc="Wait until text appears/disappears using scanner triggers">
                         <img src="ScannerTriggerP.png" alt="OffCode Automation Tool - Scanner Trigger">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card featured" data-image="LoadTextFile.png"
+                        data-title="Text list for automation"
+                        data-desc="Load .txt/.md or add lines manually; use in script to feed next line to clipboard each step">
+                        <img src="LoadTextFile.png" alt="Text list - load lines and use in automation">
                         <div class="image-overlay">
                             <div class="zoom-icon">🔍</div>
                         </div>
@@ -567,22 +601,37 @@
                             </ul>
                         </div>
 
+                        <!-- Text list for automation (CollectForm) -->
+                        <div class="feature-card">
+                            <div class="feature-icon">📋</div>
+                            <h3>Text list for automation</h3>
+                            <p>Use a list of lines (e.g. search terms, messages, usernames) and feed one line per script step into the clipboard.</p>
+                            <ul class="feature-list">
+                                <li>Open the text-list window via &quot;+Get text from file&quot; in the main form</li>
+                                <li>Load lines from a .txt or .md file, or add lines manually</li>
+                                <li>Optional: use random order instead of first-to-last</li>
+                                <li>Add the &quot;Get text from list&quot; action to your script from that window — it inserts a step that runs during automation</li>
+                                <li>When the script reaches that step, the next unused line is copied to the clipboard and marked as used (so it won’t be picked again)</li>
+                                <li><strong>Idea:</strong> each loop iteration can use different text — e.g. paste into a search box, type into a field, or fill a form with the next line from your list</li>
+                            </ul>
+                        </div>
+
                         <!-- Supported Commands -->
                         <div class="feature-card">
                             <div class="feature-icon">⌨️</div>
                             <h3>Supported Commands</h3>
-                            <p>Available script commands</p>
+                            <p>Available script commands (typed or chosen from the dropdown)</p>
                             <ul class="feature-list" style="font-family: monospace; font-size: 0.9em;">
-                                <li>/scroll:down,3</li>
-                                <li>/scroll:up,3</li>
                                 <li>/copy:Your txt</li>
                                 <li>/paste</li>
+                                <li>/wait:500</li>
                                 <li>/type:Your txt</li>
                                 <li>/hotkey:ctrl+c</li>
-                                <li>/move:100,200</li>
-                                <li>/wait:500</li>
                                 <li>/key:Enter</li>
+                                <li>/move:100,200</li>
                                 <li>/click:500,300</li>
+                                <li>/scroll:up,3</li>
+                                <li>/scroll:down,3</li>
                                 <li>/startprocess:notepad.exe</li>
                                 <li>/stopprocess:notepad.exe</li>
                                 <li>/openwebsite:google.com</li>
@@ -602,16 +651,33 @@
                             </ul>
                         </div>
 
+                        <!-- Scheduled Start -->
+                        <div class="feature-card">
+                            <div class="feature-icon">⏰</div>
+                            <h3>Scheduled Start</h3>
+                            <p>Run your script at specific times automatically</p>
+                            <ul class="feature-list">
+                                <li>Add multiple date/time entries to a queue</li>
+                                <li>+Add to queue — add time from the text field</li>
+                                <li>Remove selected — remove chosen time from the list</li>
+                                <li>When a scheduled time is reached, script runs and that time is removed; next time runs automatically</li>
+                                <li>Supports common date/time formats (e.g. system locale, dd.MM.yyyy HH:mm)</li>
+                            </ul>
+                        </div>
+
                         <!-- Hotkey Control -->
                         <div class="feature-card">
                             <div class="feature-icon">⚡</div>
                             <h3>Hotkey Control</h3>
                             <p>Quick access shortcuts</p>
                             <ul class="feature-list">
-                                <li>F1 - Start automation</li>
-                                <li>F2 - Stop automation</li>
-                                <li>Custom hotkey - Add visual marker</li>
-                                <li>Numpad 1 - Scan text ( Visual Reader manual )</li>
+                                <li>F1 — Start automation</li>
+                                <li>F2 — Stop automation</li>
+                                <li>Custom hotkey (1–9, F3–F12, Numpad) — Add visual marker</li>
+                                <li>Numpad 1 — Manual scan (Visual Reader)</li>
+                                <li>Numpad 2 — Lock scanner position</li>
+                                <li>Numpad 3 — Unlock scanner</li>
+                                <li>Numpad 4 — Add text collection region</li>
                             </ul>
                         </div>
 
@@ -776,9 +842,28 @@
                             <div class="faq-item">
                                 <h4>How do Visual Markers work?</h4>
                                 <p>Visual Markers are numbered green circles you can place on the screen to mark
-                                    important click positions. Press F3 to add a marker at your current mouse position.
-                                    Markers display their coordinates and can be used in automation scripts for precise
-                                    clicking.</p>
+                                    important click positions. Choose a hotkey (e.g. 1–9, F3–F12, Numpad) in Settings
+                                    and press it to add a marker at your current mouse position. Markers display their
+                                    coordinates and can be used in automation scripts for precise clicking.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How does Scheduled Start work?</h4>
+                                <p>Scheduled Start lets you run your automation script at specific times. Enter a date
+                                    and time in the text field and click &quot;+Add to queue&quot; to add it to the list. You can
+                                    add multiple times; they run in order. When a time is reached, the script starts
+                                    automatically and that entry is removed from the list; the next scheduled time then
+                                    runs when due. Use &quot;Remove selected&quot; to remove a chosen time from the list. Enable
+                                    &quot;Scheduled start&quot; to activate the queue.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How do I use different text each time in my script (e.g. each loop)?</h4>
+                                <p>Use the <strong>Text list</strong> feature. Open it via &quot;+Get text from file&quot;. Load
+                                    lines from a .txt/.md file or add them manually. Click the button there to add a
+                                    &quot;Get text from list&quot; step to your action sequence. When the script runs that step,
+                                    the next line from the list is copied to the clipboard and marked as used. The
+                                    following action can paste or type it (e.g. into a search box or form). You can
+                                    choose random order so each run uses a random unused line. This way every loop
+                                    iteration can use a different value from your list.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>What are Scanner Triggers?</h4>
