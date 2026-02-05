@@ -4693,7 +4693,7 @@ body.menu-open .hamburger::after {
     display: block;
 }
 
-/* Modal Content */
+/* Modal Content - CLEAN WITH GLOWING BORDER */
 .modal-content {
     position: relative;
     margin: 2% auto;
@@ -4701,10 +4701,34 @@ body.menu-open .hamburger::after {
     width: 90%;
     max-width: 1200px;
     background: #0a0a0a;
+    border-radius: 16px;
     border: 2px solid #0066ff;
+    box-shadow:
+        0 0 30px rgba(0, 102, 255, 0.4),
+        0 0 60px rgba(0, 102, 255, 0.2),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: borderGlow 3s ease-in-out infinite alternate;
 }
 
-/* KUVA MODALISSA - NÄKYY KUNNOLLA */
+@keyframes borderGlow {
+    0% {
+        border-color: #0066ff;
+        box-shadow:
+            0 0 30px rgba(0, 102, 255, 0.4),
+            0 0 60px rgba(0, 102, 255, 0.2),
+            0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        border-color: #00d4ff;
+        box-shadow:
+            0 0 40px rgba(0, 212, 255, 0.5),
+            0 0 80px rgba(0, 102, 255, 0.3),
+            0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* KUVA MODALISSA */
 .modal-content img,
 #modalImage {
     width: 100%;
@@ -4713,12 +4737,13 @@ body.menu-open .hamburger::after {
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    border-radius: 8px;
     /* Firefox compatibility */
     -moz-object-fit: contain;
     -webkit-object-fit: contain;
 }
 
-/* Close Button - TOIMII VARMASTI */
+/* Close Button */
 .close,
 .modal-close {
     color: #0066ff;
@@ -4729,14 +4754,17 @@ body.menu-open .hamburger::after {
     font-weight: bold;
     cursor: pointer;
     z-index: 100000;
-    background: #000000;
+    background: #0a0a0a;
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid #0066ff;
+    border-radius: 50%;
     line-height: 1;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    transition: all 0.3s ease;
 }
 
 .close:hover,
@@ -4744,15 +4772,16 @@ body.menu-open .hamburger::after {
 .modal-close:hover {
     color: #00d4ff;
     border-color: #00d4ff;
-    background: #111111;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+    transform: scale(1.1);
 }
 
-/* Navigation Arrows - MODERNIT JA THEME-SOPIVAT */
+/* Navigation Arrows */
 .modal-nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(10, 10, 10, 0.9);
+    background: #0a0a0a;
     color: #0066ff;
     border: 2px solid #0066ff;
     font-size: 3rem;
@@ -4767,6 +4796,7 @@ body.menu-open .hamburger::after {
     z-index: 10;
     line-height: 1;
     user-select: none;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
 }
 
 .modal-prev {
@@ -4779,10 +4809,10 @@ body.menu-open .hamburger::after {
 
 .modal-nav-btn:hover {
     background: #0066ff;
-    color: #0a0a0a;
+    color: #ffffff;
     border-color: #00d4ff;
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
 }
 
 .modal-nav-btn:active {
@@ -4794,7 +4824,7 @@ body.menu-open .hamburger::after {
     text-align: center;
     margin-top: 20px;
     padding-top: 15px;
-    border-top: 1px solid rgba(0, 102, 255, 0.2);
+    border-top: 1px solid rgba(0, 102, 255, 0.3);
 }
 
 .modal-info h3,
@@ -5408,9 +5438,17 @@ body.menu-open .hamburger::after {
     color: var(--accent-secondary);
     font-weight: bold;
 }
+
 /* Fix for oversize pricing card */
-.pricing-cards { justify-content: center; }
-.pricing-card { max-width: 450px; margin-left: auto; margin-right: auto; }
+.pricing-cards {
+    justify-content: center;
+}
+
+.pricing-card {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Pricing Info Box Styling */
 .pricing-info-box {
