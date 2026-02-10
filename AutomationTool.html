@@ -443,8 +443,7 @@
                         </div>
                     </div>
 
-                    <div class="image-card featured" data-image="LoadTextFile.png"
-                        data-title="Text list for automation"
+                    <div class="image-card featured" data-image="LoadTextFile.png" data-title="Text list for automation"
                         data-desc="Load .txt/.md or add lines manually; use in script to feed next line to clipboard each step">
                         <img src="LoadTextFile.png" alt="Text list - load lines and use in automation">
                         <div class="image-overlay">
@@ -605,14 +604,19 @@
                         <div class="feature-card">
                             <div class="feature-icon">📋</div>
                             <h3>Text list for automation</h3>
-                            <p>Use a list of lines (e.g. search terms, messages, usernames) and feed one line per script step into the clipboard.</p>
+                            <p>Use a list of lines (e.g. search terms, messages, usernames) and feed one line per script
+                                step into the clipboard.</p>
                             <ul class="feature-list">
                                 <li>Open the text-list window via &quot;+Get text from file&quot; in the main form</li>
                                 <li>Load lines from a .txt or .md file, or add lines manually</li>
                                 <li>Optional: use random order instead of first-to-last</li>
-                                <li>Add the &quot;Get text from list&quot; action to your script from that window — it inserts a step that runs during automation</li>
-                                <li>When the script reaches that step, the next unused line is copied to the clipboard and marked as used (so it won’t be picked again)</li>
-                                <li><strong>Idea:</strong> each loop iteration can use different text — e.g. paste into a search box, type into a field, or fill a form with the next line from your list</li>
+                                <li>Add the &quot;Get text from list&quot; action to your script from that window — it
+                                    inserts a step that runs during automation</li>
+                                <li>When the script reaches that step, the next unused line is copied to the clipboard
+                                    and marked as used (so it won’t be picked again)</li>
+                                <li><strong>Idea:</strong> each loop iteration can use different text — e.g. paste into
+                                    a search box, type into a field, or fill a form with the next line from your list
+                                </li>
                             </ul>
                         </div>
 
@@ -660,7 +664,8 @@
                                 <li>Add multiple date/time entries to a queue</li>
                                 <li>+Add to queue — add time from the text field</li>
                                 <li>Remove selected — remove chosen time from the list</li>
-                                <li>When a scheduled time is reached, script runs and that time is removed; next time runs automatically</li>
+                                <li>When a scheduled time is reached, script runs and that time is removed; next time
+                                    runs automatically</li>
                                 <li>Supports common date/time formats (e.g. system locale, dd.MM.yyyy HH:mm)</li>
                             </ul>
                         </div>
@@ -765,7 +770,7 @@
                                 <p class="updates-notice">Full automation tool including all future updates and support.
                                 </p>
                             </div>
-                            <a href="" class="plan-button premium-button">Purchase ( February 8,2026 )</a>
+                            <a href="PurchaseAutomationTool.html" class="plan-button premium-button">Purchase</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
                                 <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Delivery
@@ -849,17 +854,21 @@
                             <div class="faq-item">
                                 <h4>How does Scheduled Start work?</h4>
                                 <p>Scheduled Start lets you run your automation script at specific times. Enter a date
-                                    and time in the text field and click &quot;+Add to queue&quot; to add it to the list. You can
+                                    and time in the text field and click &quot;+Add to queue&quot; to add it to the
+                                    list. You can
                                     add multiple times; they run in order. When a time is reached, the script starts
                                     automatically and that entry is removed from the list; the next scheduled time then
-                                    runs when due. Use &quot;Remove selected&quot; to remove a chosen time from the list. Enable
+                                    runs when due. Use &quot;Remove selected&quot; to remove a chosen time from the
+                                    list. Enable
                                     &quot;Scheduled start&quot; to activate the queue.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>How do I use different text each time in my script (e.g. each loop)?</h4>
-                                <p>Use the <strong>Text list</strong> feature. Open it via &quot;+Get text from file&quot;. Load
+                                <p>Use the <strong>Text list</strong> feature. Open it via &quot;+Get text from
+                                    file&quot;. Load
                                     lines from a .txt/.md file or add them manually. Click the button there to add a
-                                    &quot;Get text from list&quot; step to your action sequence. When the script runs that step,
+                                    &quot;Get text from list&quot; step to your action sequence. When the script runs
+                                    that step,
                                     the next line from the list is copied to the clipboard and marked as used. The
                                     following action can paste or type it (e.g. into a search box or form). You can
                                     choose random order so each run uses a random unused line. This way every loop
