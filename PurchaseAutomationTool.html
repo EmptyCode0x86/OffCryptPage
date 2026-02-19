@@ -350,16 +350,7 @@
                 // 2. Show Discount Banner
                 const purchaseBox = document.querySelector('.instructions-contact');
                 if (purchaseBox) {
-                    const banner = document.createElement('div');
-                    banner.style.backgroundColor = 'rgba(0, 255, 136, 0.15)';
-                    banner.style.border = '1px solid #00ff88';
-                    banner.style.borderRadius = '8px';
-                    banner.style.padding = '10px';
-                    banner.style.marginBottom = '15px';
-                    banner.style.textAlign = 'center';
-                    banner.style.color = '#00ff88';
-                    banner.innerHTML = `<strong>🎉 Best Deal Active!</strong><br><small>Discount code <code>${refCode}</code> applied at checkout</small>`;
-
+                   
                     // Insert after title
                     const title = purchaseBox.querySelector('h4');
                     purchaseBox.insertBefore(banner, title.nextSibling);
