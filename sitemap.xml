@@ -113,6 +113,20 @@
 </url>
 
 <url>
+  <loc>https://www.dev-offcode.com/changelogPremium.html</loc>
+  <lastmod>2025-12-21T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://www.dev-offcode.com/AutomationChangelog.html</loc>
+  <lastmod>2026-02-28T12:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
   <loc>https://www.dev-offcode.com/disclaimer.html</loc>
   <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>yearly</changefreq>
