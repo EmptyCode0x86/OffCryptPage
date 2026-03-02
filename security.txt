@@ -1,11 +1,11 @@
-Contact: mailto:security@dev-offcode.com
-Contact: https://www.dev-offcode.com/security
-Expires: 2026-01-09T12:00:00.000Z
-Encryption: https://www.dev-offcode.com/pgp-key.txt
-Acknowledgments: https://www.dev-offcode.com/security-acknowledgments
+Contact: mailto:off.crypt86@gmail.com
+Contact: https://www.dev-offcode.com/
+Expires: 2027-03-02T12:00:00.000Z
+Encryption: https://www.dev-offcode.com/
+Acknowledgments: https://www.dev-offcode.com/
 Preferred-Languages: en, fi
 Canonical: https://www.dev-offcode.com/.well-known/security.txt
-Policy: https://www.dev-offcode.com/security-policy
+Policy: https://www.dev-offcode.com/
 
 # Security Policy
 # 
