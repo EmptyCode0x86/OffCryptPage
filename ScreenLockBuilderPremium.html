@@ -899,7 +899,8 @@
             const urlParams = new URLSearchParams(window.location.search);
             const refCode = urlParams.get('ref');
 
-            if (refCode) {
+            // XSS Prevention: Validate ref code against strict whitelist (OWASP)
+            if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
                 // Find all links to PurchasePremium.html
                 const purchaseLinks = document.querySelectorAll('a[href^="PurchasePremium.html"]');
 
@@ -907,7 +908,7 @@
                     // Append ref code to existing href
                     const currentHref = link.getAttribute('href');
                     const separator = currentHref.includes('?') ? '&' : '?';
-                    link.setAttribute('href', `${currentHref}${separator}ref=${refCode}`);
+                    link.setAttribute('href', `${currentHref}${separator}ref=${encodeURIComponent(refCode)}`);
                 });
 
                 // Optional: Store in localStorage in case they navigate away and come back
@@ -940,13 +941,14 @@
 
         <!-- LaunchIgniter Badge -->
         <a href="https://launchigniter.com/product/screen-lock-builder-premium-windows?ref=badge-screen-lock-builder-premium-windows"
-            target="_blank">
+            target="_blank" rel="noopener noreferrer">
             <img src="https://launchigniter.com/api/badge/screen-lock-builder-premium-windows?theme=dark"
                 alt="Featured on LaunchIgniter" width="212" height="55" />
         </a>
 
         <!-- Startup Fame Badge -->
-        <a href="https://startupfa.me/s/offcrypt?utm_source=www.dev-offcode.com" target="_blank">
+        <a href="https://startupfa.me/s/offcrypt?utm_source=www.dev-offcode.com" target="_blank"
+            rel="noopener noreferrer">
             <img src="https://startupfa.me/badges/featured-badge-small.webp" alt="OffCrypt - Featured on Startup Fame"
                 width="224" height="36" />
         </a>
@@ -955,7 +957,9 @@
     </div>
 
     <!-- External JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+        integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez"
+        crossorigin="anonymous"></script>
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
     <script src="gallery.js" defer></script>

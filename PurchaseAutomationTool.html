@@ -327,7 +327,9 @@
     </div>
 
     <!-- External JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+        integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez"
+        crossorigin="anonymous"></script>
 
     <script>
         // Apply discount code if present
@@ -336,7 +338,9 @@
             const urlParams = new URLSearchParams(window.location.search);
             let refCode = urlParams.get('ref') || localStorage.getItem('offcrypt_ref');
 
-            if (refCode) {
+            // XSS Prevention: Validate ref code against strict whitelist (OWASP)
+            // Only allow alphanumeric characters, hyphens, and underscores
+            if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
                 console.log('Applying discount code:', refCode);
 
                 // 1. Update Stripe Link
@@ -344,13 +348,33 @@
                 if (stripeButton) {
                     const currentHref = stripeButton.getAttribute('href');
                     // Stripe expects "prefilled_promo_code" parameter
-                    stripeButton.setAttribute('href', `${currentHref}?prefilled_promo_code=${refCode}`);
+                    stripeButton.setAttribute('href', `${currentHref}?prefilled_promo_code=${encodeURIComponent(refCode)}`);
                 }
 
-                // 2. Show Discount Banner
+                // 2. Show Discount Banner (using textContent to prevent XSS)
                 const purchaseBox = document.querySelector('.instructions-contact');
                 if (purchaseBox) {
-                   
+                    const banner = document.createElement('div');
+                    banner.style.backgroundColor = 'rgba(0, 255, 136, 0.15)';
+                    banner.style.border = '1px solid #00ff88';
+                    banner.style.borderRadius = '8px';
+                    banner.style.padding = '10px';
+                    banner.style.marginBottom = '15px';
+                    banner.style.textAlign = 'center';
+                    banner.style.color = '#00ff88';
+
+                    const strong = document.createElement('strong');
+                    strong.textContent = '🎉 Best Deal Active!';
+                    banner.appendChild(strong);
+                    banner.appendChild(document.createElement('br'));
+                    const small = document.createElement('small');
+                    small.textContent = 'Discount code ';
+                    const code = document.createElement('code');
+                    code.textContent = refCode;
+                    small.appendChild(code);
+                    small.appendChild(document.createTextNode(' applied at checkout'));
+                    banner.appendChild(small);
+
                     // Insert after title
                     const title = purchaseBox.querySelector('h4');
                     purchaseBox.insertBefore(banner, title.nextSibling);
@@ -358,7 +382,7 @@
                     // Update price text to indicate discount
                     const priceText = stripeButton.innerText;
                     if (priceText.includes('$20')) {
-                        stripeButton.innerHTML = '⬇️ Purchase with Discount';
+                        stripeButton.textContent = '⬇️ Purchase with Discount';
                     }
                 }
             }
