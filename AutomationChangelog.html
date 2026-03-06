@@ -9,7 +9,7 @@
     <meta name="description"
         content="Offcode Automation Tool changelog - Track the latest updates, improvements, and new features for the Windows automation tool.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-02-28">
+    <meta name="last-modified" content="2026-03-03">
     <meta name="robots" content="index, follow">
 
     <!-- Security Headers -->
@@ -80,9 +80,9 @@
         },
         "releaseNotes": {
             "@type": "TechArticle",
-            "headline": "Offcode Automation Tool - Multi-Region Read Inside and Stability Fixes",
-            "datePublished": "2026-02-28",
-            "dateModified": "2026-02-28",
+            "headline": "Offcode Automation Tool - Multi-Region Actions and Stability Fixes",
+            "datePublished": "2026-03-03",
+            "dateModified": "2026-03-03",
             "url": "https://www.dev-offcode.com/AutomationChangelog.html"
         }
     }
@@ -228,12 +228,71 @@
                             the latest developments in Offcode Automation Tool's journey to provide the most advanced
                             and secure automation solution for Windows.</p>
 
-                        <p><strong>Latest Release:</strong> February 28, 2026 update introduces the powerful
-                            Multi-Region Read Inside feature and rewrites the background scanning process for perfect
+                        <p><strong>Latest Release:</strong> March 6, 2026 update introduces the powerful
+                            "Add region to actions" feature for Multi-Region collectors and improves "Set region"
                             stability.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- March 3, 2026 Update -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">Update</span>
+                                <span class="version-date">March 6, 2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>✨ New Features</h3>
+                                <h4>Add Multi-Region to Actions</h4>
+                                <ul>
+                                    <li>Added a powerful "Add region to actions" feature to the Multi-Region Text
+                                        Collector. When enabled, creating a new region (Numpad 4) will automatically
+                                        prompt a trigger box. This allows you to easily create automated steps that
+                                        <strong>wait for specific text to appear (WAIT)</strong> or <strong>wait for
+                                            text to disappear (GONE)</strong> strictly within that newly drawn region
+                                        before your script continues to the next action sequence item. You can also
+                                        leave the trigger box empty to simply scan and log the region.
+                                    </li>
+                                </ul>
+
+                                <h4>UI Element Inspector & Tree Walker</h4>
+                                <ul>
+                                    <li>Added a built-in UI Automation Inspector tool. Pressing <strong>F3</strong> logs
+                                        the exact Name, Type, and ClassName of the UI element under the mouse cursor
+                                        directly to the app log.</li>
+                                    <li><strong>UIA Tree Walker:</strong> The inspector automatically walks up the
+                                        accessibility tree (up to 5 levels) to find named components if the element
+                                        under the cursor is an unnamed container (like SVGs in modern browsers).</li>
+                                </ul>
+
+                                <h4>Advanced Script Chaining (/loadscript)</h4>
+                                <ul>
+                                    <li>Implemented the <code>/loadscript:scriptName.json</code> command in the Commands
+                                        list. This powerful feature allows your action sequences to seamlessly link to
+                                        and execute other saved scripts. It is excellent for breaking down continuous,
+                                        complex automations into manageable, modular, and reusable parts.</li>
+                                </ul>
+
+                                <h3>🐛 Bug Fixes</h3>
+                                <h4>UI Automation Stability Improvements</h4>
+                                <ul>
+                                    <li><strong>Ghost Clicks in Browsers:</strong> The automation finder now explicitly
+                                        ignores structural/container elements (like Window, TabItem, Document, etc.) to
+                                        prevent accidentally matching the entire browser window when looking for hidden
+                                        ARIA elements or page titles.</li>
+                                    <li><strong>Out of Bounds UI Elements:</strong> Fixed an issue where the bot might
+                                        find and click elements outside a defined search region. The finder now strictly
+                                        checks that matched elements exist within your specified boundaries.</li>
+                                </ul>
+
+                                <h4>Visual Reader "Set Region" Fix</h4>
+                                <ul>
+                                    <li>Fixed a bug where the "Set region" button required you to draw the region twice
+                                        before it was registered. The region selector will now close cleanly after a
+                                        single draw.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- February 28, 2026 Update -->
                         <div class="changelog-entry">
                             <div class="changelog-version">
