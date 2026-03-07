@@ -1,94 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
-            http://www.google.com/schemas/sitemap-image/1.1
-            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
-            
-<!-- Main Pages -->
-<url>
-  <loc>https://www.dev-offcode.com/</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>1.00</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
-    <image:title>OffCrypt Android App</image:title>
-    <image:caption>Secure message encryption app for Android</image:caption>
-  </image:image>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.dev-offcode.com/</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
 
-<url>
-  <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.90</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/ScreenLock1.png</image:loc>
-    <image:title>Screen Lock Builder Interface</image:title>
-    <image:caption>Windows screen lock generator tool</image:caption>
-  </image:image>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/ScreenLock2.png</image:loc>
-    <image:title>Screen Lock Builder Security Settings</image:title>
-    <image:caption>Advanced security options and encryption</image:caption>
-  </image:image>
-</url>
+  <url>
+    <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 
-<url>
-  <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.90</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>
-    <image:title>Screen Lock Builder Premium Interface</image:title>
-    <image:caption>Advanced Windows screen lock builder with premium features</image:caption>
-  </image:image>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/PremiumSettings.png</image:loc>
-    <image:title>Premium Builder Settings</image:title>
-    <image:caption>Advanced configuration options for premium users</image:caption>
-  </image:image>
-</url>
+  <url>
+    <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
 
-<url>
-  <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.85</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/OffCrypt-Windows.jpg</image:loc>
-    <image:title>OffCrypt Desktop Application</image:title>
-    <image:caption>Windows encryption suite with ECDH and AES-GCM</image:caption>
-  </image:image>
-</url>
+  <url>
+    <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
 
-<url>
-  <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
-  <lastmod>2026-02-20T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.95</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/OffCodeAutomation.png</image:loc>
-    <image:title>OffCode Automation Tool Interface</image:title>
-    <image:caption>Windows desktop automation tool with OCR and script builder</image:caption>
-  </image:image>
-</url>
+  <url>
+    <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 
-<url>
-  <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-  <image:image>
-    <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
-    <image:title>Web Remote Control System Interface</image:title>
-    <image:caption>Web-based remote control for Windows devices with automation and file transfer</image:caption>
-  </image:image>
-</url>
-
+  <url>
+    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>

@@ -45,7 +45,6 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="stylesPremium.css" as="style">
     <link rel="preload" href="gallery-simple.css" as="style">
     <link rel="preload" href="RemoteControlpnlPIC.png" as="image">
@@ -60,22 +59,39 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Web Remote Control System",
-        "applicationCategory": "RemoteControlApplication",
+        "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Windows",
         "description": "Remote control for Windows devices with a web interface. Includes device control, Mouse Bot automation, file transfer, and real-time status.",
+        "url": "https://www.dev-offcode.com/RemoteControl.html",
+        "image": "https://www.dev-offcode.com/RemoteControlpnlPIC.png",
         "offers": {
             "@type": "Offer",
-            "price": "Free",
-            "priceCurrency": "USD"
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
         },
         "downloadUrl": "https://www.dev-offcode.com/RemoteControl.html",
         "inLanguage": ["en"],
         "author": {
             "@type": "Person",
-            "name": "ScreenLocker V2 Web Team"
+            "@id": "https://www.dev-offcode.com/#author",
+            "name": "EmptyCode0x86",
+            "url": "https://www.dev-offcode.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "@id": "https://www.dev-offcode.com/#organization",
+            "name": "OffCrypt",
+            "url": "https://www.dev-offcode.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.dev-offcode.com/RemoteControlpnlPIC.png"
+            }
         },
         "softwareVersion": "2.7.0",
-        "releaseNotes": "Professional remote control system with ASP.NET Core backend, Blazor frontend, and Windows agent integration"
+        "releaseNotes": "Professional remote control system with ASP.NET Core backend, Blazor frontend, SignalR real-time communication, Mouse Bot automation, and Windows agent integration",
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-11-06"
     }
     </script>
 
@@ -137,7 +153,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesPremium.css">
+    <link rel="stylesheet" href="gallery-simple.css">
 
     <!-- Video Schema -->
     <script type="application/ld+json">
@@ -171,7 +188,7 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h1 class="sidebar-title">OffCode</h1>
+            <div class="sidebar-title">OffCode</div>
         </div>
 
         <nav class="sidebar-nav">
@@ -267,7 +284,7 @@
                 <div class="intro-container">
                     <div class="intro-content">
                         <!-- Hero Header -->
-                        <h2 class="hero-title">🌐 Remote Control Panel</h2>
+                        <h1 class="hero-title">🌐 Remote Control Panel</h1>
                         <p class="hero-subtitle">Coming Soon</p>
                         <div class="hero-glow-divider"></div>
 
