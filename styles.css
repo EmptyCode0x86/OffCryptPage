@@ -683,8 +683,8 @@ nav a:hover {
 
 /* OffCryptDesktop.html erikseen */
 .download-container-desktop {
-    padding-left: 50px;
-    /* VÄHENNETTY PADDING DESKTOP VERSIOLLE */
+    padding-left: 260px;
+    /* Keep desktop download sections aligned with other full-width sections */
 }
 
 .download-title {
@@ -3190,7 +3190,7 @@ main .features-section,
     }
 
     .download-container-desktop {
-        padding-left: 40px;
+        padding-left: 220px;
     }
 }
 

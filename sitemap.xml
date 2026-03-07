@@ -56,20 +56,6 @@
 </url>
 
 <url>
-  <loc>https://www.dev-offcode.com/PurchasePremium.html</loc>
-  <lastmod>2025-01-28T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.75</priority>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/PurchasedProduct.html</loc>
-  <lastmod>2025-01-28T12:00:00+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.75</priority>
-</url>
-
-<url>
   <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
   <lastmod>2025-11-06T12:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
@@ -103,41 +89,6 @@
     <image:title>Web Remote Control System Interface</image:title>
     <image:caption>Web-based remote control for Windows devices with automation and file transfer</image:caption>
   </image:image>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/changelog.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.70</priority>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/changelogPremium.html</loc>
-  <lastmod>2025-12-21T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.70</priority>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/AutomationChangelog.html</loc>
-  <lastmod>2026-02-28T12:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.70</priority>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/disclaimer.html</loc>
-  <lastmod>2025-11-06T12:00:00+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.50</priority>
-</url>
-
-<url>
-  <loc>https://www.dev-offcode.com/PrivacyPolicy.html</loc>
-  <lastmod>2026-01-20T12:00:00+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.50</priority>
 </url>
 
 </urlset>
