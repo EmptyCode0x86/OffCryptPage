@@ -7,11 +7,11 @@
 
     <title>Offcode Automation Tool – Windows Desktop Automation</title>
     <meta name="description"
-        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, and macro recording.">
+        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, AI script generation, and macro recording.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-03-05">
+    <meta name="last-modified" content="2026-03-08">
     <meta name="keywords"
-        content="windows automation, desktop automation, automation tool, ocr automation, script automation, windows automation tool, auto clicker, macro recorder, rpa, robotic process automation, bot maker, repetitive tasks automation, no-code automation, data entry automation">
+        content="windows automation, desktop automation, automation tool, ocr automation, script automation, AI automation, AI script generator, windows automation tool, auto clicker, macro recorder, rpa, robotic process automation, bot maker, repetitive tasks automation, no-code automation, data entry automation">
     <meta name="robots" content="index, follow">
 
     <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://www.dev-offcode.com/AutomationTool.html">
     <meta property="og:title" content="Offcode Automation Tool – Windows Desktop Automation">
     <meta property="og:description"
-        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, and macro recording.">
+        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, AI script generation, and macro recording.">
     <meta property="og:image" content="https://www.dev-offcode.com/OffCodeAutomation.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -31,7 +31,7 @@
     <meta name="twitter:url" content="https://www.dev-offcode.com/AutomationTool.html">
     <meta name="twitter:title" content="Offcode Automation Tool – Windows Desktop Automation">
     <meta name="twitter:description"
-        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, and macro recording.">
+        content="Automate repetitive tasks, data entry, and workflows on Windows without coding. Offcode Automation combines Smart OCR, UI Automation, AI script generation, and macro recording.">
     <meta name="twitter:image" content="https://www.dev-offcode.com/OffCodeAutomation.png">
 
     <!-- Social Media Links -->
@@ -73,7 +73,7 @@
         "name": "Offcode Automation Tool",
         "applicationCategory": "BusinessApplication, DeveloperApplication, UtilitiesApplication",
         "operatingSystem": "Windows",
-        "description": "Windows desktop automation tool that combines Smart OCR text detection, UI Automation, and macro recording to automate repetitive tasks, data entry, and web workflows without coding.",
+        "description": "Windows desktop automation tool that combines Smart OCR text detection, UI Automation, AI script generation (OpenAI, Claude, Gemini, Groq, Ollama), AI Semantic Search, and macro recording to automate repetitive tasks, data entry, and web workflows without coding.",
         "url": "https://www.dev-offcode.com/AutomationTool.html",
         "image": "https://www.dev-offcode.com/OffCodeAutomation.png",
         "screenshot": [
@@ -119,10 +119,10 @@
                 "https://www.youtube.com/@OffCrypt"
             ]
         },
-        "softwareVersion": "1.1",
-        "releaseNotes": "Scheduled start queue (multiple times, add/remove), improved hotkeys (F1/F2, Numpad 1-4), text list for automation, and documentation updates",
+        "softwareVersion": "1.2",
+        "releaseNotes": "AI Script Builder (natural language to scripts), AI Social Media post generator, AI Semantic Search fallback, UI Element Inspector (F3), script chaining (/loadscript), Multi-Region trigger text",
         "datePublished": "2025-01-22",
-        "dateModified": "2026-03-05"
+        "dateModified": "2026-03-08"
     }
     </script>
 
@@ -200,6 +200,22 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "No. Offcode Automation Tool is designed for Windows users without programming experience – you build automations using visual actions, simple commands and an easy script editor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the AI Script Builder?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The AI Script Builder lets you describe your automation in natural language (e.g. 'Open Notepad, type Hello, save the file'). Choose an LLM provider (OpenAI, Claude, Gemini, Groq, or Ollama) and the AI generates a ready-to-run action sequence that you can insert into your script."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is AI Semantic Search?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When OCR and UI Automation cannot find an exact text match, AI Semantic Search interprets your search intent and locates the right on-screen element. For example, searching for 'submit' might find a button labeled 'Send' or 'OK'."
                 }
             },
             {
@@ -393,21 +409,30 @@
 
                         <p class="intro-description lead-text"><strong>OffCode Automation Tool</strong> —
                             a powerful Windows desktop automation application that automates repetitive tasks and data
-                            entry without coding. Think of it as a "robot" that can see your screen, find text or
-                            buttons, and perform actions like clicking, typing, and navigating – just like a human
-                            would.</p>
+                            entry without coding. <strong>AI-powered features</strong> let you generate automation scripts
+                            from natural language (OpenAI, Claude, Gemini, Groq, Ollama) and create social media posts
+                            with AI. Think of it as a "robot" that can see your screen, find text or buttons, and perform
+                            actions like clicking, typing, and navigating – just like a human would.</p>
 
                         <p class="intro-description">
-                            The application combines <strong>three key technologies</strong>: OCR (Optical Character
-                            Recognition) reads text directly from your screen, UI Automation finds buttons and controls
-                            using Windows' built-in accessibility features, and mouse/keyboard simulation performs
-                            actions automatically. This powerful combination allows you to automate tasks that would
-                            otherwise require manual intervention.
+                            The application combines <strong>OCR</strong> (reads text from your screen), <strong>UI
+                                Automation</strong> (finds buttons and controls via Windows accessibility), and
+                            <strong>mouse/keyboard simulation</strong>. When exact text isn't found, <strong>AI Semantic
+                                Search</strong> can interpret your intent and locate the right element. This powerful
+                            combination allows you to automate tasks that would otherwise require manual intervention.
                         </p>
 
 
 
                         <div class="intro-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🤖</span>
+                                <span class="highlight-text">AI Script Builder</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">✍️</span>
+                                <span class="highlight-text">AI Social Media</span>
+                            </div>
                             <div class="highlight-item">
                                 <span class="highlight-icon">🔍</span>
                                 <span class="highlight-text">OCR Text Detection</span>
@@ -455,6 +480,24 @@
                             <div class="zoom-icon">🔍</div>
                         </div>
                     </div>
+
+                    <div class="image-card featured" data-image="OffCodeAutomation.png"
+                    data-title="OffCode Automation Tool"
+                    data-desc="Powerful desktop automation interface with visual scripting">
+                    <img src="ScriptAutomation.png" alt="OffCode Automation Tool - Main Interface">
+                    <div class="image-overlay">
+                        <div class="zoom-icon">🔍</div>
+                    </div>
+                </div>
+
+                <div class="image-card featured" data-image="OffCodeAutomation.png"
+                data-title="OffCode Automation Tool"
+                data-desc="Create scripts with AI, Generate social media posts with AI">
+                <img src="AiToolsAutomation.png" alt="OffCode Automation Tool - AI Tools">
+                <div class="image-overlay">
+                    <div class="zoom-icon">🔍</div>
+                </div>
+            </div>
 
                     <div class="image-card featured" data-image="ScannerTriggerP.png"
                         data-title="OffCode Automation Tool"
@@ -569,15 +612,41 @@
                     <p class="features-subtitle">Everything you need for desktop automation</p>
 
                     <div class="features-grid">
+                        <!-- AI Script Builder -->
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI Script Builder</h3>
+                            <p>Generate automation scripts from natural language using cloud LLMs</p>
+                            <ul class="feature-list">
+                                <li>Choose provider: OpenAI, Claude, Gemini, Groq, or Ollama (local or cloud)</li>
+                                <li>Describe your automation in plain English</li>
+                                <li>AI outputs a ready-to-run action sequence</li>
+                                <li>Insert generated steps directly into your script</li>
+                            </ul>
+                        </div>
+
+                        <!-- AI Social Media -->
+                        <div class="feature-card">
+                            <div class="feature-icon">✍️</div>
+                            <h3>AI Social Media</h3>
+                            <p>Create social media posts with AI assistance</p>
+                            <ul class="feature-list">
+                                <li>Generate captions and content ideas</li>
+                                <li>Use your preferred LLM provider</li>
+                                <li>Copy results to clipboard for pasting</li>
+                            </ul>
+                        </div>
+
                         <!-- Text Detection -->
                         <div class="feature-card">
                             <div class="feature-icon">🔍</div>
                             <h3>Text Detection</h3>
-                            <p>Find text on screen using OCR</p>
+                            <p>Find text on screen using OCR and AI fallback</p>
                             <ul class="feature-list">
                                 <li>OCR reads any visible text</li>
                                 <li>UI Automation for buttons/controls</li>
                                 <li>Hybrid mode combines both</li>
+                                <li><strong>AI Semantic Search</strong> — when exact match fails, AI interprets intent and finds the right element</li>
                                 <li>Works with any application</li>
                             </ul>
                         </div>
@@ -607,8 +676,9 @@
                             <h3>Scanner Triggers</h3>
                             <p>Create advanced automation triggers using the Visual Reader. Use `[WAIT FOR TEXT]
                                 "message"` to pause your script until specific text appears in the scanner area. Use
-                                `[WAIT GONE] "message"` to wait until text disappears. This enables conditional
-                                automation based on screen content changes.</p>
+                                `[WAIT GONE] "message"` to wait until text disappears. When adding a new Multi-Region
+                                (Numpad 4), you can optionally set a trigger text so the script waits for text to appear
+                                or disappear <em>within that region</em> before continuing.</p>
                         </div>
 
                         <!-- Mouse & Keyboard -->
@@ -633,6 +703,7 @@
                                 <li>Visual action builder</li>
                                 <li>Loop support (0=infinite)</li>
                                 <li>Save/Load/Edit scripts as JSON</li>
+                                <li><strong>Script chaining</strong> — Use <code>/loadscript:name.json</code> to run another saved script from the Scripts folder</li>
                             </ul>
                         </div>
 
@@ -675,6 +746,8 @@
                                 <li>/startprocess:notepad.exe</li>
                                 <li>/stopprocess:notepad.exe</li>
                                 <li>/openwebsite:google.com</li>
+                                <li>/gettextfromlist — Copy next line from text list to clipboard</li>
+                                <li>/loadscript:script.json — Run another saved script</li>
                             </ul>
                         </div>
 
@@ -714,6 +787,7 @@
                             <ul class="feature-list">
                                 <li>F1 — Start automation</li>
                                 <li>F2 — Stop automation</li>
+                                <li>F3 — Inspect UI element under cursor (name, type, class)</li>
                                 <li>Custom hotkey (1–9, F3–F12, Numpad) — Add visual marker</li>
                                 <li>Numpad 1 — Manual scan (Visual Reader)</li>
                                 <li>Numpad 2 — Lock scanner position</li>
@@ -767,12 +841,13 @@
                             <div class="feature-icon" style="margin: 0 auto 1.5rem auto;">🌍</div>
                             <h3 style="text-align: center;">Real-world Use Cases</h3>
                             <ul class="feature-list" style="text-align: left; display: inline-block; margin-top: 1rem;">
-                                <li>Social media automation (posting, liking, commenting)</li>
+                                <li>Social media automation (posting, liking, commenting) — use AI to generate captions</li>
                                 <li>Web browsing and repetitive data entry (form filling, searches)</li>
                                 <li>Document work (Excel, Word tasks and reports)</li>
                                 <li>Gaming (repetitive tasks, monitoring game events)</li>
                                 <li>Data collection from multiple screens</li>
                                 <li>Monitoring dynamic content in real-time</li>
+                                <li>AI-generated scripts — describe workflows in plain English and run them</li>
                             </ul>
                         </div>
                     </div>
@@ -797,7 +872,8 @@
                         <div class="feature-card">
                             <div class="feature-icon">📝</div>
                             <h3>Automation changelog</h3>
->                            <p>See what has changed recently, including Multi-Region improvements, UI element inspection,
+                            > <p>See what has changed recently, including Multi-Region improvements, UI element
+                                inspection,
                                 script chaining, and stability fixes in the Visual Reader and automation flow.</p>
                             <a href="AutomationChangelog.html" class="button secondary-download">Read automation
                                 updates</a>
@@ -952,6 +1028,14 @@
                                     iteration can use a different value from your list.</p>
                             </div>
                             <div class="faq-item">
+                                <h4>What is the AI Script Builder?</h4>
+                                <p>Describe your automation in plain English (e.g. &quot;Open Notepad, type Hello, save the file&quot;). Choose an LLM provider (OpenAI, Claude, Gemini, Groq, or Ollama — including local Ollama). The AI generates a ready-to-run action sequence that you can insert into your script with one click.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>What is AI Semantic Search?</h4>
+                                <p>When OCR and UI Automation cannot find an exact text match, AI Semantic Search interprets your search intent and locates the right on-screen element. For example, searching for &quot;submit&quot; might find a button labeled &quot;Send&quot; or &quot;OK&quot;.</p>
+                            </div>
+                            <div class="faq-item">
                                 <h4>What are Scanner Triggers?</h4>
                                 <p>Scanner Triggers enable conditional automation using the Visual Reader. Use `[WAIT
                                     FOR TEXT] "message"` to pause your script until specific text appears in the scanner
@@ -1044,30 +1128,7 @@
                 style="max-width: 150px;" /></a>
     </div>
 
-    <script>
-        // Check for referral code in URL
-        document.addEventListener('DOMContentLoaded', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const refCode = urlParams.get('ref');
 
-            // XSS Prevention: Validate ref code against strict whitelist (OWASP)
-            if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
-                // Find all links to PurchaseAutomationTool.html
-                const purchaseLinks = document.querySelectorAll('a[href^="PurchaseAutomationTool.html"]');
-
-                purchaseLinks.forEach(link => {
-                    // Append ref code to existing href
-                    const currentHref = link.getAttribute('href');
-                    const separator = currentHref.includes('?') ? '&' : '?';
-                    link.setAttribute('href', `${currentHref}${separator}ref=${encodeURIComponent(refCode)}`);
-                });
-
-                // Optional: Store in localStorage in case they navigate away and come back
-                localStorage.setItem('offcrypt_ref', refCode);
-                console.log('Referral code active:', refCode);
-            }
-        });
-    </script>
 
     </div>
     </main>
