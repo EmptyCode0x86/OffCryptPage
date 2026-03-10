@@ -438,7 +438,7 @@
             <!-- Modern Horizontal Scrolling Gallery -->
             <section id="pictures" class="image-gallery-container">
                 <div class="gallery-header">
-                    <h2 class="gallery-title">💻 Screenshots</h2>
+                    <h2 class="gallery-title" style="color: white;">💻 Screenshots</h2>
                     <p class="gallery-subtitle">Explore the Screen Lock Builder interface • <span class="scroll-hint">👈
                             Scroll horizontally</span></p>
                 </div>
@@ -645,36 +645,42 @@
             </section>
             </section>
 
-    <section class="features-section">
-        <div class="features-container">
-            <h2 class="features-title">Related pages for premium users</h2>
-            <p class="features-subtitle">These links help you compare versions, review the purchase flow, and understand
-                how the upcoming remote-control features fit into the Premium direction.</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔓</div>
-                    <h3>Start with the free builder</h3>
-                    <p>Look at the free version first if you only need the core builder: a portable lock screen,
-                        custom message, encrypted password protection, and the basic startup and timer options.</p>
-                    <a href="ScreenLockBuilder.html" class="button secondary-download">View the free version</a>
+            <section class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">Related pages for premium users</h2>
+                    <p class="features-subtitle">These links help you compare versions, review the purchase flow, and
+                        understand
+                        how the upcoming remote-control features fit into the Premium direction.</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔓</div>
+                            <h3>Start with the free builder</h3>
+                            <p>Look at the free version first if you only need the core builder: a portable lock screen,
+                                custom message, encrypted password protection, and the basic startup and timer options.
+                            </p>
+                            <a href="ScreenLockBuilder.html" class="button secondary-download">View the free version</a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💳</div>
+                            <h3>Purchase and activation</h3>
+                            <p>When you are ready to buy, the purchase page explains instant delivery, activation, the
+                                lifetime
+                                license terms, and how to contact support if you need help after checkout.</p>
+                            <a href="PurchasePremium.html" class="button secondary-download">Open purchase
+                                instructions</a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>Remote control roadmap</h3>
+                            <p>The remote control page outlines the next step beyond local locking: browser-based lock
+                                and
+                                unlock actions, device status, screenshots, automation, and file transfer.</p>
+                            <a href="RemoteControl.html" class="button secondary-download">See the remote control
+                                system</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Purchase and activation</h3>
-                    <p>When you are ready to buy, the purchase page explains instant delivery, activation, the lifetime
-                        license terms, and how to contact support if you need help after checkout.</p>
-                    <a href="PurchasePremium.html" class="button secondary-download">Open purchase instructions</a>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Remote control roadmap</h3>
-                    <p>The remote control page outlines the next step beyond local locking: browser-based lock and
-                        unlock actions, device status, screenshots, automation, and file transfer.</p>
-                    <a href="RemoteControl.html" class="button secondary-download">See the remote control system</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
             <!-- Pricing Section -->
             <section id="pricing" class="pricing-section">
@@ -925,30 +931,7 @@
     </div>
     </section>
 
-    <script>
-        // Check for referral code in URL
-        document.addEventListener('DOMContentLoaded', function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const refCode = urlParams.get('ref');
 
-            // XSS Prevention: Validate ref code against strict whitelist (OWASP)
-            if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
-                // Find all links to PurchasePremium.html
-                const purchaseLinks = document.querySelectorAll('a[href^="PurchasePremium.html"]');
-
-                purchaseLinks.forEach(link => {
-                    // Append ref code to existing href
-                    const currentHref = link.getAttribute('href');
-                    const separator = currentHref.includes('?') ? '&' : '?';
-                    link.setAttribute('href', `${currentHref}${separator}ref=${encodeURIComponent(refCode)}`);
-                });
-
-                // Optional: Store in localStorage in case they navigate away and come back
-                localStorage.setItem('offcrypt_ref', refCode);
-                console.log('Referral code active:', refCode);
-            }
-        });
-    </script>
 
     <div
         style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; margin-top: 50px; margin-bottom: 50px;">
