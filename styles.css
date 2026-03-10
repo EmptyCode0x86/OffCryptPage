@@ -4339,7 +4339,8 @@ li.menu-item.active .menu-text,
     margin-top: 0;
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.25rem;
+    flex-wrap: wrap;
 }
 
 .sidebar-social a {
@@ -4350,6 +4351,7 @@ li.menu-item.active .menu-text,
     text-decoration: none;
     color: var(--text-muted);
     transition: color 0.2s ease, transform 0.2s ease;
+    min-width: 0;
 }
 
 .sidebar-social a:hover {
@@ -4358,13 +4360,14 @@ li.menu-item.active .menu-text,
 }
 
 .sidebar-social-icon {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1;
 }
 
 .sidebar-social-label {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 /* Main Content Wrapper */
