@@ -59,13 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
                                 allowfullscreen>
                         </iframe>
                     </div>
-                    ${imgTitle || imgDesc ? `
-                    <div class="modal-info">
-                        ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
-                        ${imgDesc ? `<p>${imgDesc}</p>` : ''}
+                    <div class="modal-info" style="${imgTitle || imgDesc ? '' : 'display: none;'}">
+                        <h3></h3>
+                        <p></p>
                     </div>
-                    ` : ''}
                 `;
+                // XSS-suojaus: käytä textContent, älä innerHTML
+                const modalInfo = modalContent.querySelector('.modal-info');
+                if (modalInfo) {
+                    const h3 = modalInfo.querySelector('h3');
+                    const p = modalInfo.querySelector('p');
+                    if (h3) h3.textContent = imgTitle || '';
+                    if (p) p.textContent = imgDesc || '';
+                }
             }
         } else {
             // KUVA
@@ -75,14 +81,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="close">&times;</span>
                     <button class="modal-nav-btn modal-prev" aria-label="Previous">‹</button>
                     <button class="modal-nav-btn modal-next" aria-label="Next">›</button>
-                    <img src="${imgSrc}" alt="${imgTitle}" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto;">
-                    ${imgTitle || imgDesc ? `
-                    <div class="modal-info">
-                        ${imgTitle ? `<h3>${imgTitle}</h3>` : ''}
-                        ${imgDesc ? `<p>${imgDesc}</p>` : ''}
+                    <img src="" alt="" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto;">
+                    <div class="modal-info" style="${imgTitle || imgDesc ? '' : 'display: none;'}">
+                        <h3></h3>
+                        <p></p>
                     </div>
-                    ` : ''}
                 `;
+                const modalImg = modalContent.querySelector('img');
+                const modalInfo = modalContent.querySelector('.modal-info');
+                if (modalImg) {
+                    modalImg.src = imgSrc;
+                    modalImg.alt = imgTitle || '';
+                }
+                // XSS-suojaus: käytä textContent, älä innerHTML
+                if (modalInfo) {
+                    const h3 = modalInfo.querySelector('h3');
+                    const p = modalInfo.querySelector('p');
+                    if (h3) h3.textContent = imgTitle || '';
+                    if (p) p.textContent = imgDesc || '';
+                }
             }
         }
 
