@@ -71,6 +71,7 @@
                 0 12px 48px rgba(0, 255, 136, 0.08),
                 0 24px 80px rgba(0, 102, 255, 0.06);
         }
+
         .buildsecure-youtube-wrap {
             position: relative;
             width: 100%;
@@ -79,6 +80,7 @@
             overflow: hidden;
             background: #0d1117;
         }
+
         .buildsecure-youtube-wrap iframe {
             position: absolute;
             top: 0;
@@ -87,6 +89,7 @@
             height: 100%;
             border: 0;
         }
+
         .buildsecure-hero-hint {
             display: block;
             text-align: center;
@@ -95,12 +98,14 @@
             margin: 0.5rem 0 0;
             letter-spacing: 0.02em;
         }
+
         .buildsecure-coming-soon {
             text-align: center;
             padding: 2.25rem 1rem 2.75rem;
             margin-top: 0;
             border-top: 1px solid rgba(0, 255, 136, 0.1);
         }
+
         .buildsecure-coming-soon p {
             margin: 0;
             font-size: 0.95rem;
@@ -228,38 +233,37 @@
                     <div class="intro-content">
                         <!-- Hero Header -->
                         <h1 class="hero-title">🛡️ BuildSecure</h1>
-                        <p class="hero-subtitle">Web editor, AI-assisted scans, and finding follow-ups in one workflow</p>
+                        <p class="hero-subtitle">Web editor, AI-assisted scans, and finding follow-ups in one workflow
+                        </p>
                         <div class="hero-glow-divider"></div>
 
                         <figure class="buildsecure-hero-shot">
                             <div class="buildsecure-youtube-wrap">
-                                <iframe
-                                    src="https://www.youtube.com/embed/bq3DuH-b9DI?rel=0"
+                                <iframe src="https://www.youtube.com/embed/bq3DuH-b9DI?rel=0"
                                     title="BuildSecure — walkthrough of AI-assisted security scanning"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen
-                                    loading="eager"
+                                    allowfullscreen loading="eager"
                                     referrerpolicy="strict-origin-when-cross-origin"></iframe>
                             </div>
-                            <figcaption class="buildsecure-hero-hint">See how scanning works — embedded from YouTube; press play to watch</figcaption>
+                            <figcaption class="buildsecure-hero-hint">See how scanning works — embedded from YouTube;
+                                press play to watch</figcaption>
                         </figure>
 
-                        <p class="intro-description lead-text">Shipping features quickly—whether you use AI tools, work
-                            in a small team, or simply run on tight deadlines—often leaves limited room for a formal
-                            security review. Leaked keys, weak cryptography, and vulnerable dependencies still show up
-                            in real codebases. <strong>BuildSecure</strong> does not replace a pentest, but it keeps
-                            <strong>editing</strong> and <strong>structured security scans</strong> in the same browser
-                            session, so before deploy you can run a practical pass for secrets, common vulnerabilities,
-                            crypto issues, and dependency signals—without switching to a separate toolchain you rarely
-                            open.</p>
+                        <p class="intro-description lead-text">Shipping features quickly—whether using AI tools, working
+                            in a small team, or operating under tight deadlines—often leaves limited time for formal
+                            security reviews. As a result, issues such as exposed API keys, weak cryptographic
+                            implementations,
+                            and vulnerable dependencies still appear in real-world codebases.</p>
 
-                        <p class="intro-description">Under the hood it is a <strong>Monaco</strong> editor, an
-                            <strong>AI scans</strong> side panel where you pick <strong>Groq</strong>, <strong>Ollama Cloud</strong>, or
-                            <strong>Google Gemini</strong>, and run scans from compact actions (same flows also accept slash
-                            commands such as <code>/security-scan</code>, <code>/find-secrets</code>,
-                            <code>/encryption-check</code>, <code>/seo-check</code>), or the <strong>Website-scan</strong> action for one public <strong>HTTPS</strong> URL. Open a local folder (File System API) or browse a
-                            <strong>GitHub</strong> repo via the API proxy; attach current file, open tabs, or project context. OSV can
-                            read dependency signals from manifest text when that content is included. Sign-in uses <strong>Supabase</strong>.</p>
+                        <p class="intro-description"><strong>BuildSecure</strong> is designed to support this gap. It
+                            does
+                            not replace a full penetration test, but it enables developers to run structured security
+                            checks directly within the same working session before deployment. This includes scanning
+                            for secrets,
+                            common vulnerabilities, cryptographic issues, dependency-related risks, and SEO
+                            audits—without switching
+                            to
+                            a separate toolchain.</p>
 
                         <div class="intro-highlights">
                             <div class="highlight-item">
@@ -295,17 +299,20 @@
             <section id="features" class="features-section">
                 <div class="features-container">
                     <h2 class="features-title">Features</h2>
-                   
+
                     <div class="features-grid">
                         <!-- Premium Code Editor -->
                         <div class="feature-card">
                             <div class="feature-icon">💻</div>
                             <h3>Code editor</h3>
-                            <p>Monaco in the browser—same family of editing tools as VS Code. Read and edit code in one place, then attach the same files to scans in the side panel without switching apps.</p>
+                            <p>Monaco in the browser—same family of editing tools as VS Code. Read and edit code in one
+                                place, then attach the same files to scans in the side panel without switching apps.</p>
                             <ul class="feature-list">
                                 <li>Syntax highlighting, minimap, folding, bracket pair colorization</li>
-                                <li>Built-in suggestions where Monaco ships a language worker (ordinary IntelliSense—not the AI filling your buffer)</li>
-                                <li>Open a local folder via the File System API, or load a GitHub repo through the proxy (see below)</li>
+                                <li>Built-in suggestions where Monaco ships a language worker (ordinary IntelliSense—not
+                                    the AI filling your buffer)</li>
+                                <li>Open a local folder via the File System API, or load a GitHub repo through the proxy
+                                    (see below)</li>
                                 <li>Multiple files open; tab strip for quick switching while you review or refactor</li>
                             </ul>
                         </div>
@@ -314,48 +321,79 @@
                         <div class="feature-card">
                             <div class="feature-icon">🤖</div>
                             <h3>AI scans &amp; sessions</h3>
-                            <p>Scan-first side panel: choose provider, model, and reasoning level, then run repo-side scans or open the website URL flow—everything stays in one layout next to the editor.</p>
+                            <p>Scan-first side panel: choose provider, model, and reasoning level, then run repo-side
+                                scans or open the website URL flow—everything stays in one layout next to the editor.
+                            </p>
                             <ul class="feature-list">
-                                <li>Pick <strong>Groq</strong>, <strong>Ollama Cloud</strong>, or <strong>Google Gemini</strong> and a model in the panel</li>
-                                <li>No free-form chat box: start scans from the panel (or matching slash commands). Toggle context options—current file, open tabs, project tree—so each run only sees what you intend</li>
-                                <li>After a security or SEO scan, findings appear as cards. <strong>Give fix code</strong> (security) or <strong>Ask for implementation details</strong> (SEO) sends one follow-up with that finding baked in; the reply stays in the thread for you to copy or apply—no automatic file writes</li>
+                                <li>Pick <strong>Groq</strong>, <strong>Ollama Cloud</strong>, or <strong>Google
+                                        Gemini</strong> and a model in the panel</li>
+                                <li>No free-form chat box: start scans from the panel (or matching slash commands).
+                                    Toggle context options—current file, open tabs, project tree—so each run only sees
+                                    what you intend</li>
+                                <li>After a security or SEO scan, findings appear as cards. <strong>Give fix
+                                        code</strong> (security) or <strong>Ask for implementation details</strong>
+                                    (SEO) sends one follow-up with that finding baked in; the reply stays in the thread
+                                    for you to copy or apply—no automatic file writes</li>
                                 <li>Session tabs and saved scan history sync to your account on the API</li>
                             </ul>
                         </div>
 
                         <!-- Security & DevOps Scanning -->
                         <div class="feature-card">
-                            <div class="feature-icon">🔒</div>
-                            <h3>Scans (repository &amp; code)</h3>
-                            <p>Run focused passes from the panel or slash commands: the model only sees the project snapshot, open tabs, or file you attach—so you control how much code goes into each run.</p>
-                            <ul class="feature-list">
-                                <li>Broad security / SAST-style review, dedicated secret finding, SEO audit, and merged OWASP-style flows—plus the <strong>encryption check</strong> described below</li>
-                                <li>OSV-backed dependency hints when <code>package.json</code> or <code>.csproj</code> text is part of the context</li>
-                            </ul>
+                            <div class="feature-icon">🔍</div>
+                            <h3>Source Code Scanning</h3>
+                            <p>Analyze files or entire projects to identify potential security and quality issues.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🔑</div>
+                            <h3>Secrets Detection</h3>
+                            <p>Detect exposed API keys, tokens, and other sensitive data.</p>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-icon">🔐</div>
-                            <h3>Encryption check (<code>/encryption-check</code>)</h3>
-                            <p>
-                                <strong>Static LLM review</strong> of how you use cryptography in the snippets you attach. Same pipeline as other scans, with instructions tuned for crypto. <strong>Not</strong> FIPS certification, a pentest, or live TLS/binary validation.
-                            </p>
-                            <ul class="feature-list">
-                                <li>Detects crypto-related APIs and patterns only in <em>your</em> context (.NET, Node, Web Crypto, hashing, TLS in config). No crypto visible → empty findings, no made-up issues.</li>
-                                <li>When relevant: weak cipher modes, IV/nonce and key handling, RNG misuse, password hashing vs generic hashes, RSA padding, KDFs—while ignoring routine HTTPS client use and column names without misuse.</li>
-                                <li>Structured JSON results → same finding cards and <strong>Give fix code</strong> follow-ups as other security-style scans.</li>
-                            </ul>
+                            <h3>Encryption Checks</h3>
+                            <p>Review cryptographic usage (e.g., AES-GCM) to identify incorrect or unsafe
+                                implementations.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Vulnerability Scanning</h3>
+                            <p>Identify common security risks such as injection vectors, misconfigurations, and unsafe
+                                patterns.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>Dependency Signals</h3>
+                            <p>Surface potential risks in dependencies by analyzing manifest content (via OSV when
+                                available).</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>SEO Review</h3>
+                            <p>Evaluate web-related code for basic search engine optimization issues.</p>
                         </div>
 
                         <!-- Website scan -->
                         <div class="feature-card">
                             <div class="feature-icon">🌐</div>
                             <h3>Website scan (HTTPS)</h3>
-                            <p>Separate from repo analysis: a quick read on <strong>one public page</strong>—useful for a marketing site or docs front page, not a substitute for testing a logged-in app.</p>
+                            <p>Separate from repo analysis: a quick read on <strong>one public page</strong>—useful for
+                                a marketing site or docs front page, not a substitute for testing a logged-in app.</p>
                             <ul class="feature-list">
-                                <li>Choose <strong>Website-scan</strong> in the panel; paste a URL. Only <strong>HTTPS</strong> is accepted (HTTP is rejected in the UI)</li>
-                                <li>The API fetches that response once (SSRF protections; redirects may land on a final URL). Pattern checks plus an LLM summary with your chosen <strong>Groq</strong>, <strong>Ollama Cloud</strong>, or <strong>Gemini</strong> model</li>
-                                <li><strong>Not</strong> a crawl, login flow, or authenticated API test—you only see what that URL returns publicly</li>
+                                <li>Choose <strong>Website-scan</strong> in the panel; paste a URL. Only
+                                    <strong>HTTPS</strong> is accepted (HTTP is rejected in the UI)
+                                </li>
+                                <li>The API fetches that response once (SSRF protections; redirects may land on a final
+                                    URL). Pattern checks plus an LLM summary with your chosen <strong>Groq</strong>,
+                                    <strong>Ollama Cloud</strong>, or <strong>Gemini</strong> model
+                                </li>
+                                <li><strong>Not</strong> a crawl, login flow, or authenticated API test—you only see
+                                    what that URL returns publicly</li>
                             </ul>
                         </div>
 
@@ -363,11 +401,17 @@
                         <div class="feature-card">
                             <div class="feature-icon">🐙</div>
                             <h3>GitHub</h3>
-                            <p>Browse a repository without leaving BuildSecure: tree and file contents go through your backend proxy, so the browser never calls GitHub directly—CORS stays clean and credentials never ship to the client.</p>
+                            <p>Browse a repository without leaving BuildSecure: tree and file contents go through your
+                                backend proxy, so the browser never calls GitHub directly—CORS stays clean and
+                                credentials never ship to the client.</p>
                             <ul class="feature-list">
-                                <li>Enter <strong>owner</strong> and <strong>repository</strong>; the UI builds a folder tree from <code>HEAD</code> and opens files on demand</li>
-                                <li>Proxy endpoints require a <strong>signed-in</strong> BuildSecure user (JWT), so anonymous visitors cannot burn your GitHub rate limit</li>
-                                <li>Which repositories open depends on the <strong>server-side</strong> GitHub setup (public repos; private only if the deployer configured a PAT with access—shared for the deployment, not per viewer’s own GitHub account)</li>
+                                <li>Enter <strong>owner</strong> and <strong>repository</strong>; the UI builds a folder
+                                    tree from <code>HEAD</code> and opens files on demand</li>
+                                <li>Proxy endpoints require a <strong>signed-in</strong> BuildSecure user (JWT), so
+                                    anonymous visitors cannot burn your GitHub rate limit</li>
+                                <li>Which repositories open depends on the <strong>server-side</strong> GitHub setup
+                                    (public repos; private only if the deployer configured a PAT with access—shared for
+                                    the deployment, not per viewer’s own GitHub account)</li>
                             </ul>
                         </div>
                     </div>
@@ -402,4 +446,5 @@
     <script src="cookie-consent.js" defer></script>
 
 </body>
+
 </html>
