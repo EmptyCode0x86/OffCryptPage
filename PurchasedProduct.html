@@ -162,193 +162,413 @@
     <!-- Main Content Wrapper -->
     <div class="main-wrapper">
         <main>
-            <!-- Activation Instructions Section -->
+            <style>
+                /* Refined, centered single-column layout */
+                .premium-redesign-container {
+                    max-width: 800px;
+                    margin: 2rem auto;
+                    font-family: inherit;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2.5rem;
+                    padding: 0 1.5rem;
+                }
+                
+                /* Fancy Glass Panels */
+                .glass-panel {
+                    background: rgba(15, 20, 25, 0.7);
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                    border: 1px solid rgba(0, 255, 136, 0.15);
+                    border-radius: 20px;
+                    padding: 2.3rem 2.8rem;
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+                }
+                
+                .primary-purchase-panel {
+                    background: rgba(15, 20, 25, 0.85); /* Solid dark instead of gradient */
+                    border: 1px solid rgba(0, 255, 136, 0.3);
+                    position: relative;
+                    overflow: hidden;
+                    text-align: center;
+                    padding: 3.5rem 2rem;
+                    border-radius: 24px;
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+                }
+                .primary-purchase-panel::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0; right: 0; height: 3px;
+                    background: rgba(0, 212, 255, 0.8); /* Subtle cyan top line */
+                }
+
+                .panel-title {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    color: #ffffff;
+                    margin-top: 0;
+                    margin-bottom: 2rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    border-bottom: 1px solid rgba(255,255,255,0.08);
+                    padding-bottom: 1.25rem;
+                }
+                
+                /* Timeline for Instructions */
+                .timeline {
+                    position: relative;
+                    padding-left: 2.5rem;
+                    border-left: 2px solid rgba(0, 255, 136, 0.2);
+                    margin-top: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+                .timeline-item {
+                    position: relative;
+                    margin-bottom: 2.5rem;
+                }
+                .timeline-item:last-child {
+                    margin-bottom: 0;
+                }
+                .timeline-item::before {
+                    content: '';
+                    position: absolute;
+                    left: -3rem;
+                    top: 0.25rem;
+                    width: 0.9rem;
+                    height: 0.9rem;
+                    border-radius: 50%;
+                    background: #00ff88;
+                    border: 3px solid #0f1419;
+                    box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
+                }
+                .timeline-item h4 {
+                    color: #00ff88;
+                    margin-top: 0;
+                    margin-bottom: 0.6rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+                .timeline-item p, .timeline-item ul, .timeline-item ol {
+                    margin: 0;
+                    color: #cbd5e1;
+                    line-height: 1.65;
+                }
+                .timeline-item ul, .timeline-item ol {
+                    padding-left: 1.25rem;
+                }
+                .timeline-item li {
+                    margin-bottom: 0.5rem;
+                }
+
+                /* Terms Grid */
+                .terms-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 1.5rem;
+                }
+                .term-box {
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    border-radius: 12px;
+                    padding: 1.5rem;
+                    transition: background 0.2s, border-color 0.2s;
+                }
+                .term-box:hover {
+                    background: rgba(255, 255, 255, 0.04);
+                    border-color: rgba(255, 255, 255, 0.1);
+                }
+                .term-box h4 {
+                    color: #00d4ff;
+                    margin-top: 0;
+                    margin-bottom: 0.8rem;
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                }
+                .term-box p, .term-box ul {
+                    margin: 0;
+                    font-size: 0.95rem;
+                    color: #94a3b8;
+                    line-height: 1.55;
+                }
+                .term-box ul {
+                    padding-left: 1.25rem;
+                }
+                .terms-acceptance {
+                    margin-top: 2rem;
+                    padding: 1.5rem;
+                    background: rgba(0, 255, 136, 0.05);
+                    border: 1px dashed rgba(0, 255, 136, 0.3);
+                    border-radius: 12px;
+                    text-align: center;
+                    color: #ffffff;
+                    font-size: 1.05rem;
+                }
+
+                /* Purchase Form */
+                .buy-btn-large {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    color: #00ff88 !important; /* Neon text inside dark button */
+                    font-weight: 500;
+                    font-size: 1.15rem;
+                    padding: 1rem 2.5rem;
+                    border-radius: 6px;
+                    text-decoration: none !important;
+                    transition: all 0.25s ease-in-out;
+                    border: 1px solid rgba(0, 255, 136, 0.4);
+                    margin: 1.5rem auto;
+                    width: 100%;
+                    max-width: 350px;
+                    box-sizing: border-box;
+                }
+                .buy-btn-large:hover {
+                    background: rgba(0, 255, 136, 0.1);
+                    border-color: #00ff88;
+                    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+                    transform: translateY(-2px);
+                    color: #ffffff !important;
+                }
+                .buy-btn-large:active {
+                    transform: translateY(1px);
+                    background: rgba(0, 255, 136, 0.2);
+                }
+                .payment-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    background: rgba(0, 102, 255, 0.15);
+                    padding: 0.6rem 1.2rem;
+                    border-radius: 8px;
+                    border: 1px solid rgba(0, 212, 255, 0.2);
+                    color: #ffffff;
+                    font-weight: 500;
+                }
+
+                /* Footer Areas */
+                .footer-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 2rem;
+                }
+                .contact-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    color: #cbd5e1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.85rem;
+                }
+                .contact-list li {
+                    display: flex;
+                    gap: 0.5rem;
+                }
+                .contact-list a {
+                    color: #00ff88;
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: color 0.2s;
+                }
+                .contact-list a:hover {
+                    color: #ffffff;
+                    text-decoration: underline;
+                }
+                .return-actions {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    margin-top: 1rem;
+                }
+                .return-btn {
+                    display: block;
+                    background: rgba(255,255,255,0.03);
+                    border: 1px solid rgba(255,255,255,0.08);
+                    color: #ffffff;
+                    padding: 0.85rem 1.25rem;
+                    text-align: center;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    transition: all 0.2s;
+                    text-decoration: none;
+                }
+                .return-btn:hover {
+                    background: rgba(255,255,255,0.08);
+                    border-color: rgba(255,255,255,0.2);
+                    transform: translateY(-2px);
+                }
+                
+                @media (max-width: 768px) {
+                    .glass-panel { padding: 2rem 1.5rem; }
+                    .primary-purchase-panel { padding: 2.5rem 1.25rem; }
+                    .timeline { padding-left: 1.5rem; }
+                    .timeline-item::before { left: -1.95rem; }
+                    .download-title { font-size: 1.8rem !important; }
+                }
+            </style>
+
             <section class="download-section">
-                <div class="download-container">
-                    <h2 class="download-title">Activation Instructions</h2>
-
-                    <div class="version-notice">
-                        <p><strong>📢 Latest version v2.1</strong></p>
-                    </div>
-
-                    <!-- Purchase Instructions Box -->
-                    <div class="purchase-instructions-box">
-                        <h3 class="instructions-title">📋 Activation Instructions</h3>
-                        <p class="instructions-intro">This guide will walk you through the simple 3-step activation
-                            process to get your software up and running.</p>
-
-                        <div class="instructions-overview">
-                            <h4>Overview</h4>
-                            <p>After completing your purchase, you will need to:</p>
-                            <ol class="instructions-steps-overview">
-                                <li>Receive and download the Authenticator application</li>
-                                <li>Extract and send your unique Authentication ID</li>
-                                <li>Receive your Screen Lock Builder Premium software within 24 hours</li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 1: Immediate Delivery</h4>
-                            <ul>
-                                <li><strong>When:</strong> Immediately after your purchase is completed</li>
-                                <li><strong>How:</strong> The Authenticator application download link will be available
-                                    directly on the Stripe checkout page after successful payment</li>
-                                <li><strong>Delivery Service:</strong> Stripe (secure payment platform)</li>
-                                <li><strong>What to Look For:</strong> Download the Authenticator application from the
-                                    Stripe confirmation page. You will also receive a confirmation email.</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 1: Download and Run</h4>
-                            <ol>
-                                <li>Download the Authenticator application from the Stripe confirmation page after
-                                    completing your purchase</li>
-                                <li>Save the <code>Authenticator.exe</code> file to your computer</li>
-                                <li><strong>System Requirements:</strong> Windows operating system</li>
-                                <li>Run the executable file (you may see a Windows security warning - this is normal for
-                                    downloaded executables)</li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 2: Opening the Authenticator Application</h4>
-                            <ol>
-                                <li>Launch the <code>Authenticator.exe</code> application</li>
-                                <li>The application will automatically detect your hardware components</li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 2: Locating Your Authentication ID</h4>
-                            <ul>
-                                <li><strong>Location:</strong> The Authentication ID is displayed in the
-                                    <strong>"Authentication ID:"</strong> text box
-                                </li>
-                                <li><strong>Security Note:</strong> The field is password-masked with asterisks (****)
-                                    for security purposes</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 2: Copying Your Authentication ID</h4>
-                            <ol>
-                                <li>Click the <strong>"Copy Authentication ID & Email"</strong> button in the
-                                    application</li>
-                                <li>This button will:
-                                    <ul>
-                                        <li>Copy both the Authentication ID and the contact email address to your
-                                            clipboard</li>
-                                    </ul>
-                                </li>
-                                <li>You will see a success message confirming the data has been copied</li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 2: Sending Your Authentication ID</h4>
-                            <ol>
-                                <li>Open your email client</li>
-                                <li>Create a new email message</li>
-                                <li>Paste the clipboard contents (the button has already formatted it with the email
-                                    address)</li>
-                                <li><strong>Send To:</strong> <a
-                                        href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
-                                <li><strong>Subject:</strong> (Optional) "Screen Lock Builder Premium Activation -
-                                    Authentication ID"</li>
-                                <li>Send the email</li>
-                            </ol>
-                            <p class="instructions-warning"><strong>Important:</strong> Each Authentication ID is unique
-                                to your specific hardware configuration. Do not share this ID with others.</p>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 3: Processing Time</h4>
-                            <ul>
-                                <li><strong>When:</strong> Within <strong>24 hours</strong> after you send your
-                                    Authentication ID</li>
-                                <li><strong>How:</strong> Manual verification of your Authentication ID is required for
-                                    security</li>
-                                <li><strong>Delivery Method:</strong> Email with download link</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 3: What Happens Next</h4>
-                            <ol>
-                                <li>Our team verifies your Authentication ID</li>
-                                <li>Once verified, you will receive an email with the download link</li>
-                                <li>The email will contain:
-                                    <ul>
-                                        <li>Download link for Screen Lock Builder Premium</li>
-                                        <li>Installation instructions (if needed)</li>
-                                        <li>License activation details</li>
-                                    </ul>
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Step 3: If You Don't Receive the Download Link</h4>
-                            <p><strong>After 24 hours:</strong> If you haven't received your download link within 24
-                                hours, please:</p>
-                            <ol>
-                                <li>Check your spam/junk email folder</li>
-                                <li>Verify you sent the Authentication ID to the correct email address: <a
-                                        href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
-                                <li>Contact support at: <a
-                                        href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
-                                <li>Include your purchase receipt and the Authentication ID in your support request</li>
-                            </ol>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Troubleshooting: The Authenticator Application Won't Run</h4>
-                            <ul>
-                                <li><strong>Windows Security Warning:</strong> Click "More info" and then "Run anyway"
-                                    if Windows blocks the application</li>
-                                <li><strong>Antivirus Software:</strong> Some antivirus software may flag the
-                                    application - add it to exceptions if needed</li>
-                                <li><strong>Administrator Rights:</strong> Try running the application with
-                                    administrator privileges</li>
-                                <li><strong>Corrupted Download:</strong> Re-download the file from the Stripe
-                                    confirmation page</li>
-                            </ul>
-                        </div>
-
-                        <div class="instructions-section">
-                            <h4>Troubleshooting: I Haven't Received My Download Link</h4>
-                            <ul>
-                                <li><strong>Check Spam Folder:</strong> Sometimes delivery emails end up in spam/junk
-                                    folders</li>
-                                <li><strong>Wait 24 Hours:</strong> Processing can take up to 24 hours</li>
-                                <li><strong>Verify Email Sent:</strong> Double-check that you sent the Authentication ID
-                                    to <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
-                                <li><strong>Contact Support:</strong> Email <a
-                                        href="mailto:support@dev-offcode.com">support@dev-offcode.com</a> with:
-                                    <ul>
-                                        <li>Your purchase receipt</li>
-                                        <li>Your Authentication ID</li>
-                                        <li>Purchase date and time</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                <div class="download-container premium-redesign-container">
+                    
+                    <div style="text-align: center; margin-bottom: 0.5rem;">
+                        <h2 class="download-title" style="margin-bottom: 1.25rem; font-size: 2.4rem; font-weight: 800; margin-top: 0; letter-spacing: -0.5px;">Activation Instructions</h2>
+                        <div class="version-notice" style="display: inline-block; background: rgba(0, 102, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 0.5rem 1.25rem;">
+                            <p style="margin: 0; color: #00d4ff;"><strong>📢 Latest version v2.1</strong></p>
                         </div>
                     </div>
 
-                    <div class="purchase-instructions-box" style="margin-top: 2rem;">
-                        <h3 class="instructions-title">Return to the premium product pages</h3>
-                        <p class="instructions-intro">Use this archived activation guide as a support document, then
-                            jump
-                            back to the main premium product pages for the current feature list and purchase flow.</p>
-                        <div
-                            style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
-                            <a href="ScreenLockBuilderPremium.html" class="button secondary-download">Back to Screen
-                                Lock
-                                Builder Premium</a>
-                            <a href="PurchasePremium.html" class="button secondary-download">Open current purchase
-                                instructions</a>
-                            <a href="changelogPremium.html" class="button secondary-download">Read premium changelog</a>
+                    <!-- Activation Instructions Box -->
+                    <div class="glass-panel">
+                        <h3 class="panel-title">📋 Activation Instructions</h3>
+                        <p style="color: #cbd5e1; font-size: 1.05rem; margin-bottom: 1.5rem;">This guide will walk you through the simple 3-step activation process to get your software up and running.</p>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>Overview</h4>
+                                <p>After completing your purchase, you will need to:</p>
+                                <ol>
+                                    <li>Receive and download the Authenticator application</li>
+                                    <li>Extract and send your unique Authentication ID</li>
+                                    <li>Receive your Screen Lock Builder Premium software within 24 hours</li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 1: Immediate Delivery</h4>
+                                <ul>
+                                    <li><strong>When:</strong> Immediately after your purchase is completed</li>
+                                    <li><strong>How:</strong> The Authenticator application download link will be available directly on the Stripe checkout page after successful payment</li>
+                                    <li><strong>Delivery Service:</strong> Stripe (secure payment platform)</li>
+                                    <li><strong>What to Look For:</strong> Download the Authenticator application from the Stripe confirmation page. You will also receive a confirmation email.</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 1: Download and Run</h4>
+                                <ol>
+                                    <li>Download the Authenticator application from the Stripe confirmation page after completing your purchase</li>
+                                    <li>Save the <code>Authenticator.exe</code> file to your computer</li>
+                                    <li><strong>System Requirements:</strong> Windows operating system</li>
+                                    <li>Run the executable file (you may see a Windows security warning - this is normal for downloaded executables)</li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 2: Opening the Authenticator Application</h4>
+                                <ol>
+                                    <li>Launch the <code>Authenticator.exe</code> application</li>
+                                    <li>The application will automatically detect your hardware components</li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 2: Locating Your Authentication ID</h4>
+                                <ul>
+                                    <li><strong>Location:</strong> The Authentication ID is displayed in the <strong>"Authentication ID:"</strong> text box</li>
+                                    <li><strong>Security Note:</strong> The field is password-masked with asterisks (****) for security purposes</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 2: Copying Your Authentication ID</h4>
+                                <ol>
+                                    <li>Click the <strong>"Copy Authentication ID &amp; Email"</strong> button in the application</li>
+                                    <li>This button will:
+                                        <ul>
+                                            <li>Copy both the Authentication ID and the contact email address to your clipboard</li>
+                                        </ul>
+                                    </li>
+                                    <li>You will see a success message confirming the data has been copied</li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 2: Sending Your Authentication ID</h4>
+                                <ol>
+                                    <li>Open your email client</li>
+                                    <li>Create a new email message</li>
+                                    <li>Paste the clipboard contents (the button has already formatted it with the email address)</li>
+                                    <li><strong>Send To:</strong> <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
+                                    <li><strong>Subject:</strong> (Optional) "Screen Lock Builder Premium Activation - Authentication ID"</li>
+                                    <li>Send the email</li>
+                                </ol>
+                                <p style="margin-top: 0.5rem; color: #f87171;"><strong>Important:</strong> Each Authentication ID is unique to your specific hardware configuration. Do not share this ID with others.</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 3: Processing Time</h4>
+                                <ul>
+                                    <li><strong>When:</strong> Within <strong>24 hours</strong> after you send your Authentication ID</li>
+                                    <li><strong>How:</strong> Manual verification of your Authentication ID is required for security</li>
+                                    <li><strong>Delivery Method:</strong> Email with download link</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 3: What Happens Next</h4>
+                                <ol>
+                                    <li>Our team verifies your Authentication ID</li>
+                                    <li>Once verified, you will receive an email with the download link</li>
+                                    <li>The email will contain:
+                                        <ul>
+                                            <li>Download link for Screen Lock Builder Premium</li>
+                                            <li>Installation instructions (if needed)</li>
+                                            <li>License activation details</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Step 3: If You Don't Receive the Download Link</h4>
+                                <p><strong>After 24 hours:</strong> If you haven't received your download link within 24 hours, please:</p>
+                                <ol>
+                                    <li>Check your spam/junk email folder</li>
+                                    <li>Verify you sent the Authentication ID to the correct email address: <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
+                                    <li>Contact support at: <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
+                                    <li>Include your purchase receipt and the Authentication ID in your support request</li>
+                                </ol>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Troubleshooting: The Authenticator Application Won't Run</h4>
+                                <ul>
+                                    <li><strong>Windows Security Warning:</strong> Click "More info" and then "Run anyway" if Windows blocks the application</li>
+                                    <li><strong>Antivirus Software:</strong> Some antivirus software may flag the application - add it to exceptions if needed</li>
+                                    <li><strong>Administrator Rights:</strong> Try running the application with administrator privileges</li>
+                                    <li><strong>Corrupted Download:</strong> Re-download the file from the Stripe confirmation page</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h4>Troubleshooting: I Haven't Received My Download Link</h4>
+                                <ul>
+                                    <li><strong>Check Spam Folder:</strong> Sometimes delivery emails end up in spam/junk folders</li>
+                                    <li><strong>Wait 24 Hours:</strong> Processing can take up to 24 hours</li>
+                                    <li><strong>Verify Email Sent:</strong> Double-check that you sent the Authentication ID to <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a></li>
+                                    <li><strong>Contact Support:</strong> Email <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a> with:
+                                        <ul>
+                                            <li>Your purchase receipt</li>
+                                            <li>Your Authentication ID</li>
+                                            <li>Purchase date and time</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-grid">
+                        <!-- Return Links Box -->
+                        <div class="glass-panel" style="padding: 2rem;">
+                            <h3 class="panel-title" style="font-size: 1.2rem; margin-bottom: 1.5rem; border-bottom: none; padding-bottom: 0;">Return to the premium product pages</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.25rem; line-height: 1.5;">Use this archived activation guide as a support document, then jump back to the main premium product pages for the current feature list and purchase flow.</p>
+                            <div class="return-actions">
+                                <a href="ScreenLockBuilderPremium.html" class="return-btn">Back to Screen Lock Builder Premium</a>
+                                <a href="PurchasePremium.html" class="return-btn">Open current purchase instructions</a>
+                                <a href="changelogPremium.html" class="return-btn">Read premium changelog</a>
+                            </div>
                         </div>
                     </div>
                 </div>
