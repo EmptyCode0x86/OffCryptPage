@@ -398,6 +398,118 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="pricing-section">
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h2>Pricing</h2>
+                        <p>Simple and transparent access to the system</p>
+                    </div>
+
+                    <div class="pricing-cards">
+                        <!-- Free Plan -->
+                        <div class="pricing-card premium">
+                            <div class="plan-badge premium-badge">Open Source / Free</div>
+                            <h3>Free</h3>
+                            <div class="price-container">
+                                <span class="price">$0</span>
+                                <span class="price-period">Forever</span>
+                            </div>
+                            <div class="pricing-info-box">
+                                <p class="price-increase-notice">Complete system for personal and commercial use.</p>
+                            </div>
+
+                            <div class="guarantee-box">
+                                <span class="glow-check">✓</span>
+                                <p class="updates-notice">Full remote control system including all features and future updates.
+                                </p>
+                            </div>
+                            <a href="RemoteDisclaimer.html" class="plan-button premium-button">Download Now</a>
+                            <div
+                                style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
+                                <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Access
+                                    & Self-Hosted</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>Deployment:</strong></p>
+                                <p style="margin: 0.25rem 0;">Windows / Linux / VPS</p>
+                            </div>
+                        </div>
+
+                        <!-- Source Code Plan -->
+                        <div class="pricing-card"
+                            style="border: 2px solid #ffd700; background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.02) 100%);">
+                            <div class="plan-badge"
+                                style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000;">
+                                Source Code</div>
+                            <h3 style="color: #ffd700;">Developer License</h3>
+                            <div class="price-container">
+                                <span class="price"
+                                    style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$??</span>
+                                <span class="price-period">One-time</span>
+                            </div>
+                            <div class="pricing-info-box">
+                                <p class="price-increase-notice">Full C# & Blazor source code access for developers.</p>
+                            </div>
+
+                            <div class="guarantee-box">
+                                <span class="glow-check" style="color: #ffd700;">✓</span>
+                                <p class="updates-notice">Complete system source (~15,000+ lines of code)</p>
+                            </div>
+                            <ul
+                                style="text-align: left; color: var(--text-secondary); margin: 1rem 0; padding-left: 1.5rem; font-size: 0.9rem;">
+                                <li style="margin: 0.5rem 0;">✅ Full ASP.NET Core Backend source</li>
+                                <li style="margin: 0.5rem 0;">✅ Blazor Web Dashboard source</li>
+                                <li style="margin: 0.5rem 0;">✅ SignalR Real-time Hubs</li>
+                                <li style="margin: 0.5rem 0;">✅ Windows Agent (C#/.NET 9) source</li>
+                                <li style="margin: 0.5rem 0;">✅ AES-256 GCM Security modules</li>
+                                <li style="margin: 0.5rem 0;">✅ Streaming File Manager source</li>
+                                <li style="margin: 0.5rem 0;">✅ Server Manager (Stub Builder) source</li>
+                                <li style="margin: 0.5rem 0;">✅ Modify & build your own version</li>
+                            </ul>
+                            <a href=" " class="plan-button"
+                                style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000; font-weight: bold;">Coming
+                                soon..</a>
+                            <div
+                                style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
+                                <p style="margin-bottom: 0.5rem; color: #ffd700; font-weight: bold;">Personal Developer
+                                    License</p>
+                                <p style="margin: 0.25rem 0; font-size: 0.8rem;">No resale rights included</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <h4>What is Web Remote Control System?</h4>
+                                <p>Web Remote Control System is a powerful web-based application that lets you manage Windows devices directly from your browser. You can view the desktop via Live Stream, control the mouse, manage processes, and transfer large files securely.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Does it work remotely over the internet?</h4>
+                                <p>Yes. The system uses an ASP.NET Core backend with SignalR for real-time communication. A lightweight Windows agent runs on the target device to execute commands. You can host the server on a VPS to access it from anywhere.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Can I view and control the remote screen?</h4>
+                                <p>Yes, the Live Stream feature provides a real-time feed of the remote desktop directly to your web browser. You can interact with the machine by sending mouse clicks and inputs instantly.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Can I transfer files securely?</h4>
+                                <p>Absolutely. The system includes a high-performance streaming file manager. You can browse directories, and reliably upload or download massive files without hitting memory limits.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Is the connection secure against packet sniffing?</h4>
+                                <p>Yes. All sensitive data is encrypted using AES-256 GCM. Even if traffic is intercepted, the data is completely unreadable. Keys are managed by the Server Manager tool.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>What technologies does it use?</h4>
+                                <p>The system is built with ASP.NET Core, Blazor Server, SignalR, SQLite (via EF Core), and a C#/.NET Windows agent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
