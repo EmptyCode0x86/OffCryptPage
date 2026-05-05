@@ -276,31 +276,61 @@
                         <div class="hero-glow-divider"></div>
 
                         <p class="intro-description lead-text">
-                            The Web Remote Control System is a high-performance, <strong>completely free</strong>, and <strong>self-hosted</strong> platform that lets you manage Windows devices directly from any web browser. Combining a lightweight Windows Agent with a Blazor-based control panel, you can monitor and control remote computers in real time without being physically present.
+                            The Web Remote Control System is a high-performance, <strong>completely free</strong>, and
+                            <strong>self-hosted</strong> platform that lets you manage Windows devices directly from any
+                            web browser. Combining a lightweight Windows Agent with a Blazor-based control panel, you
+                            can monitor and control remote computers in real time without being physically present.
                         </p>
 
                         <p class="intro-description">
-                            <strong>AES-256 GCM Encryption:</strong> The system is built with security as its absolute foundation. All sensitive payloads and communication between the Agent and the Backend are encrypted end-to-end using AES-256 GCM. This guarantees that even if your connection is intercepted using packet sniffers like Wireshark, the data remains completely unreadable and protected. A dedicated <strong>Server Manager</strong> tool securely generates cryptographic Master Keys and directly embeds them into the Agent executables, ensuring zero-configuration deployment without compromising security.
+                            <strong>AES-256 GCM Encryption:</strong> The system is built with security as its absolute
+                            foundation. All sensitive payloads and communication between the Agent and the Backend are
+                            encrypted end-to-end using AES-256 GCM. This guarantees that even if your connection is
+                            intercepted using packet sniffers like Wireshark, the data remains completely unreadable and
+                            protected. A dedicated <strong>Server Manager</strong> tool securely generates cryptographic
+                            Master Keys and directly embeds them into the Agent executables, ensuring zero-configuration
+                            deployment without compromising security.
                         </p>
 
                         <p class="intro-description">
-                            <strong>Live Stream & Interactive Control:</strong> Experience a high-performance, real-time visual feed of the remote desktop directly inside your web browser. Send precision mouse clicks, inputs, and movements instantly to the target device via an optimized SignalR connection, granting you seamless, interactive control as if you were sitting right in front of the monitor.
+                            <strong>Live Stream & Interactive Control:</strong> Experience a high-performance, real-time
+                            visual feed of the remote desktop directly inside your web browser. Send precision mouse
+                            clicks, inputs, and movements instantly to the target device via an optimized SignalR
+                            connection, granting you seamless, interactive control as if you were sitting right in front
+                            of the monitor.
                         </p>
 
                         <p class="intro-description">
-                            <strong>Advanced Streaming File Manager:</strong> Completely explore remote directories and perform bi-directional file transfers. Re-engineered with a robust HTTP streaming architecture, the system easily bypasses traditional memory limits. You can reliably upload or download massive files at high speeds with perfect stability and zero interruptions.
+                            <strong>Advanced Streaming File Manager:</strong> Completely explore remote directories and
+                            perform bi-directional file transfers. Re-engineered with a robust HTTP streaming
+                            architecture, the system easily bypasses traditional memory limits. You can reliably upload
+                            or download massive files at high speeds with perfect stability and zero interruptions.
                         </p>
 
                         <p class="intro-description">
-                            <strong>Task Manager & Remote Process Launch:</strong> Gain total administrative oversight over the remote system. View a real-time list of active processes, monitor resource usage, and forcefully terminate stubborn applications. The built-in Remote Process Execution feature also lets you instantly run commands or launch software on the agent machine directly from the web dashboard.
+                            <strong>Task Manager & Remote Process Launch:</strong> Gain total administrative oversight
+                            over the remote system. View a real-time list of active processes, monitor resource usage,
+                            and forcefully terminate stubborn applications. The built-in Remote Process Execution
+                            feature also lets you instantly run commands or launch software on the agent machine
+                            directly from the web dashboard.
                         </p>
 
                         <p class="intro-description">
-                            <strong>Server Manager & Deployment:</strong> Starting your own management server is easier than ever with the dedicated <strong>Server Manager</strong> tool. It provides a one-click interface to launch both the backend and frontend services, handles automatic project path detection, and cryptographically ensures all sensitive payloads and communication between the Agent and the Backend are encrypted end-to-end using AES-256 GCM. The Server Manager also acts as an automated stub builder, creating customized remote agents that are pre-configured to connect only to your self-hosted instance.
+                            <strong>Server Manager & Deployment:</strong> Starting your own management server is easier
+                            than ever with the dedicated <strong>Server Manager</strong> tool. It provides a one-click
+                            interface to launch both the backend and frontend services, handles automatic project path
+                            detection, and cryptographically ensures all sensitive payloads and communication between
+                            the Agent and the Backend are encrypted end-to-end using AES-256 GCM. The Server Manager
+                            also acts as an automated stub builder, creating customized remote agents that are
+                            pre-configured to connect only to your self-hosted instance.
                         </p>
 
                         <p class="intro-description">
-                            <strong>Deep System Telemetry & Multi-Device Hub:</strong> Monitor detailed hardware and software metrics—including CPU specifications, RAM capacity, operating system versions, and active usernames—through the Computer Info dashboard. The platform supports multiple concurrent connections, allowing you to seamlessly manage an entire fleet of connected Windows devices from a single, centralized web panel.
+                            <strong>Deep System Telemetry & Multi-Device Hub:</strong> Monitor detailed hardware and
+                            software metrics—including CPU specifications, RAM capacity, operating system versions, and
+                            active usernames—through the Computer Info dashboard. The platform supports multiple
+                            concurrent connections, allowing you to seamlessly manage an entire fleet of connected
+                            Windows devices from a single, centralized web panel.
                         </p>
 
                         <div class="intro-highlights">
@@ -344,6 +374,46 @@
                     <div class="image-card" data-image="RemotControlManager.png" data-title="Server Manager Tool"
                         data-desc="Easily manage servers, generate security keys, and build custom agents">
                         <img src="RemotControlManager.png" alt="Remote Control Server Manager interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card" data-image="FileManager.png" data-title="Streaming File Manager"
+                        data-desc="Browse remote directories and transfer massive files securely">
+                        <img src="FileManager.png" alt="Remote Control File Manager interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card" data-image="TaskManager.png" data-title="Remote Task Manager"
+                        data-desc="Monitor and control active processes and resource usage">
+                        <img src="TaskManager.png" alt="Remote Control Task Manager interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card" data-image="OpenProcess.png" data-title="Remote Process Execution"
+                        data-desc="Instantly execute commands and launch software on the agent machine">
+                        <img src="OpenProcess.png" alt="Remote Control Open Process interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card" data-image="ComputerInfo.png" data-title="System Telemetry"
+                        data-desc="View detailed hardware metrics and operating system information">
+                        <img src="ComputerInfo.png" alt="Remote Control Computer Information interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
+                    <div class="image-card" data-image="LiveRemote.png" data-title="Live Remote Control"
+                        data-desc="Real-time visual feed and interactive desktop control">
+                        <img src="LiveRemote.png" alt="Remote Control Live Remote interface">
                         <div class="image-overlay">
                             <div class="zoom-icon">🔍</div>
                         </div>
@@ -422,7 +492,8 @@
 
                             <div class="guarantee-box">
                                 <span class="glow-check">✓</span>
-                                <p class="updates-notice">Full remote control system including all features and future updates.
+                                <p class="updates-notice">Full remote control system including all features and future
+                                    updates.
                                 </p>
                             </div>
                             <a href="RemoteDisclaimer.html" class="plan-button premium-button">Download Now</a>
@@ -484,27 +555,38 @@
                         <div class="faq-container">
                             <div class="faq-item">
                                 <h4>What is Web Remote Control System?</h4>
-                                <p>Web Remote Control System is a powerful web-based application that lets you manage Windows devices directly from your browser. You can view the desktop via Live Stream, control the mouse, manage processes, and transfer large files securely.</p>
+                                <p>Web Remote Control System is a powerful web-based application that lets you manage
+                                    Windows devices directly from your browser. You can view the desktop via Live
+                                    Stream, control the mouse, manage processes, and transfer large files securely.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Does it work remotely over the internet?</h4>
-                                <p>Yes. The system uses an ASP.NET Core backend with SignalR for real-time communication. A lightweight Windows agent runs on the target device to execute commands. You can host the server on a VPS to access it from anywhere.</p>
+                                <p>Yes. The system uses an ASP.NET Core backend with SignalR for real-time
+                                    communication. A lightweight Windows agent runs on the target device to execute
+                                    commands. You can host the server on a VPS to access it from anywhere.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Can I view and control the remote screen?</h4>
-                                <p>Yes, the Live Stream feature provides a real-time feed of the remote desktop directly to your web browser. You can interact with the machine by sending mouse clicks and inputs instantly.</p>
+                                <p>Yes, the Live Stream feature provides a real-time feed of the remote desktop directly
+                                    to your web browser. You can interact with the machine by sending mouse clicks and
+                                    inputs instantly.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Can I transfer files securely?</h4>
-                                <p>Absolutely. The system includes a high-performance streaming file manager. You can browse directories, and reliably upload or download massive files without hitting memory limits.</p>
+                                <p>Absolutely. The system includes a high-performance streaming file manager. You can
+                                    browse directories, and reliably upload or download massive files without hitting
+                                    memory limits.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Is the connection secure against packet sniffing?</h4>
-                                <p>Yes. All sensitive data is encrypted using AES-256 GCM. Even if traffic is intercepted, the data is completely unreadable. Keys are managed by the Server Manager tool.</p>
+                                <p>Yes. All sensitive data is encrypted using AES-256 GCM. Even if traffic is
+                                    intercepted, the data is completely unreadable. Keys are managed by the Server
+                                    Manager tool.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>What technologies does it use?</h4>
-                                <p>The system is built with ASP.NET Core, Blazor Server, SignalR, SQLite (via EF Core), and a C#/.NET Windows agent.</p>
+                                <p>The system is built with ASP.NET Core, Blazor Server, SignalR, SQLite (via EF Core),
+                                    and a C#/.NET Windows agent.</p>
                             </div>
                         </div>
                     </div>
