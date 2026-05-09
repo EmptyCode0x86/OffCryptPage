@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Web Remote Control System – Changelog &amp; Update History</title>
+    <meta name="description"
+        content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
+    <meta name="author" content="OffCrypt">
+    <meta name="last-modified" content="2026-05-09">
+    <meta name="robots" content="noindex, follow">
+
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <link rel="canonical" href="https://www.dev-offcode.com/RemoteChangelog.html">
+    <link rel="alternate" hreflang="en" href="https://www.dev-offcode.com/RemoteChangelog.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dev-offcode.com/RemoteChangelog.html">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="preload" href="styles.css" as="style">
+
+    <meta name="theme-color" content="#00ff88">
+    <meta name="msapplication-TileColor" content="#00ff88">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://www.dev-offcode.com/RemoteChangelog.html">
+    <meta property="og:title" content="Web Remote Control System – Changelog">
+    <meta property="og:description"
+        content="Release notes for the Web Remote Control System — features, fixes, and improvements.">
+    <meta property="og:image" content="https://www.dev-offcode.com/RemoteControl1.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.dev-offcode.com/RemoteChangelog.html">
+    <meta name="twitter:title" content="Web Remote Control System – Changelog">
+    <meta name="twitter:description"
+        content="Release notes for the Web Remote Control System — features, fixes, and improvements.">
+    <meta name="twitter:image" content="https://www.dev-offcode.com/RemoteControl1.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Web Remote Control System",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows",
+        "description": "Self-hosted remote management for Windows devices via browser, SignalR, and AES-GCM encryption.",
+        "url": "https://www.dev-offcode.com/RemoteControl.html",
+        "image": "https://www.dev-offcode.com/RemoteControl1.png",
+        "releaseNotes": {
+            "@type": "TechArticle",
+            "headline": "Web Remote Control System changelog",
+            "dateModified": "2026-05-09",
+            "url": "https://www.dev-offcode.com/RemoteChangelog.html"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">OffCode</div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-link">
+                        <span class="menu-icon">📱</span>
+                        <span class="menu-text">Android App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="OffCryptDesktop.html" class="menu-link">
+                        <span class="menu-icon">💻</span>
+                        <span class="menu-text">Desktop App</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilder.html" class="menu-link">
+                        <span class="menu-icon">🔒</span>
+                        <span class="menu-text">Screen Lock Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="ScreenLockBuilderPremium.html" class="menu-link">
+                        <span class="menu-icon">⭐</span>
+                        <span class="menu-text">Premium Builder</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="AutomationTool.html" class="menu-link">
+                        <span class="menu-icon">🤖</span>
+                        <span class="menu-text">Automation Tool</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="BuildSecure.html" class="menu-link">
+                        <span class="menu-icon">🛡️</span>
+                        <span class="menu-text">BuildSecure</span>
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="RemoteControl.html" class="menu-link">
+                        <span class="menu-icon">🌐</span>
+                        <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
+                        <span class="menu-icon">💝</span>
+                        <span class="menu-text">Donate</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="PrivacyPolicy.html" class="menu-link">
+                        <span class="menu-icon">🔐</span>
+                        <span class="menu-text">Privacy Policy</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Social media</p>
+            <div class="sidebar-social-divider"></div>
+            <div class="sidebar-social">
+                <a href="https://x.com/OffCryptAndroid" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on X">
+                    <span class="sidebar-social-icon">🐦</span>
+                    <span class="sidebar-social-label">X</span>
+                </a>
+                <a href="https://www.instagram.com/off.crypt86/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on Instagram">
+                    <span class="sidebar-social-icon">📸</span>
+                    <span class="sidebar-social-label">Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@offcrypt0" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on TikTok">
+                    <span class="sidebar-social-icon">🎵</span>
+                    <span class="sidebar-social-label">TikTok</span>
+                </a>
+                <a href="https://www.youtube.com/@OffCrypt" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on YouTube">
+                    <span class="sidebar-social-icon">▶️</span>
+                    <span class="sidebar-social-label">YouTube</span>
+                </a>
+                <a href="https://bsky.app/profile/off-crypt86.bsky.social" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on Bluesky">
+                    <span class="sidebar-social-icon">🦋</span>
+                    <span class="sidebar-social-label">Bluesky</span>
+                </a>
+                <a href="https://www.linkedin.com/in/off-crypt-b94175382/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Follow OffCrypt on LinkedIn">
+                    <span class="sidebar-social-icon">💼</span>
+                    <span class="sidebar-social-label">LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <div class="main-wrapper">
+        <main>
+            <nav aria-label="Breadcrumb"
+                style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
+                <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
+                    <li><a href="https://www.dev-offcode.com/">Home</a></li>
+                    <li>›</li>
+                    <li><a href="https://www.dev-offcode.com/RemoteControl.html">Web Remote Control System</a></li>
+                    <li>›</li>
+                    <li>Changelog</li>
+                </ol>
+            </nav>
+
+            <div class="changelog-hero">
+                <div class="changelog-container">
+                    <div class="changelog-header">
+                        <h1 class="changelog-title">📝 Changelog</h1>
+                        <p class="changelog-subtitle">Web Remote Control System — updates, fixes, and new features</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="changelog-content">
+                <div class="changelog-container">
+                    <div class="changelog-intro">
+                        <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
+                            backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
+                        <p><strong>Latest:</strong> VER 0.2 (May 9, 2026) adds Software Manager, power controls, device
+                            history, File Manager enhancements, Dashboard Lock, Remove Agent, and more.</p>
+                    </div>
+
+                    <div class="changelog-wrapper">
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.2</span>
+                                <span class="version-date">09/05/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Added:</strong> Software Manager — Remotely list and uninstall
+                                        applications via Windows Registry.</li>
+                                    <li><strong>Added:</strong> Power Controls — Shutdown and Restart devices remotely
+                                        from the Task Manager panel.</li>
+                                    <li><strong>Added:</strong> Device History — Track and manage previously connected
+                                        devices.</li>
+                                    <li><strong>Added:</strong> File Manager — dynamic drives — Quick-access buttons for
+                                        all ready drives (fixed, removable, network) fetched from the agent over the
+                                        encrypted SignalR channel.</li>
+                                    <li><strong>Added:</strong> File Manager — quick folders — Program Files, Program
+                                        Files (x86), and Roaming AppData shortcuts (resolved on the agent via shell
+                                        folder tokens, same pattern as Desktop/Documents/Downloads).</li>
+                                    <li><strong>Improved:</strong> File Manager UX — Open folders with a single click on
+                                        the row; upload target automatically follows the current browse path (no separate
+                                        “Set as Target” step).</li>
+                                    <li><strong>Added:</strong> File Manager — upload and run — Optional checkbox to
+                                        open uploaded files automatically on the agent after transfer completes.</li>
+                                    <li><strong>Added:</strong> Desktop Screenshot — Close Image — Dismiss the
+                                        screenshot preview from the device control UI.</li>
+                                    <li><strong>Added:</strong> Server Manager — log toggle — Checkbox to turn
+                                        application logging on or off.</li>
+                                    <li><strong>Fixed:</strong> Server Manager — Stopping or restarting the frontend no
+                                        longer stops the backend (independent service controls).</li>
+                                    <li><strong>Added:</strong> Dashboard Lock (optional) — Cookie session for the Blazor
+                                        UI, lock-aware redirects, <code>/authentication/continue</code> when lock is
+                                        disabled, safe <code>returnUrl</code> handling; backend stores the dashboard
+                                        password as a secure hash; short-lived JWT for admin SignalR and protected REST
+                                        (<code>DeviceController</code>, admin FileManager routes); agent HTTP file
+                                        endpoints (<code>agent-download</code> / <code>agent-upload</code>) remain
+                                        reachable without JWT; <code>configure</code> requires auth or
+                                        <code>DASHBOARD_LOCK_ADMIN_SECRET</code>.</li>
+                                    <li><strong>Added:</strong> Remove Agent — Remote uninstall flow with confirmation;
+                                        offline queue in SQLite (<code>PendingAgentCommands</code>) until the agent
+                                        reconnects.</li>
+                                    <li><strong>Added:</strong> Lock settings UI — Dashboard button on
+                                        <code>/authentication/settings</code> opens the devices page (<code>/devices</code>).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.1</span>
+                                <span class="version-date">08/05/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Fixed:</strong> Empty secret key generation issue in Server Manager.
+                                    </li>
+                                    <li><strong>Fixed:</strong> Auto-detect project path and Server Manager crashing
+                                        issues.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="purchase-instructions-box" style="margin-top: 2rem;">
+                        <h3 class="instructions-title">Back to Web Remote Control</h3>
+                        <p class="instructions-intro">Return to the product page or download flow.</p>
+                        <div
+                            style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                            <a href="RemoteControl.html" class="button secondary-download">Web Remote Control</a>
+                            <a href="AutomationTool.html" class="button secondary-download">Automation Tool</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        .changelog-hero {
+            background: var(--gradient-card);
+            padding: 80px 20px 60px 20px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .changelog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
+        }
+
+        .changelog-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
+        }
+
+        .changelog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .changelog-header {
+            text-align: center;
+            color: white;
+        }
+
+        .changelog-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .changelog-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .changelog-content {
+            background: var(--gradient-card);
+            padding: 80px 20px;
+            min-height: 60vh;
+            border: 1px solid var(--border-primary);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-top: none;
+            border-bottom: none;
+            position: relative;
+        }
+
+        .changelog-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
+        }
+
+        .changelog-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-border);
+            z-index: 1;
+        }
+
+        .changelog-intro {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 0;
+            padding: 30px;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .changelog-intro p {
+            margin: 0 0 15px 0;
+        }
+
+        .changelog-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .changelog-intro strong {
+            color: var(--accent-primary);
+        }
+
+        .changelog-wrapper {
+            background: var(--gradient-card);
+            border-radius: 0;
+            border: 1px solid var(--border-primary);
+            box-shadow: var(--shadow-subtle);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            overflow: hidden;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .changelog-entry {
+            border-bottom: 1px solid var(--border-primary);
+            padding: 40px;
+            position: relative;
+        }
+
+        .changelog-entry:last-child {
+            border-bottom: none;
+        }
+
+        .changelog-version {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .version-tag {
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            color: #1f1f1f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .version-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .changelog-changes {
+            color: var(--text-primary);
+        }
+
+        .changelog-changes h3 {
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .changelog-changes ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .changelog-changes li {
+            padding: 5px 0 5px 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .changelog-changes li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .changelog-changes code {
+            font-size: 0.9em;
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .changelog-hero {
+                padding: 60px 20px 50px 20px;
+            }
+
+            .changelog-title {
+                font-size: 2.2rem;
+            }
+
+            .changelog-subtitle {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .changelog-content {
+                padding: 60px 15px;
+            }
+
+            .changelog-entry {
+                padding: 30px 25px;
+            }
+
+            .changelog-version {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .changelog-hero {
+                padding: 50px 15px 40px 15px;
+            }
+
+            .changelog-title {
+                font-size: 1.8rem;
+            }
+
+            .changelog-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .changelog-content {
+                padding: 50px 10px;
+            }
+
+            .changelog-entry {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+
+    <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="cookie-consent.css">
+    <script src="cookie-consent.js" defer></script>
+</body>
+
+</html>
