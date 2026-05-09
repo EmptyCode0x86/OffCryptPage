@@ -434,6 +434,150 @@
                 </div>
             </div>
 
+            <!-- Modern Section Divider -->
+            <div class="section-divider"></div>
+
+            <!-- Features Section -->
+            <section id="features" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">Features</h2>
+                    <p class="features-subtitle">Everything you need for self-hosted remote Windows management</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🔐</div>
+                            <h3>AES-256 GCM encryption</h3>
+                            <p>Application-layer encryption for sensitive hub traffic so payloads stay protected end-to-end.</p>
+                            <ul class="feature-list">
+                                <li>Encrypts command and file-transfer payloads between agent, API, and dashboard</li>
+                                <li>Designed so passive packet capture does not expose secrets in clear text</li>
+                                <li>Server Manager helps distribute keys into agent builds for your deployment</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🖥️</div>
+                            <h3>Live stream &amp; remote control</h3>
+                            <p>View the remote desktop in the browser and send mouse and keyboard input in real time.</p>
+                            <ul class="feature-list">
+                                <li>Adjustable stream quality and frame rate</li>
+                                <li>Interactive control over SignalR for responsive remote desktop use</li>
+                                <li>Works with the same encrypted channel model as the rest of the stack</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📁</div>
+                            <h3>Streaming file manager</h3>
+                            <p>Browse drives and folders, upload and download large files without loading everything into memory.</p>
+                            <ul class="feature-list">
+                                <li>Quick paths for Desktop, Documents, Downloads, Program Files, AppData, and more</li>
+                                <li>Drive list from the agent for fixed, removable, and network volumes</li>
+                                <li>Optional <strong>Upload and run</strong> to open a transferred file on the agent after upload</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📸</div>
+                            <h3>Desktop screenshot</h3>
+                            <p>Capture a JPEG preview of the remote desktop from the control panel.</p>
+                            <ul class="feature-list">
+                                <li>Quality and resolution suited for quick diagnostics</li>
+                                <li><strong>Close Image</strong> dismisses the preview without leaving the page</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Task manager &amp; power actions</h3>
+                            <p>Inspect running processes and shut down or restart the remote machine when allowed.</p>
+                            <ul class="feature-list">
+                                <li>Process list and termination from the web UI</li>
+                                <li>Power controls for shutdown and restart through the dashboard workflow</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>Software manager</h3>
+                            <p>List installed applications on the agent using Windows registry data and uninstall remotely.</p>
+                            <ul class="feature-list">
+                                <li>Inventory style listing suitable for maintenance windows</li>
+                                <li>Silent-style uninstall flow driven from the hub</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Remote process execution</h3>
+                            <p>Launch commands, open files, or start programs on the agent from the dashboard.</p>
+                            <ul class="feature-list">
+                                <li>Path and arguments sent over the encrypted control channel</li>
+                                <li>Useful for tooling, installers, and scripted maintenance</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">💻</div>
+                            <h3>Computer info &amp; telemetry</h3>
+                            <p>Hardware, OS, network, and runtime details streamed from the agent.</p>
+                            <ul class="feature-list">
+                                <li>CPU, memory, OS build, and related system signals</li>
+                                <li>Helps verify which machine you are managing in multi-device setups</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📜</div>
+                            <h3>Device history</h3>
+                            <p>See previously connected devices with names and status for faster reconnection.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Dashboard lock (optional)</h3>
+                            <p>Optional password gate for the web dashboard with secure password storage on the server.</p>
+                            <ul class="feature-list">
+                                <li>Cookie session for the Blazor UI plus short-lived JWT for SignalR and protected APIs</li>
+                                <li>Lock settings include a <strong>Dashboard</strong> shortcut back to the devices view</li>
+                                <li>Agent file-transfer endpoints can remain callable while admin routes stay protected</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🗑️</div>
+                            <h3>Remove agent</h3>
+                            <p>Disconnect a device and trigger remote removal of the agent executable on the target PC.</p>
+                            <ul class="feature-list">
+                                <li>Confirmation dialog before destructive actions</li>
+                                <li>If the agent is offline, the request can be queued server-side and delivered on reconnect</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🛠️</div>
+                            <h3>Server manager</h3>
+                            <p>Desktop helper to configure ports, launch backend and frontend, and build configured agents.</p>
+                            <ul class="feature-list">
+                                <li>Independent start and stop for frontend and backend services</li>
+                                <li>Optional logging toggle and stub generation for agents</li>
+                                <li>Aligns development <code>.env</code> and keys with your projects</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>SignalR &amp; ASP.NET Core stack</h3>
+                            <p>Built on ASP.NET Core, Blazor Server, SignalR, SQLite, and a Windows agent.</p>
+                            <ul class="feature-list">
+                                <li>Real-time hub for admin and agent traffic</li>
+                                <li>Self-hosted: you control hosting, TLS termination, and network exposure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="features-section">
                 <div class="features-container">
                     <h2 class="features-title">Related control and automation products</h2>
