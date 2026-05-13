@@ -371,13 +371,14 @@
                         </div>
                     </div>
 
-                    <div class="image-card" data-image="RemotControlManager.png" data-title="Server Manager Tool"
-                        data-desc="Easily manage servers, generate security keys, and build custom agents">
-                        <img src="RemotControlManager.png" alt="Remote Control Server Manager interface">
+                    <div class="image-card" data-image="DeviceHistory.png" data-title="Device History"
+                        data-desc="See previously connected devices with names and status for faster reconnection">
+                        <img src="DeviceHistory.png" alt="Remote Control Device History interface">
                         <div class="image-overlay">
                             <div class="zoom-icon">🔍</div>
                         </div>
                     </div>
+
 
                     <div class="image-card" data-image="FileManager.png" data-title="Streaming File Manager"
                         data-desc="Browse remote directories and transfer massive files securely">
@@ -427,6 +428,14 @@
                         </div>
                     </div>
 
+                    <div class="image-card" data-image="RemotControlManager.png" data-title="Server Manager Tool"
+                        data-desc="Easily manage servers, generate security keys, and build custom agents">
+                        <img src="RemotControlManager.png" alt="Remote Control Server Manager interface">
+                        <div class="image-overlay">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -455,7 +464,8 @@
                         <div class="feature-card">
                             <div class="feature-icon">🔐</div>
                             <h3>AES-256 GCM encryption</h3>
-                            <p>Application-layer encryption for sensitive hub traffic so payloads stay protected end-to-end.</p>
+                            <p>Application-layer encryption for sensitive hub traffic so payloads stay protected
+                                end-to-end.</p>
                             <ul class="feature-list">
                                 <li>Encrypts command and file-transfer payloads between agent, API, and dashboard</li>
                                 <li>Designed so passive packet capture does not expose secrets in clear text</li>
@@ -466,7 +476,8 @@
                         <div class="feature-card">
                             <div class="feature-icon">🖥️</div>
                             <h3>Live stream &amp; remote control</h3>
-                            <p>View the remote desktop in the browser and send mouse and keyboard input in real time.</p>
+                            <p>View the remote desktop in the browser and send mouse and keyboard input in real time.
+                            </p>
                             <ul class="feature-list">
                                 <li>Adjustable stream quality and frame rate</li>
                                 <li>Interactive control over SignalR for responsive remote desktop use</li>
@@ -477,11 +488,13 @@
                         <div class="feature-card">
                             <div class="feature-icon">📁</div>
                             <h3>Streaming file manager</h3>
-                            <p>Browse drives and folders, upload and download large files without loading everything into memory.</p>
+                            <p>Browse drives and folders, upload and download large files without loading everything
+                                into memory.</p>
                             <ul class="feature-list">
                                 <li>Quick paths for Desktop, Documents, Downloads, Program Files, AppData, and more</li>
                                 <li>Drive list from the agent for fixed, removable, and network volumes</li>
-                                <li>Optional <strong>Upload and run</strong> to open a transferred file on the agent after upload</li>
+                                <li>Optional <strong>Upload and run</strong> to open a transferred file on the agent
+                                    after upload</li>
                             </ul>
                         </div>
 
@@ -508,7 +521,8 @@
                         <div class="feature-card">
                             <div class="feature-icon">📦</div>
                             <h3>Software manager</h3>
-                            <p>List installed applications on the agent using Windows registry data and uninstall remotely.</p>
+                            <p>List installed applications on the agent using Windows registry data and uninstall
+                                remotely.</p>
                             <ul class="feature-list">
                                 <li>Inventory style listing suitable for maintenance windows</li>
                                 <li>Silent-style uninstall flow driven from the hub</li>
@@ -544,28 +558,35 @@
                         <div class="feature-card">
                             <div class="feature-icon">🔒</div>
                             <h3>Dashboard lock (optional)</h3>
-                            <p>Optional password gate for the web dashboard with secure password storage on the server.</p>
+                            <p>Optional password gate for the web dashboard with secure password storage on the server.
+                            </p>
                             <ul class="feature-list">
-                                <li>Cookie session for the Blazor UI plus short-lived JWT for SignalR and protected APIs</li>
-                                <li>Lock settings include a <strong>Dashboard</strong> shortcut back to the devices view</li>
-                                <li>Agent file-transfer endpoints can remain callable while admin routes stay protected</li>
+                                <li>Cookie session for the Blazor UI plus short-lived JWT for SignalR and protected APIs
+                                </li>
+                                <li>Lock settings include a <strong>Dashboard</strong> shortcut back to the devices view
+                                </li>
+                                <li>Agent file-transfer endpoints can remain callable while admin routes stay protected
+                                </li>
                             </ul>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-icon">🗑️</div>
                             <h3>Remove agent</h3>
-                            <p>Disconnect a device and trigger remote removal of the agent executable on the target PC.</p>
+                            <p>Disconnect a device and trigger remote removal of the agent executable on the target PC.
+                            </p>
                             <ul class="feature-list">
                                 <li>Confirmation dialog before destructive actions</li>
-                                <li>If the agent is offline, the request can be queued server-side and delivered on reconnect</li>
+                                <li>If the agent is offline, the request can be queued server-side and delivered on
+                                    reconnect</li>
                             </ul>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-icon">🛠️</div>
                             <h3>Server manager</h3>
-                            <p>Desktop helper to configure ports, launch backend and frontend, and build configured agents.</p>
+                            <p>Desktop helper to configure ports, launch backend and frontend, and build configured
+                                agents.</p>
                             <ul class="feature-list">
                                 <li>Independent start and stop for frontend and backend services</li>
                                 <li>Optional logging toggle and stub generation for agents</li>
@@ -649,8 +670,7 @@
                                 </p>
                             </div>
                             <a href="RemoteDisclaimer.html" class="plan-button premium-button">Download Now</a>
-                            <a href="RemoteChangelog.html"
-                                class="button secondary-download"
+                            <a href="RemoteChangelog.html" class="button secondary-download"
                                 style="margin-top: 0.75rem; display: block; text-align: center;">Changelog</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
@@ -748,11 +768,15 @@
                 </div>
             </section>
 
-            <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; margin-bottom: 50px;">
+            <div
+                style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; margin-bottom: 50px;">
                 <a href="https://fazier.com" target="_blank" rel="noopener noreferrer">
-                    <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=dark" width="250" alt="Fazier badge" />
+                    <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=dark"
+                        width="250" alt="Fazier badge" />
                 </a>
-                <a href="https://www.launchit.site/launches/offcode-web-remote-control-system" target="_blank"><img src="https://www.launchit.site/badges/launchit-dark.svg" alt="Featured on Launchit" width="200" height="54"></a>
+                <a href="https://www.launchit.site/launches/offcode-web-remote-control-system" target="_blank"><img
+                        src="https://www.launchit.site/badges/launchit-dark.svg" alt="Featured on Launchit" width="200"
+                        height="54"></a>
             </div>
         </main>
     </div>
