@@ -9,7 +9,7 @@
     <meta name="description"
         content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-05-09">
+    <meta name="last-modified" content="2026-05-14">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "Web Remote Control System changelog",
-            "dateModified": "2026-05-09",
+            "dateModified": "2026-05-14",
             "url": "https://www.dev-offcode.com/RemoteChangelog.html"
         }
     }
@@ -203,11 +203,25 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.2 (May 9, 2026) adds Software Manager, power controls, device
-                            history, File Manager enhancements, Dashboard Lock, Remove Agent, and more.</p>
+                        <p><strong>Latest:</strong> VER 0.3 (May 14, 2026) adds Share Screen, Remote Terminal, and Script Manager.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.3</span>
+                                <span class="version-date">14/05/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Added:</strong> Share Screen - Share the agent's live stream with anyone via a secure, public link without requiring a dashboard login. The public viewer connects anonymously while your dashboard acts as the decryption relay.</li>
+                                    <li><strong>Added:</strong> Remote Terminal - Fully interactive PowerShell and Command Prompt terminal directly in the web dashboard.</li>
+                                    <li><strong>Added:</strong> Script Manager - Built-in code editor to write, save, and execute scripts (Python, PowerShell, Batch, VBScript) on remote agent machines. Scripts are safely stored in browser's local storage for easy reuse.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">VER: 0.2</span>
