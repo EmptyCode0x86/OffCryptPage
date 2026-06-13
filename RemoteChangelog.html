@@ -9,7 +9,7 @@
     <meta name="description"
         content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-05-18">
+    <meta name="last-modified" content="2026-06-13">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "Web Remote Control System changelog",
-            "dateModified": "2026-05-18",
+            "dateModified": "2026-06-13",
             "url": "https://www.dev-offcode.com/RemoteChangelog.html"
         }
     }
@@ -203,10 +203,25 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.4 (May 18, 2026) adds Scheduled Script Execution and in-app Server Manager Changelog.</p>
+                        <p><strong>Latest:</strong> VER 0.5 (June 13, 2026) adds Process Blocker, Startup Programs Removal, and File Manager Search.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.5</span>
+                                <span class="version-date">13/06/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Added:</strong> <strong>Process Blocker</strong> — Prevent specific applications from running on the remote device. Enter the process name in the Task Manager section, and the background agent service will instantly kill it whenever it attempts to start. The blocking setting is saved directly to the Windows Registry and persists across reboots and network reconnects.</li>
+                                    <li><strong>Added:</strong> <strong>Startup Programs — Remove</strong> — Each startup program entry in Computer Info now has a <strong>Remove</strong> button. Clicking it sends an encrypted <code>RequestRemoveStartupProgram</code> command through the hub to the agent, which deletes the registry key (<code>HKCU\..\Run</code>, <code>HKLM\..\Run</code>, or <code>Wow6432Node</code>) or the startup folder shortcut. The result is returned over the same encrypted channel and displayed as a toast notification (success / error). HKLM removal requires the agent to be running as Administrator.</li>
+                                    <li><strong>Added:</strong> <strong>File Manager — Search</strong> — Search for files by name in the current directory (including subdirectories) directly from the web dashboard. Results are capped at 500 items for safety and use the encrypted SignalR tunnel for communication.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">VER: 0.4</span>
