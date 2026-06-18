@@ -9,7 +9,7 @@
     <meta name="description"
         content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-06-13">
+    <meta name="last-modified" content="2026-06-18">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -203,10 +203,34 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.5 (June 13, 2026) adds Process Blocker, Startup Programs Removal, and File Manager Search.</p>
+                        <p><strong>Latest:</strong> VER 0.6 (June 18, 2026) adds security hardening (Slowloris/timeout protection, error message hardening), UI modernisation, Job-based Script Manager, Stealth Mode, and Chat.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- VER 0.6 -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.6</span>
+                                <span class="version-date">18/06/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Security:</strong> <strong>Request Timeout / Slowloris Protection</strong> — <code>RequestTimeout</code> middleware added (30 s global, 10 min for file transfers, ∞ for SignalR). Kestrel hardened with <code>RequestHeadersTimeout: 15 s</code> and <code>KeepAliveTimeout: 120 s</code>. HTTP/2 stream limit set to 100 per connection.</li>
+                                    <li><strong>Security:</strong> <strong>Error Message Hardening</strong> — Internal <code>ex.Message</code> no longer exposed in HTTP responses across <code>UserController</code>, <code>DeviceController</code>, and <code>FileManagerController</code> (12 locations fixed). All 500 responses now return a safe generic message; full exception details logged server-side only. Global fallback exception handler added to <code>BackEnd/Program.cs</code> with <code>correlationId</code> for log tracing.</li>
+                                    <li><strong>Fixed:</strong> <strong>Script Execution Timeout Removed</strong> — Scripts now run indefinitely until manually stopped by the user. The previous 5-minute hard timeout (<code>CancellationTokenSource(TimeSpan.FromMinutes(5))</code>) has been removed from <code>ScriptExecutionService</code>. Output buffer size limit also removed.</li>
+                                    <li><strong>Improved:</strong> <strong>UI Modernization (Glassmorphism)</strong> — The Blazor FrontEnd has been significantly upgraded with a sleek &ldquo;glassmorphism&rdquo; theme featuring emerald/teal accents. This applies to <code>LiveStream</code>, <code>DeviceControl</code>, <code>AgentSettingsPanel</code>, and authentication pages.</li>
+                                    <li><strong>Fixed:</strong> <strong>Mobile Layout</strong> — Connected devices and history views are now fully responsive on mobile devices via a robust Flexbox layout, fixing overflowing text and stretched elements.</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Viewer</strong> — Added dynamic zoom controls allowing users to zoom in/out with the mouse wheel while tracking the cursor position. Added support for up to 240 FPS and dynamic quality settings (10&ndash;100%) for incredibly smooth playback, with 30 FPS set as the new default.</li>
+                                    <li><strong>Fixed:</strong> <strong>Share Screen Link Copy</strong> — The &ldquo;Copy Link&rdquo; button in the Live Stream view now uses synchronous JavaScript logic for improved reliability across all environments.</li>
+                                    <li><strong>Added:</strong> <strong>Stealth Mode</strong> — You can now hide the agent&rsquo;s tray icon directly from the &ldquo;Agent settings&rdquo; panel. When Stealth Mode is enabled, the agent runs silently in the background and is only visible in the Windows Task Manager.</li>
+                                    <li><strong>Added:</strong> <strong>Chat</strong> — Real-time two-way chat window between the dashboard administrator and the remote agent&rsquo;s user, complete with customizable administrator nickname and message history.</li>
+                                    <li><strong>Added:</strong> <strong>Script Manager Enhancements (Job-based)</strong> — The Remote Agent now tracks all running and completed scripts directly in its RAM. The dashboard automatically fetches this real-time status, ensuring you never lose track of a script&rsquo;s progress, even if you close the browser. Includes a new &ldquo;Clear Recent&rdquo; functionality, safe asynchronous script stopping, and the ability to download execution output.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- VER 0.5 -->
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">VER: 0.5</span>

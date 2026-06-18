@@ -500,11 +500,21 @@
                             <p>View the remote desktop in the browser and send mouse and keyboard input in real time.
                             </p>
                             <ul class="feature-list">
-                                <li>Adjustable stream quality and frame rate</li>
+                                <li>Adjustable stream quality and frame rate (up to 240 FPS)</li>
+                                <li>Dynamic zoom controls with mouse-wheel tracking</li>
                                 <li>Interactive control over SignalR for responsive remote desktop use</li>
-                                <li>Works with the same encrypted channel model as the rest of the stack</li>
                                 <li><strong>Share Screen:</strong> Share the live stream via a secure, public link
                                     without dashboard login</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">💬</div>
+                            <h3>Chat</h3>
+                            <p>Real-time two-way chat window between the dashboard administrator and the remote agent&rsquo;s user.</p>
+                            <ul class="feature-list">
+                                <li>Messages delivered instantly over the encrypted SignalR channel</li>
+                                <li>Customizable administrator nickname and persistent message history</li>
                             </ul>
                         </div>
 
@@ -518,6 +528,7 @@
                                 <li>Drive list from the agent for fixed, removable, and network volumes</li>
                                 <li>Optional <strong>Upload and run</strong> to open a transferred file on the agent
                                     after upload</li>
+                                <li><strong>File Search:</strong> Search by name with wildcard and recursive subdirectory support (up to 500 results)</li>
                             </ul>
                         </div>
 
@@ -533,10 +544,11 @@
 
                         <div class="feature-card">
                             <div class="feature-icon">⚙️</div>
-                            <h3>Task manager &amp; power actions</h3>
-                            <p>Inspect running processes and shut down or restart the remote machine when allowed.</p>
+                            <h3>Task manager, process blocker &amp; power controls</h3>
+                            <p>Inspect running processes, block unwanted applications, and control power state remotely.</p>
                             <ul class="feature-list">
                                 <li>Process list and termination from the web UI</li>
+                                <li><strong>Process Blocker:</strong> Block apps by name — agent kills them instantly on startup; setting persists in the Windows Registry across reboots</li>
                                 <li>Power controls for shutdown and restart through the dashboard workflow</li>
                             </ul>
                         </div>
@@ -579,9 +591,11 @@
                             <p>Built-in code editor to write, save, and execute scripts on remote agent machines.</p>
                             <ul class="feature-list">
                                 <li>Supports Python, PowerShell, Batch, and VBScript</li>
-                                <li>Scripts are safely stored in browser's local storage for easy reuse</li>
-                                <li><strong>Scheduled Script Execution:</strong> Set specific dates and times for
-                                    scripts to run automatically</li>
+                                <li>Scripts saved in browser&rsquo;s local storage for easy reuse</li>
+                                <li><strong>Scheduled Script Execution:</strong> Set specific dates and times for scripts to run automatically</li>
+                                <li><strong>Job-based tracking:</strong> Agent keeps running and completed scripts in memory — close the browser and resume; output is preserved</li>
+                                <li><strong>Stop Script:</strong> Safely and asynchronously terminate a running script at any time</li>
+                                <li><strong>Download Output:</strong> Save script execution output directly to a local file</li>
                             </ul>
                         </div>
 
@@ -592,6 +606,7 @@
                             <ul class="feature-list">
                                 <li>CPU, memory, OS build, and related system signals</li>
                                 <li>Helps verify which machine you are managing in multi-device setups</li>
+                                <li><strong>Startup Programs Remove:</strong> Delete registry entries (<code>HKCU</code> / <code>HKLM</code>) or startup folder shortcuts directly from the dashboard; result reported as a toast notification</li>
                             </ul>
                         </div>
 
@@ -653,6 +668,142 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Security Architecture Section -->
+            <div class="section-divider"></div>
+            <section id="security" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">🔐 Security Architecture</h2>
+                    <p class="features-subtitle">Built with defence-in-depth — every layer is independently hardened</p>
+
+                    <!-- Request Protection Table -->
+                    <div class="security-block">
+                        <h3 class="security-block-title">🛡️ Request Protection</h3>
+                        <div class="security-table-wrap">
+                            <table class="security-table">
+                                <thead>
+                                    <tr><th>#</th><th>Protection</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td><strong>Request timeout</strong> — 30 s global, 10 min for file transfers, ∞ for SignalR (Slowloris protection)</td></tr>
+                                    <tr><td>2</td><td><strong>Security headers</strong> — CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CORP, COOP</td></tr>
+                                    <tr><td>3</td><td><strong>Request audit trail</strong> — All authentication events logged with IP, UserAgent, risk level and PII masking</td></tr>
+                                    <tr><td>4</td><td><strong>Kestrel hardening</strong> — <code>RequestHeadersTimeout: 15 s</code>, <code>KeepAliveTimeout: 120 s</code>, HTTP/2 stream limit: 100</td></tr>
+                                    <tr><td>5</td><td><strong>Login rate limiting</strong> — 8 attempts per minute per IP+UserAgent (dashboard lock)</td></tr>
+                                    <tr><td>6</td><td><strong>API rate limiting</strong> — 10 requests per minute per client (SecurityService)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Server-Level Security Table -->
+                    <div class="security-block">
+                        <h3 class="security-block-title">🔒 Server-Level Security</h3>
+                        <div class="security-table-wrap">
+                            <table class="security-table">
+                                <thead>
+                                    <tr><th>Component</th><th>Implementation</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Transport encryption</strong></td><td>AES-256-GCM (SignalR payload E2E), TLS via reverse proxy (Cloudflare / Nginx)</td></tr>
+                                    <tr><td><strong>Password storage</strong></td><td>ASP.NET Identity <code>IPasswordHasher</code> → PBKDF2-SHA256 with random salt</td></tr>
+                                    <tr><td><strong>JWT tokens</strong></td><td>HS256 (HMAC-SHA256), configurable expiry (5–240 min), mandatory strong key in production</td></tr>
+                                    <tr><td><strong>JWT signing key</strong></td><td>Enforced minimum 32 chars; weak / default keys blocked at startup in production mode</td></tr>
+                                    <tr><td><strong>API authentication</strong></td><td>JWT Bearer token with <code>DashboardAccess</code> claim required for all admin endpoints</td></tr>
+                                    <tr><td><strong>SignalR hub auth</strong></td><td><code>DashboardHubAuthorizationFilter</code> — all methods require <code>dashboard_access: true</code> claim</td></tr>
+                                    <tr><td><strong>AES key validation</strong></td><td>App refuses to start if <code>AES_MASTER_KEY_HEX</code> is missing or not exactly 256 bits</td></tr>
+                                    <tr><td><strong>SQL injection</strong></td><td>Entity Framework Core parameterized queries only</td></tr>
+                                    <tr><td><strong>Error handling</strong></td><td>Internal exception details never exposed to HTTP clients; full details in server logs only</td></tr>
+                                    <tr><td><strong>Audit logging</strong></td><td>SQLite event log — action, IP, UserAgent, risk level (Low / Medium / High / Critical), PII-masked</td></tr>
+                                    <tr><td><strong>Brute force detection</strong></td><td>Automatic suspicious pattern detection (&gt;10 failed logins or &gt;5 rate-limit hits per hour)</td></tr>
+                                    <tr><td><strong>Timing-safe comparison</strong></td><td><code>FixedTimeEquals</code> used for admin secret verification (constant-time XOR loop)</td></tr>
+                                    <tr><td><strong>CORS</strong></td><td>Configurable <code>ALLOWED_ORIGINS</code>; wildcard <code>*</code> blocked in production by default</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- FrontEnd-Level Security Table -->
+                    <div class="security-block">
+                        <h3 class="security-block-title">🖥️ FrontEnd-Level Security</h3>
+                        <div class="security-table-wrap">
+                            <table class="security-table">
+                                <thead>
+                                    <tr><th>Component</th><th>Implementation</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Session cookie</strong></td><td><code>RemoteControl.DashboardAuth</code>, SameSite=Strict, 8 h expiry</td></tr>
+                                    <tr><td><strong>Blazor Server</strong></td><td>WebSocket-based — not vulnerable to traditional CSRF</td></tr>
+                                    <tr><td><strong>Return URL validation</strong></td><td>All <code>returnUrl</code> values validated — must start with <code>/</code>, no <code>//</code> open redirects</td></tr>
+                                    <tr><td><strong>XSS prevention</strong></td><td>Blazor renders via DOM — no raw <code>innerHTML</code> injection</td></tr>
+                                    <tr><td><strong>Content Security Policy</strong></td><td>Strict CSP on all pages; no <code>unsafe-eval</code>; limited external origins</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    .security-block {
+                        margin-bottom: 2.5rem;
+                    }
+                    .security-block-title {
+                        font-size: 1.15rem;
+                        font-weight: 700;
+                        color: #00ff88;
+                        margin-bottom: 0.85rem;
+                        letter-spacing: 0.01em;
+                    }
+                    .security-table-wrap {
+                        overflow-x: auto;
+                        border-radius: 12px;
+                        border: 1px solid rgba(0, 255, 136, 0.15);
+                        background: rgba(255,255,255,0.025);
+                        backdrop-filter: blur(8px);
+                    }
+                    .security-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 0.875rem;
+                        color: #c9d1d9;
+                    }
+                    .security-table thead tr {
+                        background: rgba(0, 255, 136, 0.07);
+                        border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+                    }
+                    .security-table th {
+                        padding: 0.65rem 1rem;
+                        text-align: left;
+                        font-weight: 600;
+                        color: #00ff88;
+                        white-space: nowrap;
+                    }
+                    .security-table td {
+                        padding: 0.6rem 1rem;
+                        vertical-align: top;
+                        border-bottom: 1px solid rgba(255,255,255,0.05);
+                        line-height: 1.5;
+                    }
+                    .security-table td:first-child {
+                        white-space: nowrap;
+                        color: #8b949e;
+                    }
+                    .security-table tbody tr:last-child td {
+                        border-bottom: none;
+                    }
+                    .security-table tbody tr:hover {
+                        background: rgba(0,255,136,0.04);
+                    }
+                    .security-table code {
+                        background: rgba(0,255,136,0.1);
+                        border-radius: 4px;
+                        padding: 1px 5px;
+                        font-size: 0.82rem;
+                        color: #7ee8a2;
+                        font-family: 'Cascadia Code', 'Consolas', monospace;
+                    }
+                </style>
             </section>
 
             <section class="features-section">
