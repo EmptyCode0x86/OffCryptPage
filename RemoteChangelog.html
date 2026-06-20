@@ -203,10 +203,28 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.6 (June 18, 2026) adds security hardening (Slowloris/timeout protection, error message hardening), UI modernisation, Job-based Script Manager, Stealth Mode, and Chat.</p>
+                        <p><strong>Latest:</strong> VER 0.7 (June 20, 2026) adds Reverse Proxy Support (Nginx/Cloudflare), Auto Startup Name customization, and major Live Stream improvements (cursor visibility, smoothness, and right-click fixes).</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- VER 0.7 -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.7</span>
+                                <span class="version-date">20/06/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Added:</strong> <strong>Reverse Proxy Support</strong> — Built-in support for Nginx and Cloudflare Tunnels utilizing <code>X-Forwarded-For</code> and <code>X-Forwarded-Proto</code> headers. The servers now seamlessly track real client IP addresses securely when placed behind a reverse proxy.</li>
+                                    <li><strong>Added:</strong> <strong>Auto Startup Name modal</strong> — Enabling Windows auto startup from Agent settings now opens a modal where you can choose a custom startup name (or keep default <code>RemoteControlAgent</code>).</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Cursor Visibility</strong> — The real system cursor from the agent machine is now rendered directly into captured livestream frames, including scaled captures.</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Smoothness</strong> — Streaming lag/stutter has been significantly reduced with pipeline optimizations, resulting in much smoother playback and fewer frame hiccups.</li>
+                                    <li><strong>Fixed:</strong> <strong>Remote Control Right Click</strong> — Right-click from dashboard now correctly executes as right-click on the agent side, and right mouse button no longer triggers left-button down/up drag events.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- VER 0.6 -->
                         <div class="changelog-entry">
                             <div class="changelog-version">
