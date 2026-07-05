@@ -340,18 +340,15 @@
                     <h2 class="gallery-title" style="color: white;">💻 Screenshot & Video Showcase</h2>
                 </div>
 
-                <div class="image-card" data-image="youtube-demo" data-title="Web Remote Control Demo"
+                <div class="image-card video-showcase-card" data-image="youtube-demo" data-title="Web Remote Control Demo"
                     data-desc="Watch the Web Remote Control System in action.">
-                    <div
-                        style="position: relative; width: 100%; height: 280px; border-radius: 12px; overflow: hidden; background: #1a1a1a;">
+                    <div class="video-ratio-wrap">
                         <iframe src="https://www.youtube.com/embed/_gMLGK7DUUI"
-                            style="width: 100%; height: 100%; border: none;" title="Web Remote Control Demo Video"
+                            title="Web Remote Control Demo Video"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="image-overlay">
-                        <div class="zoom-icon">▶️</div>
-                    </div>
+                    <div class="video-card-label">▶ Web Remote Control — Demo Video</div>
                 </div>
 
                 <div class="image-gallery">
@@ -758,9 +755,115 @@
                             </table>
                         </div>
                     </div>
+
+                    <!-- Payload Encryption Proof -->
+                    <div class="security-block">
+                        <h3 class="security-block-title">🔬 Payload Encryption — Live Wire Capture</h3>
+                        <p style="color:#8b949e;font-size:0.9rem;margin-bottom:1.25rem;line-height:1.6;">
+                            What you see in <strong style="color:#c9d1d9;">Wireshark</strong> when opening Task Manager
+                            on a remote PC from the OffCode Web Remote Control System web dashboard — only
+                            <code class="sec-inline-code">ReceiveEncryptedPacket</code> + encrypted Base64 on the wire.
+                            No process names, paths, or commands in cleartext. App-layer
+                            <strong style="color:#00ff88;">AES-256-GCM</strong> on top of TLS in production.
+                        </p>
+                        <div class="payload-enc-wrap">
+                            <div class="image-card payload-enc-img-container"
+                                 data-image="PayloadEncryption.png"
+                                 data-title="Payload Encryption — Live Wire Capture"
+                                 data-desc="Wireshark capture: only ReceiveEncryptedPacket + encrypted Base64 on the wire. No process names, paths or commands in cleartext."
+                                 title="Click to view full size">
+                                <img src="PayloadEncryption.png"
+                                     alt="Wireshark capture showing AES-256-GCM encrypted SignalR payload — no cleartext process names or commands visible"
+                                     class="payload-enc-img"
+                                     loading="lazy">
+                                <div class="payload-enc-zoom-hint">🔍 Click to expand</div>
+                            </div>
+                            <div class="payload-enc-caption">
+                                <span class="payload-enc-badge">🔒 AES-256-GCM</span>
+                                <span class="payload-enc-badge">🛡️ TLS in production</span>
+                                <span class="payload-enc-badge">📦 Base64-only on wire</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <style>
+                    .payload-enc-wrap {
+                        border-radius: 14px;
+                        border: 1px solid rgba(0,255,136,0.18);
+                        background: rgba(0,0,0,0.35);
+                        backdrop-filter: blur(10px);
+                        overflow: hidden;
+                        box-shadow: 0 4px 32px rgba(0,255,136,0.06);
+                    }
+                    .image-card {
+                        padding: 8px;
+                    }
+                    .payload-enc-img-container {
+                        position: relative;
+                        cursor: zoom-in;
+                        overflow: hidden;
+                        background: #0d1117;
+                        text-align: center;
+                        border-bottom: 1px solid rgba(0,255,136,0.12);
+                    }
+                    .payload-enc-img-container:hover .payload-enc-zoom-hint {
+                        opacity: 1;
+                    }
+                    .payload-enc-zoom-hint {
+                        position: absolute;
+                        bottom: 0.6rem;
+                        right: 0.75rem;
+                        background: rgba(0,0,0,0.7);
+                        color: #00ff88;
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        padding: 0.25rem 0.65rem;
+                        border-radius: 20px;
+                        border: 1px solid rgba(0,255,136,0.3);
+                        opacity: 0;
+                        transition: opacity 0.2s ease;
+                        pointer-events: none;
+                        letter-spacing: 0.03em;
+                    }
+                    .payload-enc-img {
+                        max-width: 100%;
+                        width: auto;
+                        height: auto;
+                        display: block;
+                        margin: 0 auto;
+                        image-rendering: -webkit-optimize-contrast;
+                        image-rendering: crisp-edges;
+                        transition: transform 0.2s ease;
+                    }
+                    .payload-enc-img-container:hover .payload-enc-img {
+                        transform: scale(1.01);
+                    }
+                    .payload-enc-caption {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.6rem;
+                        padding: 0.9rem 1.1rem;
+                        background: rgba(0,255,136,0.04);
+                    }
+                    .payload-enc-badge {
+                        font-size: 0.78rem;
+                        font-weight: 600;
+                        color: #00ff88;
+                        background: rgba(0,255,136,0.1);
+                        border: 1px solid rgba(0,255,136,0.22);
+                        border-radius: 20px;
+                        padding: 0.28rem 0.75rem;
+                        letter-spacing: 0.02em;
+                    }
+                    .sec-inline-code {
+                        background: rgba(0,255,136,0.1);
+                        border-radius: 4px;
+                        padding: 1px 5px;
+                        font-size: 0.82rem;
+                        color: #7ee8a2;
+                        font-family: 'Cascadia Code', 'Consolas', monospace;
+                    }
                     .security-block {
                         margin-bottom: 2.5rem;
                     }

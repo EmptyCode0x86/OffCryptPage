@@ -4556,11 +4556,44 @@ body.menu-open .hamburger::after {
     margin-bottom: 3rem;
 }
 
+/* Video showcase card — sits above the gallery, compact 16:9 */
+.video-showcase-card {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    cursor: default;
+}
+
+.video-ratio-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0d1117;
+}
+
+.video-ratio-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-card-label {
+    text-align: center;
+    color: #8b949e;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.6rem 0.5rem 0.3rem;
+    letter-spacing: 0.03em;
+}
+
 /* Grid Layout */
 .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
@@ -4676,7 +4709,7 @@ body.menu-open .hamburger::after {
     text-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
 }
 
-/* Lightbox Modal - TODELLA YKSINKERTAINEN JA TOIMIVA */
+/* Lightbox Modal */
 .image-modal {
     display: none;
     position: fixed;
@@ -4686,50 +4719,28 @@ body.menu-open .hamburger::after {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.95);
-    /* Firefox compatibility */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .image-modal.active {
     display: block;
 }
 
-/* Modal Content - CLEAN WITH GLOWING BORDER */
+/* Modal Content - Clean neutral modern */
 .modal-content {
     position: relative;
-    margin: 2% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
-    background: #0a0a0a;
+    margin: 1.5% auto;
+    padding: 20px 20px 76px 20px;
+    width: 98%;
+    max-width: 1600px;
+    background: #111316;
     border-radius: 16px;
-    border: 2px solid #0066ff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
-        0 0 30px rgba(0, 102, 255, 0.4),
-        0 0 60px rgba(0, 102, 255, 0.2),
-        0 20px 50px rgba(0, 0, 0, 0.5);
-    animation: borderGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes borderGlow {
-    0% {
-        border-color: #0066ff;
-        box-shadow:
-            0 0 30px rgba(0, 102, 255, 0.4),
-            0 0 60px rgba(0, 102, 255, 0.2),
-            0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-
-    100% {
-        border-color: #00d4ff;
-        box-shadow:
-            0 0 40px rgba(0, 212, 255, 0.5),
-            0 0 80px rgba(0, 102, 255, 0.3),
-            0 20px 50px rgba(0, 0, 0, 0.5);
-    }
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* KUVA MODALISSA */
@@ -4737,12 +4748,11 @@ body.menu-open .hamburger::after {
 #modalImage {
     width: 100%;
     height: auto;
-    max-height: 80vh;
+    max-height: 88vh;
     object-fit: contain;
     display: block;
     margin: 0 auto;
     border-radius: 8px;
-    /* Firefox compatibility */
     -moz-object-fit: contain;
     -webkit-object-fit: contain;
 }
@@ -4750,99 +4760,106 @@ body.menu-open .hamburger::after {
 /* Close Button */
 .close,
 .modal-close {
-    color: #0066ff;
+    color: #aaaaaa;
     position: absolute;
-    top: -15px;
-    right: -15px;
-    font-size: 40px;
-    font-weight: bold;
+    top: -14px;
+    right: -14px;
+    font-size: 22px;
+    font-weight: 600;
     cursor: pointer;
     z-index: 100000;
-    background: #0a0a0a;
-    width: 50px;
-    height: 50px;
+    background: #1e2025;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #0066ff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     line-height: 1;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
 }
 
 .close:hover,
 .close:focus,
 .modal-close:hover {
-    color: #00d4ff;
-    border-color: #00d4ff;
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
-    transform: scale(1.1);
+    color: #ffffff;
+    background: #2a2d33;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.08);
 }
 
-/* Navigation Arrows */
+/* Navigation Arrows — bottom center, below image */
 .modal-nav-btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #0a0a0a;
-    color: #0066ff;
-    border: 2px solid #0066ff;
-    font-size: 3rem;
-    font-weight: bold;
+    bottom: 16px;
+    top: auto;
+    transform: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: #cccccc;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 1.4rem;
+    font-weight: 300;
     cursor: pointer;
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    border-radius: 50%;
+    transition: all 0.2s ease;
     z-index: 10;
     line-height: 1;
     user-select: none;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+    backdrop-filter: blur(4px);
 }
 
 .modal-prev {
-    left: 20px;
+    left: calc(50% - 56px);
+    right: auto;
 }
 
 .modal-next {
-    right: 20px;
+    left: calc(50% + 8px);
+    right: auto;
 }
 
 .modal-nav-btn:hover {
-    background: #0066ff;
+    background: rgba(255, 255, 255, 0.14);
     color: #ffffff;
-    border-color: #00d4ff;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .modal-nav-btn:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: scale(0.95);
 }
 
 /* Modal Info */
 .modal-info {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(0, 102, 255, 0.3);
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .modal-info h3,
 #modalTitle {
-    color: #0066ff;
-    font-size: 1.3rem;
-    margin: 0 0 10px 0;
+    color: #e6edf3;
+    font-size: 1.1rem;
+    margin: 0 0 6px 0;
+    font-weight: 600;
 }
 
 .modal-info p,
 #modalDesc {
-    color: #cccccc;
-    font-size: 1rem;
+    color: #8b949e;
+    font-size: 0.9rem;
     margin: 0;
+    line-height: 1.5;
 }
 
 /* Responsive */
@@ -4902,17 +4919,20 @@ body.menu-open .hamburger::after {
 
     /* Pienemmät navigaationapit mobiilissa */
     .modal-nav-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 2rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        bottom: 14px;
     }
 
     .modal-prev {
-        left: 10px;
+        left: calc(50% - 50px);
+        right: auto;
     }
 
     .modal-next {
-        right: 10px;
+        left: calc(50% + 6px);
+        right: auto;
     }
 
     /* Vähennetään tummaa taustaa mobiilissa */
@@ -4995,17 +5015,20 @@ body.menu-open .hamburger::after {
 
     /* Vielä pienemmät nuolet pienillä näytöillä */
     .modal-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+        bottom: 12px;
     }
 
     .modal-prev {
-        left: 5px;
+        left: calc(50% - 44px);
+        right: auto;
     }
 
     .modal-next {
-        right: 5px;
+        left: calc(50% + 6px);
+        right: auto;
     }
 }
 
