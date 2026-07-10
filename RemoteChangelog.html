@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
 <head>
@@ -9,7 +9,7 @@
     <meta name="description"
         content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-07-05">
+    <meta name="last-modified" content="2026-07-10">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "Web Remote Control System changelog",
-            "dateModified": "2026-07-05",
+            "dateModified": "2026-07-10",
             "url": "https://www.dev-offcode.com/RemoteChangelog.html"
         }
     }
@@ -203,10 +203,30 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.8 (July 5, 2026) adds per-agent AES encryption, per-stub connect tokens for <code>ConnectAsDevice</code> identity validation, and hardened encrypted hub dispatch.</p>
+                        <p><strong>Latest:</strong> VER 0.9 (July 10, 2026) fixes a ConnectAsDevice bypass vulnerability, and adds share link expiry, real-time device ping, Telegram notifications, and replay attack protection.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- VER 0.9 -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.9</span>
+                                <span class="version-date">10/07/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Security:</strong> <strong>ConnectAsDevice bypass fix</strong> — Fixed a security vulnerability in <code>DeviceControlHub.ConnectAsDevice</code>. When <code>AgentSecurity:RequireConnectToken</code> was set to <code>true</code>, an attacker could bypass the enforcement by sending any unknown <code>agentKeyId</code> — <code>TryGetConnectToken</code> returned <code>false</code> for the unknown ID, causing the code to skip token validation and allow the connection as a legacy agent. Added an <code>else if (requireToken)</code> branch inside the <code>agentKeyId</code> block: if <code>agentKeyId</code> is provided but not found in the <code>AgentKeys.json</code> registry in strict mode, the connection is now rejected with <code>HubException("Unauthorized")</code> and a warning is logged (<code>ConnectAsDevice: unknown agentKeyId rejected</code>). The attacker would still need the shared <code>AES_MASTER_KEY_HEX</code> to communicate, but the <code>RequireConnectToken</code> enforcement now correctly covers all cases.</li>
+                                    <li><strong>Added:</strong> <strong>Share Link Expiry</strong> — Live Stream share links can now have a configurable lifetime. In the stream toolbar, set <strong>Hours</strong> and <strong>Minutes</strong> or enable <strong>No time limit</strong>. The backend registers sessions in <code>ShareSessionService</code>; <code>ShareExpiryService</code> expires them and notifies viewers via <code>ShareExpired</code>. Admin UI shows a countdown while sharing. Server validates links on <code>JoinShare</code> and <code>BroadcastSharedFrame</code> (1 min – 7 days, or unlimited).</li>
+                                    <li><strong>Added:</strong> <strong>Real-time Device Ping</strong> — <code>DevicePingService</code> pings connected agents every 10 s; agents respond with <code>Pong</code>; RTT is shown in the connected devices list (<code>PingMs</code>, color-coded). Cleartext ping IDs only (no sensitive payload).</li>
+                                    <li><strong>Added:</strong> <strong>Telegram Notifications</strong> — Optional global setting in <strong>Agent settings</strong>: Telegram message when a device comes online. Settings persisted in <code>telegram-settings.json</code> (hot-reload); REST API <code>api/telegram/settings</code> + test endpoint; in-modal BotFather setup help.</li>
+                                    <li><strong>Added:</strong> <strong>Telegram <code>/Get_info</code> Command</strong> — <code>TelegramCommandService</code> polls Bot API <code>getUpdates</code>; <code>/Get_info</code> requests Computer Info from an online agent (multi-device selection in chat). Responses routed via hub (<code>SendComputerInfoRequestToAgentAsync</code>, <code>telegram-</code> requestId prefix). Only the configured chat ID is accepted.</li>
+                                    <li><strong>Fixed:</strong> <strong>Share Screen anonymous join</strong> — <code>JoinShare</code> added to hub anonymous allow-list so public viewers can connect without dashboard JWT.</li>
+                                    <li><strong>Security:</strong> <strong>Replay Attack Protection (EncryptedPacket)</strong> — All incoming <code>EncryptedPacket</code> messages are now protected against replay attacks on both the BackEnd and RemoteAgent sides. A new <code>ReplayCache</code> (in-memory nonce-cache, <code>BackEnd/Security/ReplayCache.cs</code> and <code>RemoteAgent/Security/ReplayCache.cs</code>) registers the SHA-256 fingerprint of every received encrypted blob; an identical blob is rejected immediately. In addition, <code>packet.Timestamp</code> is validated against a configurable time window (default <strong>60 seconds</strong>, tunable via <code>ReplayProtection:MaxAgeSeconds</code> in <code>appsettings.json</code>) — stale packets are dropped with a warning log. Validation runs in <code>DeviceControlHub.ReceiveEncryptedFromAdmin</code>, <code>DeviceControlHub.ReceiveEncryptedFromAgent</code> and <code>SignalRService.HandleReceiveEncryptedPacketAsync</code>. AES-GCM already guaranteed confidentiality and integrity; <code>ReplayCache</code> adds <strong>freshness</strong> so a captured valid ciphertext (e.g. a shutdown or kill-process command) cannot be replayed later.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- VER 0.8 -->
                         <div class="changelog-entry">
                             <div class="changelog-version">

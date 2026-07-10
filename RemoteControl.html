@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="web remote control, Windows device management, remote automation, Mouse Bot, file transfer, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, web interface, device control, remote access">
     <meta name="author" content=" Web Remote Screen Locker">
-    <meta name="last-modified" content="2025-11-06">
+    <meta name="last-modified" content="2026-07-10">
     <meta name="robots" content="index, follow">
 
     <!-- Security Headers -->
@@ -87,7 +87,7 @@
         "softwareVersion": "2.7.0",
         "releaseNotes": "Remote control system with ASP.NET Core backend, Blazor frontend, SignalR real-time communication, and Windows agent integration",
         "datePublished": "2025-01-01",
-        "dateModified": "2025-11-06"
+        "dateModified": "2026-07-10"
     }
     </script>
 
@@ -516,8 +516,7 @@
                                 <li>Adjustable stream quality and frame rate (up to 240 FPS)</li>
                                 <li>Dynamic zoom controls with mouse-wheel tracking</li>
                                 <li>Interactive control over SignalR for responsive remote desktop use</li>
-                                <li><strong>Share Screen:</strong> Share the live stream via a secure, public link
-                                    without dashboard login</li>
+                                <li><strong>Share Screen:</strong> Share the live stream via a secure, public link without dashboard login; set a custom expiry (hours + minutes) or <strong>No time limit</strong> — expired links are automatically invalidated</li>
                             </ul>
                         </div>
 
@@ -657,6 +656,37 @@
                         </div>
 
                         <div class="feature-card">
+                            <div class="feature-icon">📡</div>
+                            <h3>Real-time device ping</h3>
+                            <p>Live round-trip latency shown for every connected agent in the device list, updated every ~10 seconds.</p>
+                            <ul class="feature-list">
+                                <li>Color-coded RTT indicator (green / yellow / red) for at-a-glance status</li>
+                                <li>Cleartext ping IDs only — no sensitive payload in the probe</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">📲</div>
+                            <h3>Telegram notifications &amp; commands</h3>
+                            <p>Optional Telegram bot integration for instant alerts and remote queries directly from your phone.</p>
+                            <ul class="feature-list">
+                                <li><strong>Online alert:</strong> Receive a Telegram message the moment any device comes online</li>
+                                <li>Configure Bot Token and Chat ID from the Agent settings panel; includes BotFather setup help and a test message button</li>
+                                <li><strong><code>/Get_info</code> command:</strong> Send the command in your Telegram chat to fetch Computer Info from an online agent; multi-device selection when several devices are connected</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🕵️</div>
+                            <h3>Stealth mode</h3>
+                            <p>Hide the agent's tray icon so it runs silently in the background, visible only in the Windows Task Manager.</p>
+                            <ul class="feature-list">
+                                <li>Toggle from the Agent settings panel per device</li>
+                                <li>No system tray icon or taskbar entry — agent keeps running uninterrupted</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
                             <div class="feature-icon">🛠️</div>
                             <h3>Server manager</h3>
                             <p>Desktop helper to configure ports, launch backend and frontend, and build configured
@@ -726,6 +756,10 @@
                                     <tr><td><strong>API authentication</strong></td><td>JWT Bearer token with <code>DashboardAccess</code> claim required for all admin endpoints</td></tr>
                                     <tr><td><strong>SignalR hub auth</strong></td><td><code>DashboardHubAuthorizationFilter</code> — all methods require <code>dashboard_access: true</code> claim</td></tr>
                                     <tr><td><strong>AES key validation</strong></td><td>App refuses to start if <code>AES_MASTER_KEY_HEX</code> is missing or not exactly 256 bits</td></tr>
+                                    <tr><td><strong>Per-agent encryption keys</strong></td><td>Each stub built via Server Manager gets its own randomly generated AES-256 key + <code>AgentKeyId</code> registered in <code>AgentKeys.json</code> (hot-reloaded). Leaking one stub no longer exposes the traffic of every other device — the shared <code>AES_MASTER_KEY_HEX</code> remains BackEnd↔FrontEnd only</td></tr>
+                                    <tr><td><strong>Per-stub connect token</strong></td><td>Each new stub receives a unique <code>AGENT_CONNECT_TOKEN</code> (256-bit random hex). The BackEnd validates it with <code>CryptographicOperations.FixedTimeEquals</code> on <code>ConnectAsDevice</code> before registering the device — preventing identity spoofing on the open hub method</td></tr>
+                                    <tr><td><strong>Encrypted hub tunnel</strong></td><td>Sensitive admin↔BackEnd and agent↔BackEnd payloads travel as AES-GCM ciphertext inside generic hub targets (<code>ReceiveEncryptedFromAdmin</code>, <code>ReceiveEncryptedFromAgent</code>, <code>ReceiveEncryptedPacket</code>) — only Base64 blobs appear on the wire</td></tr>
+                                    <tr><td><strong>Replay protection</strong></td><td>In-memory <code>ReplayCache</code> tracks SHA-256 fingerprints of received ciphertext blobs. Duplicate packets are rejected immediately. Combined with a 60-second <code>packet.Timestamp</code> window — stale or replayed packets (e.g. a captured shutdown command) are silently dropped on both BackEnd and RemoteAgent sides. Configurable via <code>ReplayProtection:MaxAgeSeconds</code></td></tr>
                                     <tr><td><strong>SQL injection</strong></td><td>Entity Framework Core parameterized queries only</td></tr>
                                     <tr><td><strong>Error handling</strong></td><td>Internal exception details never exposed to HTTP clients; full details in server logs only</td></tr>
                                     <tr><td><strong>Audit logging</strong></td><td>SQLite event log — action, IP, UserAgent, risk level (Low / Medium / High / Critical), PII-masked</td></tr>
