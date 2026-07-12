@@ -3225,6 +3225,20 @@ main .features-section,
     margin-bottom: 3rem;
 }
 
+#features .features-subtitle {
+    margin-bottom: 0.75rem;
+}
+
+#features .features-carousel-hint {
+    text-align: center;
+    color: #00ff88;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0 0 2.25rem;
+    opacity: 0.9;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -3286,6 +3300,152 @@ main .features-section,
         0 20px 40px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(0, 102, 255, 0.2);
     border-color: rgba(0, 102, 255, 0.4);
+}
+
+/* ===== Features carousel (RemoteControl #features only) ===== */
+#features .features-carousel {
+    position: relative;
+    width: 100%;
+    padding: 0 2.75rem;
+}
+
+#features .features-carousel-track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0.35rem 0.15rem 1.25rem;
+    outline: none;
+}
+
+#features .features-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+#features .features-carousel-track .feature-card {
+    flex: 0 0 calc(50% - 1rem);
+    width: calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#features .features-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 136, 0.35);
+    background: rgba(15, 23, 42, 0.92);
+    color: #00ff88;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+#features .features-carousel-btn:hover:not(:disabled) {
+    background: rgba(0, 255, 136, 0.12);
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+#features .features-carousel-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+#features .features-carousel-btn.prev {
+    left: 0;
+}
+
+#features .features-carousel-btn.next {
+    right: 0;
+}
+
+#features .features-carousel-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+#features .features-carousel-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 255, 136, 0.45);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+#features .features-carousel-dot[aria-selected="true"],
+#features .features-carousel-dot.is-active {
+    background: #00ff88;
+    border-color: #00ff88;
+    transform: scale(1.15);
+}
+
+#features .features-carousel-dot:focus-visible,
+#features .features-carousel-btn:focus-visible,
+#features .features-carousel-track:focus-visible {
+    outline: 2px solid #00ff88;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #features .features-carousel-track {
+        scroll-behavior: auto;
+    }
+
+    #features .features-carousel-btn,
+    #features .features-carousel-dot,
+    #features .features-carousel-track .feature-card {
+        transition: none;
+    }
+}
+
+@media (max-width: 900px) {
+    #features .features-carousel {
+        padding: 0 2.5rem;
+    }
+
+    #features .features-carousel-track .feature-card {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #features .features-carousel {
+        padding: 0 2.25rem;
+    }
+
+    #features .features-carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
+    }
 }
 
 .feature-icon {

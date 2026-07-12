@@ -108,5 +108,11 @@
     <image:image>
       <image:loc>https://www.dev-offcode.com/TorChat1.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/TorManager1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/TorManager2.png</image:loc>
+    </image:image>
   </url>
 </urlset>
