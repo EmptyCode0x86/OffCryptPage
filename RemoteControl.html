@@ -11,7 +11,7 @@
     <meta name="keywords"
         content="web remote control, Windows device management, remote automation, Mouse Bot, file transfer, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, web interface, device control, remote access">
     <meta name="author" content=" Web Remote Screen Locker">
-    <meta name="last-modified" content="2026-07-10">
+    <meta name="last-modified" content="2026-07-11">
     <meta name="robots" content="index, follow">
 
     <!-- Security Headers -->
@@ -41,7 +41,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=2.8.0" as="style">
+    <link rel="preload" href="styles.css?v=2.9.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=2.8.0" as="style">
     <link rel="preload" href="RemoteControl1.png" as="image">
 
@@ -87,7 +87,7 @@
         "softwareVersion": "2.7.0",
         "releaseNotes": "Remote control system with ASP.NET Core backend, Blazor frontend, SignalR real-time communication, and Windows agent integration",
         "datePublished": "2025-01-01",
-        "dateModified": "2026-07-10"
+        "dateModified": "2026-07-11"
     }
     </script>
 
@@ -149,7 +149,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.8.0">
+    <link rel="stylesheet" href="styles.css?v=2.9.1">
     <link rel="stylesheet" href="gallery-simple.css?v=2.8.0">
 
 
@@ -194,16 +194,16 @@
                         <span class="menu-text">Automation Tool</span>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="BuildSecure.html" class="menu-link">
-                        <span class="menu-icon">🛡️</span>
-                        <span class="menu-text">BuildSecure</span>
-                    </a>
-                </li>
                 <li class="menu-item active">
                     <a href="RemoteControl.html" class="menu-link">
                         <span class="menu-icon">🌐</span>
                         <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="TorChatPage.html" class="menu-link">
+                        <span class="menu-icon">🧅</span>
+                        <span class="menu-text">Tor Chat</span>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -493,8 +493,19 @@
                 <div class="features-container">
                     <h2 class="features-title">Features</h2>
                     <p class="features-subtitle">Everything you need for self-hosted remote Windows management</p>
+                    <p class="features-carousel-hint">Browse the cards with the arrows or by swiping to see every feature</p>
 
-                    <div class="features-grid">
+                    <div class="features-carousel" id="features-carousel" data-features-carousel>
+                        <button type="button" class="features-carousel-btn prev" aria-label="Previous features"
+                            aria-controls="features-carousel-track">
+                            <span aria-hidden="true">‹</span>
+                        </button>
+                        <button type="button" class="features-carousel-btn next" aria-label="Next features"
+                            aria-controls="features-carousel-track">
+                            <span aria-hidden="true">›</span>
+                        </button>
+                        <div class="features-carousel-track" id="features-carousel-track" role="region"
+                            aria-roledescription="carousel" aria-label="Product features" tabindex="0">
                         <div class="feature-card">
                             <div class="feature-icon">🔐</div>
                             <h3>AES-256 GCM encryption</h3>
@@ -502,6 +513,7 @@
                                 end-to-end.</p>
                             <ul class="feature-list">
                                 <li>Encrypts command and file-transfer payloads between agent, API, and dashboard</li>
+                                <li>Large file bodies use <strong>chunked AES-256-GCM</strong> with per-transfer keys and <code>X-Transfer-Token</code> (HMAC)</li>
                                 <li>Designed so passive packet capture does not expose secrets in clear text</li>
                                 <li>Server Manager helps distribute keys into agent builds for your deployment</li>
                             </ul>
@@ -541,6 +553,7 @@
                                 <li>Optional <strong>Upload and run</strong> to open a transferred file on the agent
                                     after upload</li>
                                 <li><strong>File Search:</strong> Search by name with wildcard and recursive subdirectory support (up to 500 results)</li>
+                                <li>Agent HTTP legs store/transfer ciphertext (<code>.rcenc</code>); paths validated with an agent path allowlist</li>
                             </ul>
                         </div>
 
@@ -701,6 +714,18 @@
                         </div>
 
                         <div class="feature-card">
+                            <div class="feature-icon">🧅</div>
+                            <h3>Tor Network Support</h3>
+                            <p>Route agent traffic through the Tor anonymity network without port forwarding — using a
+                                persistent <code>.onion</code> Hidden Service for your BackEnd.</p>
+                            <ul class="feature-list">
+                                <li>Enable <strong>Tor connection</strong> in Server Manager to generate and host the Hidden Service locally</li>
+                                <li>Agent stubs embed the <code>.onion</code> address and can bundle <code>TorBundle</code> / <code>tor.exe</code></li>
+                                <li>Agents connect via Tor SOCKS5 (Long Polling); live stream may be laggy over Tor, other features remain usable</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
                             <div class="feature-icon">🌐</div>
                             <h3>SignalR &amp; ASP.NET Core stack</h3>
                             <p>Built on ASP.NET Core, Blazor Server, SignalR, SQLite, and a Windows agent.</p>
@@ -709,7 +734,9 @@
                                 <li>Self-hosted: you control hosting, TLS termination, and network exposure</li>
                             </ul>
                         </div>
-                    </div>
+                        </div><!-- /.features-carousel-track -->
+                        <div class="features-carousel-dots" role="tablist" aria-label="Feature slides"></div>
+                    </div><!-- /.features-carousel -->
                 </div>
             </section>
 
@@ -733,8 +760,8 @@
                                     <tr><td>2</td><td><strong>Security headers</strong> — CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CORP, COOP</td></tr>
                                     <tr><td>3</td><td><strong>Request audit trail</strong> — All authentication events logged with IP, UserAgent, risk level and PII masking</td></tr>
                                     <tr><td>4</td><td><strong>Kestrel hardening</strong> — <code>RequestHeadersTimeout: 15 s</code>, <code>KeepAliveTimeout: 120 s</code>, HTTP/2 stream limit: 100</td></tr>
-                                    <tr><td>5</td><td><strong>Login rate limiting</strong> — 8 attempts per minute per IP+UserAgent (dashboard lock)</td></tr>
-                                    <tr><td>6</td><td><strong>API rate limiting</strong> — 10 requests per minute per client (SecurityService)</td></tr>
+                                    <tr><td>5</td><td><strong>Login rate limiting</strong> — ASP.NET <code>AddRateLimiter</code> policy <code>login</code> (10/min/IP) on dashboard-lock verify; internal dashboard-lock check also applies</td></tr>
+                                    <tr><td>6</td><td><strong>Hub / share rate limiting</strong> — <code>hub-negotiate</code> (60/min/IP) on SignalR <code>/devicehub</code>; <code>JoinShare</code> limited via in-hub <code>ShareJoinRateLimiter</code> (20/min/IP)</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -749,23 +776,25 @@
                                     <tr><th>Component</th><th>Implementation</th></tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><strong>Transport encryption</strong></td><td>AES-256-GCM (SignalR payload E2E), TLS via reverse proxy (Cloudflare / Nginx)</td></tr>
-                                    <tr><td><strong>Password storage</strong></td><td>ASP.NET Identity <code>IPasswordHasher</code> → PBKDF2-SHA256 with random salt</td></tr>
+                                    <tr><td><strong>Transport encryption</strong></td><td>AES-256-GCM (SignalR payload E2E), TLS via reverse proxy (Cloudflare / Nginx) — <strong>HTTPS/WSS mandatory for internet deployments</strong></td></tr>
+                                    <tr><td><strong>Password storage (Dashboard Lock)</strong></td><td>ASP.NET Identity <code>IPasswordHasher</code> → PBKDF2-SHA256 with random salt; account-store encryption keys from environment / configuration (or derived from <code>AES_MASTER_KEY_HEX</code>)</td></tr>
                                     <tr><td><strong>JWT tokens</strong></td><td>HS256 (HMAC-SHA256), configurable expiry (5–240 min), mandatory strong key in production</td></tr>
                                     <tr><td><strong>JWT signing key</strong></td><td>Enforced minimum 32 chars; weak / default keys blocked at startup in production mode</td></tr>
-                                    <tr><td><strong>API authentication</strong></td><td>JWT Bearer token with <code>DashboardAccess</code> claim required for all admin endpoints</td></tr>
-                                    <tr><td><strong>SignalR hub auth</strong></td><td><code>DashboardHubAuthorizationFilter</code> — all methods require <code>dashboard_access: true</code> claim</td></tr>
+                                    <tr><td><strong>API authentication</strong></td><td>JWT Bearer with <code>DashboardAccess</code> for admin endpoints; legacy <code>/api/user/*</code> requires the same claim and is obsolete in favor of Dashboard Lock</td></tr>
+                                    <tr><td><strong>SignalR hub auth</strong></td><td><code>DashboardHubAuthorizationFilter</code> — admin methods require <code>dashboard_access: true</code>; agent methods and anonymous <code>JoinShare</code> are explicitly allow-listed</td></tr>
                                     <tr><td><strong>AES key validation</strong></td><td>App refuses to start if <code>AES_MASTER_KEY_HEX</code> is missing or not exactly 256 bits</td></tr>
                                     <tr><td><strong>Per-agent encryption keys</strong></td><td>Each stub built via Server Manager gets its own randomly generated AES-256 key + <code>AgentKeyId</code> registered in <code>AgentKeys.json</code> (hot-reloaded). Leaking one stub no longer exposes the traffic of every other device — the shared <code>AES_MASTER_KEY_HEX</code> remains BackEnd↔FrontEnd only</td></tr>
                                     <tr><td><strong>Per-stub connect token</strong></td><td>Each new stub receives a unique <code>AGENT_CONNECT_TOKEN</code> (256-bit random hex). The BackEnd validates it with <code>CryptographicOperations.FixedTimeEquals</code> on <code>ConnectAsDevice</code> before registering the device — preventing identity spoofing on the open hub method</td></tr>
+                                    <tr><td><strong>Encrypted file transfer</strong></td><td>Chunked AES-256-GCM (<code>AesGcmChunkStream</code>) on agent HTTP legs; per-transfer key in encrypted SignalR metadata; <code>X-Transfer-Token</code> (HMAC); server temp files as <code>.rcenc</code> ciphertext</td></tr>
+                                    <tr><td><strong>Agent path guard</strong></td><td><code>Path.GetFullPath</code>, reject <code>..</code> segments, allowlist of logical drives + shell folders on browse/search/upload/download</td></tr>
                                     <tr><td><strong>Encrypted hub tunnel</strong></td><td>Sensitive admin↔BackEnd and agent↔BackEnd payloads travel as AES-GCM ciphertext inside generic hub targets (<code>ReceiveEncryptedFromAdmin</code>, <code>ReceiveEncryptedFromAgent</code>, <code>ReceiveEncryptedPacket</code>) — only Base64 blobs appear on the wire</td></tr>
                                     <tr><td><strong>Replay protection</strong></td><td>In-memory <code>ReplayCache</code> tracks SHA-256 fingerprints of received ciphertext blobs. Duplicate packets are rejected immediately. Combined with a 60-second <code>packet.Timestamp</code> window — stale or replayed packets (e.g. a captured shutdown command) are silently dropped on both BackEnd and RemoteAgent sides. Configurable via <code>ReplayProtection:MaxAgeSeconds</code></td></tr>
                                     <tr><td><strong>SQL injection</strong></td><td>Entity Framework Core parameterized queries only</td></tr>
                                     <tr><td><strong>Error handling</strong></td><td>Internal exception details never exposed to HTTP clients; full details in server logs only</td></tr>
                                     <tr><td><strong>Audit logging</strong></td><td>SQLite event log — action, IP, UserAgent, risk level (Low / Medium / High / Critical), PII-masked</td></tr>
                                     <tr><td><strong>Brute force detection</strong></td><td>Automatic suspicious pattern detection (&gt;10 failed logins or &gt;5 rate-limit hits per hour)</td></tr>
-                                    <tr><td><strong>Timing-safe comparison</strong></td><td><code>FixedTimeEquals</code> used for admin secret verification (constant-time XOR loop)</td></tr>
-                                    <tr><td><strong>CORS</strong></td><td>Configurable <code>ALLOWED_ORIGINS</code>; wildcard <code>*</code> blocked in production by default</td></tr>
+                                    <tr><td><strong>Timing-safe comparison</strong></td><td><code>FixedTimeEquals</code> used for admin secret and connect-token verification</td></tr>
+                                    <tr><td><strong>CORS</strong></td><td>Production requires explicit <code>Cors:AllowedOrigins</code> or <code>ALLOWED_ORIGINS</code>; wildcard <code>*</code> with credentials is rejected (fail-closed)</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -783,7 +812,7 @@
                                     <tr><td><strong>Session cookie</strong></td><td><code>RemoteControl.DashboardAuth</code>, SameSite=Strict, 8 h expiry</td></tr>
                                     <tr><td><strong>Blazor Server</strong></td><td>WebSocket-based — not vulnerable to traditional CSRF</td></tr>
                                     <tr><td><strong>Return URL validation</strong></td><td>All <code>returnUrl</code> values validated — must start with <code>/</code>, no <code>//</code> open redirects</td></tr>
-                                    <tr><td><strong>XSS prevention</strong></td><td>Blazor renders via DOM — no raw <code>innerHTML</code> injection</td></tr>
+                                    <tr><td><strong>XSS prevention</strong></td><td>Blazor DOM encoding; dashboard JS helpers escape untrusted strings before any <code>innerHTML</code> use</td></tr>
                                     <tr><td><strong>Content Security Policy</strong></td><td>Strict CSP on all pages; no <code>unsafe-eval</code>; limited external origins</td></tr>
                                 </tbody>
                             </table>
@@ -1147,6 +1176,7 @@
     <!-- Application JavaScript -->
     <script src="script.js" defer></script>
     <script src="gallery.js" defer></script>
+    <script src="features-carousel.js" defer></script>
 
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="cookie-consent.css">

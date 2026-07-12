@@ -9,7 +9,7 @@
     <meta name="description"
         content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-07-10">
+    <meta name="last-modified" content="2026-07-11">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "Web Remote Control System changelog",
-            "dateModified": "2026-07-10",
+            "dateModified": "2026-07-11",
             "url": "https://www.dev-offcode.com/RemoteChangelog.html"
         }
     }
@@ -107,16 +107,16 @@
                         <span class="menu-text">Automation Tool</span>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="BuildSecure.html" class="menu-link">
-                        <span class="menu-icon">🛡️</span>
-                        <span class="menu-text">BuildSecure</span>
-                    </a>
-                </li>
                 <li class="menu-item active">
                     <a href="RemoteControl.html" class="menu-link">
                         <span class="menu-icon">🌐</span>
                         <span class="menu-text">Web Remote Control</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="TorChatPage.html" class="menu-link">
+                        <span class="menu-icon">🧅</span>
+                        <span class="menu-text">Tor Chat</span>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -203,10 +203,29 @@
                     <div class="changelog-intro">
                         <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 0.9 (July 10, 2026) fixes a ConnectAsDevice bypass vulnerability, and adds share link expiry, real-time device ping, Telegram notifications, and replay attack protection.</p>
+                        <p><strong>Latest:</strong> VER 1.0 (July 11, 2026) — Dashboard Lock hardening, CORS/rate limits, agent path guard, encrypted file transfer (chunked AES-GCM), and Tor Network support.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- VER 1.0 -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 1.0</span>
+                                <span class="version-date">11/07/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Security:</strong> <strong>Dashboard Lock access hardening</strong> — Strengthened dashboard authentication around the lock/JWT path: password hashing uses ASP.NET <code>PasswordHasher</code> (PBKDF2 with salt); related account-store encryption keys are loaded from environment / configuration (or derived from <code>AES_MASTER_KEY_HEX</code>); optional first-admin bootstrap via <code>INITIAL_ADMIN_USERNAME</code> + <code>INITIAL_ADMIN_PASSWORD</code>. Legacy <code>/api/user/*</code> requires a <code>DashboardAccess</code> JWT and is marked obsolete in favor of Dashboard Lock.</li>
+                                    <li><strong>Security:</strong> <strong>Production CORS fail-closed</strong> — Wildcard <code>*</code> with credentials is no longer allowed; explicit <code>Cors:AllowedOrigins</code> or <code>ALLOWED_ORIGINS</code> required outside Development.</li>
+                                    <li><strong>Security:</strong> <strong>Rate limiting</strong> — ASP.NET <code>AddRateLimiter</code> policies <code>login</code> (dashboard-lock verify + legacy user login) and <code>hub-negotiate</code> (SignalR <code>/devicehub</code>); in-hub <code>ShareJoinRateLimiter</code> for anonymous <code>JoinShare</code>.</li>
+                                    <li><strong>Security:</strong> <strong>Agent path guard</strong> — <code>RemoteAgent/Security/AgentPathGuard.cs</code> (<code>Path.GetFullPath</code>, reject <code>..</code>, allowlist of drives + shell folders) on browse/search/upload/download paths.</li>
+                                    <li><strong>Security:</strong> <strong>Encrypted file transfer (chunked AES-GCM)</strong> — File payloads on <code>agent-download</code> / <code>agent-upload</code> are streamed as AES-256-GCM chunks (<code>AesGcmChunkStream</code>) with a per-transfer key delivered inside encrypted SignalR metadata (<code>FileUploadCommand</code> / <code>FileDownloadCommand</code>). Agent HTTP calls require <code>X-Transfer-Token</code> (HMAC). Server temp files are stored as ciphertext (<code>.rcenc</code>). Admin <code>upload</code> / <code>client-download</code> remain JWT-protected; the BackEnd encrypts on ingest and decrypts before browser download. Upload notifications use per-agent encryption (<code>EncryptForDevice</code>). When Tor is enabled, the agent&rsquo;s <code>FileTransferService</code> routes HTTP through the same SOCKS5 proxy as SignalR.</li>
+                                    <li><strong>Added:</strong> <strong>Tor Network Support</strong> — Integrated native Tor routing capabilities. Added a <code>Tor connection</code> checkbox to the Server Manager that automatically runs a local <code>tor.exe</code> instance, generates a persistent Tor Hidden Service key pair for the BackEnd, and populates the resulting <code>.onion</code> address. The Remote Agent builder then bundles the Tor Expert binaries (<code>TorBundle</code>) alongside the generated stub. When executed on the target machine, the agent spins up a local Tor SOCKS5 proxy and routes all SignalR traffic seamlessly through the Tor network to the <code>.onion</code> address using Long Polling, bypassing NAT and removing the need for port forwarding.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- VER 0.9 -->
                         <div class="changelog-entry">
                             <div class="changelog-version">

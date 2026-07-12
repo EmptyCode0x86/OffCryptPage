@@ -97,16 +97,16 @@
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/BuildSecure.html</loc>
+    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/BuildSecurePic.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+    <loc>https://www.dev-offcode.com/TorChatPage.html</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/TorChat1.png</image:loc>
     </image:image>
   </url>
 </urlset>
