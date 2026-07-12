@@ -61,6 +61,7 @@
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
+        "@id": "https://www.dev-offcode.com/TorChatPage.html#software",
         "name": "OffCode Tor Chat",
         "applicationCategory": "CommunicationApplication, SecurityApplication",
         "operatingSystem": "Windows (host); Tor Browser (clients)",
@@ -73,16 +74,97 @@
             "price": "0",
             "priceCurrency": "USD"
         },
+        "inLanguage": ["en"],
         "author": {
             "@type": "Person",
+            "@id": "https://www.dev-offcode.com/#author",
             "name": "EmptyCode0x86",
-            "url": "https://www.dev-offcode.com"
+            "url": "https://www.dev-offcode.com",
+            "sameAs": [
+                "https://twitter.com/OffCryptAndroid",
+                "https://www.instagram.com/off.crypt86/",
+                "https://www.youtube.com/@OffCrypt",
+                "https://github.com/emptycode0x86",
+                "https://bsky.app/profile/off-crypt86.bsky.social",
+                "https://www.linkedin.com/in/off-crypt-b94175382/"
+            ]
         },
         "publisher": {
             "@type": "Organization",
+            "@id": "https://www.dev-offcode.com/#organization",
             "name": "OffCrypt",
-            "url": "https://www.dev-offcode.com"
-        }
+            "url": "https://www.dev-offcode.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.dev-offcode.com/TorChat1.png"
+            },
+            "sameAs": [
+                "https://twitter.com/OffCryptAndroid",
+                "https://www.instagram.com/off.crypt86/",
+                "https://www.youtube.com/@OffCrypt",
+                "https://bsky.app/profile/off-crypt86.bsky.social",
+                "https://www.linkedin.com/in/off-crypt-b94175382/"
+            ]
+        },
+        "datePublished": "2026-07-12",
+        "dateModified": "2026-07-12"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is OffCode Tor Chat?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OffCode Tor Chat is a Tor-only, end-to-end encrypted realtime chat. Guests open your .onion Hidden Service in Tor Browser; messages are encrypted in the browser with WebCrypto AES-GCM, and ChatServer is a blind SignalR relay that stores ciphertext only."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I host Tor Chat myself?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your machine. There is no OffCode-hosted chat cloud — you control the onion URL and the stack."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does end-to-end encryption work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Join proof and room key use separate KDF domains so the server cannot derive the message key from join material. Open rooms use the room id as key material; locked rooms keep the password in the browser only."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Tor Chat relate to EU Chat Control 1.0?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chat Control 1.0 lets major messaging providers voluntarily scan private communications. Tor Chat is a different model: self-hosted on Tor, not a centralized big-tech messenger. You avoid that scanned platform path by hosting your own Hidden Service with browser E2EE. This is architectural privacy, not legal advice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do clients need Tor Browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Guests open http://ADDRESS.onion/ in Tor Browser. The chat HTTP stack binds loopback only; Tor publishes the Hidden Service. The UI is Tor Browser-friendly: self-hosted fonts, SRI scripts, and no third-party CDNs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can the host delete rooms or wipe chat data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Server Manager shows a live room list (id, locked, online count) and can remove a room in realtime, forcing clients to the lobby and deleting that room’s ciphertext. You can also wipe the SQLCipher database under LocalAppData for a clean slate."
+                }
+            }
+        ]
     }
     </script>
 
@@ -718,22 +800,27 @@
 
             <section id="why-torchat" class="features-section">
                 <div class="features-container">
-                    <h2 class="features-title">Why OffCode Tor Chat</h2>
+                    <h2 class="features-title">Why use OffCode Tor Chat instead of scanned messengers?</h2>
                     <p class="features-subtitle">Private messaging when big platforms can scan by default</p>
 
                     <p class="torchat-manager-copy">
-                        In July 2026 the EU effectively kept <strong>Chat Control 1.0</strong> in force: a temporary
-                        regime that again lets major messaging and mail providers run <em>voluntary</em>,
-                        suspicionless scanning of private communications for CSAM detection — typically until
-                        April 2028, or until a permanent “Chat Control 2.0” framework is agreed. That debate is still
-                        open; the lasting fight is whether scanning stays limited to cloud platforms or reaches
-                        further into encrypted apps.
+                        Use OffCode Tor Chat when you do not want to trust a big-tech messenger that may voluntarily
+                        scan private messages under EU <strong>Chat Control 1.0</strong>. You self-host on a Tor
+                        Hidden Service with browser E2EE — conversations never sit on a centralized scanned platform.
+                    </p>
+
+                    <p class="torchat-manager-copy">
+                        In July 2026 the EU effectively kept Chat Control 1.0 in force: a temporary regime that again
+                        lets major messaging and mail providers run <em>voluntary</em>, suspicionless scanning for
+                        CSAM detection — typically until April 2028, or until a permanent “Chat Control 2.0”
+                        framework is agreed. That debate is still open; the lasting fight is whether scanning stays
+                        limited to cloud platforms or reaches further into encrypted apps.
                     </p>
 
                     <p class="torchat-manager-copy">
                         OffCode Tor Chat is built for a different threat model: you are not handing your conversations
-                        to a centralized big-tech messenger whose operator can scan content on its own
-                        infrastructure. You run the stack yourself on Tor.
+                        to a centralized messenger whose operator can scan content on its own infrastructure. You run
+                        the stack yourself on Tor.
                     </p>
 
                     <ul class="torchat-manager-list">
@@ -752,6 +839,59 @@
                         scanned platform messengers. It is not legal advice, and it does not claim immunity from law
                         or excuse illegal use.
                     </p>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section id="faq" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">Frequently Asked Questions</h2>
+                    <div class="faq-section">
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <h4>What is OffCode Tor Chat?</h4>
+                                <p>OffCode Tor Chat is a Tor-only, end-to-end encrypted realtime chat. Guests open your
+                                    <code>.onion</code> Hidden Service in Tor Browser; messages are encrypted in the
+                                    browser with WebCrypto AES-GCM, and ChatServer is a blind SignalR relay that stores
+                                    ciphertext only.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Do I host Tor Chat myself?</h4>
+                                <p>Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your
+                                    machine. There is no OffCode-hosted chat cloud — you control the onion URL and the
+                                    stack.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How does end-to-end encryption work?</h4>
+                                <p>Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Join proof
+                                    and room key use separate KDF domains so the server cannot derive the message key
+                                    from join material. Open rooms use the room id as key material; locked rooms keep
+                                    the password in the browser only.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How does Tor Chat relate to EU Chat Control 1.0?</h4>
+                                <p>Chat Control 1.0 lets major messaging providers voluntarily scan private
+                                    communications. Tor Chat is a different model: self-hosted on Tor, not a
+                                    centralized big-tech messenger. You avoid that scanned platform path by hosting
+                                    your own Hidden Service with browser E2EE. This is architectural privacy, not legal
+                                    advice.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Do clients need Tor Browser?</h4>
+                                <p>Yes. Guests open <code>http://ADDRESS.onion/</code> in Tor Browser. The chat HTTP
+                                    stack binds loopback only; Tor publishes the Hidden Service. The UI is Tor
+                                    Browser-friendly: self-hosted fonts, SRI scripts, and no third-party CDNs.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Can the host delete rooms or wipe chat data?</h4>
+                                <p>Yes. Server Manager shows a live room list (id, locked, online count) and can remove
+                                    a room in realtime, forcing clients to the lobby and deleting that room’s
+                                    ciphertext. You can also wipe the SQLCipher database under LocalAppData for a clean
+                                    slate.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

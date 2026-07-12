@@ -2,6 +2,7 @@
 # https://www.dev-offcode.com
 
 # Allow all web crawlers to access all content
+# (Includes AI retrieval crawlers such as GPTBot, ClaudeBot, PerplexityBot via User-agent: *)
 User-agent: *
 Allow: /
 Disallow: /private/
