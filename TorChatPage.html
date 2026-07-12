@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
 <head>
@@ -346,17 +346,17 @@
                         </figure>
 
                         <p class="intro-description lead-text">
-                            <strong>Tor Chat</strong> is a Tor-only, end-to-end encrypted realtime chat. Clients open
-                            the site in Tor Browser via a <code>.onion</code> Hidden Service. Messages are encrypted in
-                            the browser with WebCrypto before they ever reach the host — the ChatServer is a blind
-                            SignalR relay that stores ciphertext only.
+                            <strong>Tor Chat</strong> is built so anyone can stand up their own private chat on the Tor
+                            network — no cloud account, no clearnet bind. Guests open your <code>.onion</code> in Tor
+                            Browser; messages are encrypted in the browser with WebCrypto before they reach the host,
+                            so ChatServer is only a blind SignalR relay that stores ciphertext.
                         </p>
 
                         <p class="intro-description">
-                            Hosts run <strong>Server Manager</strong> (WinForms) to start ChatServer on
-                            <code>127.0.0.1</code> and publish a Tor v3 Hidden Service. There is no clearnet HTTP bind
-                            for the chat stack. Open rooms use the room id as the key material; locked rooms use a
-                            password that never leaves the browser (server sees only a join proof).
+                            Hosting is meant to stay simple: run <strong>Server Manager</strong>, start the stack, and
+                            share the onion URL. It launches ChatServer on <code>127.0.0.1</code> and publishes a Tor
+                            v3 Hidden Service for you. Open rooms use the room id as key material; locked rooms keep the
+                            password in the browser only (the server sees a join proof, never the key).
                         </p>
 
                         <div class="intro-highlights">
