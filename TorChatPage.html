@@ -172,6 +172,17 @@
             margin-bottom: 0.45rem;
         }
 
+        .torchat-why-note {
+            max-width: 52rem;
+            margin: 1.25rem auto 0;
+            padding: 0.85rem 1rem;
+            border-left: 3px solid rgba(196, 92, 38, 0.65);
+            background: rgba(196, 92, 38, 0.06);
+            color: rgba(200, 220, 210, 0.7);
+            font-size: 0.82rem;
+            line-height: 1.55;
+        }
+
         @media (max-width: 720px) {
             .torchat-manager-shots {
                 grid-template-columns: 1fr;
@@ -700,6 +711,47 @@
                             </table>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section id="why-torchat" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">Why OffCode Tor Chat</h2>
+                    <p class="features-subtitle">Private messaging when big platforms can scan by default</p>
+
+                    <p class="torchat-manager-copy">
+                        In July 2026 the EU effectively kept <strong>Chat Control 1.0</strong> in force: a temporary
+                        regime that again lets major messaging and mail providers run <em>voluntary</em>,
+                        suspicionless scanning of private communications for CSAM detection — typically until
+                        April 2028, or until a permanent “Chat Control 2.0” framework is agreed. That debate is still
+                        open; the lasting fight is whether scanning stays limited to cloud platforms or reaches
+                        further into encrypted apps.
+                    </p>
+
+                    <p class="torchat-manager-copy">
+                        OffCode Tor Chat is built for a different threat model: you are not handing your conversations
+                        to a centralized big-tech messenger whose operator can scan content on its own
+                        infrastructure. You run the stack yourself on Tor.
+                    </p>
+
+                    <ul class="torchat-manager-list">
+                        <li>Not a cloud messenger provider — no OffCode-hosted chat backend and no third-party
+                            message platform in the middle</li>
+                        <li>Tor-only Hidden Service — clients reach you via <code>.onion</code>; the chat HTTP stack
+                            does not bind clearnet</li>
+                        <li>You host with Server Manager — ChatServer + Tor on your machine, onion URL under your
+                            control</li>
+                        <li>Browser E2EE and a blind relay — ciphertext only on the server; plaintext never leaves
+                            the Tor Browser for the host to read</li>
+                    </ul>
+
+                    <p class="torchat-why-note">
+                        This is about architecture and privacy defaults — self-hosting on Tor instead of relying on
+                        scanned platform messengers. It is not legal advice, and it does not claim immunity from law
+                        or excuse illegal use.
+                    </p>
                 </div>
             </section>
 
