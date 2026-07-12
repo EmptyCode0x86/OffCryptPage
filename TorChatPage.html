@@ -51,6 +51,8 @@
     <link rel="preload" href="styles.css?v=2.8.0" as="style">
     <link rel="preload" href="gallery-simple.css?v=2.8.0" as="style">
     <link rel="preload" href="TorChat1.png" as="image">
+    <link rel="preload" href="TorManager1.png" as="image">
+    <link rel="preload" href="TorManager2.png" as="image">
 
     <meta name="theme-color" content="#c45c26">
     <meta name="msapplication-TileColor" content="#c45c26">
@@ -134,6 +136,46 @@
             color: rgba(200, 220, 210, 0.65);
             margin: 0.5rem 0 0;
             letter-spacing: 0.02em;
+        }
+
+        .torchat-manager-shots {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 1.75rem;
+            max-width: min(100%, 960px);
+        }
+
+        .torchat-manager-shots .torchat-hero-shot {
+            margin: 0;
+            max-width: none;
+        }
+
+        .torchat-manager-copy {
+            max-width: 52rem;
+            margin: 0 auto 1rem;
+            color: #c9d1d9;
+            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+
+        .torchat-manager-list {
+            max-width: 52rem;
+            margin: 0 auto;
+            padding-left: 1.25rem;
+            color: #c9d1d9;
+            line-height: 1.7;
+            font-size: 0.92rem;
+        }
+
+        .torchat-manager-list li {
+            margin-bottom: 0.45rem;
+        }
+
+        @media (max-width: 720px) {
+            .torchat-manager-shots {
+                grid-template-columns: 1fr;
+            }
         }
 
         .torchat-coming-soon {
@@ -353,10 +395,9 @@
                         </p>
 
                         <p class="intro-description">
-                            Hosting is meant to stay simple: run <strong>Server Manager</strong>, start the stack, and
-                            share the onion URL. It launches ChatServer on <code>127.0.0.1</code> and publishes a Tor
-                            v3 Hidden Service for you. Open rooms use the room id as key material; locked rooms keep the
-                            password in the browser only (the server sees a join proof, never the key).
+                            Host with <strong>Server Manager</strong> (<a href="#server-manager">section below</a>).
+                            Open rooms use the room id as key material; locked rooms keep the password in the browser
+                            only (the server sees a join proof, never the key).
                         </p>
 
                         <div class="intro-highlights">
@@ -429,18 +470,6 @@
                         </div>
 
                         <div class="feature-card">
-                            <div class="feature-icon">🖥️</div>
-                            <h3>Server Manager</h3>
-                            <p>WinForms launcher for ChatServer and Tor Hidden Service — start/stop, copy onion URL,
-                                manage rooms without reading message content.</p>
-                            <ul class="feature-list">
-                                <li>Live room list (id, locked, online count only)</li>
-                                <li>Admin delete via token-protected API</li>
-                                <li><code>ASPNETCORE_ENVIRONMENT=Production</code> on start</li>
-                            </ul>
-                        </div>
-
-                        <div class="feature-card">
                             <div class="feature-icon">🗄️</div>
                             <h3>Blind relay storage</h3>
                             <p>SQLCipher database under LocalAppData. DPAPI-wrapped DB key. Parameterized queries.
@@ -464,6 +493,49 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section id="server-manager" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">🖥️ Server Manager</h2>
+                    <p class="features-subtitle">Windows host console for your Tor chat stack</p>
+
+                    <p class="torchat-manager-copy">
+                        <strong>Server Manager</strong> is the host-side control panel: it starts and stops ChatServer
+                        plus a Tor v3 Hidden Service, shows the <code>.onion</code> URL to share, and lets you
+                        administer rooms and storage without ever reading message plaintext — the relay stays blind.
+                    </p>
+
+                    <div class="torchat-manager-shots">
+                        <figure class="torchat-hero-shot">
+                            <img src="TorManager1.png" width="960" height="540"
+                                alt="TorChat Server Manager — Dashboard with ChatServer start and onion URL"
+                                loading="lazy" decoding="async">
+                            <figcaption class="torchat-hero-hint">Dashboard: start/stop stack and copy onion URL
+                            </figcaption>
+                        </figure>
+                        <figure class="torchat-hero-shot">
+                            <img src="TorManager2.png" width="960" height="540"
+                                alt="TorChat Server Manager — Settings with live room list and remove room"
+                                loading="lazy" decoding="async">
+                            <figcaption class="torchat-hero-hint">Settings: live rooms, remove room, wipe SQL data
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <ul class="torchat-manager-list">
+                        <li>Start / stop ChatServer and the Tor Hidden Service from one place</li>
+                        <li>Copy and share the published <code>.onion</code> URL</li>
+                        <li>Live room list (room id, locked flag, online count only — no message content)</li>
+                        <li>Remove a selected room in realtime: connected users are forced back to the lobby and that
+                            room’s ciphertext history is deleted on the server</li>
+                        <li>Wipe SQLCipher data under LocalAppData (rooms + ciphertext DB and related key files) for a
+                            clean slate</li>
+                        <li>Point at your ChatServer project path and load/save host config as needed</li>
+                    </ul>
                 </div>
             </section>
 
