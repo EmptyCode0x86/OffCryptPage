@@ -281,6 +281,179 @@
             }
         }
 
+        /* How it works — architecture flow */
+        .torchat-flow {
+            max-width: 640px;
+            margin: 1.75rem auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .torchat-flow-card {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 188, 212, 0.28);
+            background: linear-gradient(155deg, rgba(12, 18, 28, 0.95) 0%, rgba(8, 12, 16, 0.98) 100%);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+            padding: 1.25rem 1.35rem 1.15rem;
+        }
+
+        .torchat-flow-card--host {
+            border-color: rgba(0, 230, 118, 0.28);
+        }
+
+        .torchat-flow-card__head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .torchat-flow-card__head h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .torchat-flow-card__badge {
+            display: inline-block;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #0a1018;
+            background: linear-gradient(135deg, #00bcd4, #4da6ff);
+        }
+
+        .torchat-flow-card__badge--host {
+            background: linear-gradient(135deg, #00e676, #00bcd4);
+        }
+
+        .torchat-flow-steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .torchat-flow-steps li {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.35rem 0.45rem;
+            padding: 0.7rem 0.85rem;
+            border-radius: 10px;
+            background: rgba(0, 188, 212, 0.06);
+            border: 1px solid rgba(0, 188, 212, 0.15);
+            font-size: 0.86rem;
+            line-height: 1.4;
+            color: #c9d1d9;
+        }
+
+        .torchat-flow-step__label {
+            font-weight: 700;
+            color: #00bcd4;
+            min-width: 4.5rem;
+        }
+
+        .torchat-flow-step__arrow {
+            color: rgba(0, 212, 255, 0.55);
+            font-weight: 700;
+        }
+
+        .torchat-flow-step__value code {
+            font-size: 0.8rem;
+        }
+
+        .torchat-flow-note {
+            margin: 0.85rem 0 0;
+            font-size: 0.8rem;
+            color: rgba(200, 220, 210, 0.65);
+            line-height: 1.45;
+        }
+
+        .torchat-flow-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.85rem 0;
+        }
+
+        .torchat-flow-bridge__line {
+            width: 2px;
+            height: 18px;
+            background: linear-gradient(180deg, rgba(0, 188, 212, 0.55), rgba(0, 230, 118, 0.55));
+            border-radius: 2px;
+        }
+
+        .torchat-flow-bridge__label {
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: #00e676;
+            border: 1px solid rgba(0, 230, 118, 0.35);
+            background: rgba(0, 230, 118, 0.08);
+        }
+
+        .torchat-flow-bridge__label span {
+            color: rgba(200, 220, 210, 0.7);
+            font-weight: 600;
+        }
+
+        .torchat-flow-host-list {
+            list-style: none;
+            margin: 0 0 1rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .torchat-flow-host-list li {
+            padding: 0.65rem 0.85rem;
+            border-radius: 10px;
+            background: rgba(0, 230, 118, 0.05);
+            border: 1px solid rgba(0, 230, 118, 0.14);
+            font-size: 0.88rem;
+            color: #c9d1d9;
+            line-height: 1.45;
+        }
+
+        .torchat-flow-host-list strong {
+            color: #00e676;
+        }
+
+        .torchat-flow-nested {
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            border: 1px dashed rgba(0, 188, 212, 0.35);
+            background: rgba(0, 0, 0, 0.28);
+        }
+
+        .torchat-flow-nested h4 {
+            margin: 0 0 0.35rem;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #00bcd4;
+        }
+
+        .torchat-flow-nested p {
+            margin: 0;
+            font-size: 0.82rem;
+            color: rgba(200, 220, 210, 0.75);
+            line-height: 1.5;
+        }
+
         .security-block {
             margin-bottom: 2.5rem;
         }
@@ -512,6 +685,64 @@
                                 <span class="highlight-text">Server Manager</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <section id="how-it-works" class="features-section">
+                <div class="features-container">
+                    <h2 class="features-title">How it works</h2>
+                    <p class="features-subtitle">Browser encrypts first — the host only ever sees ciphertext</p>
+
+                    <div class="torchat-flow" aria-label="TorChat architecture diagram">
+                        <article class="torchat-flow-card torchat-flow-card--client">
+                            <header class="torchat-flow-card__head">
+                                <span class="torchat-flow-card__badge">Client</span>
+                                <h3>Tor Browser (User)</h3>
+                            </header>
+                            <ul class="torchat-flow-steps">
+                                <li>
+                                    <span class="torchat-flow-step__label">Password</span>
+                                    <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
+                                    <span class="torchat-flow-step__value"><code>PBKDF2</code></span>
+                                    <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
+                                    <span class="torchat-flow-step__value"><code>roomKey</code> + join proof</span>
+                                </li>
+                                <li>
+                                    <span class="torchat-flow-step__label">Message</span>
+                                    <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
+                                    <span class="torchat-flow-step__value"><code>AES-256-GCM</code></span>
+                                    <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
+                                    <span class="torchat-flow-step__value">ciphertext only</span>
+                                </li>
+                            </ul>
+                            <p class="torchat-flow-note">Plaintext never leaves the browser. Keys stay client-side.</p>
+                        </article>
+
+                        <div class="torchat-flow-bridge" aria-hidden="true">
+                            <div class="torchat-flow-bridge__line"></div>
+                            <div class="torchat-flow-bridge__label">Tor Network <span>(.onion)</span></div>
+                            <div class="torchat-flow-bridge__line"></div>
+                        </div>
+
+                        <article class="torchat-flow-card torchat-flow-card--host">
+                            <header class="torchat-flow-card__head">
+                                <span class="torchat-flow-card__badge torchat-flow-card__badge--host">Host</span>
+                                <h3>ChatServer</h3>
+                            </header>
+                            <ul class="torchat-flow-host-list">
+                                <li><strong>Receives</strong> ciphertext blob — never decrypts it</li>
+                                <li><strong>Stores</strong> encrypted payload in SQLCipher DB</li>
+                                <li><strong>Broadcasts</strong> the same ciphertext to room members</li>
+                            </ul>
+                            <div class="torchat-flow-nested">
+                                <h4>Server Manager</h4>
+                                <p>Starts / stops ChatServer · manages <code>tor.exe</code> Hidden Service · shows live
+                                    <code>.onion</code> address</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </section>
