@@ -48,7 +48,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
 
-    <link rel="preload" href="styles.css?v=2.8.0" as="style">
+    <link rel="preload" href="styles.css?v=2.9.0" as="style">
     <link rel="preload" href="gallery-simple.css?v=2.8.0" as="style">
     <link rel="preload" href="TorChat1.png" as="image">
     <link rel="preload" href="TorManager1.png" as="image">
@@ -147,7 +147,7 @@
                 "name": "How does end-to-end encryption work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Join proof and room key use separate KDF domains so the server cannot derive the message key from join material. Open rooms use the room id as key material; locked rooms keep the password in the browser only."
+                    "text": "Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Join proof and room key use separate KDF domains (torchat-join-v1 / torchat-e2ee-v1) so the server cannot derive the message key from join material. Open rooms derive the key via PBKDF2 from torchat-open-material:{roomId}; locked rooms keep the password in the browser only."
                 }
             },
             {
@@ -199,7 +199,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.8.0">
+    <link rel="stylesheet" href="styles.css?v=2.9.0">
     <link rel="stylesheet" href="gallery-simple.css?v=2.8.0">
     <style>
         .torchat-hero-shot {
@@ -485,8 +485,9 @@
 
                         <p class="intro-description">
                             Host with <strong>Server Manager</strong> (<a href="#server-manager">section below</a>).
-                            Open rooms use the room id as key material; locked rooms keep the password in the browser
-                            only (the server sees a join proof, never the key).
+                            Open rooms derive a PBKDF2 key from the room id (anyone who knows the id can decrypt);
+                            locked rooms keep the password in the browser only (the server sees a join proof, never the
+                            key).
                         </p>
 
                         <div class="intro-highlights">
@@ -542,7 +543,8 @@
                                 server never derives the message key from join material.</p>
                             <ul class="feature-list">
                                 <li>AAD binds <code>roomId|senderId|nonce</code> into every ciphertext</li>
-                                <li>Open rooms: key from room id (documented tradeoff)</li>
+                                <li>Open rooms: PBKDF2 key from <code>torchat-open-material:{roomId}</code>
+                                    (documented tradeoff — anyone who knows the room ID can derive the key)</li>
                                 <li>Locked rooms: password stays in the browser (min 8 characters)</li>
                             </ul>
                         </div>
@@ -715,8 +717,11 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Replay protection</strong></td>
-                                        <td><code>ReplayCache</code> — SHA-256 fingerprint of nonce + ciphertext;
-                                            rejects duplicates and &gt;120 s old packets</td>
+                                        <td><code>ReplayCache</code> — SHA-256 fingerprint of
+                                            <code>roomId|nonce|payloadB64</code>; rejects duplicates within 120&nbsp;s,
+                                            packets older than 120&nbsp;s or more than 60&nbsp;s in the future, and
+                                            packets from the post-restart gap
+                                            (<code>server_meta</code> shutdown timestamp + 120&nbsp;s)</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Membership bind</strong></td>
@@ -727,6 +732,11 @@
                                         <td><strong>Join error oracle</strong></td>
                                         <td>Generic <code>Cannot join room.</code> — no wrong-password vs missing-room
                                             distinction to clients</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Create-room oracle</strong></td>
+                                        <td><code>CreateRoom</code> may return <code>Room already exists.</code> —
+                                            only join errors are fully generic</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Admin room delete</strong></td>
@@ -761,7 +771,8 @@
                                     <tr>
                                         <td><strong>E2EE</strong></td>
                                         <td>WebCrypto AES-256-GCM; PBKDF2 with domain separation
-                                            (<code>torchat-join-v1</code> vs <code>torchat-e2ee-v1</code>)</td>
+                                            (<code>torchat-join-v1</code> / <code>torchat-e2ee-v1</code> locked;
+                                            <code>torchat-open-v1</code> open rooms)</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Subresource Integrity</strong></td>
@@ -867,7 +878,7 @@
                                 <p class="updates-notice">Full E2EE Tor chat including all features and future updates.
                                 </p>
                             </div>
-                            <a href="#pricing" class="plan-button premium-button">Coming soon..</a>
+                            <a href="TorChatDisclaimer.html" class="plan-button premium-button">Download Now</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
                                 <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Access
@@ -947,9 +958,11 @@
                             <div class="faq-item">
                                 <h4>How does end-to-end encryption work?</h4>
                                 <p>Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Join proof
-                                    and room key use separate KDF domains so the server cannot derive the message key
-                                    from join material. Open rooms use the room id as key material; locked rooms keep
-                                    the password in the browser only.</p>
+                                    and room key use separate KDF domains
+                                    (<code>torchat-join-v1</code> / <code>torchat-e2ee-v1</code>) so the server cannot
+                                    derive the message key from join material. Open rooms derive the key via PBKDF2 from
+                                    <code>torchat-open-material:{roomId}</code> (anyone who knows the room ID can
+                                    decrypt); locked rooms keep the password in the browser only.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>How does Tor Chat relate to EU Chat Control 1.0?</h4>
