@@ -68,12 +68,22 @@
         "description": "End-to-end encrypted realtime chat over a Tor Hidden Service. Messages are encrypted in the browser with WebCrypto AES-GCM; the server is a blind SignalR relay with SQLCipher ciphertext storage.",
         "url": "https://www.dev-offcode.com/TorChatPage.html",
         "image": "https://www.dev-offcode.com/TorChat1.png",
-        "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/ComingSoon",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Free binary release",
+                "availability": "https://schema.org/ComingSoon",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            {
+                "@type": "Offer",
+                "name": "Developer License — Source Code",
+                "availability": "https://schema.org/ComingSoon",
+                "price": "29",
+                "priceCurrency": "USD"
+            }
+        ],
         "inLanguage": ["en"],
         "author": {
             "@type": "Person",
@@ -269,20 +279,6 @@
             .torchat-manager-shots {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .torchat-coming-soon {
-            text-align: center;
-            padding: 2.25rem 1rem 2.75rem;
-            margin-top: 0;
-            border-top: 1px solid rgba(0, 255, 136, 0.1);
-        }
-
-        .torchat-coming-soon p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: rgba(200, 220, 210, 0.45);
-            letter-spacing: 0.12em;
         }
 
         .security-block {
@@ -844,6 +840,92 @@
 
             <div class="section-divider"></div>
 
+            <!-- Pricing Section -->
+            <section id="pricing" class="pricing-section">
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <h2>Pricing</h2>
+                        <p>Simple and transparent access to the system</p>
+                    </div>
+
+                    <div class="pricing-cards">
+                        <!-- Free Plan -->
+                        <div class="pricing-card premium">
+                            <div class="plan-badge premium-badge">Free</div>
+                            <h3>Free</h3>
+                            <div class="price-container">
+                                <span class="price">$0</span>
+                                <span class="price-period">Forever</span>
+                            </div>
+                            <div class="pricing-info-box">
+                                <p class="price-increase-notice">Complete TorChat system for personal and commercial use.
+                                </p>
+                            </div>
+
+                            <div class="guarantee-box">
+                                <span class="glow-check">✓</span>
+                                <p class="updates-notice">Full E2EE Tor chat including all features and future updates.
+                                </p>
+                            </div>
+                            <a href="#pricing" class="plan-button premium-button">Coming soon..</a>
+                            <div
+                                style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
+                                <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Access
+                                    &amp; Self-Hosted</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>Deployment:</strong></p>
+                                <p style="margin: 0.25rem 0;">Windows / Tor Hidden Service</p>
+                            </div>
+                        </div>
+
+                        <!-- Source Code Plan -->
+                        <div class="pricing-card"
+                            style="border: 2px solid #ffd700; background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.02) 100%);">
+                            <div class="plan-badge"
+                                style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000;">
+                                Source Code</div>
+                            <h3 style="color: #ffd700;">Developer License</h3>
+                            <div class="price-container">
+                                <span class="price"
+                                    style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$29</span>
+                                <span class="price-period">One-time</span>
+                            </div>
+                            <div class="pricing-info-box">
+                                <p class="price-increase-notice">Full C# &amp; WebCrypto source code access for
+                                    developers.</p>
+                            </div>
+
+                            <div class="guarantee-box">
+                                <span class="glow-check" style="color: #ffd700;">✓</span>
+                                <p class="updates-notice">Complete system source</p>
+                            </div>
+                            <ul
+                                style="text-align: left; color: var(--text-secondary); margin: 1rem 0; padding-left: 1.5rem; font-size: 0.9rem;">
+                                <li style="margin: 0.5rem 0;">✅ ASP.NET Core ChatServer source</li>
+                                <li style="margin: 0.5rem 0;">✅ Vanilla HTML/CSS/JS + WebCrypto E2EE</li>
+                                <li style="margin: 0.5rem 0;">✅ SignalR Real-time Hubs</li>
+                                <li style="margin: 0.5rem 0;">✅ Server Manager (WinForms) source</li>
+                                <li style="margin: 0.5rem 0;">✅ SQLCipher + DPAPI security modules</li>
+                                <li style="margin: 0.5rem 0;">✅ Tor Hidden Service integration</li>
+                                <li style="margin: 0.5rem 0;">✅ Replay protection &amp; rate limiting</li>
+                                <li style="margin: 0.5rem 0;">✅ Modify &amp; build your own version</li>
+                            </ul>
+                            <a href="#pricing" class="plan-button"
+                                style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000; font-weight: bold;">Coming
+                                soon..</a>
+                            <div
+                                style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
+                                <p style="margin-bottom: 0.5rem; color: #ffd700; font-weight: bold;">Personal Developer
+                                    License</p>
+                                <p style="margin: 0.25rem 0; font-size: 0.8rem;">Study, audit, and build upon the source
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
             <section id="faq" class="features-section">
                 <div class="features-container">
                     <h2 class="features-title">Frequently Asked Questions</h2>
@@ -895,9 +977,6 @@
                 </div>
             </section>
 
-            <div class="torchat-coming-soon" role="status" aria-live="polite">
-                <p>Coming soon...</p>
-            </div>
         </main>
     </div>
 
