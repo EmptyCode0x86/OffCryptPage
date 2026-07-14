@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
 <head>
@@ -522,6 +522,152 @@
             color: #7ee8a2;
             font-family: 'Cascadia Code', 'Consolas', monospace;
         }
+        /* Vanguards section */
+        .vanguard-badge {
+            display: inline-block;
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #0a1018;
+            background: linear-gradient(135deg, #00e676, #00bcd4);
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        .vanguard-intro {
+            max-width: 52rem;
+            font-size: 0.9rem;
+            color: #c9d1d9;
+            line-height: 1.65;
+            margin: 0 0 1rem;
+        }
+
+        .vanguard-layers {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .vanguard-layer {
+            flex: 1 1 200px;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .vanguard-layer--l3 {
+            border-color: rgba(0, 188, 212, 0.25);
+            background: rgba(0, 188, 212, 0.05);
+        }
+
+        .vanguard-layer__label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #00ff88;
+            margin-bottom: 0.3rem;
+        }
+
+        .vanguard-layer--l3 .vanguard-layer__label {
+            color: #00bcd4;
+        }
+
+        .vanguard-layer__desc {
+            font-size: 0.82rem;
+            color: rgba(200, 220, 210, 0.75);
+            line-height: 1.45;
+        }
+
+        .vanguard-circuit-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px dashed rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-family: 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.82rem;
+            overflow-x: auto;
+        }
+
+        .vanguard-circuit-row {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .vg-label {
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            min-width: 9rem;
+            text-align: center;
+        }
+
+        .vg-label--off {
+            background: rgba(255, 70, 70, 0.12);
+            color: #ff8080;
+            border: 1px solid rgba(255, 70, 70, 0.25);
+        }
+
+        .vg-label--on {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.25);
+        }
+
+        .vg-hop {
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c9d1d9;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .vg-hop--random {
+            background: rgba(255, 70, 70, 0.07);
+            border-color: rgba(255, 70, 70, 0.2);
+            color: #ff9090;
+        }
+
+        .vg-hop--pinned {
+            background: rgba(0, 255, 136, 0.08);
+            border-color: rgba(0, 255, 136, 0.25);
+            color: #00e676;
+        }
+
+        .vg-hop em {
+            font-size: 0.72rem;
+            color: rgba(0, 230, 118, 0.65);
+            font-style: normal;
+        }
+
+        .vg-arrow {
+            color: rgba(0, 212, 255, 0.55);
+            font-weight: 700;
+        }
+
+        .vanguard-note {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border-left: 3px solid rgba(255, 160, 0, 0.5);
+            background: rgba(255, 160, 0, 0.05);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.83rem;
+            color: rgba(200, 220, 210, 0.75);
+            line-height: 1.55;
+        }
     </style>
 </head>
 
@@ -1031,8 +1177,103 @@
                             </table>
                         </div>
                     </div>
+                    <div class="security-block">
+                        <h3 class="security-block-title">🛡 Full Vanguards - Guard-Discovery Protection <span class="vanguard-badge">Optional</span></h3>
+
+                        <p class="vanguard-intro">
+                            A standard Tor Hidden Service chooses its entry (<em>guard</em>) nodes randomly on every
+                            circuit build. Over time a network-level adversary can watch which relays the server
+                            connects to and gradually narrow down the real server IP. This is called a
+                            <strong>guard-discovery attack</strong> and is especially dangerous for long-lived
+                            hidden services.
+                        </p>
+
+                        <div class="vanguard-layers">
+                            <div class="vanguard-layer vanguard-layer--l2">
+                                <div class="vanguard-layer__label">L2 Vanguards</div>
+                                <div class="vanguard-layer__desc">~4 pinned middle-layer nodes, rotated every 1–8 days</div>
+                            </div>
+                            <div class="vanguard-layer vanguard-layer--l3">
+                                <div class="vanguard-layer__label">L3 Vanguards</div>
+                                <div class="vanguard-layer__desc">~8 pinned pre-guard nodes, rotated every 1–8 hours</div>
+                            </div>
+                        </div>
+
+                        <p class="vanguard-intro" style="margin-top:0.85rem;">
+                            By pinning layers, only a tiny controlled set of relays ever see the hidden service's
+                            circuit-building traffic, making large-scale guard-discovery statistically infeasible.
+                        </p>
+
+                        <div class="vanguard-circuit-box">
+                            <div class="vanguard-circuit-row">
+                                <span class="vg-label vg-label--off">Without Vanguards</span>
+                                <span class="vg-hop">HS</span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop vg-hop--random">random guard</span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop vg-hop--random">random middle</span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop">rendezvous</span>
+                            </div>
+                            <div class="vanguard-circuit-row">
+                                <span class="vg-label vg-label--on">With Vanguards</span>
+                                <span class="vg-hop">HS</span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop vg-hop--pinned">pinned L3 <em>(hourly)</em></span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop vg-hop--pinned">pinned L2 <em>(daily)</em></span>
+                                <span class="vg-arrow">→</span>
+                                <span class="vg-hop">rendezvous</span>
+                            </div>
+                        </div>
+
+                        <div class="security-table-wrap" style="margin-top:1.25rem;">
+                            <table class="security-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>How TorChat uses it</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Activation</strong></td>
+                                        <td>Optional — enable the <code>Vanguard</code> checkbox in Server Manager. Disabled by default; hidden service works normally without it.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>torrc change</strong></td>
+                                        <td>Adds <code>ControlPort 127.0.0.1:27551</code> and <code>CookieAuthentication 1</code>. Without the checkbox the torrc is minimal and no ControlPort is opened.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Python addon</strong></td>
+                                        <td>Server Manager launches <code>vanguards.py</code> (mikeperry-tor/vanguards) after Tor bootstraps. Requires Python 3.10+ and <code>stem</code> library.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Bandguards</strong></td>
+                                        <td>Intentionally <strong>disabled</strong> (<code>--disable_bandguards</code>). Bandwidth-based circuit-killing would disconnect active chat sessions; L2/L3 pinning defence remains fully active.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ControlPort security</strong></td>
+                                        <td>Loopback-only (<code>127.0.0.1:27551</code>), cookie authentication. Cookie file stays on disk under <code>%AppData%\TorChat_ServerManager\TorData\</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Soft-fail design</strong></td>
+                                        <td>If Python or <code>stem</code> is missing, the checkbox is silently ignored and the hidden service continues normally. Server Manager log shows the exact reason.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="vanguard-note">
+                            ⚠ Vanguards adds latency (~200–500 ms per circuit) due to longer paths. This is a
+                            deliberate privacy/performance tradeoff. It does <strong>not</strong> replace E2EE and
+                            does not hide the server from its own guard nodes — it only limits which relays can
+                            observe circuit-building over time.
+                        </p>
+                    </div>
                 </div>
             </section>
+
 
             <div class="section-divider"></div>
 
