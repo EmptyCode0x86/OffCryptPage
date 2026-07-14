@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Tor Chat — E2EE realtime chat over Tor Hidden Service</title>
+    <title>Tor Chat - E2EE realtime chat over Tor Hidden Service</title>
     <meta name="description"
         content="OffCode Tor Chat: end-to-end encrypted realtime chat over a Tor Hidden Service. Browser WebCrypto E2EE, SignalR blind relay, SQLCipher at rest, Server Manager for .onion hosting.">
     <meta name="author" content="OffCrypt">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.dev-offcode.com/TorChatPage.html">
-    <meta property="og:title" content="Tor Chat — E2EE realtime chat over Tor">
+    <meta property="og:title" content="Tor Chat - E2EE realtime chat over Tor">
     <meta property="og:description"
         content="End-to-end encrypted Tor chat: .onion Hidden Service, browser AES-GCM, blind-relay SignalR server, Server Manager for hosting.">
     <meta property="og:image" content="https://www.dev-offcode.com/TorChat1.png">
@@ -29,7 +29,7 @@
     <meta name="twitter:site" content="@OffCryptAndroid">
     <meta name="twitter:creator" content="@OffCryptAndroid">
     <meta name="twitter:url" content="https://www.dev-offcode.com/TorChatPage.html">
-    <meta name="twitter:title" content="Tor Chat — E2EE realtime chat over Tor">
+    <meta name="twitter:title" content="Tor Chat - E2EE realtime chat over Tor">
     <meta name="twitter:description"
         content="Tor-only E2EE chat with WebCrypto, SignalR blind relay, SQLCipher, and Server Manager .onion hosting.">
     <meta name="twitter:image" content="https://www.dev-offcode.com/TorChat1.png">
@@ -78,7 +78,7 @@
             },
             {
                 "@type": "Offer",
-                "name": "Developer License — Source Code",
+                "name": "Developer License - Source Code",
                 "availability": "https://schema.org/ComingSoon",
                 "price": "29",
                 "priceCurrency": "USD"
@@ -139,7 +139,7 @@
                 "name": "Do I host Tor Chat myself?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your machine. There is no OffCode-hosted chat cloud — you control the onion URL and the stack."
+                    "text": "Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your machine. There is no OffCode-hosted chat cloud, you control the onion URL and the stack."
                 }
             },
             {
@@ -281,7 +281,7 @@
             }
         }
 
-        /* How it works — architecture flow */
+        /* How it works - architecture flow */
         .torchat-flow {
             max-width: 640px;
             margin: 1.75rem auto 0;
@@ -643,7 +643,7 @@
 
                         <figure class="torchat-hero-shot">
                             <img src="TorChat1.png" width="1200" height="630"
-                                alt="OffCode Tor Chat lobby — rooms list, create room, and Copper/Forge UI"
+                                alt="OffCode Tor Chat lobby, rooms list, create room, and Copper/Forge UI"
                                 loading="eager" decoding="async">
                             <figcaption class="torchat-hero-hint">Tor Browser UI: rooms, create/join, E2EE messaging
                             </figcaption>
@@ -651,7 +651,7 @@
 
                         <p class="intro-description lead-text">
                             <strong>Tor Chat</strong> is built so anyone can stand up their own private chat on the Tor
-                            network — no cloud account, no clearnet bind. Guests open your <code>.onion</code> in Tor
+                            network, no cloud account, no clearnet bind. Guests open your <code>.onion</code> in Tor
                             Browser; messages are encrypted in the browser with WebCrypto before they reach the host,
                             so ChatServer is only a blind SignalR relay that stores ciphertext.
                         </p>
@@ -694,7 +694,7 @@
             <section id="how-it-works" class="features-section">
                 <div class="features-container">
                     <h2 class="features-title">How it works</h2>
-                    <p class="features-subtitle">Browser encrypts first — the host only ever sees ciphertext</p>
+                    <p class="features-subtitle">Browser encrypts first, the host only ever sees ciphertext</p>
 
                     <div class="torchat-flow" aria-label="TorChat architecture diagram">
                         <article class="torchat-flow-card torchat-flow-card--client">
@@ -733,7 +733,7 @@
                                 <h3>ChatServer</h3>
                             </header>
                             <ul class="torchat-flow-host-list">
-                                <li><strong>Receives</strong> ciphertext blob — never decrypts it</li>
+                                <li><strong>Receives</strong> ciphertext blob, never decrypts it</li>
                                 <li><strong>Stores</strong> encrypted payload in SQLCipher DB</li>
                                 <li><strong>Broadcasts</strong> the same ciphertext to room members</li>
                             </ul>
@@ -758,7 +758,7 @@
                             <div class="feature-icon">🧅</div>
                             <h3>Tor-only hosting</h3>
                             <p>ChatServer binds <code>127.0.0.1</code> only. Tor Expert Bundle publishes a v3
-                                <code>.onion</code> and forwards VirtualPort 80 (and the app port) to localhost — no
+                                <code>.onion</code> and forwards VirtualPort 80 (and the app port) to localhost, no
                                 clearnet chat listener.</p>
                             <ul class="feature-list">
                                 <li><code>HiddenServiceVersion 3</code>, <code>ClientOnly 1</code>, <code>SafeLogging 1</code></li>
@@ -775,7 +775,7 @@
                             <ul class="feature-list">
                                 <li>AAD binds <code>roomId|senderId|nonce</code> into every ciphertext</li>
                                 <li>Open rooms: PBKDF2 key from <code>torchat-open-material:{roomId}</code>
-                                    (documented tradeoff — anyone who knows the room ID can derive the key)</li>
+                                    (documented tradeoff, anyone who knows the room ID can derive the key)</li>
                                 <li>Locked rooms: password stays in the browser (min 8 characters)</li>
                             </ul>
                         </div>
@@ -828,20 +828,20 @@
                     <p class="torchat-manager-copy">
                         <strong>Server Manager</strong> is the host-side control panel: it starts and stops ChatServer
                         plus a Tor v3 Hidden Service, shows the <code>.onion</code> URL to share, and lets you
-                        administer rooms and storage without ever reading message plaintext — the relay stays blind.
+                        administer rooms and storage without ever reading message plaintext, the relay stays blind.
                     </p>
 
                     <div class="torchat-manager-shots">
                         <figure class="torchat-hero-shot">
                             <img src="TorManager1.png" width="960" height="540"
-                                alt="TorChat Server Manager — Dashboard with ChatServer start and onion URL"
+                                alt="TorChat Server Manager - Dashboard with ChatServer start and onion URL"
                                 loading="lazy" decoding="async">
                             <figcaption class="torchat-hero-hint">Dashboard: start/stop stack and copy onion URL
                             </figcaption>
                         </figure>
                         <figure class="torchat-hero-shot">
                             <img src="TorManager2.png" width="960" height="540"
-                                alt="TorChat Server Manager — Settings with live room list and remove room"
+                                alt="TorChat Server Manager - Settings with live room list and remove room"
                                 loading="lazy" decoding="async">
                             <figcaption class="torchat-hero-hint">Settings: live rooms, remove room, wipe SQL data
                             </figcaption>
@@ -851,7 +851,7 @@
                     <ul class="torchat-manager-list">
                         <li>Start / stop ChatServer and the Tor Hidden Service from one place</li>
                         <li>Copy and share the published <code>.onion</code> URL</li>
-                        <li>Live room list (room id, locked flag, online count only — no message content)</li>
+                        <li>Live room list (room id, locked flag, online count only, no message content)</li>
                         <li>Remove a selected room in realtime: connected users are forced back to the lobby and that
                             room’s ciphertext history is deleted on the server</li>
                         <li>Wipe SQLCipher data under LocalAppData (rooms + ciphertext DB and related key files) for a
@@ -866,7 +866,7 @@
             <section id="security" class="features-section">
                 <div class="features-container">
                     <h2 class="features-title">🔐 Security Architecture</h2>
-                    <p class="features-subtitle">Defence-in-depth for a Tor Hidden Service chat — every layer is
+                    <p class="features-subtitle">Defence-in-depth for a Tor Hidden Service chat, every layer is
                         independently hardened</p>
 
                     <div class="security-block">
@@ -882,29 +882,29 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><strong>Security headers</strong> — CSP (<code>default-src 'self'</code>,
+                                        <td><strong>Security headers</strong>: CSP (<code>default-src 'self'</code>,
                                             <code>connect-src 'self'</code>), X-Frame-Options DENY, nosniff,
                                             Referrer-Policy no-referrer, Permissions-Policy, COOP, CORP</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><strong>Cache-Control</strong> — <code>no-store</code> for HTML and
+                                        <td><strong>Cache-Control</strong>: <code>no-store</code> for HTML and
                                             <code>/js/*</code> (sensitive chat shell)</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><strong>Kestrel hardening</strong> — <code>AddServerHeader = false</code>,
+                                        <td><strong>Kestrel hardening</strong>: <code>AddServerHeader = false</code>,
                                             <code>MaxRequestBodySize</code> ≈ 64 KB</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td><strong>Rate limiting</strong> — Global HTTP ceiling; hub negotiate and
+                                        <td><strong>Rate limiting</strong>: Global HTTP ceiling; hub negotiate and
                                             <code>/api/*</code> per connection; Create / Join / Send / GetRooms hub
-                                            method limits (ConnectionId — Tor has no useful client IP)</td>
+                                            method limits (ConnectionId, Tor has no useful client IP)</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td><strong>CORS</strong> — localhost / <code>*.onion</code> only; no
+                                        <td><strong>CORS</strong>: localhost / <code>*.onion</code> only; no
                                             <code>AllowCredentials</code> (no cookies)</td>
                                     </tr>
                                     <tr>
@@ -948,7 +948,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Replay protection</strong></td>
-                                        <td><code>ReplayCache</code> — SHA-256 fingerprint of
+                                        <td><code>ReplayCache</code>: SHA-256 fingerprint of
                                             <code>roomId|nonce|payloadB64</code>; rejects duplicates within 120&nbsp;s,
                                             packets older than 120&nbsp;s or more than 60&nbsp;s in the future, and
                                             packets from the post-restart gap
@@ -961,7 +961,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Join error oracle</strong></td>
-                                        <td>Generic <code>Cannot join room.</code> — no wrong-password vs missing-room
+                                        <td>Generic <code>Cannot join room.</code>, no wrong-password vs missing-room
                                             distinction to clients</td>
                                     </tr>
                                     <tr>
@@ -1024,7 +1024,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong>No third-party scripts</strong></td>
-                                        <td>Self-hosted fonts and SignalR — nothing loaded from CDNs on the chat app
+                                        <td>Self-hosted fonts and SignalR, nothing loaded from CDNs on the chat app
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1044,13 +1044,13 @@
                     <p class="torchat-manager-copy">
                         Use OffCode Tor Chat when you do not want to trust a big-tech messenger that may voluntarily
                         scan private messages under EU <strong>Chat Control 1.0</strong>. You self-host on a Tor
-                        Hidden Service with browser E2EE — conversations never sit on a centralized scanned platform.
+                        Hidden Service with browser E2EE, conversations never sit on a centralized scanned platform.
                     </p>
 
                     <p class="torchat-manager-copy">
                         In July 2026 the EU effectively kept Chat Control 1.0 in force: a temporary regime that again
                         lets major messaging and mail providers run <em>voluntary</em>, suspicionless scanning for
-                        CSAM detection — typically until April 2028, or until a permanent “Chat Control 2.0”
+                        CSAM detection, typically until April 2028, or until a permanent "Chat Control 2.0"
                         framework is agreed. That debate is still open; the lasting fight is whether scanning stays
                         limited to cloud platforms or reaches further into encrypted apps.
                     </p>
@@ -1062,18 +1062,18 @@
                     </p>
 
                     <ul class="torchat-manager-list">
-                        <li>Not a cloud messenger provider — no OffCode-hosted chat backend and no third-party
+                        <li>Not a cloud messenger provider, no OffCode-hosted chat backend and no third-party
                             message platform in the middle</li>
-                        <li>Tor-only Hidden Service — clients reach you via <code>.onion</code>; the chat HTTP stack
+                        <li>Tor-only Hidden Service, clients reach you via <code>.onion</code>; the chat HTTP stack
                             does not bind clearnet</li>
-                        <li>You host with Server Manager — ChatServer + Tor on your machine, onion URL under your
+                        <li>You host with Server Manager, ChatServer + Tor on your machine, onion URL under your
                             control</li>
-                        <li>Browser E2EE and a blind relay — ciphertext only on the server; plaintext never leaves
+                        <li>Browser E2EE and a blind relay, ciphertext only on the server; plaintext never leaves
                             the Tor Browser for the host to read</li>
                     </ul>
 
                     <p class="torchat-why-note">
-                        This is about architecture and privacy defaults — self-hosting on Tor instead of relying on
+                        This is about architecture and privacy defaults, self-hosting on Tor instead of relying on
                         scanned platform messengers. It is not legal advice, and it does not claim immunity from law
                         or excuse illegal use.
                     </p>
@@ -1184,7 +1184,7 @@
                             <div class="faq-item">
                                 <h4>Do I host Tor Chat myself?</h4>
                                 <p>Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your
-                                    machine. There is no OffCode-hosted chat cloud — you control the onion URL and the
+                                    machine. There is no OffCode-hosted chat cloud, you control the onion URL and the
                                     stack.</p>
                             </div>
                             <div class="faq-item">
