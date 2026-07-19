@@ -7,11 +7,11 @@
 
     <title>Web Remote Control System – Manage Windows Devices from Your Browser</title>
     <meta name="description"
-        content="Web Remote Control System for Windows devices. Control from browser, automate with Mouse Bot, transfer files, view device status in real time. Built with ASP.NET Core, Blazor, SignalR.">
+        content="Web-based remote control for Windows: live desktop stream, mouse &amp; keyboard input, file transfer, Task Manager, remote terminal, and self-hosted SignalR dashboard.">
     <meta name="keywords"
-        content="web remote control, Windows device management, remote automation, Mouse Bot, file transfer, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, web interface, device control, remote access">
-    <meta name="author" content=" Web Remote Screen Locker">
-    <meta name="last-modified" content="2026-07-11">
+        content="web remote control, web based remote control, remote web control, web controller, Windows remote desktop browser, live screen control, file transfer, Task Manager, remote terminal, ASP.NET Core, Blazor, SignalR, .NET 9, real-time monitoring, device control, remote access, self-hosted">
+    <meta name="author" content="OffCode">
+    <meta name="last-modified" content="2026-07-19">
     <meta name="robots" content="index, follow">
 
     <!-- Security Headers -->
@@ -21,14 +21,14 @@
     <meta property="og:url" content="https://www.dev-offcode.com/RemoteControl.html">
     <meta property="og:title" content="Web Remote Control System – Manage Windows Devices from Your Browser">
     <meta property="og:description"
-        content="Control Windows devices from the browser, automate tasks, transfer files, and see status in real time.">
+        content="Web-based remote control for Windows: live desktop stream, file transfer, Task Manager, and remote terminal from your browser.">
     <meta property="og:image" content="https://www.dev-offcode.com/RemoteControl1.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.dev-offcode.com/RemoteControl.html">
     <meta name="twitter:title" content="Web Remote Control System – Manage Windows Devices from Your Browser">
     <meta name="twitter:description"
-        content="Control Windows devices from the browser, automate tasks, transfer files, and see status in real time.">
+        content="Web-based remote control for Windows: live desktop stream, file transfer, Task Manager, and remote terminal from your browser.">
     <meta name="twitter:image" content="https://www.dev-offcode.com/RemoteControl1.png">
 
     <link rel="canonical" href="https://www.dev-offcode.com/RemoteControl.html">
@@ -57,7 +57,7 @@
         "name": "Web Remote Control System",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Windows",
-        "description": "Remote control for Windows devices with a web interface. Includes Live Screen control, Task Manager, streaming file transfer, and AES key security.",
+        "description": "Web-based remote control for Windows: live desktop stream, mouse and keyboard input, Task Manager, streaming file transfer, remote terminal, and AES-256-GCM security.",
         "url": "https://www.dev-offcode.com/RemoteControl.html",
         "image": "https://www.dev-offcode.com/RemoteControl1.png",
         "offers": {
@@ -87,7 +87,7 @@
         "softwareVersion": "2.7.0",
         "releaseNotes": "Remote control system with ASP.NET Core backend, Blazor frontend, SignalR real-time communication, and Windows agent integration",
         "datePublished": "2025-01-01",
-        "dateModified": "2026-07-11"
+        "dateModified": "2026-07-19"
     }
     </script>
 
@@ -102,7 +102,7 @@
                 "name": "What is Web Remote Control System?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Web Remote Control System is a powerful web-based application that lets you manage Windows devices directly from your browser. You can view the desktop via Live Stream, control the mouse, manage processes, and transfer large files securely."
+                    "text": "Web Remote Control System is a self-hosted, web-based remote control for Windows. From the browser you get a live desktop stream, mouse and keyboard input, process management, streaming file transfer, remote terminal, and an optional Dashboard lock password on the control panel."
                 }
             },
             {
@@ -276,10 +276,11 @@
                         <div class="hero-glow-divider"></div>
 
                         <p class="intro-description lead-text">
-                            The Web Remote Control System is a high-performance, <strong>completely free</strong>, and
-                            <strong>self-hosted</strong> platform that lets you manage Windows devices directly from any
-                            web browser. Combining a lightweight Windows Agent with a Blazor-based control panel, you
-                            can monitor and control remote computers in real time without being physically present.
+                            The Web Remote Control System is a <strong>completely free</strong>,
+                            <strong>self-hosted</strong>, web-based remote control for Windows. A lightweight Windows
+                            Agent pairs with a Blazor dashboard so you can live-stream the desktop, send mouse and
+                            keyboard input, move files, open a remote terminal, and manage processes from any browser —
+                            without sitting at the machine.
                         </p>
 
                         <p class="intro-description">
@@ -644,7 +645,8 @@
                         <div class="feature-card">
                             <div class="feature-icon">🔒</div>
                             <h3>Dashboard lock (optional)</h3>
-                            <p>Optional password gate for the web dashboard with secure password storage on the server.
+                            <p>Optional password gate for the web dashboard with secure password storage on the server,
+                                so only authorized operators can open the control panel.
                             </p>
                             <ul class="feature-list">
                                 <li>Cookie session for the Blazor UI plus short-lived JWT for SignalR and protected APIs
@@ -990,34 +992,31 @@
 
             <section class="features-section">
                 <div class="features-container">
-                    <h2 class="features-title">Related control and automation products</h2>
-                    <p class="features-subtitle">This upcoming remote-control product is most relevant when paired with
-                        local automation and advanced Windows lock management.</p>
+                    <h2 class="features-title">Related products</h2>
+                    <p class="features-subtitle">Other OffCode tools that pair well with remote device management.</p>
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">🤖</div>
                             <h3>Offcode Automation Tool</h3>
-                            <p>Use the Windows automation product today for OCR-driven workflows, UI Automation, macro
-                                sequences, and repeatable desktop actions.</p>
+                            <p>Separate Windows desktop product for OCR workflows, UI Automation, macros, and repeatable
+                                on-PC actions.</p>
                             <a href="AutomationTool.html" class="button secondary-download">Explore the automation
                                 tool</a>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">⭐</div>
                             <h3>Screen Lock Builder Premium</h3>
-                            <p>Need advanced Windows lock features now? Premium already covers password protection,
-                                blocking, configuration saving, and kiosk-style scenarios.</p>
+                            <p>Build a local Windows screen locker with password protection, blocking, saved configs,
+                                and kiosk-style options.</p>
                             <a href="ScreenLockBuilderPremium.html" class="button secondary-download">See premium screen
                                 lock features</a>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">📝</div>
-                            <h3>Monitor product readiness</h3>
-                            <p>Track the current automation release stream while the remote control system moves toward
-                                a
-                                public launch.</p>
-                            <a href="AutomationChangelog.html" class="button secondary-download">Follow automation
-                                updates</a>
+                            <div class="feature-icon">🧅</div>
+                            <h3>Tor Chat</h3>
+                            <p>Self-hosted Tor chat with browser E2EE — another OffCode project if you need private
+                                rooms over .onion.</p>
+                            <a href="TorChatPage.html" class="button secondary-download">Open Tor Chat page</a>
                         </div>
                     </div>
                 </div>
@@ -1112,9 +1111,10 @@
                         <div class="faq-container">
                             <div class="faq-item">
                                 <h4>What is Web Remote Control System?</h4>
-                                <p>Web Remote Control System is a powerful web-based application that lets you manage
-                                    Windows devices directly from your browser. You can view the desktop via Live
-                                    Stream, control the mouse, manage processes, and transfer large files securely.</p>
+                                <p>A self-hosted, web-based remote control for Windows. From the browser you get a live
+                                    desktop stream, mouse and keyboard input, process management, streaming file
+                                    transfer, remote terminal, and an optional Dashboard lock password on the control
+                                    panel.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Does it work remotely over the internet?</h4>
