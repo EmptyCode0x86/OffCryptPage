@@ -179,7 +179,15 @@
                 "name": "Can the host delete rooms or wipe chat data?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Server Manager shows a live room list (id, locked, online count) and can remove a room in realtime, forcing clients to the lobby and deleting that room’s ciphertext. You can also wipe the SQLCipher database under LocalAppData for a clean slate."
+                    "text": "Yes. Server Manager can remove a room in realtime with secure_delete/VACUUM for that room’s ciphertext. Remove SQL data overwrites then deletes the SQLCipher DB and db.key.dpapi (optional: also wipe Tor HS keys / .onion). Generate new address securely rotates the Hidden Service identity. Tor clients cannot call the admin delete API."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are Close room and the creator recovery code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Close room to new members (creator Settings) rejects all new joins, including invite links; people already in the room stay. It does not make an open room server-blind — use a password for that. The creator recovery code on Profile binds hidden rooms you create to My rooms; Copy it and Restore after Tor New Identity or clear site data so you can list those rooms again."
                 }
             },
             {
@@ -831,8 +839,10 @@
                             <strong>Password rooms</strong> are server-blind E2EE (the host cannot derive the room key).
                             <strong>Open rooms</strong> still encrypt in the browser, but the key is derived from the
                             room id — intentional public channels. <strong>Hidden rooms</strong> stay off the public list
-                            and use invite links; add a password for private E2EE. Optional <strong>Full Vanguards</strong>
-                            hardens long-lived onions against guard-discovery.
+                            and use invite links; add a password for private E2EE. Creators can <strong>close a room</strong>
+                            to new members and recover hidden rooms via a <strong>Profile recovery code</strong>
+                            (<strong>My rooms</strong>). Optional <strong>Full Vanguards</strong> hardens long-lived onions
+                            against guard-discovery.
                         </p>
 
                         <div class="intro-highlights">
@@ -960,6 +970,8 @@
                             <p>Open, password-protected, and/or hidden rooms with invite links and per-message lifetime.</p>
                             <ul class="feature-list">
                                 <li>Hidden rooms: not listed; join via <code>?invite=</code> (+ password if locked)</li>
+                                <li><strong>Close room to new members</strong> in Settings — blocks all joins (including invites); existing members stay</li>
+                                <li><strong>Creator recovery code</strong> (Profile) binds your hidden rooms to <strong>My rooms</strong> — Copy / Restore after Tor New Identity</li>
                                 <li>Retention: 30 min … 1 week / Never (default 8 h)</li>
                                 <li>Unique <code>senderId</code> per room; server binds send identity to the session</li>
                             </ul>
@@ -973,7 +985,7 @@
                             <ul class="feature-list">
                                 <li>Rooms + ciphertext envelopes only</li>
                                 <li>Max 500 messages per room (oldest trimmed)</li>
-                                <li>Background cleanup of expired rows</li>
+                                <li>Expired rows: <code>secure_delete</code> + WAL checkpoint / VACUUM (best-effort page wipe)</li>
                             </ul>
                         </div>
 
@@ -1029,10 +1041,13 @@
                         <li>Optional Full Vanguards checkbox (Python + Stem) for long-lived HS hardening</li>
                         <li>Sets <code>TORCHAT_ALLOWED_ONION</code> for ChatServer CORS when the onion is known</li>
                         <li>Live room list (room id, locked flag, online count only, no message content)</li>
-                        <li>Remove a selected room in realtime: connected users are forced back to the lobby and that
-                            room’s ciphertext history is deleted on the server</li>
-                        <li>Wipe SQLCipher data under LocalAppData (rooms + ciphertext DB and related key files) for a
-                            clean slate</li>
+                        <li>Remove a selected room in realtime: connected users are forced back to the lobby;
+                            ciphertext for that room is deleted with <code>secure_delete</code> + VACUUM</li>
+                        <li><strong>Remove SQL data:</strong> securely overwrites (then deletes) the SQLCipher DB, WAL/SHM,
+                            and <code>db.key.dpapi</code>; optional checkbox also wipes Tor Hidden Service keys
+                            (<code>.onion</code> identity)</li>
+                        <li><strong>Generate new address:</strong> securely wipes HS keys and publishes a new
+                            <code>.onion</code> (chat DB unchanged)</li>
                         <li>Point at your ChatServer project path and load/save host config as needed</li>
                     </ul>
                         </div>
@@ -1143,6 +1158,22 @@
                                             from creator Settings</td>
                                     </tr>
                                     <tr>
+                                        <td><strong>Close room</strong></td>
+                                        <td>Creator can reject all new <code>JoinRoom</code> attempts (including invites);
+                                            existing members stay. Not the same as server-blind E2EE</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Creator recovery</strong></td>
+                                        <td>Profile recovery code binds hidden rooms to <strong>My rooms</strong>
+                                            (<code>GetMyRooms</code>); Copy / Restore after clear site data</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Secure erasure</strong></td>
+                                        <td><code>PRAGMA secure_delete</code> + reclaim on expiry/room wipe; Manager
+                                            CSPRNG-overwrites DB/key (optional HS keys). SSD wear-leveling: absolute
+                                            forensic wipe not guaranteed</td>
+                                    </tr>
+                                    <tr>
                                         <td><strong>Join error oracle</strong></td>
                                         <td>Generic <code>Cannot join room.</code>, no wrong-password vs missing-room
                                             distinction to clients</td>
@@ -1234,11 +1265,11 @@
                         <div class="vanguard-layers">
                             <div class="vanguard-layer vanguard-layer--l2">
                                 <div class="vanguard-layer__label">L2 Vanguards</div>
-                                <div class="vanguard-layer__desc">~4 pinned middle-layer nodes, rotated every 1–8 days</div>
+                                <div class="vanguard-layer__desc">4 pinned middle-layer nodes, rotated ~1–45 days (addon defaults)</div>
                             </div>
                             <div class="vanguard-layer vanguard-layer--l3">
                                 <div class="vanguard-layer__label">L3 Vanguards</div>
-                                <div class="vanguard-layer__desc">~8 pinned pre-guard nodes, rotated every 1–8 hours</div>
+                                <div class="vanguard-layer__desc">8 pinned nodes, rotated ~1–48 hours (addon defaults)</div>
                             </div>
                         </div>
 
@@ -1293,7 +1324,9 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Bandguards</strong></td>
-                                        <td>Intentionally <strong>disabled</strong> (<code>--disable_bandguards</code>). Bandwidth-based circuit-killing would disconnect active chat sessions; L2/L3 pinning defence remains fully active.</td>
+                                        <td>Intentionally <strong>disabled</strong> in shipped <code>vanguards.conf</code>
+                                            (<code>enable_bandguards = False</code>). Bandwidth-based circuit-killing
+                                            would disconnect active chat sessions; L2/L3 pinning defence remains fully active.</td>
                                     </tr>
                                     <tr>
                                         <td><strong>ControlPort security</strong></td>
@@ -1355,6 +1388,7 @@
                             control</li>
                         <li>Password-protected rooms: server-blind E2EE — the host cannot derive the room key</li>
                         <li>Open rooms: public encrypted channels (key from room id) — use when you want a free join lobby</li>
+                        <li>Close room / invite Settings for creators; Profile recovery code → My rooms for hidden rooms</li>
                         <li>1:1 safety numbers for out-of-band peer verification; optional Full Vanguards on the host</li>
                             </ul>
 
@@ -1434,7 +1468,9 @@
                                 <li style="margin: 0.5rem 0;">✅ SignalR Real-time Hubs</li>
                                 <li style="margin: 0.5rem 0;">✅ Server Manager (WinForms) source</li>
                                 <li style="margin: 0.5rem 0;">✅ SQLCipher + DPAPI security modules</li>
-                                <li style="margin: 0.5rem 0;">✅ Tor Hidden Service integration</li>
+                                <li style="margin: 0.5rem 0;">✅ Tor Hidden Service + optional Full Vanguards</li>
+                                <li style="margin: 0.5rem 0;">✅ Hidden invites, close room, creator recovery / My rooms</li>
+                                <li style="margin: 0.5rem 0;">✅ Secure erasure (DB wipe / HS key wipe)</li>
                                 <li style="margin: 0.5rem 0;">✅ Replay protection &amp; rate limiting</li>
                                 <li style="margin: 0.5rem 0;">✅ Modify &amp; build your own version</li>
                             </ul>
@@ -1504,10 +1540,20 @@
                             </div>
                             <div class="faq-item">
                                 <h4>Can the host delete rooms or wipe chat data?</h4>
-                                <p>Yes. Server Manager shows a live room list (id, locked, online count) and can remove
-                                    a room in realtime, forcing clients to the lobby and deleting that room’s
-                                    ciphertext. You can also wipe the SQLCipher database under LocalAppData for a clean
-                                    slate.</p>
+                                <p>Yes. Server Manager can remove a room in realtime (lobby kick +
+                                    <code>secure_delete</code>/VACUUM for that room’s ciphertext).
+                                    <strong>Remove SQL data</strong> overwrites then deletes the SQLCipher DB and
+                                    <code>db.key.dpapi</code> (optional: also wipe Tor HS keys / <code>.onion</code>).
+                                    <strong>Generate new address</strong> securely rotates the Hidden Service identity.
+                                    Tor clients cannot call the admin delete API.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>What are Close room and the creator recovery code?</h4>
+                                <p><strong>Close room to new members</strong> (creator Settings) rejects all new joins,
+                                    including invite links; people already in the room stay. It does not make an open
+                                    room server-blind — use a password for that. The <strong>creator recovery code</strong>
+                                    on Profile binds hidden rooms you create to <strong>My rooms</strong>; Copy it and
+                                    Restore after Tor New Identity or clear site data so you can list those rooms again.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Tor Chat not working — what should I check?</h4>
