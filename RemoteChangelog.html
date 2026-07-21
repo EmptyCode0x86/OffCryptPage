@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Web Remote Control System – Changelog &amp; Update History</title>
+    <title>Web Remote Control System: Changelog &amp; Update History</title>
     <meta name="description"
-        content="Web Remote Control System changelog — updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
+        content="Web Remote Control System changelog, updates for the self-hosted Windows remote management stack (Blazor, ASP.NET Core, SignalR, agent).">
     <meta name="author" content="OffCrypt">
     <meta name="last-modified" content="2026-07-11">
     <meta name="robots" content="noindex, follow">
@@ -35,16 +35,16 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.dev-offcode.com/RemoteChangelog.html">
-    <meta property="og:title" content="Web Remote Control System – Changelog">
+    <meta property="og:title" content="Web Remote Control System: Changelog">
     <meta property="og:description"
-        content="Release notes for the Web Remote Control System — features, fixes, and improvements.">
+        content="Release notes for the Web Remote Control System, features, fixes, and improvements.">
     <meta property="og:image" content="https://www.dev-offcode.com/RemoteControl1.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.dev-offcode.com/RemoteChangelog.html">
-    <meta name="twitter:title" content="Web Remote Control System – Changelog">
+    <meta name="twitter:title" content="Web Remote Control System: Changelog">
     <meta name="twitter:description"
-        content="Release notes for the Web Remote Control System — features, fixes, and improvements.">
+        content="Release notes for the Web Remote Control System, features, fixes, and improvements.">
     <meta name="twitter:image" content="https://www.dev-offcode.com/RemoteControl1.png">
 
     <script type="application/ld+json">
@@ -193,7 +193,7 @@
                 <div class="changelog-container">
                     <div class="changelog-header">
                         <h1 class="changelog-title">📝 Changelog</h1>
-                        <p class="changelog-subtitle">Web Remote Control System — updates, fixes, and new features</p>
+                        <p class="changelog-subtitle">Web Remote Control System, updates, fixes, and new features</p>
                     </div>
                 </div>
             </div>
@@ -201,9 +201,9 @@
             <div class="changelog-content">
                 <div class="changelog-container">
                     <div class="changelog-intro">
-                        <p>Release notes for the <strong>Web Remote Control System</strong> — self-hosted ASP.NET Core
+                        <p>Release notes for the <strong>Web Remote Control System</strong>: self-hosted ASP.NET Core
                             backend, Blazor dashboard, SignalR hub, Windows agent, and Server Manager tooling.</p>
-                        <p><strong>Latest:</strong> VER 1.0 (July 11, 2026) — Dashboard Lock hardening, CORS/rate limits, agent path guard, encrypted file transfer (chunked AES-GCM), and Tor Network support.</p>
+                        <p><strong>Latest:</strong> VER 1.0 (July 11, 2026), Dashboard Lock hardening, CORS/rate limits, agent path guard, encrypted file transfer (chunked AES-GCM), and Tor Network support.</p>
                     </div>
 
                     <div class="changelog-wrapper">
@@ -216,12 +216,12 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Security:</strong> <strong>Dashboard Lock access hardening</strong> — Strengthened dashboard authentication around the lock/JWT path: password hashing uses ASP.NET <code>PasswordHasher</code> (PBKDF2 with salt); related account-store encryption keys are loaded from environment / configuration (or derived from <code>AES_MASTER_KEY_HEX</code>); optional first-admin bootstrap via <code>INITIAL_ADMIN_USERNAME</code> + <code>INITIAL_ADMIN_PASSWORD</code>. Legacy <code>/api/user/*</code> requires a <code>DashboardAccess</code> JWT and is marked obsolete in favor of Dashboard Lock.</li>
-                                    <li><strong>Security:</strong> <strong>Production CORS fail-closed</strong> — Wildcard <code>*</code> with credentials is no longer allowed; explicit <code>Cors:AllowedOrigins</code> or <code>ALLOWED_ORIGINS</code> required outside Development.</li>
-                                    <li><strong>Security:</strong> <strong>Rate limiting</strong> — ASP.NET <code>AddRateLimiter</code> policies <code>login</code> (dashboard-lock verify + legacy user login) and <code>hub-negotiate</code> (SignalR <code>/devicehub</code>); in-hub <code>ShareJoinRateLimiter</code> for anonymous <code>JoinShare</code>.</li>
-                                    <li><strong>Security:</strong> <strong>Agent path guard</strong> — <code>RemoteAgent/Security/AgentPathGuard.cs</code> (<code>Path.GetFullPath</code>, reject <code>..</code>, allowlist of drives + shell folders) on browse/search/upload/download paths.</li>
-                                    <li><strong>Security:</strong> <strong>Encrypted file transfer (chunked AES-GCM)</strong> — File payloads on <code>agent-download</code> / <code>agent-upload</code> are streamed as AES-256-GCM chunks (<code>AesGcmChunkStream</code>) with a per-transfer key delivered inside encrypted SignalR metadata (<code>FileUploadCommand</code> / <code>FileDownloadCommand</code>). Agent HTTP calls require <code>X-Transfer-Token</code> (HMAC). Server temp files are stored as ciphertext (<code>.rcenc</code>). Admin <code>upload</code> / <code>client-download</code> remain JWT-protected; the BackEnd encrypts on ingest and decrypts before browser download. Upload notifications use per-agent encryption (<code>EncryptForDevice</code>). When Tor is enabled, the agent&rsquo;s <code>FileTransferService</code> routes HTTP through the same SOCKS5 proxy as SignalR.</li>
-                                    <li><strong>Added:</strong> <strong>Tor Network Support</strong> — Integrated native Tor routing capabilities. Added a <code>Tor connection</code> checkbox to the Server Manager that automatically runs a local <code>tor.exe</code> instance, generates a persistent Tor Hidden Service key pair for the BackEnd, and populates the resulting <code>.onion</code> address. The Remote Agent builder then bundles the Tor Expert binaries (<code>TorBundle</code>) alongside the generated stub. When executed on the target machine, the agent spins up a local Tor SOCKS5 proxy and routes all SignalR traffic seamlessly through the Tor network to the <code>.onion</code> address using Long Polling, bypassing NAT and removing the need for port forwarding.</li>
+                                    <li><strong>Security:</strong> <strong>Dashboard Lock access hardening</strong>: Strengthened dashboard authentication around the lock/JWT path: password hashing uses ASP.NET <code>PasswordHasher</code> (PBKDF2 with salt); related account-store encryption keys are loaded from environment / configuration (or derived from <code>AES_MASTER_KEY_HEX</code>); optional first-admin bootstrap via <code>INITIAL_ADMIN_USERNAME</code> + <code>INITIAL_ADMIN_PASSWORD</code>. Legacy <code>/api/user/*</code> requires a <code>DashboardAccess</code> JWT and is marked obsolete in favor of Dashboard Lock.</li>
+                                    <li><strong>Security:</strong> <strong>Production CORS fail-closed</strong>: Wildcard <code>*</code> with credentials is no longer allowed; explicit <code>Cors:AllowedOrigins</code> or <code>ALLOWED_ORIGINS</code> required outside Development.</li>
+                                    <li><strong>Security:</strong> <strong>Rate limiting</strong>: ASP.NET <code>AddRateLimiter</code> policies <code>login</code> (dashboard-lock verify + legacy user login) and <code>hub-negotiate</code> (SignalR <code>/devicehub</code>); in-hub <code>ShareJoinRateLimiter</code> for anonymous <code>JoinShare</code>.</li>
+                                    <li><strong>Security:</strong> <strong>Agent path guard</strong>: <code>RemoteAgent/Security/AgentPathGuard.cs</code> (<code>Path.GetFullPath</code>, reject <code>..</code>, allowlist of drives + shell folders) on browse/search/upload/download paths.</li>
+                                    <li><strong>Security:</strong> <strong>Encrypted file transfer (chunked AES-GCM)</strong>: File payloads on <code>agent-download</code> / <code>agent-upload</code> are streamed as AES-256-GCM chunks (<code>AesGcmChunkStream</code>) with a per-transfer key delivered inside encrypted SignalR metadata (<code>FileUploadCommand</code> / <code>FileDownloadCommand</code>). Agent HTTP calls require <code>X-Transfer-Token</code> (HMAC). Server temp files are stored as ciphertext (<code>.rcenc</code>). Admin <code>upload</code> / <code>client-download</code> remain JWT-protected; the BackEnd encrypts on ingest and decrypts before browser download. Upload notifications use per-agent encryption (<code>EncryptForDevice</code>). When Tor is enabled, the agent&rsquo;s <code>FileTransferService</code> routes HTTP through the same SOCKS5 proxy as SignalR.</li>
+                                    <li><strong>Added:</strong> <strong>Tor Network Support</strong>: Integrated native Tor routing capabilities. Added a <code>Tor connection</code> checkbox to the Server Manager that automatically runs a local <code>tor.exe</code> instance, generates a persistent Tor Hidden Service key pair for the BackEnd, and populates the resulting <code>.onion</code> address. The Remote Agent builder then bundles the Tor Expert binaries (<code>TorBundle</code>) alongside the generated stub. When executed on the target machine, the agent spins up a local Tor SOCKS5 proxy and routes all SignalR traffic seamlessly through the Tor network to the <code>.onion</code> address using Long Polling, bypassing NAT and removing the need for port forwarding.</li>
                                 </ul>
                             </div>
                         </div>
@@ -235,13 +235,13 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Security:</strong> <strong>ConnectAsDevice bypass fix</strong> — Fixed a security vulnerability in <code>DeviceControlHub.ConnectAsDevice</code>. When <code>AgentSecurity:RequireConnectToken</code> was set to <code>true</code>, an attacker could bypass the enforcement by sending any unknown <code>agentKeyId</code> — <code>TryGetConnectToken</code> returned <code>false</code> for the unknown ID, causing the code to skip token validation and allow the connection as a legacy agent. Added an <code>else if (requireToken)</code> branch inside the <code>agentKeyId</code> block: if <code>agentKeyId</code> is provided but not found in the <code>AgentKeys.json</code> registry in strict mode, the connection is now rejected with <code>HubException("Unauthorized")</code> and a warning is logged (<code>ConnectAsDevice: unknown agentKeyId rejected</code>). The attacker would still need the shared <code>AES_MASTER_KEY_HEX</code> to communicate, but the <code>RequireConnectToken</code> enforcement now correctly covers all cases.</li>
-                                    <li><strong>Added:</strong> <strong>Share Link Expiry</strong> — Live Stream share links can now have a configurable lifetime. In the stream toolbar, set <strong>Hours</strong> and <strong>Minutes</strong> or enable <strong>No time limit</strong>. The backend registers sessions in <code>ShareSessionService</code>; <code>ShareExpiryService</code> expires them and notifies viewers via <code>ShareExpired</code>. Admin UI shows a countdown while sharing. Server validates links on <code>JoinShare</code> and <code>BroadcastSharedFrame</code> (1 min – 7 days, or unlimited).</li>
-                                    <li><strong>Added:</strong> <strong>Real-time Device Ping</strong> — <code>DevicePingService</code> pings connected agents every 10 s; agents respond with <code>Pong</code>; RTT is shown in the connected devices list (<code>PingMs</code>, color-coded). Cleartext ping IDs only (no sensitive payload).</li>
-                                    <li><strong>Added:</strong> <strong>Telegram Notifications</strong> — Optional global setting in <strong>Agent settings</strong>: Telegram message when a device comes online. Settings persisted in <code>telegram-settings.json</code> (hot-reload); REST API <code>api/telegram/settings</code> + test endpoint; in-modal BotFather setup help.</li>
-                                    <li><strong>Added:</strong> <strong>Telegram <code>/Get_info</code> Command</strong> — <code>TelegramCommandService</code> polls Bot API <code>getUpdates</code>; <code>/Get_info</code> requests Computer Info from an online agent (multi-device selection in chat). Responses routed via hub (<code>SendComputerInfoRequestToAgentAsync</code>, <code>telegram-</code> requestId prefix). Only the configured chat ID is accepted.</li>
-                                    <li><strong>Fixed:</strong> <strong>Share Screen anonymous join</strong> — <code>JoinShare</code> added to hub anonymous allow-list so public viewers can connect without dashboard JWT.</li>
-                                    <li><strong>Security:</strong> <strong>Replay Attack Protection (EncryptedPacket)</strong> — All incoming <code>EncryptedPacket</code> messages are now protected against replay attacks on both the BackEnd and RemoteAgent sides. A new <code>ReplayCache</code> (in-memory nonce-cache, <code>BackEnd/Security/ReplayCache.cs</code> and <code>RemoteAgent/Security/ReplayCache.cs</code>) registers the SHA-256 fingerprint of every received encrypted blob; an identical blob is rejected immediately. In addition, <code>packet.Timestamp</code> is validated against a configurable time window (default <strong>60 seconds</strong>, tunable via <code>ReplayProtection:MaxAgeSeconds</code> in <code>appsettings.json</code>) — stale packets are dropped with a warning log. Validation runs in <code>DeviceControlHub.ReceiveEncryptedFromAdmin</code>, <code>DeviceControlHub.ReceiveEncryptedFromAgent</code> and <code>SignalRService.HandleReceiveEncryptedPacketAsync</code>. AES-GCM already guaranteed confidentiality and integrity; <code>ReplayCache</code> adds <strong>freshness</strong> so a captured valid ciphertext (e.g. a shutdown or kill-process command) cannot be replayed later.</li>
+                                    <li><strong>Security:</strong> <strong>ConnectAsDevice bypass fix</strong>: Fixed a security vulnerability in <code>DeviceControlHub.ConnectAsDevice</code>. When <code>AgentSecurity:RequireConnectToken</code> was set to <code>true</code>, an attacker could bypass the enforcement by sending any unknown <code>agentKeyId</code>: <code>TryGetConnectToken</code> returned <code>false</code> for the unknown ID, causing the code to skip token validation and allow the connection as a legacy agent. Added an <code>else if (requireToken)</code> branch inside the <code>agentKeyId</code> block: if <code>agentKeyId</code> is provided but not found in the <code>AgentKeys.json</code> registry in strict mode, the connection is now rejected with <code>HubException("Unauthorized")</code> and a warning is logged (<code>ConnectAsDevice: unknown agentKeyId rejected</code>). The attacker would still need the shared <code>AES_MASTER_KEY_HEX</code> to communicate, but the <code>RequireConnectToken</code> enforcement now correctly covers all cases.</li>
+                                    <li><strong>Added:</strong> <strong>Share Link Expiry</strong>: Live Stream share links can now have a configurable lifetime. In the stream toolbar, set <strong>Hours</strong> and <strong>Minutes</strong> or enable <strong>No time limit</strong>. The backend registers sessions in <code>ShareSessionService</code>; <code>ShareExpiryService</code> expires them and notifies viewers via <code>ShareExpired</code>. Admin UI shows a countdown while sharing. Server validates links on <code>JoinShare</code> and <code>BroadcastSharedFrame</code> (1 min: 7 days, or unlimited).</li>
+                                    <li><strong>Added:</strong> <strong>Real-time Device Ping</strong>: <code>DevicePingService</code> pings connected agents every 10 s; agents respond with <code>Pong</code>; RTT is shown in the connected devices list (<code>PingMs</code>, color-coded). Cleartext ping IDs only (no sensitive payload).</li>
+                                    <li><strong>Added:</strong> <strong>Telegram Notifications</strong>: Optional global setting in <strong>Agent settings</strong>: Telegram message when a device comes online. Settings persisted in <code>telegram-settings.json</code> (hot-reload); REST API <code>api/telegram/settings</code> + test endpoint; in-modal BotFather setup help.</li>
+                                    <li><strong>Added:</strong> <strong>Telegram <code>/Get_info</code> Command</strong>: <code>TelegramCommandService</code> polls Bot API <code>getUpdates</code>; <code>/Get_info</code> requests Computer Info from an online agent (multi-device selection in chat). Responses routed via hub (<code>SendComputerInfoRequestToAgentAsync</code>, <code>telegram-</code> requestId prefix). Only the configured chat ID is accepted.</li>
+                                    <li><strong>Fixed:</strong> <strong>Share Screen anonymous join</strong>: <code>JoinShare</code> added to hub anonymous allow-list so public viewers can connect without dashboard JWT.</li>
+                                    <li><strong>Security:</strong> <strong>Replay Attack Protection (EncryptedPacket)</strong>: All incoming <code>EncryptedPacket</code> messages are now protected against replay attacks on both the BackEnd and RemoteAgent sides. A new <code>ReplayCache</code> (in-memory nonce-cache, <code>BackEnd/Security/ReplayCache.cs</code> and <code>RemoteAgent/Security/ReplayCache.cs</code>) registers the SHA-256 fingerprint of every received encrypted blob; an identical blob is rejected immediately. In addition, <code>packet.Timestamp</code> is validated against a configurable time window (default <strong>60 seconds</strong>, tunable via <code>ReplayProtection:MaxAgeSeconds</code> in <code>appsettings.json</code>), stale packets are dropped with a warning log. Validation runs in <code>DeviceControlHub.ReceiveEncryptedFromAdmin</code>, <code>DeviceControlHub.ReceiveEncryptedFromAgent</code> and <code>SignalRService.HandleReceiveEncryptedPacketAsync</code>. AES-GCM already guaranteed confidentiality and integrity; <code>ReplayCache</code> adds <strong>freshness</strong> so a captured valid ciphertext (e.g. a shutdown or kill-process command) cannot be replayed later.</li>
                                 </ul>
                             </div>
                         </div>
@@ -255,8 +255,8 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Security:</strong> <strong>Agent encryption &amp; identity (v2)</strong> — Server Manager now generates a unique AES-256 key, <code>AgentKeyId</code>, and <code>AGENT_CONNECT_TOKEN</code> (256-bit random hex) for each new stub. All three are embedded in the stub trailer/<code>.env</code> and registered in <code>BackEnd/AgentKeys.json</code> (hot-reloaded via <code>AgentKeyStore</code>, no BackEnd restart). Per-agent keys limit blast radius: leaking one stub no longer decrypts every agent&rsquo;s traffic (the shared <code>AES_MASTER_KEY_HEX</code> remains BackEnd↔FrontEnd dashboard only). Connect token closes identity spoofing on the anonymous <code>ConnectAsDevice</code> hub method: the BackEnd validates the token with constant-time hex comparison before registration; new agents call <code>ConnectAsDevice</code> directly over TLS. Validation activates per registry entry (legacy rows without <code>connectToken</code> still work until updated). The encrypted <code>ReceiveEncryptedFromAgent</code> → <code>ConnectAsDevice</code> bypass is restricted when <code>AgentSecurity:RequireConnectToken</code> is <code>true</code> (<code>false</code> in dev, <code>true</code> in <code>appsettings.Production.json</code>). <strong>Production:</strong> rebuild all agent stubs after upgrading the BackEnd, then enable <code>RequireConnectToken=true</code>. Use HTTPS/WSS so the connect token is not visible on the wire. LoadTester supports direct token-based registration.</li>
-                                    <li><strong>Fixed:</strong> <strong>FrontEnd Hardcoded Dev Fallback Key Removed</strong> — The FrontEnd&rsquo;s encryption service previously fell back to a hardcoded AES key when <code>ASPNETCORE_ENVIRONMENT=Development</code> and <code>AES_MASTER_KEY_HEX</code> was unset. It now fails fast and refuses to start without a valid key, matching the BackEnd and RemoteAgent behavior exactly.</li>
+                                    <li><strong>Security:</strong> <strong>Agent encryption &amp; identity (v2)</strong>: Server Manager now generates a unique AES-256 key, <code>AgentKeyId</code>, and <code>AGENT_CONNECT_TOKEN</code> (256-bit random hex) for each new stub. All three are embedded in the stub trailer/<code>.env</code> and registered in <code>BackEnd/AgentKeys.json</code> (hot-reloaded via <code>AgentKeyStore</code>, no BackEnd restart). Per-agent keys limit blast radius: leaking one stub no longer decrypts every agent&rsquo;s traffic (the shared <code>AES_MASTER_KEY_HEX</code> remains BackEnd↔FrontEnd dashboard only). Connect token closes identity spoofing on the anonymous <code>ConnectAsDevice</code> hub method: the BackEnd validates the token with constant-time hex comparison before registration; new agents call <code>ConnectAsDevice</code> directly over TLS. Validation activates per registry entry (legacy rows without <code>connectToken</code> still work until updated). The encrypted <code>ReceiveEncryptedFromAgent</code> → <code>ConnectAsDevice</code> bypass is restricted when <code>AgentSecurity:RequireConnectToken</code> is <code>true</code> (<code>false</code> in dev, <code>true</code> in <code>appsettings.Production.json</code>). <strong>Production:</strong> rebuild all agent stubs after upgrading the BackEnd, then enable <code>RequireConnectToken=true</code>. Use HTTPS/WSS so the connect token is not visible on the wire. LoadTester supports direct token-based registration.</li>
+                                    <li><strong>Fixed:</strong> <strong>FrontEnd Hardcoded Dev Fallback Key Removed</strong>: The FrontEnd&rsquo;s encryption service previously fell back to a hardcoded AES key when <code>ASPNETCORE_ENVIRONMENT=Development</code> and <code>AES_MASTER_KEY_HEX</code> was unset. It now fails fast and refuses to start without a valid key, matching the BackEnd and RemoteAgent behavior exactly.</li>
                                 </ul>
                             </div>
                         </div>
@@ -270,11 +270,11 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Added:</strong> <strong>Reverse Proxy Support</strong> — Built-in support for Nginx and Cloudflare Tunnels utilizing <code>X-Forwarded-For</code> and <code>X-Forwarded-Proto</code> headers. The servers now seamlessly track real client IP addresses securely when placed behind a reverse proxy.</li>
-                                    <li><strong>Added:</strong> <strong>Auto Startup Name modal</strong> — Enabling Windows auto startup from Agent settings now opens a modal where you can choose a custom startup name (or keep default <code>RemoteControlAgent</code>).</li>
-                                    <li><strong>Improved:</strong> <strong>Live Stream Cursor Visibility</strong> — The real system cursor from the agent machine is now rendered directly into captured livestream frames, including scaled captures.</li>
-                                    <li><strong>Improved:</strong> <strong>Live Stream Smoothness</strong> — Streaming lag/stutter has been significantly reduced with pipeline optimizations, resulting in much smoother playback and fewer frame hiccups.</li>
-                                    <li><strong>Fixed:</strong> <strong>Remote Control Right Click</strong> — Right-click from dashboard now correctly executes as right-click on the agent side, and right mouse button no longer triggers left-button down/up drag events.</li>
+                                    <li><strong>Added:</strong> <strong>Reverse Proxy Support</strong>: Built-in support for Nginx and Cloudflare Tunnels utilizing <code>X-Forwarded-For</code> and <code>X-Forwarded-Proto</code> headers. The servers now seamlessly track real client IP addresses securely when placed behind a reverse proxy.</li>
+                                    <li><strong>Added:</strong> <strong>Auto Startup Name modal</strong>: Enabling Windows auto startup from Agent settings now opens a modal where you can choose a custom startup name (or keep default <code>RemoteControlAgent</code>).</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Cursor Visibility</strong>: The real system cursor from the agent machine is now rendered directly into captured livestream frames, including scaled captures.</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Smoothness</strong>: Streaming lag/stutter has been significantly reduced with pipeline optimizations, resulting in much smoother playback and fewer frame hiccups.</li>
+                                    <li><strong>Fixed:</strong> <strong>Remote Control Right Click</strong>: Right-click from dashboard now correctly executes as right-click on the agent side, and right mouse button no longer triggers left-button down/up drag events.</li>
                                 </ul>
                             </div>
                         </div>
@@ -288,16 +288,16 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Security:</strong> <strong>Request Timeout / Slowloris Protection</strong> — <code>RequestTimeout</code> middleware added (30 s global, 10 min for file transfers, ∞ for SignalR). Kestrel hardened with <code>RequestHeadersTimeout: 15 s</code> and <code>KeepAliveTimeout: 120 s</code>. HTTP/2 stream limit set to 100 per connection.</li>
-                                    <li><strong>Security:</strong> <strong>Error Message Hardening</strong> — Internal <code>ex.Message</code> no longer exposed in HTTP responses across <code>UserController</code>, <code>DeviceController</code>, and <code>FileManagerController</code> (12 locations fixed). All 500 responses now return a safe generic message; full exception details logged server-side only. Global fallback exception handler added to <code>BackEnd/Program.cs</code> with <code>correlationId</code> for log tracing.</li>
-                                    <li><strong>Fixed:</strong> <strong>Script Execution Timeout Removed</strong> — Scripts now run indefinitely until manually stopped by the user. The previous 5-minute hard timeout (<code>CancellationTokenSource(TimeSpan.FromMinutes(5))</code>) has been removed from <code>ScriptExecutionService</code>. Output buffer size limit also removed.</li>
-                                    <li><strong>Improved:</strong> <strong>UI Modernization (Glassmorphism)</strong> — The Blazor FrontEnd has been significantly upgraded with a sleek &ldquo;glassmorphism&rdquo; theme featuring emerald/teal accents. This applies to <code>LiveStream</code>, <code>DeviceControl</code>, <code>AgentSettingsPanel</code>, and authentication pages.</li>
-                                    <li><strong>Fixed:</strong> <strong>Mobile Layout</strong> — Connected devices and history views are now fully responsive on mobile devices via a robust Flexbox layout, fixing overflowing text and stretched elements.</li>
-                                    <li><strong>Improved:</strong> <strong>Live Stream Viewer</strong> — Added dynamic zoom controls allowing users to zoom in/out with the mouse wheel while tracking the cursor position. Added support for up to 240 FPS and dynamic quality settings (10&ndash;100%) for incredibly smooth playback, with 30 FPS set as the new default.</li>
-                                    <li><strong>Fixed:</strong> <strong>Share Screen Link Copy</strong> — The &ldquo;Copy Link&rdquo; button in the Live Stream view now uses synchronous JavaScript logic for improved reliability across all environments.</li>
-                                    <li><strong>Added:</strong> <strong>Stealth Mode</strong> — You can now hide the agent&rsquo;s tray icon directly from the &ldquo;Agent settings&rdquo; panel. When Stealth Mode is enabled, the agent runs silently in the background and is only visible in the Windows Task Manager.</li>
-                                    <li><strong>Added:</strong> <strong>Chat</strong> — Real-time two-way chat window between the dashboard administrator and the remote agent&rsquo;s user, complete with customizable administrator nickname and message history.</li>
-                                    <li><strong>Added:</strong> <strong>Script Manager Enhancements (Job-based)</strong> — The Remote Agent now tracks all running and completed scripts directly in its RAM. The dashboard automatically fetches this real-time status, ensuring you never lose track of a script&rsquo;s progress, even if you close the browser. Includes a new &ldquo;Clear Recent&rdquo; functionality, safe asynchronous script stopping, and the ability to download execution output.</li>
+                                    <li><strong>Security:</strong> <strong>Request Timeout / Slowloris Protection</strong>: <code>RequestTimeout</code> middleware added (30 s global, 10 min for file transfers, ∞ for SignalR). Kestrel hardened with <code>RequestHeadersTimeout: 15 s</code> and <code>KeepAliveTimeout: 120 s</code>. HTTP/2 stream limit set to 100 per connection.</li>
+                                    <li><strong>Security:</strong> <strong>Error Message Hardening</strong>: Internal <code>ex.Message</code> no longer exposed in HTTP responses across <code>UserController</code>, <code>DeviceController</code>, and <code>FileManagerController</code> (12 locations fixed). All 500 responses now return a safe generic message; full exception details logged server-side only. Global fallback exception handler added to <code>BackEnd/Program.cs</code> with <code>correlationId</code> for log tracing.</li>
+                                    <li><strong>Fixed:</strong> <strong>Script Execution Timeout Removed</strong>: Scripts now run indefinitely until manually stopped by the user. The previous 5-minute hard timeout (<code>CancellationTokenSource(TimeSpan.FromMinutes(5))</code>) has been removed from <code>ScriptExecutionService</code>. Output buffer size limit also removed.</li>
+                                    <li><strong>Improved:</strong> <strong>UI Modernization (Glassmorphism)</strong>: The Blazor FrontEnd has been significantly upgraded with a sleek &ldquo;glassmorphism&rdquo; theme featuring emerald/teal accents. This applies to <code>LiveStream</code>, <code>DeviceControl</code>, <code>AgentSettingsPanel</code>, and authentication pages.</li>
+                                    <li><strong>Fixed:</strong> <strong>Mobile Layout</strong>: Connected devices and history views are now fully responsive on mobile devices via a robust Flexbox layout, fixing overflowing text and stretched elements.</li>
+                                    <li><strong>Improved:</strong> <strong>Live Stream Viewer</strong>: Added dynamic zoom controls allowing users to zoom in/out with the mouse wheel while tracking the cursor position. Added support for up to 240 FPS and dynamic quality settings (10&ndash;100%) for incredibly smooth playback, with 30 FPS set as the new default.</li>
+                                    <li><strong>Fixed:</strong> <strong>Share Screen Link Copy</strong>: The &ldquo;Copy Link&rdquo; button in the Live Stream view now uses synchronous JavaScript logic for improved reliability across all environments.</li>
+                                    <li><strong>Added:</strong> <strong>Stealth Mode</strong>: You can now hide the agent&rsquo;s tray icon directly from the &ldquo;Agent settings&rdquo; panel. When Stealth Mode is enabled, the agent runs silently in the background and is only visible in the Windows Task Manager.</li>
+                                    <li><strong>Added:</strong> <strong>Chat</strong>: Real-time two-way chat window between the dashboard administrator and the remote agent&rsquo;s user, complete with customizable administrator nickname and message history.</li>
+                                    <li><strong>Added:</strong> <strong>Script Manager Enhancements (Job-based)</strong>: The Remote Agent now tracks all running and completed scripts directly in its RAM. The dashboard automatically fetches this real-time status, ensuring you never lose track of a script&rsquo;s progress, even if you close the browser. Includes a new &ldquo;Clear Recent&rdquo; functionality, safe asynchronous script stopping, and the ability to download execution output.</li>
                                 </ul>
                             </div>
                         </div>
@@ -311,9 +311,9 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Added:</strong> <strong>Process Blocker</strong> — Prevent specific applications from running on the remote device. Enter the process name in the Task Manager section, and the background agent service will instantly kill it whenever it attempts to start. The blocking setting is saved directly to the Windows Registry and persists across reboots and network reconnects.</li>
-                                    <li><strong>Added:</strong> <strong>Startup Programs — Remove</strong> — Each startup program entry in Computer Info now has a <strong>Remove</strong> button. Clicking it sends an encrypted <code>RequestRemoveStartupProgram</code> command through the hub to the agent, which deletes the registry key (<code>HKCU\..\Run</code>, <code>HKLM\..\Run</code>, or <code>Wow6432Node</code>) or the startup folder shortcut. The result is returned over the same encrypted channel and displayed as a toast notification (success / error). HKLM removal requires the agent to be running as Administrator.</li>
-                                    <li><strong>Added:</strong> <strong>File Manager — Search</strong> — Search for files by name in the current directory (including subdirectories) directly from the web dashboard. Results are capped at 500 items for safety and use the encrypted SignalR tunnel for communication.</li>
+                                    <li><strong>Added:</strong> <strong>Process Blocker</strong>: Prevent specific applications from running on the remote device. Enter the process name in the Task Manager section, and the background agent service will instantly kill it whenever it attempts to start. The blocking setting is saved directly to the Windows Registry and persists across reboots and network reconnects.</li>
+                                    <li><strong>Added:</strong> <strong>Startup Programs, Remove</strong>: Each startup program entry in Computer Info now has a <strong>Remove</strong> button. Clicking it sends an encrypted <code>RequestRemoveStartupProgram</code> command through the hub to the agent, which deletes the registry key (<code>HKCU\..\Run</code>, <code>HKLM\..\Run</code>, or <code>Wow6432Node</code>) or the startup folder shortcut. The result is returned over the same encrypted channel and displayed as a toast notification (success / error). HKLM removal requires the agent to be running as Administrator.</li>
+                                    <li><strong>Added:</strong> <strong>File Manager, Search</strong>: Search for files by name in the current directory (including subdirectories) directly from the web dashboard. Results are capped at 500 items for safety and use the encrypted SignalR tunnel for communication.</li>
                                 </ul>
                             </div>
                         </div>
@@ -326,8 +326,8 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Added:</strong> Script manager tab / Scheduled Script Execution — which allows setting a specific date and time for a script to run automatically, independently managed by the backend server.</li>
-                                    <li><strong>Added:</strong> Server Manager Changelog — In-app changelog viewer that fetches and parses the latest release notes automatically, along with a quick link to download new versions.</li>
+                                    <li><strong>Added:</strong> Script manager tab / Scheduled Script Execution, which allows setting a specific date and time for a script to run automatically, independently managed by the backend server.</li>
+                                    <li><strong>Added:</strong> Server Manager Changelog, In-app changelog viewer that fetches and parses the latest release notes automatically, along with a quick link to download new versions.</li>
                                 </ul>
                             </div>
                         </div>
@@ -355,30 +355,30 @@
                             <div class="changelog-changes">
                                 <h3>Changes</h3>
                                 <ul>
-                                    <li><strong>Added:</strong> Software Manager — Remotely list and uninstall
+                                    <li><strong>Added:</strong> Software Manager, Remotely list and uninstall
                                         applications via Windows Registry.</li>
-                                    <li><strong>Added:</strong> Power Controls — Shutdown and Restart devices remotely
+                                    <li><strong>Added:</strong> Power Controls, Shutdown and Restart devices remotely
                                         from the Task Manager panel.</li>
-                                    <li><strong>Added:</strong> Device History — Track and manage previously connected
+                                    <li><strong>Added:</strong> Device History, Track and manage previously connected
                                         devices.</li>
-                                    <li><strong>Added:</strong> File Manager — dynamic drives — Quick-access buttons for
+                                    <li><strong>Added:</strong> File Manager, dynamic drives, Quick-access buttons for
                                         all ready drives (fixed, removable, network) fetched from the agent over the
                                         encrypted SignalR channel.</li>
-                                    <li><strong>Added:</strong> File Manager — quick folders — Program Files, Program
+                                    <li><strong>Added:</strong> File Manager, quick folders, Program Files, Program
                                         Files (x86), and Roaming AppData shortcuts (resolved on the agent via shell
                                         folder tokens, same pattern as Desktop/Documents/Downloads).</li>
-                                    <li><strong>Improved:</strong> File Manager UX — Open folders with a single click on
+                                    <li><strong>Improved:</strong> File Manager UX, Open folders with a single click on
                                         the row; upload target automatically follows the current browse path (no separate
                                         “Set as Target” step).</li>
-                                    <li><strong>Added:</strong> File Manager — upload and run — Optional checkbox to
+                                    <li><strong>Added:</strong> File Manager, upload and run, Optional checkbox to
                                         open uploaded files automatically on the agent after transfer completes.</li>
-                                    <li><strong>Added:</strong> Desktop Screenshot — Close Image — Dismiss the
+                                    <li><strong>Added:</strong> Desktop Screenshot, Close Image, Dismiss the
                                         screenshot preview from the device control UI.</li>
-                                    <li><strong>Added:</strong> Server Manager — log toggle — Checkbox to turn
+                                    <li><strong>Added:</strong> Server Manager, log toggle, Checkbox to turn
                                         application logging on or off.</li>
-                                    <li><strong>Fixed:</strong> Server Manager — Stopping or restarting the frontend no
+                                    <li><strong>Fixed:</strong> Server Manager, Stopping or restarting the frontend no
                                         longer stops the backend (independent service controls).</li>
-                                    <li><strong>Added:</strong> Dashboard Lock (optional) — Cookie session for the Blazor
+                                    <li><strong>Added:</strong> Dashboard Lock (optional), Cookie session for the Blazor
                                         UI, lock-aware redirects, <code>/authentication/continue</code> when lock is
                                         disabled, safe <code>returnUrl</code> handling; backend stores the dashboard
                                         password as a secure hash; short-lived JWT for admin SignalR and protected REST
@@ -386,10 +386,10 @@
                                         endpoints (<code>agent-download</code> / <code>agent-upload</code>) remain
                                         reachable without JWT; <code>configure</code> requires auth or
                                         <code>DASHBOARD_LOCK_ADMIN_SECRET</code>.</li>
-                                    <li><strong>Added:</strong> Remove Agent — Remote uninstall flow with confirmation;
+                                    <li><strong>Added:</strong> Remove Agent, Remote uninstall flow with confirmation;
                                         offline queue in SQLite (<code>PendingAgentCommands</code>) until the agent
                                         reconnects.</li>
-                                    <li><strong>Added:</strong> Lock settings UI — Dashboard button on
+                                    <li><strong>Added:</strong> Lock settings UI, Dashboard button on
                                         <code>/authentication/settings</code> opens the devices page (<code>/devices</code>).</li>
                                 </ul>
                             </div>
