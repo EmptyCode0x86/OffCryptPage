@@ -1151,24 +1151,25 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .vg-demo.is-playing .vg-packet,
-            .vg-demo.is-playing .vg-scan,
-            .vg-demo.is-playing .vg-eye,
-            .vg-demo.is-playing .vg-node--hs,
-            .vg-demo.is-playing .vg-shuffle span,
-            .vg-demo.is-playing .vg-status__fill,
-            .vg-demo.is-playing .vg-shield,
-            .vg-demo.is-playing .vg-block,
-            .vg-demo.is-playing .vg-node--pinned {
+            /* Decorative demo: motion still runs via .force-motion (set by JS). */
+            .vg-demo.is-playing:not(.force-motion) .vg-packet,
+            .vg-demo.is-playing:not(.force-motion) .vg-scan,
+            .vg-demo.is-playing:not(.force-motion) .vg-eye,
+            .vg-demo.is-playing:not(.force-motion) .vg-node--hs,
+            .vg-demo.is-playing:not(.force-motion) .vg-shuffle span,
+            .vg-demo.is-playing:not(.force-motion) .vg-status__fill,
+            .vg-demo.is-playing:not(.force-motion) .vg-shield,
+            .vg-demo.is-playing:not(.force-motion) .vg-block,
+            .vg-demo.is-playing:not(.force-motion) .vg-node--pinned {
                 animation: none !important;
             }
-            .vg-packet { opacity: 0.7; left: 50%; }
-            .vg-eye { opacity: 0.85; }
-            .vg-block { opacity: 1; }
-            .vg-shield { opacity: 0.75; }
-            .vg-shuffle span:first-child { opacity: 1; }
-            .vg-shuffle span:not(:first-child) { opacity: 0; }
-            .vg-panel--risk .vg-status__fill { width: 90%; }
+            .vg-demo:not(.force-motion) .vg-packet { opacity: 0.7; left: 50%; }
+            .vg-demo:not(.force-motion) .vg-eye { opacity: 0.85; }
+            .vg-demo:not(.force-motion) .vg-block { opacity: 1; }
+            .vg-demo:not(.force-motion) .vg-shield { opacity: 0.75; }
+            .vg-demo:not(.force-motion) .vg-shuffle span:first-child { opacity: 1; }
+            .vg-demo:not(.force-motion) .vg-shuffle span:not(:first-child) { opacity: 0; }
+            .vg-demo:not(.force-motion) .vg-panel--risk .vg-status__fill { width: 90%; }
         }
     </style>
 </head>
@@ -2105,21 +2106,31 @@
     (function () {
         var demo = document.querySelector('[data-vg-demo]');
         if (!demo) return;
-        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduce || !('IntersectionObserver' in window)) {
-            demo.classList.add('is-playing');
+
+        function startDemo() {
+            // force-motion: play even when OS has prefers-reduced-motion (Windows Animation effects off)
+            demo.classList.add('force-motion', 'is-playing');
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            startDemo();
             return;
         }
+
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-playing');
-                } else {
-                    entry.target.classList.remove('is-playing');
+                    startDemo();
+                    io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
         io.observe(demo);
+
+        if (demo.getBoundingClientRect().top < window.innerHeight * 0.9) {
+            startDemo();
+            io.unobserve(demo);
+        }
     })();
     </script>
 
