@@ -9,7 +9,7 @@
     <meta name="description"
         content="OffCode Tor Chat: self-hosted Tor chat with browser WebCrypto AES-GCM. Password rooms are server-blind E2EE; open rooms are public encrypted channels. SignalR relay, SQLCipher, Server Manager, optional Full Vanguards.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-07-21">
+    <meta name="last-modified" content="2026-07-23">
     <meta name="keywords"
         content="Tor Chat, TorChat, torchat, onion chat, .onion links, E2EE chat, Tor Hidden Service, SignalR, WebCrypto, AES-GCM, SQLCipher, Vanguards, OffCode, anonymous chat">
     <meta name="robots" content="index, follow">
@@ -64,8 +64,8 @@
         "@id": "https://www.dev-offcode.com/TorChatPage.html#software",
         "name": "OffCode Tor Chat",
         "applicationCategory": "CommunicationApplication, SecurityApplication",
-        "operatingSystem": "Windows (host); Tor Browser (clients)",
-        "description": "Self-hosted Tor Hidden Service chat. Messages are encrypted in the browser with WebCrypto AES-GCM. Password-protected rooms are server-blind E2EE; open rooms use a room-id-derived key (public channels). SignalR relay and SQLCipher ciphertext storage.",
+        "operatingSystem": "Windows (host); Linux/Docker (host); Tor Browser (clients)",
+        "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. Creator Settings (close/slow mode/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
         "url": "https://www.dev-offcode.com/TorChatPage.html",
         "image": "https://www.dev-offcode.com/TorChat1.png",
         "offers": [
@@ -80,7 +80,7 @@
                 "@type": "Offer",
                 "name": "Developer License - Source Code",
                 "availability": "https://schema.org/ComingSoon",
-                "price": "29",
+                "price": "49",
                 "priceCurrency": "USD"
             }
         ],
@@ -139,7 +139,7 @@
                 "name": "Do I host Tor Chat myself?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your machine. Optional Full Vanguards hardens long-lived onions. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
+                    "text": "Yes. Server Manager on Windows starts ChatServer (health check) then a Tor v3 Hidden Service. Optional Full Vanguards hardens long-lived onions. Docker compose (ChatServer + Tor, no host ports) is also supported. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
                 }
             },
             {
@@ -147,7 +147,7 @@
                 "name": "How does end-to-end encryption work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate KDF domains so the server cannot derive the message key; password never leaves the browser. Open rooms encrypt too but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number for out-of-band peer verification."
+                    "text": "Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at 600000 iterations, then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate v2 KDF domains so the server cannot derive the message key; password never leaves the browser. The server stores a second PBKDF2 hash of the join proof (250000 iterations, iter:salt:hash). Open rooms encrypt too (pbkdf2-v2) but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number for out-of-band peer verification."
                 }
             },
             {
@@ -184,10 +184,10 @@
             },
             {
                 "@type": "Question",
-                "name": "What are Close room and the creator recovery code?",
+                "name": "What can room creators do in Settings?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Close room to new members (creator Settings) rejects all new joins, including invite links; people already in the room stay. It does not make an open room server-blind; use a password for that. The creator recovery code on Profile binds hidden rooms you create to My rooms; Copy it and Restore after Tor New Identity or clear site data so you can list those rooms again."
+                    "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Slow mode sets a send cooldown for everyone including the creator. Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones — Copy and Restore after Tor New Identity or clear site data."
                 }
             },
             {
@@ -1339,14 +1339,15 @@
                         </p>
 
                         <p class="intro-description">
-                            Host with <strong>Server Manager</strong> (<a href="#server-manager">section below</a>).
-                            <strong>Password rooms</strong> are server-blind E2EE (the host cannot derive the room key).
-                            <strong>Open rooms</strong> still encrypt in the browser, but the key is derived from the
-                            room id: intentional public channels. <strong>Hidden rooms</strong> stay off the public list
-                            and use invite links; add a password for private E2EE. Creators can <strong>close a room</strong>
-                            to new members and recover hidden rooms via a <strong>Profile recovery code</strong>
-                            (<strong>My rooms</strong>). Optional <strong>Full Vanguards</strong> hardens long-lived onions
-                            against guard-discovery.
+                            Host with <strong>Server Manager</strong> on Windows, or headless <strong>Docker</strong>
+                            (ChatServer + Tor HS). <strong>Password rooms</strong> are server-blind E2EE (the host cannot
+                            derive the room key). <strong>Open rooms</strong> still encrypt in the browser, but the key
+                            is derived from the room id: intentional public channels. <strong>Hidden rooms</strong> stay
+                            off the public list and use invite links; add a password for private E2EE. Creators get
+                            Settings for <strong>close joins</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
+                            and <strong>delete room</strong>, plus a <strong>Profile recovery code</strong>
+                            (<strong>My rooms</strong> for hidden). Required message TTL, E2EE attachments, and optional
+                            <strong>Full Vanguards</strong> complete the stack.
                         </p>
 
                         <div class="intro-highlights">
@@ -1392,7 +1393,7 @@
                                 <li>
                                     <span class="torchat-flow-step__label">Password</span>
                                     <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
-                                    <span class="torchat-flow-step__value"><code>PBKDF2</code></span>
+                                    <span class="torchat-flow-step__value"><code>PBKDF2-v2</code> (600k)</span>
                                     <span class="torchat-flow-step__arrow" aria-hidden="true">→</span>
                                     <span class="torchat-flow-step__value"><code>roomKey</code> + join proof</span>
                                 </li>
@@ -1446,23 +1447,26 @@
                             <h3>Tor-only hosting</h3>
                             <p>ChatServer binds <code>127.0.0.1</code> only. Tor Expert Bundle publishes a v3
                                 <code>.onion</code> and forwards VirtualPort 80 (and the app port) to localhost; no
-                                clearnet chat listener.</p>
+                                clearnet chat listener. Optional Docker compose: ChatServer + Tor (no host ports).</p>
                             <ul class="feature-list">
                                 <li><code>HiddenServiceVersion 3</code>, <code>ClientOnly 1</code>, <code>SafeLogging 1</code></li>
                                 <li>SOCKS disabled on the HS process (<code>SOCKSPort 0</code>)</li>
                                 <li>Open in Tor Browser: <code>http://ADDRESS.onion/</code></li>
+                                <li>Client clearnet banner if the page host is not <code>.onion</code> / localhost</li>
                             </ul>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-icon">🔐</div>
-                            <h3>Browser encryption</h3>
-                            <p>WebCrypto PBKDF2 → AES-256-GCM. Separate KDF domains for join proof vs room key on locked
-                                rooms so the server cannot derive the message key from join material.</p>
+                            <h3>Browser encryption (pbkdf2-v2)</h3>
+                            <p>WebCrypto PBKDF2-HMAC-SHA256 (<strong>600&nbsp;000</strong> iterations) → AES-256-GCM.
+                                Separate v2 KDF domains for join proof vs room key on locked rooms so the server cannot
+                                derive the message key from join material.</p>
                             <ul class="feature-list">
                                 <li>AAD binds <code>roomId|senderId|nonce|clientSentAtUnixMs</code></li>
-                                <li><strong>Locked:</strong> password stays in the browser: server-blind E2EE (min 8 chars)</li>
-                                <li><strong>Open:</strong> key from <code>torchat-open-material:{roomId}</code>: public channel by design</li>
+                                <li><strong>Locked:</strong> password stays in the browser — server-blind E2EE</li>
+                                <li><strong>Open:</strong> key from <code>torchat-open-material-v2:{roomId}</code> — public by design</li>
+                                <li>Server stores join-proof hash as <code>250000:salt:hash</code> (250k PBKDF2)</li>
                                 <li>1:1 ECDH hybrid + safety number (3×5 decimal) for peer verify / TOFU</li>
                                 <li>No Double Ratchet yet; prefer short message retention if passwords may leak</li>
                             </ul>
@@ -1471,25 +1475,39 @@
                         <div class="feature-card">
                             <div class="feature-icon">💬</div>
                             <h3>Rooms, invites &amp; TTL</h3>
-                            <p>Open, password-protected, and/or hidden rooms with invite links and per-message lifetime.</p>
+                            <p>Open, password-protected, and/or hidden rooms with invite links and required per-message lifetime.</p>
                             <ul class="feature-list">
                                 <li>Hidden rooms: not listed; join via <code>?invite=</code> (+ password if locked)</li>
-                                <li><strong>Close room to new members</strong> in Settings: blocks all joins (including invites); existing members stay</li>
-                                <li><strong>Creator recovery code</strong> (Profile) binds your hidden rooms to <strong>My rooms</strong>: Copy / Restore after Tor New Identity</li>
-                                <li>Retention: 30 min … 1 week / Never (default 8 h)</li>
+                                <li><strong>Message expiry required:</strong> 30&nbsp;min … 1&nbsp;week (default 8&nbsp;h). No forever option</li>
+                                <li>E2EE attachments (images + small files) on the same <code>SendEncrypted</code> path</li>
+                                <li>Profile: hide date/time stamps; pick message time zone (Tor often shows UTC)</li>
                                 <li>Unique <code>senderId</code> per room; server binds send identity to the session</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Creator Settings</h3>
+                            <p>Only the room creator sees Settings (manage token and/or Profile recovery code).</p>
+                            <ul class="feature-list">
+                                <li><strong>Close room to new members</strong> — blocks all joins (including invites); members stay</li>
+                                <li><strong>Slow mode</strong> — send cooldown 1&nbsp;min … 4&nbsp;h (applies to everyone, including creator)</li>
+                                <li><strong>Lock later</strong> — set a password once on an open room; wipes open history</li>
+                                <li><strong>Delete this room</strong> — same wipe path as Server Manager room delete</li>
+                                <li><strong>Creator recovery code</strong> — binds rooms you create; <strong>My rooms</strong> lists hidden; Copy / Restore</li>
                             </ul>
                         </div>
 
                         <div class="feature-card">
                             <div class="feature-icon">🗄️</div>
                             <h3>Ciphertext storage</h3>
-                            <p>SQLCipher database under LocalAppData. DPAPI-wrapped DB key. Parameterized queries.
-                                Plaintext is never written to disk.</p>
+                            <p>SQLCipher database under LocalAppData (Windows) or Docker volume. DPAPI / env key.
+                                Parameterized queries. Plaintext is never written to disk.</p>
                             <ul class="feature-list">
-                                <li>Rooms + ciphertext envelopes only</li>
+                                <li>Rooms + ciphertext envelopes only (<code>encryption_version</code>: pbkdf2-v2 / ecdh-hybrid-v1)</li>
                                 <li>Max 500 messages per room (oldest trimmed)</li>
-                                <li>Expired rows: <code>secure_delete</code> + WAL checkpoint / VACUUM (best-effort page wipe)</li>
+                                <li>Expired rows: <code>secure_delete</code> + WAL checkpoint / VACUUM</li>
+                                <li>Replay fingerprints + restart-gap reject via <code>server_meta</code></li>
                             </ul>
                         </div>
 
@@ -1500,7 +1518,9 @@
                                 on scripts.</p>
                             <ul class="feature-list">
                                 <li>Strict CSP (<code>script-src</code> / <code>connect-src 'self'</code>)</li>
-                                <li>No IndexedDB / WebRTC; manage tokens may use browser storage for creator UI only</li>
+                                <li>CORS locked to your onion (<code>TORCHAT_ALLOWED_ONION</code> + live admin POST)</li>
+                                <li><code>tools/verify-sri.ps1</code> checks <code>index.html</code> hashes vs wwwroot JS</li>
+                                <li>No IndexedDB / WebRTC; creator recovery may use <code>localStorage</code> (not an E2EE secret)</li>
                                 <li>DOM built with <code>textContent</code> / <code>createElement</code></li>
                             </ul>
                         </div>
@@ -1540,10 +1560,11 @@
                         </div>
 
                     <ul class="torchat-manager-list">
-                        <li>Start / stop ChatServer and the Tor Hidden Service from one place</li>
+                        <li>Start ChatServer first (Production, waits for <code>/api/health</code>), then enable Tor</li>
                         <li>Copy and share the published <code>.onion</code> URL</li>
                         <li>Optional Full Vanguards checkbox (Python + Stem) for long-lived HS hardening</li>
-                        <li>Sets <code>TORCHAT_ALLOWED_ONION</code> for ChatServer CORS when the onion is known</li>
+                        <li>Locks CORS to your onion: <code>TORCHAT_ALLOWED_ONION</code> on start + live
+                            <code>POST /api/admin/cors-onion</code> (no ChatServer restart)</li>
                         <li>Live room list (room id, locked flag, online count only, no message content)</li>
                         <li>Remove a selected room in realtime: connected users are forced back to the lobby;
                             ciphertext for that room is deleted with <code>secure_delete</code> + VACUUM</li>
@@ -1589,20 +1610,22 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><strong>Kestrel hardening</strong>: <code>AddServerHeader = false</code>,
-                                            <code>MaxRequestBodySize</code> ≈ 64 KB</td>
+                                        <td><strong>Kestrel / SignalR hardening</strong>: <code>AddServerHeader = false</code>,
+                                            max body / receive ≈ <strong>4&nbsp;MiB</strong> (E2EE image envelopes);
+                                            <code>ClientTimeoutInterval</code> 5&nbsp;min</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td><strong>Rate limiting</strong>: Global HTTP ceiling; hub negotiate and
-                                            <code>/api/*</code> per connection; Create / Join / Send / GetRooms hub
-                                            method limits (ConnectionId, Tor has no useful client IP)</td>
+                                        <td><strong>Rate limiting</strong>: Global HTTP ceiling (~600/min); hub negotiate and
+                                            <code>/api/*</code> per connection; Create / Join / Send / GetRooms / GetMyRooms
+                                            / invite-manage hub limits (ConnectionId — Tor has no useful client IP)</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td><strong>CORS</strong>: loopback always; <code>TORCHAT_ALLOWED_ONION</code>
-                                            whitelist (set by Server Manager). Fallback any <code>*.onion</code> if unset.
-                                            No <code>AllowCredentials</code></td>
+                                        <td><strong>CORS</strong>: loopback always; mutable onion allowlist
+                                            (<code>TORCHAT_ALLOWED_ONION</code> + live
+                                            <code>POST /api/admin/cors-onion</code>). Empty allowlist = any
+                                            <code>*.onion</code> until locked. No <code>AllowCredentials</code></td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
@@ -1640,7 +1663,9 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Join proofs</strong></td>
-                                        <td>Locked rooms store PBKDF2 hash of join proof (not password, not E2EE key);
+                                        <td>Locked rooms store PBKDF2-HMAC-SHA256 hash of join proof
+                                            (<strong>250&nbsp;000</strong> iterations, 32-byte salt) as
+                                            <code>250000:salt:hash</code> — not the password and not the E2EE key;
                                             constant-time verify</td>
                                     </tr>
                                     <tr>
@@ -1666,9 +1691,20 @@
                                             existing members stay. Not the same as server-blind E2EE</td>
                                     </tr>
                                     <tr>
+                                        <td><strong>Slow mode</strong></td>
+                                        <td>Optional per-room send cooldown (1&nbsp;min … 4&nbsp;h); applies to every
+                                            <code>senderId</code> including the creator; text + attachments</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Lock later / Delete</strong></td>
+                                        <td>Creator can set a one-way password on an open room (wipes open history) or
+                                            delete the room (same wipe as admin <code>DELETE /api/rooms/{id}</code>)</td>
+                                    </tr>
+                                    <tr>
                                         <td><strong>Creator recovery</strong></td>
-                                        <td>Profile recovery code binds hidden rooms to <strong>My rooms</strong>
-                                            (<code>GetMyRooms</code>); Copy / Restore after clear site data</td>
+                                        <td>Profile recovery code binds rooms you create; <strong>My rooms</strong>
+                                            lists hidden via <code>GetMyRooms</code>; Copy / Restore after clear site data.
+                                            Settings visible only to the creator</td>
                                     </tr>
                                     <tr>
                                         <td><strong>Secure erasure</strong></td>
@@ -1686,10 +1722,11 @@
                                         <td><code>CreateRoom</code> may return <code>Room already exists.</code>; only join errors are fully generic</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Admin room delete</strong></td>
-                                        <td><code>DELETE /api/rooms/{id}</code> requires
-                                            <code>X-TorChat-Admin</code> token from Server Manager env (Tor clients
-                                            cannot delete rooms)</td>
+                                        <td><strong>Admin APIs</strong></td>
+                                        <td><code>GET /api/rooms</code>, <code>DELETE /api/rooms/{id}</code>, and
+                                            <code>POST /api/admin/cors-onion</code> require
+                                            <code>X-TorChat-Admin</code> (CSPRNG token from Server Manager env).
+                                            Tor clients cannot call these</td>
                                     </tr>
                                     <tr>
                                         <td><strong>SQL injection</strong></td>
@@ -1717,9 +1754,10 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>Encryption</strong></td>
-                                        <td>WebCrypto AES-256-GCM; PBKDF2 domains
-                                            (<code>torchat-join-v1</code> / <code>torchat-e2ee-v1</code> locked =
-                                            server-blind; <code>torchat-open-v1</code> open = public key material)</td>
+                                        <td>WebCrypto AES-256-GCM; PBKDF2-v2 domains at <strong>600&nbsp;000</strong>
+                                            iterations (<code>torchat-join-v2</code> / <code>torchat-e2ee-v2</code> locked =
+                                            server-blind; <code>torchat-open-v2</code> open = public key material).
+                                            Envelopes: <code>pbkdf2-v2</code> / <code>ecdh-hybrid-v1</code></td>
                                     </tr>
                                     <tr>
                                         <td><strong>ECDH + safety number</strong></td>
@@ -1728,7 +1766,13 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Subresource Integrity</strong></td>
-                                        <td><code>integrity=</code> on SignalR + app scripts (first-party only)</td>
+                                        <td><code>integrity=</code> on SignalR + app scripts (first-party only);
+                                            operator check: <code>tools/verify-sri.ps1</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Clearnet warning</strong></td>
+                                        <td>Soft banner if the page host is not <code>.onion</code> /
+                                            <code>127.0.0.1</code> / <code>localhost</code> (does not block chat)</td>
                                     </tr>
                                     <tr>
                                         <td><strong>XSS hardening</strong></td>
@@ -1925,14 +1969,13 @@
                         <li>Not a cloud messenger provider, no OffCode-hosted chat backend and no third-party
                             message platform in the middle</li>
                         <li>Tor-only Hidden Service, clients reach you via <code>.onion</code>; the chat HTTP stack
-                            does not bind clearnet</li>
-                        <li>You host with Server Manager, ChatServer + Tor on your machine, onion URL under your
-                            control</li>
-                        <li>Password-protected rooms: server-blind E2EE: the host cannot derive the room key</li>
-                        <li>Open rooms: public encrypted channels (key from room id): use when you want a free join lobby</li>
-                        <li>Close room / invite Settings for creators; Profile recovery code → My rooms for hidden rooms</li>
-                        <li>1:1 safety numbers for out-of-band peer verification; optional Full Vanguards on the host</li>
-                            </ul>
+                            does not bind clearnet (optional Docker compose without host ports)</li>
+                        <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control</li>
+                        <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k) — the host cannot derive the room key</li>
+                        <li>Open rooms: public encrypted channels (key from room id) — use when you want a free join lobby</li>
+                        <li>Creator Settings: close joins, slow mode, lock later, delete room; Profile recovery → My rooms</li>
+                        <li>Required message TTL (no forever); E2EE attachments; 1:1 safety numbers; optional Full Vanguards</li>
+                    </ul>
 
                     <p class="torchat-why-note">
                         This is about architecture and privacy defaults, self-hosting on Tor instead of relying on
@@ -1968,7 +2011,8 @@
 
                             <div class="guarantee-box">
                                 <span class="glow-check">✓</span>
-                                <p class="updates-notice">Full Tor chat stack including password E2EE, open rooms, invites, and future updates.
+                                <p class="updates-notice">Full Tor chat stack: password E2EE (pbkdf2-v2), open/hidden rooms,
+                                    creator Settings, Docker option, and future updates.
                                 </p>
                             </div>
                             <a href="#" class="plan-button premium-button" onclick="return false;"
@@ -1978,7 +2022,7 @@
                                 <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Access
                                     &amp; Self-Hosted</p>
                                 <p style="margin-bottom: 0.5rem;"><strong>Deployment:</strong></p>
-                                <p style="margin: 0.25rem 0;">Windows / Tor Hidden Service</p>
+                                <p style="margin: 0.25rem 0;">Windows Server Manager or Docker + Tor HS</p>
                             </div>
                         </div>
 
@@ -1991,7 +2035,7 @@
                             <h3 style="color: #ffd700;">Developer License</h3>
                             <div class="price-container">
                                 <span class="price"
-                                    style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$29</span>
+                                    style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$49</span>
                                 <span class="price-period">One-time</span>
                             </div>
                             <div class="pricing-info-box">
@@ -2011,7 +2055,9 @@
                                 <li style="margin: 0.5rem 0;">✅ Server Manager (WinForms) source</li>
                                 <li style="margin: 0.5rem 0;">✅ SQLCipher + DPAPI security modules</li>
                                 <li style="margin: 0.5rem 0;">✅ Tor Hidden Service + optional Full Vanguards</li>
-                                <li style="margin: 0.5rem 0;">✅ Hidden invites, close room, creator recovery / My rooms</li>
+                                <li style="margin: 0.5rem 0;">✅ Hidden invites, close / slow mode / lock later / delete</li>
+                                <li style="margin: 0.5rem 0;">✅ Creator recovery / My rooms; PBKDF2-v2 (600k / 250k)</li>
+                                <li style="margin: 0.5rem 0;">✅ Docker compose host + SRI verify script</li>
                                 <li style="margin: 0.5rem 0;">✅ Secure erasure (DB wipe / HS key wipe)</li>
                                 <li style="margin: 0.5rem 0;">✅ Replay protection &amp; rate limiting</li>
                                 <li style="margin: 0.5rem 0;">✅ Modify &amp; build your own version</li>
@@ -2047,17 +2093,22 @@
                             </div>
                             <div class="faq-item">
                                 <h4>Do I host Tor Chat myself?</h4>
-                                <p>Yes. Server Manager on Windows starts ChatServer and a Tor v3 Hidden Service on your
-                                    machine. Optional Full Vanguards hardens long-lived onions. There is no OffCode-hosted
-                                    chat cloud; you control the onion URL and the stack.</p>
+                                <p>Yes. Server Manager on Windows starts ChatServer (wait for health) then a Tor v3
+                                    Hidden Service. Optional Full Vanguards hardens long-lived onions. Headless
+                                    <strong>Docker</strong> compose (ChatServer + Tor, no host ports) is also supported.
+                                    There is no OffCode-hosted chat cloud; you control the onion URL and the stack.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>How does end-to-end encryption work?</h4>
-                                <p>Clients encrypt with WebCrypto (PBKDF2 then AES-256-GCM) before sending.
-                                    <strong>Locked rooms:</strong> join proof and room key use separate KDF domains
-                                    (<code>torchat-join-v1</code> / <code>torchat-e2ee-v1</code>) so the server cannot
-                                    derive the message key; the password never leaves the browser.
-                                    <strong>Open rooms:</strong> still encrypted, but the key is derived from the room id, anyone who knows the id (including the host) can decrypt.
+                                <p>Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at <strong>600&nbsp;000</strong>
+                                    iterations, then AES-256-GCM) before sending.
+                                    <strong>Locked rooms:</strong> join proof and room key use separate v2 KDF domains
+                                    (<code>torchat-join-v2</code> / <code>torchat-e2ee-v2</code>) so the server cannot
+                                    derive the message key; the password never leaves the browser. The server stores a
+                                    second PBKDF2 hash of the join proof (<strong>250&nbsp;000</strong> iters,
+                                    <code>iter:salt:hash</code>).
+                                    <strong>Open rooms:</strong> still encrypted (<code>pbkdf2-v2</code>), but the key is
+                                    derived from the room id — anyone who knows the id (including the host) can decrypt.
                                     <strong>1:1:</strong> ECDH hybrid plus a safety number for out-of-band peer verify.</p>
                             </div>
                             <div class="faq-item">
@@ -2089,12 +2140,14 @@
                                     Tor clients cannot call the admin delete API.</p>
                             </div>
                             <div class="faq-item">
-                                <h4>What are Close room and the creator recovery code?</h4>
-                                <p><strong>Close room to new members</strong> (creator Settings) rejects all new joins,
-                                    including invite links; people already in the room stay. It does not make an open
-                                    room server-blind; use a password for that. The <strong>creator recovery code</strong>
-                                    on Profile binds hidden rooms you create to <strong>My rooms</strong>; Copy it and
-                                    Restore after Tor New Identity or clear site data so you can list those rooms again.</p>
+                                <h4>What can room creators do in Settings?</h4>
+                                <p>Only the room creator sees Settings. <strong>Close room to new members</strong>
+                                    rejects all new joins (including invites); people already in stay.
+                                    <strong>Slow mode</strong> sets a send cooldown for everyone including the creator.
+                                    <strong>Lock later</strong> sets a one-way password on an open room (wipes open history).
+                                    <strong>Delete this room</strong> wipes the room like Server Manager delete.
+                                    The <strong>creator recovery code</strong> on Profile binds rooms you create;
+                                    <strong>My rooms</strong> lists hidden ones — Copy / Restore after Tor New Identity.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Tor Chat not working: what should I check?</h4>
