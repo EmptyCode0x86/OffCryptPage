@@ -74,7 +74,7 @@
         btn.type = 'button';
         btn.className = 'features-carousel-dot';
         btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-label', 'Go to feature group ' + (i + 1));
+        btn.setAttribute('aria-label', 'Go to slide group ' + (i + 1));
         btn.setAttribute('aria-selected', 'false');
         btn.addEventListener('click', () => scrollToIndex(i));
         dotsHost.appendChild(btn);

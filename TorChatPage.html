@@ -48,7 +48,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
 
-    <link rel="preload" href="styles.css?v=2.9.0" as="style">
+    <link rel="preload" href="styles.css?v=2.9.3" as="style">
     <link rel="preload" href="TorChat1.png" as="image">
     <link rel="preload" href="TorManager1.png" as="image">
     <link rel="preload" href="TorManager2.png" as="image">
@@ -244,7 +244,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.9.0">
+    <link rel="stylesheet" href="styles.css?v=2.9.3">
     <style>
         .torchat-hero-shot {
             margin: 1.25rem auto 2rem;
@@ -1610,13 +1610,98 @@
                         <p class="hero-subtitle">TorChat: self-hosted Tor chat; password rooms are server-blind E2EE; open rooms are public channels</p>
                         <div class="hero-glow-divider"></div>
 
-                        <figure class="torchat-hero-shot">
-                            <img src="TorChat1.png" width="1200" height="630"
-                                alt="OffCode TorChat lobby, rooms list, create room, and Copper/Forge UI"
-                                loading="eager" decoding="async">
-                            <figcaption class="torchat-hero-hint">Tor Browser UI: rooms, create/join, encrypted messaging
-                            </figcaption>
-                        </figure>
+                        <div id="screenshots" class="torchat-screens">
+                            <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                            <div class="features-carousel" id="torchat-screens-carousel" data-features-carousel>
+                                <button type="button" class="features-carousel-btn prev"
+                                    aria-label="Previous screenshot"
+                                    aria-controls="torchat-screens-track">
+                                    <span aria-hidden="true">‹</span>
+                                </button>
+                                <button type="button" class="features-carousel-btn next"
+                                    aria-label="Next screenshot"
+                                    aria-controls="torchat-screens-track">
+                                    <span aria-hidden="true">›</span>
+                                </button>
+                                <div class="features-carousel-track" id="torchat-screens-track" role="region"
+                                    aria-roledescription="carousel" aria-label="Tor Chat screenshots" tabindex="0">
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="TorChat1.png" width="1200" height="630"
+                                                alt="OffCode TorChat lobby, rooms list, create room, and Copper/Forge UI"
+                                                loading="eager" decoding="async"
+                                                data-full="TorChat1.png"
+                                                data-title="Lobby — rooms list, create/join, Copper/Forge UI">
+                                        </div>
+                                        <figcaption>Lobby — rooms list, create/join, Copper/Forge UI
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="MyRoomsTorChat.png" width="1200" height="630"
+                                                alt="OffCode TorChat My rooms — hidden rooms bound to creator recovery"
+                                                loading="lazy" decoding="async"
+                                                data-full="MyRoomsTorChat.png"
+                                                data-title="My rooms — hidden rooms via creator recovery">
+                                        </div>
+                                        <figcaption>My rooms — hidden rooms via creator recovery
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="ProfileTorChat.png" width="1200" height="630"
+                                                alt="OffCode TorChat Profile — recovery code and display settings"
+                                                loading="lazy" decoding="async"
+                                                data-full="ProfileTorChat.png"
+                                                data-title="Profile — recovery code and display settings">
+                                        </div>
+                                        <figcaption>Profile — recovery code and display settings
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="TorPrivateChat.png" width="1200" height="630"
+                                                alt="OffCode TorChat private password room — encrypted messaging"
+                                                loading="lazy" decoding="async"
+                                                data-full="TorPrivateChat.png"
+                                                data-title="Private chat — password room E2EE messaging">
+                                        </div>
+                                        <figcaption>Private chat — password room E2EE messaging
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="RoomSettings.png" width="1200" height="630"
+                                                alt="OffCode TorChat room Settings — close joins, slow mode, lock later, delete"
+                                                loading="lazy" decoding="async"
+                                                data-full="RoomSettings.png"
+                                                data-title="Room Settings — creator controls">
+                                        </div>
+                                        <figcaption>Room Settings — close joins, slow mode, lock / delete
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="feature-card screenshot-card">
+                                        <div class="screenshot-frame">
+                                            <img src="RoomSettings2.png" width="1200" height="630"
+                                                alt="OffCode TorChat room Settings — additional creator options"
+                                                loading="lazy" decoding="async"
+                                                data-full="RoomSettings2.png"
+                                                data-title="Room Settings — more creator options">
+                                        </div>
+                                        <figcaption>Room Settings — more creator options
+                                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <div class="features-carousel-dots" role="tablist"
+                                    aria-label="Screenshot slides"></div>
+                            </div>
+                        </div>
 
                         <div class="video-showcase-card torchat-hero-video">
                             <div class="video-ratio-wrap">
@@ -2371,6 +2456,8 @@
                             </ul>
                             <a href="TorSourceDisclaimer.html" class="plan-button"
                                 style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000; font-weight: bold;">Purchase</a>
+                            <p style="margin: 0.75rem 0 0; color: #00ff88; font-weight: bold; font-size: 0.9rem; text-align: center;">
+                                Instant access — download right after payment</p>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
                                 <p style="margin-bottom: 0.5rem; color: #ffd700; font-weight: bold;">Personal Developer
@@ -2478,10 +2565,80 @@
         </main>
     </div>
 
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="close" aria-label="Close enlarged image">&times;</button>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
         data-cfasync="false"></script>
     <script src="script.js" defer></script>
+    <script src="features-carousel.js" defer></script>
+    <script>
+    (function () {
+        function bootScreenshotLightbox() {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            var modalTitle = document.getElementById('modalTitle');
+            var modalDesc = document.getElementById('modalDesc');
+            if (!modal || !modalImg) return;
+
+            var closeBtn = modal.querySelector('.close');
+
+            function openModal(src, title, alt) {
+                modalImg.src = src;
+                modalImg.alt = alt || title || '';
+                if (modalTitle) modalTitle.textContent = title || '';
+                if (modalDesc) modalDesc.textContent = '';
+                modal.classList.add('active');
+                modal.style.display = 'block';
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+                modalImg.removeAttribute('src');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('#screenshots .screenshot-card img').forEach(function (img) {
+                img.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openModal(
+                        img.getAttribute('data-full') || img.currentSrc || img.src,
+                        img.getAttribute('data-title') || '',
+                        img.getAttribute('alt') || ''
+                    );
+                });
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootScreenshotLightbox);
+        } else {
+            bootScreenshotLightbox();
+        }
+    })();
+    </script>
 
     <footer role="contentinfo" style="display: none;">
         <p>© 2025-2026 OffCrypt. All rights reserved.</p>
