@@ -199,6 +199,14 @@
             },
             {
                 "@type": "Question",
+                "name": "Does Tor Chat need port forwarding?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Tor Chat runs as a Tor Hidden Service — Tor itself establishes the connection through rendezvous points. The host only needs outbound Tor network access. No router ports need to be opened, no UPnP required, and no inbound connections allowed. It works behind NAT, CGNAT, firewalls, and restrictive ISPs."
+                }
+            },
+            {
+                "@type": "Question",
                 "name": "My .onion address won’t open: how do I fix it?",
                 "acceptedAnswer": {
                     "@type": "Answer",
@@ -1714,6 +1722,12 @@
                             <div class="video-card-label">OffCode Tor Chat: Product overview</div>
                         </div>
 
+                        <p class="intro-description lead-text" style="text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">
+                            Setting up your own self-hosted chat server has never been this easy. No port forwarding, no
+                            cloud account, and no complicated setup. Tor Chat is designed to make secure self-hosting
+                            simple.
+                        </p>
+
                         <p class="intro-description lead-text">
                             <strong>Tor Chat</strong> (TorChat) lets anyone stand up their own chat on the Tor network: no cloud
                             account, no clearnet bind. Guests open your <code>.onion</code> in Tor Browser; every message
@@ -2398,22 +2412,20 @@
                                 <span class="price-period">Forever</span>
                             </div>
                             <div class="pricing-info-box">
-                                <p class="price-increase-notice">Complete TorChat system for personal and commercial use.
+                                <p class="price-increase-notice">Free self-hosted Tor chat — prebuilt binaries, no cloud account needed.
                                 </p>
                             </div>
 
                             <div class="guarantee-box">
                                 <span class="glow-check">✓</span>
-                                <p class="updates-notice">Full Tor chat stack: password E2EE (pbkdf2-v2), open/hidden rooms,
-                                    creator Settings, Docker option, and future updates.
+                                <p class="updates-notice">Includes future updates. Self-hosted — you control the stack.
                                 </p>
                             </div>
                             <a href="TorChatDisclaimer.html" class="plan-button premium-button">Download</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
-                                <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Instant Access
+                                <p style="margin-bottom: 0.5rem; color: #00ff88; font-weight: bold;">Free — Instant Access
                                     &amp; Self-Hosted</p>
-                                <p style="margin-bottom: 0.5rem;"><strong>Deployment:</strong></p>
                                 <p style="margin: 0.25rem 0;">Windows Server Manager or Docker + Tor HS</p>
                             </div>
                         </div>
@@ -2549,6 +2561,10 @@
                                     Tor Browser (not a normal browser). A Tor error or “Tor not working” on the client
                                     usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a
                                     circuit, then reopen <code>http://ADDRESS.onion/</code>.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Is Tor Chat free? Does it need port forwarding?</h4>
+                                <p>Yes — the prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>My .onion address won’t open: how do I fix it?</h4>
