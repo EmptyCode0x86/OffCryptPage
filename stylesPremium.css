@@ -2402,7 +2402,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 30px;
     margin-bottom: 80px;
 }
@@ -2665,7 +2665,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .usage-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -2889,7 +2889,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2907,6 +2907,11 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     -webkit-backdrop-filter: blur(30px);
     box-shadow: var(--shadow-subtle);
     overflow: hidden;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .feature-card::before {
@@ -3016,7 +3021,33 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     }
     
     .feature-card {
-        padding: 2rem;
+        padding: 1.5rem;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feature-card h3,
+    .feature-card p,
+    .feature-list li {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    .feature-card code {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-card {
+        padding: 1.15rem;
+    }
+
+    .features-title {
+        font-size: 1.85rem;
     }
 }
 

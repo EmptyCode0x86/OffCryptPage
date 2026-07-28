@@ -3005,7 +3005,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .usage-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -3297,7 +3297,7 @@ main .features-section,
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 2rem;
 }
 
@@ -3311,6 +3311,11 @@ main .features-section,
     overflow: hidden;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .feature-card::before {
@@ -3742,6 +3747,9 @@ main .features-section,
     color: var(--text-primary);
     margin-bottom: 1rem;
     transition: all 0.3s ease;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .feature-card h3:hover {
@@ -3755,6 +3763,19 @@ main .features-section,
     font-weight: 500;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.feature-card code {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.feature-list li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .feature-card p:hover {
@@ -3824,7 +3845,52 @@ main .features-section,
     }
 
     .feature-card {
-        padding: 2rem;
+        padding: 1.5rem;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .feature-card p,
+    .feature-list li {
+        font-size: 0.95rem;
+    }
+
+    #features .features-carousel,
+    #screenshots .features-carousel {
+        padding: 0 2.25rem;
+    }
+
+    #features .features-carousel-track .feature-card,
+    #screenshots .features-carousel-track .feature-card {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-section {
+        padding: 48px 12px;
+    }
+
+    .feature-card {
+        padding: 1.15rem;
+        border-radius: 14px;
+    }
+
+    .features-title {
+        font-size: 1.85rem;
+    }
+
+    #features .features-carousel,
+    #screenshots .features-carousel {
+        padding: 0 1.75rem;
     }
 }
 
@@ -5009,7 +5075,7 @@ body.menu-open .hamburger::after {
 /* Grid Layout */
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
