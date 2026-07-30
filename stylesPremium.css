@@ -2402,7 +2402,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .pricing-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
     gap: 30px;
     margin-bottom: 80px;
 }
@@ -2665,7 +2665,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .usage-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -2889,7 +2889,7 @@ body:has([src*="OffCryptDesktop"]) .support-container,
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2910,8 +2910,6 @@ body:has([src*="OffCryptDesktop"]) .support-container,
     min-width: 0;
     max-width: 100%;
     box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 .feature-card::before {
