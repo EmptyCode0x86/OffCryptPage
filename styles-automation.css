@@ -1284,7 +1284,10 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    /* Kill motion sitewide, but allow intentional demo motion (.force-motion) */
+    *:not(.force-motion):not(:where(.force-motion *)),
+    *:not(.force-motion):not(:where(.force-motion *))::before,
+    *:not(.force-motion):not(:where(.force-motion *))::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;

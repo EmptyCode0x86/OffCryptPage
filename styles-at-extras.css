@@ -448,11 +448,15 @@
     fill: var(--at-amber);
 }
 
-/* Respect reduced motion unless force-motion */
+/* Intentional demos must keep real animation timing under OS reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-    .vg-demo:not(.force-motion) .vg-packet,
-    .vg-demo:not(.force-motion) .vg-pulse {
-        animation: none !important;
+    .force-motion,
+    .force-motion *,
+    .force-motion *::before,
+    .force-motion *::after {
+        animation-duration: unset !important;
+        animation-iteration-count: unset !important;
+        transition-duration: unset !important;
     }
 }
 
