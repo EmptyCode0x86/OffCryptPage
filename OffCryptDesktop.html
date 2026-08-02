@@ -25,13 +25,13 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=2.9.5" as="style">
-    <link rel="preload" href="gallery-simple.css?v=2.8.0" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.0.2" as="style">
+    <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCrypt-Windows.jpg" as="image">
 
     <!-- Core Web Vitals optimization -->
-    <meta name="theme-color" content="#00ff88">
-    <meta name="msapplication-TileColor" content="#00ff88">
+    <meta name="theme-color" content="#c45c26">
+    <meta name="msapplication-TileColor" content="#c45c26">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
@@ -169,15 +169,21 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.9.5">
-    <link rel="stylesheet" href="gallery-simple.css?v=2.8.0">
+    <link rel="stylesheet" href="styles-automation.css?v=3.0.2">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.1">
+    <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
 </head>
 
-<body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
+<body class="at-page">
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <header class="at-nav">
+        <div class="at-nav__inner">
+            <aside class="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-title">OffCode</div>
         </div>
@@ -277,199 +283,170 @@
                 </a>
             </div>
         </div>
-    </aside>
+            </aside>
+        </div>
+    </header>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span class="hamburger"></span>
-    </button>
-
-    <!-- Main Content Wrapper -->
     <div class="main-wrapper">
-        <main>
-            <!-- App Description Section -->
-            <section class="intro-section">
-                <div class="intro-container">
-                    <div class="intro-content">
-                        <!-- Hero Header -->
-                        <h1 class="hero-title">💻 OffCrypt - Desktop</h1>
-                        <p class="hero-subtitle">Open-source</p>
-                        <div class="hero-glow-divider"></div>
+        <main class="at-main">
+            <section class="at-hero">
+                <span class="at-hero__eyebrow">Windows PC Encryption</span>
+                <h1 class="at-hero__title">OffCrypt - Desktop</h1>
+                <p class="at-hero__subtitle">Open-source</p>
+                <div class="at-hero__rule" aria-hidden="true"></div>
 
-                        <p class="intro-description lead-text">
-                            OffCrypt Desktop is a Windows PC encryption application providing secure text and file encryption
-                            using cutting-edge cryptographic algorithms. Encrypt files on your Windows PC with both password-based encryption
-                            (ECDH+HKDF+AES-GCM) and X25519 public-key cryptography with NIST 2024 compliance for maximum
-                            security. Works on Windows 10 and Windows 11.
-                        </p>
+                <p class="at-hero__lead">
+                    OffCrypt Desktop is a Windows PC encryption application providing secure text and file encryption
+                    using cutting-edge cryptographic algorithms. Encrypt files on your Windows PC with both password-based encryption
+                    (ECDH+HKDF+AES-GCM) and X25519 public-key cryptography with NIST 2024 compliance for maximum
+                    security. Works on Windows 10 and Windows 11.
+                </p>
 
-                        <p class="intro-description">
-                            This is a completely offline encryption application - no internet connection required or
-                            used. All cryptographic operations happen locally on your Windows PC with zero data
-                            collection. Perfect for professionals, journalists, and privacy-conscious users who need
-                            secure communication without cloud dependencies.
-                        </p>
+                <p class="at-hero__body">
+                    This is a completely offline encryption application - no internet connection required or
+                    used. All cryptographic operations happen locally on your Windows PC with zero data
+                    collection. Perfect for professionals, journalists, and privacy-conscious users who need
+                    secure communication without cloud dependencies.
+                </p>
 
-                        <p class="intro-description">
-                            Advanced features include disappearing messages with configurable expiration times,
-                            PGP-style identity management with contact trust levels, multiple ECDH curve options, and
-                            file encryption with .enc and .pgp format support. Built for Windows 10 and 11 with
-                            careful memory handling and solid security defaults.
-                        </p>
+                <p class="at-hero__body">
+                    Advanced features include disappearing messages with configurable expiration times,
+                    PGP-style identity management with contact trust levels, multiple ECDH curve options, and
+                    file encryption with .enc and .pgp format support. Built for Windows 10 and 11 with
+                    careful memory handling and solid security defaults.
+                </p>
 
-                        <p class="intro-description">
-                            Looking for a <a href="ScreenLockBuilder.html">screen locker for Windows</a>? Create a
-                            portable Windows screen lock with your own message.
-                        </p>
+                <p class="at-hero__body">
+                    Looking for a <a href="ScreenLockBuilder.html">screen locker for Windows</a>? Create a
+                    portable Windows screen lock with your own message.
+                </p>
 
-                        <div class="intro-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🔑</span>
-                                <span class="highlight-text">PGP-Style Public Key Cryptography</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">💻</span>
-                                <span class="highlight-text">Open-source</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🔒</span>
-                                <span class="highlight-text">Fully Offline application</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">📄</span>
-                                <span class="highlight-text">File Encryption</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="at-hero__cta-row">
+                    <a href="#download" class="at-btn at-btn--primary">Download for Windows</a>
+                    <a href="#how-to-use" class="at-btn at-btn--ghost">How to Use</a>
+                </div>
+
+                <div class="at-hero__chips">
+                    <span class="at-chip"><span>🔑</span> PGP-Style Public Key Cryptography</span>
+                    <span class="at-chip"><span>💻</span> Open-source</span>
+                    <span class="at-chip"><span>🔒</span> Fully Offline application</span>
+                    <span class="at-chip"><span>📄</span> File Encryption</span>
                 </div>
             </section>
 
             <!-- How to Use Section -->
-            <section id="how-to-use" class="how-to-use-section">
-                <div class="how-to-use-container">
-                    <h2 class="how-to-use-title">🎯 How to Use</h2>
-                    <p class="how-to-use-subtitle">Step-by-step guide to secure encryption</p>
+            <section id="how-to-use" class="at-section">
+                <div class="at-section__header">
+                    <h2 class="at-section__title">How to Use</h2>
+                    <p class="at-section__subtitle">Step-by-step guide to secure encryption</p>
+                </div>
 
-                    <div class="usage-methods">
+                <div class="at-howto-grid">
                         <!-- Password-Based Method -->
-                        <div class="method-card">
-                            <div class="method-header">
-                                <div class="method-icon">🔐</div>
-                                <h3>Password-Based Encryption</h3>
-                                <p>Simple and secure password-protected messages</p>
+                        <div class="at-method-card">
+                            <div class="at-method-card__icon">🔐</div>
+                            <h3>Password-Based Encryption</h3>
+                            <p>Simple and secure password-protected messages</p>
+                            <div class="at-step">
+                                <div class="at-step__num">1</div>
+                                <div>
+                                    <h4>Set Master Password</h4>
+                                    <p>Enter a strong password (8+ characters) and click "Set Password". Stored
+                                        securely in memory.</p>
+                                </div>
                             </div>
-                            <div class="method-steps">
-                                <div class="step-item">
-                                    <div class="step-number">1</div>
-                                    <div class="step-text">
-                                        <h4>Set Master Password</h4>
-                                        <p>Enter a strong password (8+ characters) and click "Set Password". Stored
-                                            securely in memory.</p>
-                                    </div>
+                            <div class="at-step">
+                                <div class="at-step__num">2</div>
+                                <div>
+                                    <h4>Encrypt Message</h4>
+                                    <p>Type your message, configure disappearing options, then click "Encrypt" to
+                                        create secure text.</p>
                                 </div>
-                                <div class="step-item">
-                                    <div class="step-number">2</div>
-                                    <div class="step-text">
-                                        <h4>Encrypt Message</h4>
-                                        <p>Type your message, configure disappearing options, then click "Encrypt" to
-                                            create secure text.</p>
-                                    </div>
-                                </div>
-                                <div class="step-item">
-                                    <div class="step-number">3</div>
-                                    <div class="step-text">
-                                        <h4>Share & Decrypt</h4>
-                                        <p>Message auto-copies to clipboard. Share via any channel. Recipients decrypt
-                                            with the same password.</p>
-                                    </div>
+                            </div>
+                            <div class="at-step">
+                                <div class="at-step__num">3</div>
+                                <div>
+                                    <h4>Share & Decrypt</h4>
+                                    <p>Message auto-copies to clipboard. Share via any channel. Recipients decrypt
+                                        with the same password.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- X25519 Public Key Method -->
-                        <div class="method-card">
-                            <div class="method-header">
-                                <div class="method-icon">🔑</div>
-                                <h3>X25519 Public Key</h3>
-                                <p>PGP-style secure communication without servers</p>
+                        <div class="at-method-card">
+                            <div class="at-method-card__icon">🔑</div>
+                            <h3>X25519 Public Key</h3>
+                            <p>PGP-style secure communication without servers</p>
+                            <div class="at-step">
+                                <div class="at-step__num">1</div>
+                                <div>
+                                    <h4>Generate Keys</h4>
+                                    <p>Click "Generate Keys" to create your X25519 key pair. Keys protected with
+                                        Windows DPAPI.</p>
+                                </div>
                             </div>
-                            <div class="method-steps">
-                                <div class="step-item">
-                                    <div class="step-number">1</div>
-                                    <div class="step-text">
-                                        <h4>Generate Keys</h4>
-                                        <p>Click "Generate Keys" to create your X25519 key pair. Keys protected with
-                                            Windows DPAPI.</p>
-                                    </div>
+                            <div class="at-step">
+                                <div class="at-step__num">2</div>
+                                <div>
+                                    <h4>Share Public Key</h4>
+                                    <p>Copy and share your public key with anyone who wants to send you encrypted
+                                        messages.</p>
                                 </div>
-                                <div class="step-item">
-                                    <div class="step-number">2</div>
-                                    <div class="step-text">
-                                        <h4>Share Public Key</h4>
-                                        <p>Copy and share your public key with anyone who wants to send you encrypted
-                                            messages.</p>
-                                    </div>
-                                </div>
-                                <div class="step-item">
-                                    <div class="step-number">3</div>
-                                    <div class="step-text">
-                                        <h4>Import & Communicate</h4>
-                                        <p>Import recipient's public key, then send secure messages only they can read.
-                                        </p>
-                                    </div>
+                            </div>
+                            <div class="at-step">
+                                <div class="at-step__num">3</div>
+                                <div>
+                                    <h4>Import & Communicate</h4>
+                                    <p>Import recipient's public key, then send secure messages only they can read.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Advanced Features Method -->
-                        <div class="method-card">
-                            <div class="method-header">
-                                <div class="method-icon">⚙️</div>
-                                <h3>Advanced Features</h3>
-                                <p>Cryptographic toolkit</p>
-                            </div>
-                            <div class="advanced-features-grid">
-                                <div class="feature-item">
+                        <div class="at-method-card">
+                            <div class="at-method-card__icon">⚙️</div>
+                            <h3>Advanced Features</h3>
+                            <p>Cryptographic toolkit</p>
+                            <div class="at-mini-grid">
+                                <div class="at-mini-item">
                                     <div class="feature-icon-small">⏰</div>
                                     <h4>Disappearing Messages</h4>
                                     <p>Set expiration times for sensitive messages</p>
                                 </div>
-                                <div class="feature-item">
+                                <div class="at-mini-item">
                                     <div class="feature-icon-small">👤</div>
                                     <h4>Identity Management</h4>
                                     <p>PGP-style identities with trust levels</p>
                                 </div>
-                                <div class="feature-item">
+                                <div class="at-mini-item">
                                     <div class="feature-icon-small">🔧</div>
                                     <h4>ECDH Configuration</h4>
                                     <p>Choose P-256, P-384, P-521 curves</p>
                                 </div>
-                                <div class="feature-item">
+                                <div class="at-mini-item">
                                     <div class="feature-icon-small">📁</div>
                                     <h4>File Operations</h4>
                                     <p>Create .enc and .pgp encrypted files</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </section>
 
-
-
-
             <!-- PIA Horizontal Banner -->
-            <section class="pia-banner-section">
-                <div class="pia-banner-container">
-                    <div class="pia-banner-content">
+            <section class="at-section">
+                <div class="at-pia-banner">
+                    <div>
                         <h3>🌍 High-Speed VPN Servers in 91 Countries Worldwide</h3>
                         <p>Connect to any location globally for maximum privacy and unrestricted access</p>
-                        <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="pia-banner-btn"
+                        <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="at-btn at-btn--primary"
                             title='Get Private Internet Access VPN'>
                             🚀 Get Global Access
                         </a>
                     </div>
-                    <div class="pia-banner-logo">
+                    <div>
                         <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw'
                             title='Private Internet Access VPN'>
                             <img alt='Private Internet Access - Global VPN Network' border='0' src='PIALogo.png'>
@@ -477,13 +454,10 @@
                     </div>
                 </div>
             </section>
-
-
-
             <!-- Modern Horizontal Scrolling Gallery -->
             <section id="pictures" class="image-gallery-container">
                 <div class="gallery-header">
-                    <h2 class="gallery-title" style="color: white;">💻 Screenshots</h2>
+                    <h2 class="gallery-title">Screenshots</h2>
                     <p class="gallery-subtitle">Explore the desktop application • <span class="scroll-hint">👈 Scroll
                             horizontally</span></p>
                 </div>
@@ -535,21 +509,18 @@
                 </div>
             </div>
 
-            <!-- Modern Divider -->
-            <div class="section-divider"></div>
-
             <!-- Features Section -->
-            <section id="features" class="features-section">
-                <div class="features-container">
-                    <h2 class="features-title">🔐 Desktop Features</h2>
-                    <p class="features-subtitle">Encryption capabilities for Windows</p>
+            <section id="features" class="at-section">
+                <div class="at-section__header">
+                    <h2 class="at-section__title">Desktop Features</h2>
+                    <p class="at-section__subtitle">Encryption capabilities for Windows</p>
+                </div>
 
-                    <div class="features-grid">
-                        <!-- Cryptography Feature -->
-                        <div class="feature-card">
+                <div class="at-feature-grid">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🔐</div>
                             <h3>Modern Cryptography</h3>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🔄 ECDH + HKDF + AES-GCM</li>
                                 <li>🔑 X25519 + AES-GCM</li>
                                 <li>🛡️ AES-256-GCM encryption</li>
@@ -560,11 +531,11 @@
                         </div>
 
                         <!-- Public Key Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">✨</div>
                             <h3>X25519 Public Key</h3>
                             <p>PGP-style secure communication</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🔑 X25519 Key Generation</li>
                                 <li>👤 Identity Management</li>
                                 <li>🤝 Contact Trust Levels</li>
@@ -574,11 +545,11 @@
                         </div>
 
                         <!-- Disappearing Messages Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">⏰</div>
                             <h3>Disappearing Messages</h3>
                             <p>Time-limited secure communication</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>⏰ Automatic Expiration</li>
                                 <li>📅 Flexible Time Units</li>
                                 <li>🔒 Cryptographic Timing</li>
@@ -588,11 +559,11 @@
                         </div>
 
                         <!-- Attack Protection Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🛡️</div>
                             <h3>Attack Protection</h3>
                             <p>Defense against sophisticated threats</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>⚖️ Constant-time Operations</li>
                                 <li>🔍 Input Validation</li>
                                 <li>❌ Replay Attack Prevention</li>
@@ -602,11 +573,11 @@
                         </div>
 
                         <!-- Memory Safety Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🧹</div>
                             <h3>Memory Safety</h3>
                             <p>Complete sensitive data protection</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🔒 Char[] Arrays</li>
                                 <li>🧹 Automatic Memory Clearing</li>
                                 <li>♻️ Forced Garbage Collection</li>
@@ -616,11 +587,11 @@
                         </div>
 
                         <!-- File Operations Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">📁</div>
                             <h3>File Operations</h3>
                             <p>Secure file handling and storage</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>📄 .ENC Files</li>
                                 <li>🔐 .PGP Files</li>
                                 <li>📥 File Import</li>
@@ -629,98 +600,84 @@
                             </ul>
                         </div>
                     </div>
-                </div>
             </section>
 
-            <!-- Modern Section Divider -->
-            <div class="section-divider"></div>
-
             <!-- Download Section -->
-            <section id="download" class="download-section">
-                <div class="download-container download-container-desktop">
-                    <h2 class="download-title">🚀 Download</h2>
+            <section id="download" class="at-section">
+                <div class="at-download">
+                    <h2 class="at-download__title">Download</h2>
 
-
-                    <div class="version-notice">
+                    <div class="at-download__notice">
                         <p><strong>📢 Latest version: v1.0</strong></p>
                     </div>
 
+                    <div class="at-download__actions">
                     <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/releases/download/OffCryptDesktop/OffCrypt.exe"
-                        class="button primary-download" target="_blank" rel="noopener noreferrer"
+                        class="at-btn at-btn--primary" target="_blank" rel="noopener noreferrer"
                         aria-label="Download OffCrypt for Windows">
                         ⬇️ Download OffCrypt for windows (.exe)
                     </a>
 
-                    <p class="download-info">Free • No ads • Open source • GPL-3.0 License</p>
-
-                    <p class="download-info">View on GitHub:</p>
-
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                        <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/"
-                            class="button secondary-download" target="_blank" rel="noopener noreferrer"
-                            aria-label="View OffCrypt on GitHub">
-                            💻 View on GitHub
-                        </a>
+                    <a href="https://github.com/EmptyCode0x86/OffCrypt-Desktop-v1.0/"
+                        class="at-btn at-btn--ghost" target="_blank" rel="noopener noreferrer"
+                        aria-label="View OffCrypt on GitHub">
+                        💻 View on GitHub
+                    </a>
                     </div>
 
-                    <div
-                        style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
+                    <p class="at-download__info">Free • No ads • Open source • GPL-3.0 License</p>
+
+                    <div class="at-badge-row">
                         <a href="https://peerpush.net/p/offcrypt-desktop" target="_blank" rel="noopener noreferrer">
-                            <img src="https://peerpush.net/p/offcrypt-desktop/badge.png" alt="OffCrypt Desktop badge"
-                                style="height: 50px; width: auto;" />
+                            <img src="https://peerpush.net/p/offcrypt-desktop/badge.png" alt="OffCrypt Desktop badge" />
                         </a>
                         <a href='https://www.saashub.com/offcrypt-desktop?utm_source=badge&utm_campaign=badge&utm_content=offcrypt-desktop&badge_variant=color&badge_kind=approved'
                             target='_blank' rel="noopener noreferrer">
                             <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1"
-                                alt="OffCrypt Desktop badge" style="height: 50px; width: auto;" />
+                                alt="OffCrypt Desktop badge" />
                         </a>
                     </div>
 
                 </div>
             </section>
 
-            <section class="features-section">
-                <div class="features-container">
-                    <h2 class="features-title">Build the full encryption stack</h2>
-                    <p class="features-subtitle">Use the desktop suite as part of a broader privacy cluster across
+            <section class="at-section">
+                <div class="at-section__header">
+                    <h2 class="at-section__title">Build the full encryption stack</h2>
+                    <p class="at-section__subtitle">Use the desktop suite as part of a broader privacy cluster across
                         Android and Windows protection tools.</p>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">📱</div>
-                            <h3>OffCrypt for Android</h3>
-                            <p>Use the Android version when you need fully offline message encryption and secure file
-                                protection on mobile devices.</p>
-                            <a href="index.html" class="button secondary-download">See the Android app</a>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🔒</div>
-                            <h3>Windows Screen Lock Builder</h3>
-                            <p>Add workstation locking and local access protection alongside your Windows encryption
-                                workflow.</p>
-                            <a href="ScreenLockBuilder.html" class="button secondary-download">Compare with Screen Lock
-                                Builder</a>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🔐</div>
-                            <h3>Privacy and data handling</h3>
-                            <p>Review how data, consent, and product-specific licensing information are handled across
-                                the OffCode site.</p>
-                            <a href="PrivacyPolicy.html" class="button secondary-download">Read the privacy policy</a>
-                        </div>
+                </div>
+                <div class="at-related">
+                    <div class="at-related__item">
+                        <h3>📱 OffCrypt for Android</h3>
+                        <p>Use the Android version when you need fully offline message encryption and secure file
+                            protection on mobile devices.</p>
+                        <a href="index.html" class="at-related__link">See the Android app</a>
+                    </div>
+                    <div class="at-related__item">
+                        <h3>🔒 Windows Screen Lock Builder</h3>
+                        <p>Add workstation locking and local access protection alongside your Windows encryption
+                            workflow.</p>
+                        <a href="ScreenLockBuilder.html" class="at-related__link">Compare with Screen Lock Builder</a>
+                    </div>
+                    <div class="at-related__item">
+                        <h3>🔐 Privacy and data handling</h3>
+                        <p>Review how data, consent, and product-specific licensing information are handled across
+                            the OffCode site.</p>
+                        <a href="PrivacyPolicy.html" class="at-related__link">Read the privacy policy</a>
                     </div>
                 </div>
             </section>
         </main>
+    </div>
 
-        <!-- Styles have been moved to styles.css -->
+    <!-- Application JavaScript -->
+    <script src="script.js" defer></script>
+    <script src="gallery.js" defer></script>
 
-        <!-- Application JavaScript -->
-        <script src="script.js" defer></script>
-        <script src="gallery.js" defer></script>
-
-        <!-- Cookie Consent Banner -->
-        <link rel="stylesheet" href="cookie-consent.css">
-        <script src="cookie-consent.js" defer></script>
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="cookie-consent.css">
+    <script src="cookie-consent.js" defer></script>
 </body>
 
 </html>

@@ -44,9 +44,9 @@
     <link rel="alternate" hreflang="x-default" href="https://www.dev-offcode.com/TorSourceDisclaimer.html">
     <link rel="manifest" href="/manifest.json">
 
-    <link rel="preload" href="styles.css?v=2.9.1" as="style">
-    <meta name="theme-color" content="#00ff88">
-    <meta name="msapplication-TileColor" content="#00ff88">
+    <link rel="preload" href="styles-automation.css?v=3.0.2" as="style">
+    <meta name="theme-color" content="#c45c26">
+    <meta name="msapplication-TileColor" content="#c45c26">
 
     <script type="application/ld+json">
     {
@@ -80,14 +80,21 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.9.1">
+        <link rel="stylesheet" href="styles-automation.css?v=3.0.2">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.1">
 </head>
 
-<body>
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-title">OffCode</div>
-        </div>
+<body class="at-page">
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <header class="at-nav">
+        <div class="at-nav__inner">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-title">OffCode</div>
+                </div>
 
         <nav class="sidebar-nav">
             <ul class="sidebar-menu">
@@ -184,14 +191,11 @@
                 </a>
             </div>
         </div>
-    </aside>
-
-    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span class="hamburger"></span>
-    </button>
-
+            </aside>
+        </div>
+    </header>
     <div class="main-wrapper">
-        <main>
+        <main class="at-main">
             <nav aria-label="Breadcrumb"
                 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
                 <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">

@@ -22,15 +22,13 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=2.9.5" as="style">
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
-        as="style">
+    <link rel="preload" href="styles-automation.css?v=3.0.2" as="style">
+    <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCrypt-Android.jpg" as="image">
 
     <!-- Core Web Vitals optimization -->
-    <meta name="theme-color" content="#00ff88">
-    <meta name="msapplication-TileColor" content="#00ff88">
+    <meta name="theme-color" content="#c45c26">
+    <meta name="msapplication-TileColor" content="#c45c26">
     <meta name="msapplication-config" content="/browserconfig.xml">
 
     <meta property="og:type" content="website">
@@ -185,22 +183,21 @@
     }
     </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css?v=2.9.5">
-    <link rel="stylesheet" href="gallery-simple.css?v=2.8.0">
+    <link rel="stylesheet" href="styles-automation.css?v=3.0.2">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.1">
+    <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
 </head>
 
-<body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
+<body class="at-page">
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <header class="at-nav">
+        <div class="at-nav__inner">
+            <aside class="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-title">OffCode</div>
         </div>
@@ -300,80 +297,61 @@
                 </a>
             </div>
         </div>
-    </aside>
+            </aside>
+        </div>
+    </header>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span class="hamburger"></span>
-    </button>
-
-    <!-- Main Content Wrapper -->
     <div class="main-wrapper">
-        <main>
-            <!-- App Description Section -->
-            <section class="intro-section">
-                <div class="intro-container">
-                    <div class="intro-content">
-                        <!-- Hero Header -->
-                        <h1 class="hero-title">🔐 OffCrypt - Android</h1>
-                        <p class="hero-subtitle">Open-source</p>
-                        <div class="hero-glow-divider"></div>
+        <main class="at-main">
+            <section class="at-hero">
+                <span class="at-hero__eyebrow">Secure Android Encryption</span>
+                <h1 class="at-hero__title">OffCrypt - Android</h1>
+                <p class="at-hero__subtitle">Open-source</p>
+                <div class="at-hero__rule" aria-hidden="true"></div>
 
-                        <p class="intro-description lead-text">
-                            OffCrypt is an offline encryption app for secure text and file
-                            encryption using well-known cryptographic algorithms. A secure messaging app
-                            that works without an internet connection, with both password-based and RSA public-key encryption
-                            (AES-256 and RSA-4096) for Android.
-                        </p>
+                <p class="at-hero__lead">
+                    OffCrypt is an offline encryption app for secure text and file
+                    encryption using well-known cryptographic algorithms. A secure messaging app
+                    that works without an internet connection, with both password-based and RSA public-key encryption
+                    (AES-256 and RSA-4096) for Android.
+                </p>
 
-                        <p class="intro-description">
-                            This is a fully offline file encryption app - it does not connect to the internet or collect
-                            any user data. All encryption and decryption happens locally on your device. Perfect for
-                            journalists, business professionals, and privacy-conscious users who need secure document
-                            sharing on Android without cloud dependencies.
-                        </p>
+                <p class="at-hero__body">
+                    This is a fully offline file encryption app - it does not connect to the internet or collect
+                    any user data. All encryption and decryption happens locally on your device. Perfect for
+                    journalists, business professionals, and privacy-conscious users who need secure document
+                    sharing on Android without cloud dependencies.
+                </p>
 
-                        <p class="intro-description">
-                            Key features include self-destructing messages for Android, secure file deletion, how to
-                            encrypt files on Android offline capabilities, and instant RSA 4096 encryption mobile app
-                            functionality without account registration. Built for Android in Kotlin with zero data
-                            collection policy for private messaging.
-                        </p>
+                <p class="at-hero__body">
+                    Key features include self-destructing messages for Android, secure file deletion, how to
+                    encrypt files on Android offline capabilities, and instant RSA 4096 encryption mobile app
+                    functionality without account registration. Built for Android in Kotlin with zero data
+                    collection policy for private messaging.
+                </p>
 
-                        <p class="intro-description">
-                            Need a <a href="ScreenLockBuilder.html">Windows screen lock</a>? Build a portable screen
-                            locker for Windows with a custom message and password.
-                        </p>
+                <p class="at-hero__body">
+                    Need a <a href="ScreenLockBuilder.html">Windows screen lock</a>? Build a portable screen
+                    locker for Windows with a custom message and password.
+                </p>
 
-                        <div class="intro-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🔑</span>
-                                <span class="highlight-text">PGP-Style Public Key Cryptography</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">💻</span>
-                                <span class="highlight-text">Open-source</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🔒</span>
-                                <span class="highlight-text">Fully Offline application</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">📄</span>
-                                <span class="highlight-text">File Encryption</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="at-hero__cta-row">
+                    <a href="#download" class="at-btn at-btn--primary">Download OffCrypt</a>
+                    <a href="#pictures" class="at-btn at-btn--ghost">View Screenshots</a>
+                </div>
+
+                <div class="at-hero__chips">
+                    <span class="at-chip"><span>🔑</span> PGP-Style Public Key Cryptography</span>
+                    <span class="at-chip"><span>💻</span> Open-source</span>
+                    <span class="at-chip"><span>🔒</span> Fully Offline application</span>
+                    <span class="at-chip"><span>📄</span> File Encryption</span>
                 </div>
             </section>
-
-            <!-- Modern Section Divider -->
-            <div class="section-divider"></div>
 
             <!-- Modern Horizontal Scrolling Gallery -->
             <section id="pictures" class="image-gallery-container">
                 <div class="gallery-header">
-                    <h2 class="gallery-title" style="color: white;">📱 Screenshots</h2>
+                    <h2 class="gallery-title">Screenshots</h2>
                     <p class="gallery-subtitle">Explore the app interface • <span class="scroll-hint">👈 Scroll
                             horizontally</span></p>
                 </div>
@@ -439,22 +417,20 @@
                 </div>
             </div>
 
-            <!-- Modern Divider -->
-            <div class="section-divider"></div>
-
             <!-- Features Section -->
-            <section id="features" class="features-section">
-                <div class="features-container">
-                    <h2 class="features-title">🔐 Features</h2>
-                    <p class="features-subtitle">Explore all 36+ security features</p>
+            <section id="features" class="at-section">
+                <div class="at-section__header">
+                    <h2 class="at-section__title">Features</h2>
+                    <p class="at-section__subtitle">Explore all 36+ security features</p>
+                </div>
 
-                    <div class="features-grid">
+                <div class="at-feature-grid">
                         <!-- Cryptography Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🔐</div>
                             <h3>Modern Cryptography</h3>
                             <p>Encryption algorithms</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🔑 RSA-2048 & RSA-4096</li>
                                 <li>🛡️ AES-256-GCM encryption</li>
                                 <li>🔐 PBKDF2 key derivation</li>
@@ -465,11 +441,11 @@
                         </div>
 
                         <!-- Advanced Security Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">✨</div>
                             <h3>Advanced Security</h3>
                             <p>Protection features</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>✍️ Digital signatures</li>
                                 <li>🔄 Perfect Forward Secrecy</li>
                                 <li>⏰ Expiring messages</li>
@@ -479,11 +455,11 @@
                         </div>
 
                         <!-- Attack Protection Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🛡️</div>
                             <h3>Attack Protection</h3>
                             <p>Defense against sophisticated threats</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>⚖️ Constant-time operations</li>
                                 <li>🔍 Data validation</li>
                                 <li>❌ Replay attack prevention</li>
@@ -493,11 +469,11 @@
                         </div>
 
                         <!-- Memory Safety Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">🧹</div>
                             <h3>Memory Safety</h3>
                             <p>Complete sensitive data protection</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🧹 Data scrubbing (3x overwrite)</li>
                                 <li>💾 Char/ByteArray wiping</li>
                                 <li>♻️ Aggressive Garbage Collection</li>
@@ -507,11 +483,11 @@
                         </div>
 
                         <!-- UI Security Feature -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">📱</div>
                             <h3>UI Security</h3>
                             <p>Advanced interface protection</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>📋 Secure Clipboard</li>
                                 <li>🔒 Lifecycle cleanup</li>
                                 <li>⏸️ Background cleanup</li>
@@ -521,11 +497,11 @@
                         </div>
 
                         <!-- Professional Features -->
-                        <div class="feature-card">
+                        <div class="at-feature-card">
                             <div class="feature-icon">⚙️</div>
                             <h3>Features</h3>
                             <p>Advanced cryptographic capabilities</p>
-                            <ul class="feature-list">
+                            <ul class="at-feature-list">
                                 <li>🧠 RSA OAEP + SHA-256</li>
                                 <li>📜 RSA signature with SHA-512</li>
                                 <li>📦 Version Byte detection</li>
@@ -535,62 +511,60 @@
                             </ul>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Download Section -->
-            <section id="download" class="download-section">
-                <div class="download-container download-container-desktop">
-                    <h2 class="download-title">🚀 Download now</h2>
+            <section id="download" class="at-section">
+                <div class="at-download">
+                    <h2 class="at-download__title">Download now</h2>
 
-
-
-
-                    <div class="version-notice">
+                    <div class="at-download__notice">
                         <p><strong>📢 Latest v2.0 available, F-Droid v1.0 coming soon</strong></p>
-
                     </div>
+
+                    <div class="at-download__actions">
                     <a href="https://github.com/EmptyCode0x86/OffCryptPage/releases/download/v2.0.0/OffCrypt.apk"
-                        class="button primary-download" target="_blank" rel="noopener noreferrer"
+                        class="at-btn at-btn--primary" target="_blank" rel="noopener noreferrer"
                         aria-label="Download OffCrypt">
                         ⬇️ Download OffCrypt (.apk)
                     </a>
 
-                    <a href="https://github.com/EmptyCode0x86/Off_crypt1" class="button secondary-download"
+                    <a href="https://github.com/EmptyCode0x86/Off_crypt1" class="at-btn at-btn--ghost"
                         target="_blank" rel="noopener noreferrer" aria-label="View OffCrypt on GitHub">
                         💻 View on GitHub
                     </a>
 
-                    <a href="changelog.html" class="button secondary-download" aria-label="View OffCrypt Changelog">
+                    <a href="changelog.html" class="at-btn at-btn--ghost" aria-label="View OffCrypt Changelog">
                         📝 Changelog
                     </a>
+                    </div>
 
-                    <p class="download-info">Free • No ads • Open source • GPL-3.0 License</p>
+                    <p class="at-download__info">Free • No ads • Open source • GPL-3.0 License</p>
 
-                    <div class="security-badges">
-                        <span class="badge">🔐 RSA-4096</span>
-                        <span class="badge">🛡️ AES-256-GCM</span>
-                        <span class="badge">🔥 Burn After Reading</span>
-                        <span class="badge">⚡ Perfect Forward Secrecy</span>
+                    <div class="at-download__badges">
+                        <span class="at-chip-badge">🔐 RSA-4096</span>
+                        <span class="at-chip-badge">🛡️ AES-256-GCM</span>
+                        <span class="at-chip-badge">🔥 Burn After Reading</span>
+                        <span class="at-chip-badge">⚡ Perfect Forward Secrecy</span>
                     </div>
 
                 </div>
             </section>
 
             <!-- PIA Horizontal Banner -->
-            <section class="pia-banner-section">
-                <div class="pia-banner-container">
-                    <div class="pia-banner-content">
+            <section class="at-section">
+                <div class="at-pia-banner">
+                    <div>
                         <h3>🔒 Complete Your Privacy Protection</h3>
                         <p>You've secured your messages with OffCrypt - now protect your internet connection too</p>
-                        <p class="pia-highlight"><strong>Multi-hop:</strong> Channel traffic through additional servers
+                        <p class="at-highlight"><strong>Multi-hop:</strong> Channel traffic through additional servers
                             for extra encryption layers</p>
-                        <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="pia-banner-btn"
+                        <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw' class="at-btn at-btn--primary"
                             title='Get Private Internet Access VPN'>
                             🛡️ Complete Protection
                         </a>
                     </div>
-                    <div class="pia-banner-logo">
+                    <div>
                         <a href='https://www.privateinternetaccess.com/pages/buy-vpn/npw'
                             title='Private Internet Access VPN'>
                             <img alt='Private Internet Access - Complete Privacy Protection' border='0'
@@ -599,9 +573,8 @@
                     </div>
                 </div>
             </section>
-            </section>
 
-            <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+            <div class="at-badges">
                 <a href="https://startupfa.me/s/offcrypt?utm_source=www.dev-offcode.com" target="_blank"
                     rel="noopener noreferrer">
                     <img src="https://startupfa.me/badges/featured-badge-small.webp"
@@ -609,35 +582,30 @@
                 </a>
             </div>
 
-            <section class="features-section">
-                <div class="features-container">
-                    <h2 class="features-title">Explore related privacy tools</h2>
-                    <p class="features-subtitle">Connect your Android encryption workflow with the most relevant
+            <section class="at-section">
+                <div class="at-section__header">
+                    <h2 class="at-section__title">Explore related privacy tools</h2>
+                    <p class="at-section__subtitle">Connect your Android encryption workflow with the most relevant
                         Windows-side tools on this site.</p>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">💻</div>
-                            <h3>OffCrypt Desktop for Windows</h3>
-                            <p>Continue the same offline encryption mindset on Windows with local messaging, secure file
-                                handling, and modern cryptography.</p>
-                            <a href="OffCryptDesktop.html" class="button secondary-download">Explore OffCrypt
-                                Desktop</a>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🔒</div>
-                            <h3>Windows Screen Lock Builder</h3>
-                            <p>Need device-level protection too? Build a custom Windows screen lock to secure access in
-                                addition to encrypted communication.</p>
-                            <a href="ScreenLockBuilder.html" class="button secondary-download">View Screen Lock
-                                Builder</a>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📝</div>
-                            <h3>Track Android updates</h3>
-                            <p>Review the latest OffCrypt release notes to see new encryption, file protection, and
-                                messaging improvements.</p>
-                            <a href="changelog.html" class="button secondary-download">Read OffCrypt changelog</a>
-                        </div>
+                </div>
+                <div class="at-related">
+                    <div class="at-related__item">
+                        <h3>💻 OffCrypt Desktop for Windows</h3>
+                        <p>Continue the same offline encryption mindset on Windows with local messaging, secure file
+                            handling, and modern cryptography.</p>
+                        <a href="OffCryptDesktop.html" class="at-related__link">Explore OffCrypt Desktop</a>
+                    </div>
+                    <div class="at-related__item">
+                        <h3>🔒 Windows Screen Lock Builder</h3>
+                        <p>Need device-level protection too? Build a custom Windows screen lock to secure access in
+                            addition to encrypted communication.</p>
+                        <a href="ScreenLockBuilder.html" class="at-related__link">View Screen Lock Builder</a>
+                    </div>
+                    <div class="at-related__item">
+                        <h3>📝 Track Android updates</h3>
+                        <p>Review the latest OffCrypt release notes to see new encryption, file protection, and
+                            messaging improvements.</p>
+                        <a href="changelog.html" class="at-related__link">Read OffCrypt changelog</a>
                     </div>
                 </div>
             </section>

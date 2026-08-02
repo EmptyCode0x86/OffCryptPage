@@ -49,11 +49,11 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=2.9.1" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.0.2" as="style">
 
     <!-- Core Web Vitals optimization -->
-    <meta name="theme-color" content="#00ff88">
-    <meta name="msapplication-TileColor" content="#00ff88">
+    <meta name="theme-color" content="#c45c26">
+    <meta name="msapplication-TileColor" content="#c45c26">
 
     <!-- Structured Data Schema -->
     <script type="application/ld+json">
@@ -88,15 +88,21 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2.9.1">
+        <link rel="stylesheet" href="styles-automation.css?v=3.0.2">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.1">
 </head>
 
-<body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <h1 class="sidebar-title">OffCode</h1>
-        </div>
+<body class="at-page">
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="hamburger"></span>
+    </button>
+
+    <header class="at-nav">
+        <div class="at-nav__inner">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-title">OffCode</div>
+                </div>
 
         <nav class="sidebar-nav">
             <ul class="sidebar-menu">
@@ -190,16 +196,11 @@
                 </a>
             </div>
         </div>
-    </aside>
-
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span class="hamburger"></span>
-    </button>
-
-    <!-- Main Content Wrapper -->
+            </aside>
+        </div>
+    </header>
     <div class="main-wrapper">
-        <main>
+        <main class="at-main">
             <!-- Breadcrumb Navigation for SEO (hidden but accessible) -->
             <nav aria-label="Breadcrumb"
                 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
