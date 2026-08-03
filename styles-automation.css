@@ -648,7 +648,7 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
 }
 
 .image-modal.active {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
 }

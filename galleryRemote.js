@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Näytä modal
         modal.classList.add('active');
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
 
         // Lisää close event uudelle napille
