@@ -179,7 +179,7 @@
                 "name": "Can the host delete rooms or wipe chat data?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Server Manager can remove a room in realtime with secure_delete/VACUUM for that roomís ciphertext. Remove SQL data overwrites then deletes the SQLCipher DB and db.key.dpapi (optional: also wipe Tor HS keys / .onion). Generate new address securely rotates the Hidden Service identity. Tor clients cannot call the admin delete API."
+                    "text": "Yes. Server Manager can remove a room in realtime with secure_delete/VACUUM for that room‚Äôs ciphertext. Remove SQL data overwrites then deletes the SQLCipher DB and db.key.dpapi (optional: also wipe Tor HS keys / .onion). Generate new address securely rotates the Hidden Service identity. Tor clients cannot call the admin delete API."
                 }
             },
             {
@@ -187,7 +187,7 @@
                 "name": "What can room creators do in Settings?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Slow mode sets a send cooldown for everyone including the creator. Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones ó Copy and Restore after Tor New Identity or clear site data."
+                    "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Slow mode sets a send cooldown for everyone including the creator. Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones ‚Äî Copy and Restore after Tor New Identity or clear site data."
                 }
             },
             {
@@ -195,7 +195,7 @@
                 "name": "Tor Chat not working: what should I check?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor, that the published .onion URL is copied correctly, and that guests use Tor Browser (not a normal browser). A Tor error or ìTor not workingî on the client usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a circuit, then reopen http://ADDRESS.onion/."
+                    "text": "If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor, that the published .onion URL is copied correctly, and that guests use Tor Browser (not a normal browser). A Tor error or ‚ÄúTor not working‚Äù on the client usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a circuit, then reopen http://ADDRESS.onion/."
                 }
             },
             {
@@ -203,12 +203,12 @@
                 "name": "Does Tor Chat need port forwarding?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. Tor Chat runs as a Tor Hidden Service ó Tor itself establishes the connection through rendezvous points. The host only needs outbound Tor network access. No router ports need to be opened, no UPnP required, and no inbound connections allowed. It works behind NAT, CGNAT, firewalls, and restrictive ISPs."
+                    "text": "No. Tor Chat runs as a Tor Hidden Service ‚Äî Tor itself establishes the connection through rendezvous points. The host only needs outbound Tor network access. No router ports need to be opened, no UPnP required, and no inbound connections allowed. It works behind NAT, CGNAT, firewalls, and restrictive ISPs."
                 }
             },
             {
                 "@type": "Question",
-                "name": "My .onion address wonít open: how do I fix it?",
+                "name": "My .onion address won‚Äôt open: how do I fix it?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Ensure the Hidden Service is running in Server Manager, copy the full .onion link again, and open it only in Tor Browser. If the page fails to load, wait for Tor to bootstrap, try a new circuit, and verify the host PC is online with ChatServer still running."
@@ -274,55 +274,55 @@
                     <ul class="sidebar-menu">
                         <li class="menu-item">
                             <a href="index.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üì±</span>
                                 <span class="menu-text">Android App</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="OffCryptDesktop.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üíª</span>
                                 <span class="menu-text">Desktop App</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="ScreenLockBuilder.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üîí</span>
                                 <span class="menu-text">Screen Lock Builder</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="ScreenLockBuilderPremium.html" class="menu-link">
-                                <span class="menu-icon">?</span>
+                                <span class="menu-icon">‚≠ê</span>
                                 <span class="menu-text">Premium Builder</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="AutomationTool.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">ü§ñ</span>
                                 <span class="menu-text">Automation Tool</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="RemoteControl.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üåê</span>
                                 <span class="menu-text">Web Remote Control</span>
                             </a>
                         </li>
                         <li class="menu-item active">
                             <a href="TorChatPage.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üßÖ</span>
                                 <span class="menu-text">Tor Chat</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="https://ko-fi.com/emptyc0de" class="menu-link" target="_blank" rel="noopener noreferrer">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üíù</span>
                                 <span class="menu-text">Donate</span>
                             </a>
                         </li>
                         <li class="menu-item">
                             <a href="PrivacyPolicy.html" class="menu-link">
-                                <span class="menu-icon">??</span>
+                                <span class="menu-icon">üîê</span>
                                 <span class="menu-text">Privacy Policy</span>
                             </a>
                         </li>
@@ -335,32 +335,32 @@
                     <div class="sidebar-social">
                         <a href="https://x.com/OffCryptAndroid" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on X">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">üê¶</span>
                             <span class="sidebar-social-label">X</span>
                         </a>
                         <a href="https://www.instagram.com/off.crypt86/" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on Instagram">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">üì∏</span>
                             <span class="sidebar-social-label">Instagram</span>
                         </a>
                         <a href="https://www.tiktok.com/@offcrypt0" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on TikTok">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">üéµ</span>
                             <span class="sidebar-social-label">TikTok</span>
                         </a>
                         <a href="https://www.youtube.com/@OffCrypt" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on YouTube">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">‚ñ∂Ô∏è</span>
                             <span class="sidebar-social-label">YouTube</span>
                         </a>
                         <a href="https://bsky.app/profile/off-crypt86.bsky.social" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on Bluesky">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">ü¶ã</span>
                             <span class="sidebar-social-label">Bluesky</span>
                         </a>
                         <a href="https://www.linkedin.com/in/off-crypt-b94175382/" target="_blank" rel="noopener noreferrer"
                             aria-label="Follow OffCrypt on LinkedIn">
-                            <span class="sidebar-social-icon">??</span>
+                            <span class="sidebar-social-icon">üíº</span>
                             <span class="sidebar-social-label">LinkedIn</span>
                         </a>
                     </div>
@@ -382,12 +382,12 @@
                                 <button type="button" class="features-carousel-btn prev"
                                     aria-label="Previous screenshot"
                                     aria-controls="torchat-screens-track">
-                                    <span aria-hidden="true">ã</span>
+                                    <span aria-hidden="true">‚Äπ</span>
                                 </button>
                                 <button type="button" class="features-carousel-btn next"
                                     aria-label="Next screenshot"
                                     aria-controls="torchat-screens-track">
-                                    <span aria-hidden="true">õ</span>
+                                    <span aria-hidden="true">‚Ä∫</span>
                                 </button>
                                 <div class="features-carousel-track" id="torchat-screens-track" role="region"
                                     aria-roledescription="carousel" aria-label="Tor Chat screenshots" tabindex="0">
@@ -397,69 +397,69 @@
                                                 alt="OffCode TorChat lobby, rooms list, create room, and Copper/Forge UI"
                                                 loading="eager" decoding="async"
                                                 data-full="TorChat1.png"
-                                                data-title="Lobby ó rooms list, create/join, Copper/Forge UI">
+                                                data-title="Lobby ‚Äî rooms list, create/join, Copper/Forge UI">
                                         </div>
-                                        <figcaption>Lobby ó rooms list, create/join, Copper/Forge UI
+                                        <figcaption>Lobby ‚Äî rooms list, create/join, Copper/Forge UI
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
                                     <figure class="at-feature-card screenshot-card">
                                         <div class="screenshot-frame">
                                             <img src="MyRoomsTorChat.png" width="1200" height="630"
-                                                alt="OffCode TorChat My rooms ó hidden rooms bound to creator recovery"
+                                                alt="OffCode TorChat My rooms ‚Äî hidden rooms bound to creator recovery"
                                                 loading="lazy" decoding="async"
                                                 data-full="MyRoomsTorChat.png"
-                                                data-title="My rooms ó hidden rooms via creator recovery">
+                                                data-title="My rooms ‚Äî hidden rooms via creator recovery">
                                         </div>
-                                        <figcaption>My rooms ó hidden rooms via creator recovery
+                                        <figcaption>My rooms ‚Äî hidden rooms via creator recovery
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
                                     <figure class="at-feature-card screenshot-card">
                                         <div class="screenshot-frame">
                                             <img src="ProfileTorChat.png" width="1200" height="630"
-                                                alt="OffCode TorChat Profile ó recovery code and display settings"
+                                                alt="OffCode TorChat Profile ‚Äî recovery code and display settings"
                                                 loading="lazy" decoding="async"
                                                 data-full="ProfileTorChat.png"
-                                                data-title="Profile ó recovery code and display settings">
+                                                data-title="Profile ‚Äî recovery code and display settings">
                                         </div>
-                                        <figcaption>Profile ó recovery code and display settings
+                                        <figcaption>Profile ‚Äî recovery code and display settings
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
                                     <figure class="at-feature-card screenshot-card">
                                         <div class="screenshot-frame">
                                             <img src="TorPrivateChat.png" width="1200" height="630"
-                                                alt="OffCode TorChat private password room ó encrypted messaging"
+                                                alt="OffCode TorChat private password room ‚Äî encrypted messaging"
                                                 loading="lazy" decoding="async"
                                                 data-full="TorPrivateChat.png"
-                                                data-title="Private chat ó password room E2EE messaging">
+                                                data-title="Private chat ‚Äî password room E2EE messaging">
                                         </div>
-                                        <figcaption>Private chat ó password room E2EE messaging
+                                        <figcaption>Private chat ‚Äî password room E2EE messaging
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
                                     <figure class="at-feature-card screenshot-card">
                                         <div class="screenshot-frame">
                                             <img src="RoomSettings.png" width="1200" height="630"
-                                                alt="OffCode TorChat room Settings ó close joins, slow mode, lock later, delete"
+                                                alt="OffCode TorChat room Settings ‚Äî close joins, slow mode, lock later, delete"
                                                 loading="lazy" decoding="async"
                                                 data-full="RoomSettings.png"
-                                                data-title="Room Settings ó creator controls">
+                                                data-title="Room Settings ‚Äî creator controls">
                                         </div>
-                                        <figcaption>Room Settings ó close joins, slow mode, lock / delete
+                                        <figcaption>Room Settings ‚Äî close joins, slow mode, lock / delete
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
                                     <figure class="at-feature-card screenshot-card">
                                         <div class="screenshot-frame">
                                             <img src="RoomSettings2.png" width="1200" height="630"
-                                                alt="OffCode TorChat room Settings ó additional creator options"
+                                                alt="OffCode TorChat room Settings ‚Äî additional creator options"
                                                 loading="lazy" decoding="async"
                                                 data-full="RoomSettings2.png"
-                                                data-title="Room Settings ó more creator options">
+                                                data-title="Room Settings ‚Äî more creator options">
                                         </div>
-                                        <figcaption>Room Settings ó more creator options
+                                        <figcaption>Room Settings ‚Äî more creator options
                                             <span class="screenshot-zoom-hint">Click to enlarge</span>
                                         </figcaption>
                                     </figure>
@@ -479,14 +479,14 @@
 
                         <p class="at-hero__lead" style="text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">
                             Setting up your own self-hosted chat on the <strong>Tor network</strong> has never been this easy.
-                            Guests open your <strong>.onion</strong> link in <strong>Tor Browser</strong> ó no port forwarding,
+                            Guests open your <strong>.onion</strong> link in <strong>Tor Browser</strong> ‚Äî no port forwarding,
                             no cloud account, and no complicated setup. OffCode Tor Chat is designed to make secure Tor
                             Hidden Service hosting simple.
                         </p>
 
                         <p class="at-hero__lead">
                             Messages are encrypted in-browser with <strong>WebCrypto AES-256-GCM</strong> (PBKDF2-v2,
-                            600k iterations) before reaching the server ó ChatServer relays and stores
+                            600k iterations) before reaching the server ‚Äî ChatServer relays and stores
                             <em>ciphertext only</em>. Password rooms use separate KDF domains so the host cannot
                             derive the key; open rooms are public encrypted channels.
                             
@@ -505,11 +505,11 @@
                         </p>
 
                         <div class="at-hero__chips">
-                            <span class="at-chip"><span>??</span> Tor Hidden Service</span>
-                            <span class="at-chip"><span>??</span> Password E2EE</span>
-                            <span class="at-chip"><span>??</span> Safety numbers</span>
-                            <span class="at-chip"><span>???</span> SQLCipher at rest</span>
-                            <span class="at-chip"><span>???</span> Server Manager</span>
+                            <span class="at-chip"><span>üßÖ</span> Tor Hidden Service</span>
+                            <span class="at-chip"><span>üîê</span> Password E2EE</span>
+                            <span class="at-chip"><span>üîó</span> Safety numbers</span>
+                            <span class="at-chip"><span>üóÑÔ∏è</span> SQLCipher at rest</span>
+                            <span class="at-chip"><span>üñ•Ô∏è</span> Server Manager</span>
                         </div>
             </section>
 
@@ -521,18 +521,18 @@
 
                     <div class="hiw-demo force-motion is-playing" id="hiw-demo" data-hiw-demo aria-label="Animated explanation of TorChat encryption flow">
                         <p class="hiw-demo__kicker">See it in motion</p>
-                        <p class="hiw-demo__question">What leaves your browser ó plaintext or ciphertext?</p>
+                        <p class="hiw-demo__question">What leaves your browser ‚Äî plaintext or ciphertext?</p>
 
                         <div class="hiw-stage" aria-hidden="true">
                             <div class="hiw-zone hiw-zone--client">
                                 <span class="hiw-zone__badge">Client</span>
                                 <h4>Tor Browser</h4>
                                 <div class="hiw-msg-slot">
-                                    <div class="hiw-bubble hiw-bubble--plain">ìHello from Torî</div>
-                                    <div class="hiw-bubble hiw-bubble--cipher">a8f3Öc91e ∑ AES-GCM</div>
+                                    <div class="hiw-bubble hiw-bubble--plain">‚ÄúHello from Tor‚Äù</div>
+                                    <div class="hiw-bubble hiw-bubble--cipher">a8f3‚Ä¶c91e ¬∑ AES-GCM</div>
                                 </div>
                                 <div class="hiw-chips">
-                                    <span class="hiw-chip hiw-chip--kdf">PBKDF2-v2 ∑ 600k</span>
+                                    <span class="hiw-chip hiw-chip--kdf">PBKDF2-v2 ¬∑ 600k</span>
                                     <span class="hiw-chip hiw-chip--aes">AES-256-GCM</span>
                                 </div>
                             </div>
@@ -557,24 +557,24 @@
 
                         <div class="hiw-caption" aria-live="polite">
                             <p class="hiw-caption__step">
-                                <strong>1 ∑ Encrypt in the browser.</strong>
-                                Password ? <em>PBKDF2-v2 (600k)</em> ? room key + join proof.
-                                Message ? <em>AES-256-GCM</em>. Plaintext never leaves Tor Browser.
+                                <strong>1 ¬∑ Encrypt in the browser.</strong>
+                                Password ‚Üí <em>PBKDF2-v2 (600k)</em> ‚Üí room key + join proof.
+                                Message ‚Üí <em>AES-256-GCM</em>. Plaintext never leaves Tor Browser.
                             </p>
                             <p class="hiw-caption__step">
-                                <strong>2 ∑ Travel over Tor.</strong>
+                                <strong>2 ¬∑ Travel over Tor.</strong>
                                 Only the ciphertext envelope crosses the <em>.onion</em> path.
                                 The host never sees readable chat text from password rooms.
                             </p>
                             <p class="hiw-caption__step hiw-caption__step--host">
-                                <strong>3 ∑ Blind relay + store.</strong>
+                                <strong>3 ¬∑ Blind relay + store.</strong>
                                 ChatServer <em>receives</em>, <em>stores</em> (SQLCipher), and
                                 <em>broadcasts</em> the same ciphertext. Locked-room keys stay client-side.
                             </p>
                             <p class="hiw-caption__step">
-                                <strong>4 ∑ Room types matter.</strong>
+                                <strong>4 ¬∑ Room types matter.</strong>
                                 Password rooms = server-blind E2EE.
-                                Open rooms still encrypt, but the key is <em>f(room id)</em> ó public by design.
+                                Open rooms still encrypt, but the key is <em>f(room id)</em> ‚Äî public by design.
                             </p>
                         </div>
                     </div>
@@ -586,7 +586,7 @@
 
                     <div class="at-feature-grid">
                         <div class="at-feature-card">
-                            <div class="feature-icon">??</div>
+                            <div class="feature-icon">üßÖ</div>
                             <h3>Tor-only hosting</h3>
                             <p>ChatServer binds <code>127.0.0.1</code> only. Tor Expert Bundle publishes a v3
                                 <code>.onion</code> and forwards VirtualPort 80 (and the app port) to localhost; no
@@ -600,28 +600,28 @@
                         </div>
 
                         <div class="at-feature-card">
-                            <div class="feature-icon">??</div>
+                            <div class="feature-icon">üîê</div>
                             <h3>Browser encryption (pbkdf2-v2)</h3>
-                            <p>WebCrypto PBKDF2-HMAC-SHA256 (<strong>600&nbsp;000</strong> iterations) ? AES-256-GCM.
+                            <p>WebCrypto PBKDF2-HMAC-SHA256 (<strong>600&nbsp;000</strong> iterations) ‚Üí AES-256-GCM.
                                 Separate v2 KDF domains for join proof vs room key on locked rooms so the server cannot
                                 derive the message key from join material.</p>
                             <ul class="at-feature-list">
                                 <li>AAD binds <code>roomId|senderId|nonce|clientSentAtUnixMs</code></li>
-                                <li><strong>Locked:</strong> password stays in the browser ó server-blind E2EE</li>
-                                <li><strong>Open:</strong> key from <code>torchat-open-material-v2:{roomId}</code> ó public by design</li>
+                                <li><strong>Locked:</strong> password stays in the browser ‚Äî server-blind E2EE</li>
+                                <li><strong>Open:</strong> key from <code>torchat-open-material-v2:{roomId}</code> ‚Äî public by design</li>
                                 <li>Server stores join-proof hash as <code>250000:salt:hash</code> (250k PBKDF2)</li>
-                                <li>1:1 ECDH hybrid + safety number (3◊5 decimal) for peer verify / TOFU</li>
+                                <li>1:1 ECDH hybrid + safety number (3√ó5 decimal) for peer verify / TOFU</li>
                                 <li>No Double Ratchet yet; prefer short message retention if passwords may leak</li>
                             </ul>
                         </div>
 
                         <div class="at-feature-card">
-                            <div class="feature-icon">??</div>
+                            <div class="feature-icon">üí¨</div>
                             <h3>Rooms, invites &amp; TTL</h3>
                             <p>Open, password-protected, and/or hidden rooms with invite links and required per-message lifetime.</p>
                             <ul class="at-feature-list">
                                 <li>Hidden rooms: not listed; join via <code>?invite=</code> (+ password if locked)</li>
-                                <li><strong>Message expiry required:</strong> 30&nbsp;min Ö 1&nbsp;week (default 8&nbsp;h). No forever option</li>
+                                <li><strong>Message expiry required:</strong> 30&nbsp;min ‚Ä¶ 1&nbsp;week (default 8&nbsp;h). No forever option</li>
                                 <li>E2EE attachments (images + small files) on the same <code>SendEncrypted</code> path</li>
                                 <li>Profile: hide date/time stamps; pick message time zone (Tor often shows UTC)</li>
                                 <li>Unique <code>senderId</code> per room; server binds send identity to the session</li>
@@ -629,20 +629,20 @@
                         </div>
 
                         <div class="at-feature-card">
-                            <div class="feature-icon">??</div>
+                            <div class="feature-icon">‚öôÔ∏è</div>
                             <h3>Creator Settings</h3>
                             <p>Only the room creator sees Settings (manage token and/or Profile recovery code).</p>
                             <ul class="at-feature-list">
-                                <li><strong>Close room to new members</strong> ó blocks all joins (including invites); members stay</li>
-                                <li><strong>Slow mode</strong> ó send cooldown 1&nbsp;min Ö 4&nbsp;h (applies to everyone, including creator)</li>
-                                <li><strong>Lock later</strong> ó set a password once on an open room; wipes open history</li>
-                                <li><strong>Delete this room</strong> ó same wipe path as Server Manager room delete</li>
-                                <li><strong>Creator recovery code</strong> ó binds rooms you create; <strong>My rooms</strong> lists hidden; Copy / Restore</li>
+                                <li><strong>Close room to new members</strong> ‚Äî blocks all joins (including invites); members stay</li>
+                                <li><strong>Slow mode</strong> ‚Äî send cooldown 1&nbsp;min ‚Ä¶ 4&nbsp;h (applies to everyone, including creator)</li>
+                                <li><strong>Lock later</strong> ‚Äî set a password once on an open room; wipes open history</li>
+                                <li><strong>Delete this room</strong> ‚Äî same wipe path as Server Manager room delete</li>
+                                <li><strong>Creator recovery code</strong> ‚Äî binds rooms you create; <strong>My rooms</strong> lists hidden; Copy / Restore</li>
                             </ul>
                         </div>
 
                         <div class="at-feature-card">
-                            <div class="feature-icon">???</div>
+                            <div class="feature-icon">üóÑÔ∏è</div>
                             <h3>Ciphertext storage</h3>
                             <p>SQLCipher database under LocalAppData (Windows) or Docker volume. DPAPI / env key.
                                 Parameterized queries. Plaintext is never written to disk.</p>
@@ -655,7 +655,7 @@
                         </div>
 
                         <div class="at-feature-card">
-                            <div class="feature-icon">???</div>
+                            <div class="feature-icon">üõ°Ô∏è</div>
                             <h3>Tor Browser-friendly UI</h3>
                             <p>Copper/Forge web UI designed for onion use: no third-party CDNs, self-hosted fonts, SRI
                                 on scripts.</p>
@@ -750,14 +750,14 @@
                                     <tr>
                                         <td data-label="#">3</td>
                                         <td data-label="Protection"><strong>Kestrel / SignalR hardening</strong>: <code>AddServerHeader = false</code>,
-                                            max body / receive ò <strong>4&nbsp;MiB</strong> (E2EE image envelopes);
+                                            max body / receive Àú <strong>4&nbsp;MiB</strong> (E2EE image envelopes);
                                             <code>ClientTimeoutInterval</code> 5&nbsp;min</td>
                                     </tr>
                                     <tr>
                                         <td data-label="#">4</td>
                                         <td data-label="Protection"><strong>Rate limiting</strong>: Global HTTP ceiling (~600/min); hub negotiate and
                                             <code>/api/*</code> per connection; Create / Join / Send / GetRooms / GetMyRooms
-                                            / invite-manage hub limits (ConnectionId ó Tor has no useful client IP)</td>
+                                            / invite-manage hub limits (ConnectionId ‚Äî Tor has no useful client IP)</td>
                                     </tr>
                                     <tr>
                                         <td data-label="#">5</td>
@@ -789,7 +789,7 @@
                                     <tr>
                                         <td data-label="Component"><strong>Network exposure</strong></td>
                                         <td data-label="Implementation">ChatServer listens on <code>127.0.0.1</code> only; Tor HS forwards
-                                            <code>.onion</code> ? loopback</td>
+                                            <code>.onion</code> ‚Üí loopback</td>
                                     </tr>
                                     <tr>
                                         <td data-label="Component"><strong>Ciphertext relay</strong></td>
@@ -804,7 +804,7 @@
                                         <td data-label="Component"><strong>Join proofs</strong></td>
                                         <td data-label="Implementation">Locked rooms store PBKDF2-HMAC-SHA256 hash of join proof
                                             (<strong>250&nbsp;000</strong> iterations, 32-byte salt) as
-                                            <code>250000:salt:hash</code> ó not the password and not the E2EE key;
+                                            <code>250000:salt:hash</code> ‚Äî not the password and not the E2EE key;
                                             constant-time verify</td>
                                     </tr>
                                     <tr>
@@ -831,7 +831,7 @@
                                     </tr>
                                     <tr>
                                         <td data-label="Component"><strong>Slow mode</strong></td>
-                                        <td data-label="Implementation">Optional per-room send cooldown (1&nbsp;min Ö 4&nbsp;h); applies to every
+                                        <td data-label="Implementation">Optional per-room send cooldown (1&nbsp;min ‚Ä¶ 4&nbsp;h); applies to every
                                             <code>senderId</code> including the creator; text + attachments</td>
                                     </tr>
                                     <tr>
@@ -900,7 +900,7 @@
                                     </tr>
                                     <tr>
                                         <td data-label="Component"><strong>ECDH + safety number</strong></td>
-                                        <td data-label="Implementation">1:1 hybrid ECDH; safety number from sorted SPKI pubs (3◊5 decimal);
+                                        <td data-label="Implementation">1:1 hybrid ECDH; safety number from sorted SPKI pubs (3√ó5 decimal);
                                             Mark verified / TOFU change warning (sessionStorage)</td>
                                     </tr>
                                     <tr>
@@ -1013,8 +1013,8 @@
                                         <div class="vg-shield__label">Pinned ring</div>
                                         <div class="vg-block">Scan blocked</div>
                                         <div class="vg-node vg-node--hs">Your HS<small>server</small></div>
-                                        <div class="vg-node vg-node--hop1 vg-node--pinned">L3<small>pinned ∑ hours</small></div>
-                                        <div class="vg-node vg-node--hop2 vg-node--pinned">L2<small>pinned ∑ days</small></div>
+                                        <div class="vg-node vg-node--hop1 vg-node--pinned">L3<small>pinned ¬∑ hours</small></div>
+                                        <div class="vg-node vg-node--hop2 vg-node--pinned">L2<small>pinned ¬∑ days</small></div>
                                         <div class="vg-node vg-node--rend">Meet<small>rendezvous</small></div>
                                         <div class="vg-packet"></div>
                                     </div>
@@ -1066,7 +1066,7 @@
                         </div>
 
                         <p class="at-callout">
-                            ? Vanguards adds latency (~200-500 ms per circuit) due to longer paths. This is a
+                            ‚ö† Vanguards adds latency (~200-500 ms per circuit) due to longer paths. This is a
                             deliberate privacy/performance tradeoff. It does <strong>not</strong> replace E2EE and
                             does not hide the server from its own guard nodes; it only limits which relays can
                             observe circuit-building over time.
@@ -1108,9 +1108,9 @@
                         <li>Tor-only Hidden Service, clients reach you via <code>.onion</code>; the chat HTTP stack
                             does not bind clearnet (optional Docker compose without host ports)</li>
                         <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control</li>
-                        <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k) ó the host cannot derive the room key</li>
-                        <li>Open rooms: public encrypted channels (key from room id) ó use when you want a free join lobby</li>
-                        <li>Creator Settings: close joins, slow mode, lock later, delete room; Profile recovery ? My rooms</li>
+                        <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k) ‚Äî the host cannot derive the room key</li>
+                        <li>Open rooms: public encrypted channels (key from room id) ‚Äî use when you want a free join lobby</li>
+                        <li>Creator Settings: close joins, slow mode, lock later, delete room; Profile recovery ‚Üí My rooms</li>
                         <li>Required message TTL (no forever); E2EE attachments; 1:1 safety numbers; optional Full Vanguards</li>
                     </ul>
 
@@ -1140,19 +1140,19 @@
                                 <span class="price-period">Forever</span>
                             </div>
                             <div class="pricing-info-box">
-                                <p class="price-increase-notice">Free self-hosted Tor chat ó prebuilt binaries, no cloud account needed.
+                                <p class="price-increase-notice">Free self-hosted Tor chat ‚Äî prebuilt binaries, no cloud account needed.
                                 </p>
                             </div>
 
                             <div class="guarantee-box">
                                 <span class="glow-check">?</span>
-                                <p class="updates-notice">Includes future updates. Self-hosted ó you control the stack.
+                                <p class="updates-notice">Includes future updates. Self-hosted ‚Äî you control the stack.
                                 </p>
                             </div>
                             <a href="TorChatDisclaimer.html" class="plan-button premium-button">Download</a>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
-                                <p class="at-highlight">Free ó Instant Access
+                                <p class="at-highlight">Free ‚Äî Instant Access
                                     &amp; Self-Hosted</p>
                                 <p style="margin: 0.25rem 0;">Windows Server Manager or Docker + Tor HS</p>
                             </div>
@@ -1197,7 +1197,7 @@
                             <a href="TorSourceDisclaimer.html" class="plan-button"
                                 style="background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); color: #000; font-weight: bold;">Purchase</a>
                             <p class="at-highlight" style="margin: 0.75rem 0 0; font-size: 0.9rem; text-align: center;">
-                                Instant access ó download right after payment</p>
+                                Instant access ‚Äî download right after payment</p>
                             <div
                                 style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
                                 <p style="margin-bottom: 0.5rem; color: #ffd700; font-weight: bold;">Personal Developer
@@ -1239,7 +1239,7 @@
                                     second PBKDF2 hash of the join proof (<strong>250&nbsp;000</strong> iters,
                                     <code>iter:salt:hash</code>).
                                     <strong>Open rooms:</strong> still encrypted (<code>pbkdf2-v2</code>), but the key is
-                                    derived from the room id ó anyone who knows the id (including the host) can decrypt.
+                                    derived from the room id ‚Äî anyone who knows the id (including the host) can decrypt.
                                     <strong>1:1:</strong> ECDH hybrid plus a safety number for out-of-band peer verify.</p>
                             </div>
                             <div class="faq-item">
@@ -1264,7 +1264,7 @@
                             <div class="faq-item">
                                 <h4>Can the host delete rooms or wipe chat data?</h4>
                                 <p>Yes. Server Manager can remove a room in realtime (lobby kick +
-                                    <code>secure_delete</code>/VACUUM for that roomís ciphertext).
+                                    <code>secure_delete</code>/VACUUM for that room‚Äôs ciphertext).
                                     <strong>Remove SQL data</strong> overwrites then deletes the SQLCipher DB and
                                     <code>db.key.dpapi</code> (optional: also wipe Tor HS keys / <code>.onion</code>).
                                     <strong>Generate new address</strong> securely rotates the Hidden Service identity.
@@ -1278,22 +1278,22 @@
                                     <strong>Lock later</strong> sets a one-way password on an open room (wipes open history).
                                     <strong>Delete this room</strong> wipes the room like Server Manager delete.
                                     The <strong>creator recovery code</strong> on Profile binds rooms you create;
-                                    <strong>My rooms</strong> lists hidden ones ó Copy / Restore after Tor New Identity.</p>
+                                    <strong>My rooms</strong> lists hidden ones ‚Äî Copy / Restore after Tor New Identity.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Tor Chat not working: what should I check?</h4>
                                 <p>If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor,
                                     that the published <code>.onion</code> URL is copied correctly, and that guests use
-                                    Tor Browser (not a normal browser). A Tor error or ìTor not workingî on the client
+                                    Tor Browser (not a normal browser). A Tor error or ‚ÄúTor not working‚Äù on the client
                                     usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a
                                     circuit, then reopen <code>http://ADDRESS.onion/</code>.</p>
                             </div>
                             <div class="faq-item">
                                 <h4>Is Tor Chat free? Does it need port forwarding?</h4>
-                                <p>Yes ó the prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
+                                <p>Yes ‚Äî the prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
                             </div>
                             <div class="faq-item">
-                                <h4>My .onion address wonít open: how do I fix it?</h4>
+                                <h4>My .onion address won‚Äôt open: how do I fix it?</h4>
                                 <p>Ensure the Hidden Service is running in Server Manager, copy the full
                                     <code>.onion</code> link again, and open it only in Tor Browser. If the page fails
                                     to load, wait for Tor to bootstrap, try a new circuit, and verify the host PC is
@@ -1393,7 +1393,7 @@
     </script>
 
     <footer role="contentinfo" style="display: none;">
-        <p>© 2025-2026 OffCrypt. All rights reserved.</p>
+        <p>¬© 2025-2026 OffCrypt. All rights reserved.</p>
         <nav aria-label="Footer navigation">
             <a href="PrivacyPolicy.html">Privacy Policy</a>
             <a href="disclaimer.html">Disclaimer</a>
