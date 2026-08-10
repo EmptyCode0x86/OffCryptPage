@@ -485,6 +485,62 @@
     max-width: 100%;
 }
 
+/* ── PeerPush / community rating under Pricing ── */
+.at-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0.25rem auto 2.75rem;
+    padding: 1.35rem 1.25rem 0.25rem;
+    max-width: 420px;
+    text-align: center;
+    border-top: 1px solid var(--at-border);
+}
+
+.at-rating__label {
+    margin: 0;
+    font-family: var(--at-font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--at-copper, #c45c26);
+}
+
+.at-rating__link {
+    display: block;
+    line-height: 0;
+    opacity: 0.92;
+    transition: opacity var(--at-transition, 0.2s ease), transform var(--at-transition, 0.2s ease);
+}
+
+.at-rating__link:hover,
+.at-rating__link:focus-visible {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.at-rating__img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+    .at-rating {
+        margin-bottom: 2rem;
+        max-width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .at-rating__img {
+        max-width: 100%;
+    }
+}
+
 /* ── Mobile cookie bar ── */
 @media (max-width: 768px) {
     .cookie-consent {
