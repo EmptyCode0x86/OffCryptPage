@@ -9,7 +9,7 @@
     <meta name="description"
         content="OffCode Tor Chat changelog: FileSeal attachments, creator recovery, invite tokens, JoinRoom owner bypass, and Room Settings updates.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-08-12">
+    <meta name="last-modified" content="2026-08-13">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "OffCode Tor Chat changelog",
-            "dateModified": "2026-08-12",
+            "dateModified": "2026-08-13",
             "url": "https://www.dev-offcode.com/TorChatChangelog.html"
         }
     }
@@ -208,11 +208,10 @@
                     <div class="changelog-intro">
                         <p>Release notes for <strong>OffCode Tor Chat</strong>: self-hosted Tor Hidden Service chat,
                             browser WebCrypto AES-GCM, SignalR relay, SQLCipher, and Server Manager.</p>
-                        <p><strong>Latest:</strong> VER 0.1 (2026-08-12) — FileSeal chunked attachments, creator recovery rebind,
-                            invite SHA-256 tokens, JoinRoom owner bypass, and Room Settings attachments policy.</p>
+                        <p><strong>Latest:</strong> VER 0.1 (2026-08-12): Max members and announcement / read-only Room Settings.</p>
                     </div>
 
-                    <div class="changelog-wrapper">
+
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">VER: 0.1</span>
@@ -240,6 +239,8 @@
                                     <li><strong>Disable attachments:</strong> Creator Room Settings toggle (<code>attachments_disabled</code> in SQLCipher). Members get <code>AttachmentsPolicy</code> on join / toggle; Attach button gated in <code>room-attachments.js</code>. Server enforces a text-only PayloadB64 size cap when disabled (blind relay cannot inspect ciphertext kind).</li>
                                     <li><strong>Hub / registry:</strong> <code>SetAttachmentsDisabled</code>, <code>InviteStatusResponse.AttachmentsDisabled</code>, registry getters/setters, DB migration.</li>
                                     <li><strong>Room Settings UI:</strong> Wider two-column layout (Membership | Attachments; Slow mode compact row; Invite / Lock / Delete full width); denser hints and spacing.</li>
+                                    <li><strong>Max members:</strong> Creator Room Settings toggle (<code>max_members</code> in SQLCipher, 0 = off, else 2–50). Enforced in <code>RoomPresenceService.Join</code>; public <code>"Room is full."</code>, hidden generic <code>"Cannot join room."</code>. Existing members stay if the cap is lowered.</li>
+                                    <li><strong>Announcement / read-only:</strong> Creator Room Settings toggle (<code>read_only</code>). Only the creator may <code>SendEncrypted</code> / <code>BeginAttachmentUpload</code>; owner tokens are extra hub args (not persisted). Members get a disabled composer (<code>room-readonly.js</code>).</li>
                                 </ul>
                             </div>
                         </div>

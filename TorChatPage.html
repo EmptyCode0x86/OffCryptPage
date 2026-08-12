@@ -65,7 +65,7 @@
  "name": "OffCode Tor Chat",
  "applicationCategory": "CommunicationApplication, SecurityApplication",
  "operatingSystem": "Windows (host); Linux/Docker (host); Tor Browser (clients)",
- "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. Creator Settings (close/slow mode/disable attachments/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
+ "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. Creator Settings (close/max members/read-only/slow mode/disable attachments/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
  "url": "https://www.dev-offcode.com/TorChatPage.html",
  "image": "https://www.dev-offcode.com/TorChat1.png",
  "offers": [
@@ -187,7 +187,7 @@
  "name": "What can room creators do in Settings?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Slow mode sets a send cooldown for everyone including the creator. Disable file and image sending turns the room text-only (attachments already in history stay visible). Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones: Copy and Restore after Tor New Identity or clear site data."
+ "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Max members sets an optional room size (2–50); full rooms reject new joins. Announcement / read-only lets only the creator send messages and attachments. Slow mode sets a send cooldown for everyone including the creator. Disable file and image sending turns the room text-only (attachments already in history stay visible). Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones: Copy and Restore after Tor New Identity or clear site data."
  }
  },
  {
@@ -486,7 +486,7 @@
  derive the room key). <strong>Open rooms</strong> still encrypt in the browser, but the key
  is derived from the room id: intentional public channels. <strong>Hidden rooms</strong> stay
  off the public list and use invite links; add a password for private E2EE. Creators get
- Settings for <strong>close joins</strong>, <strong>disable attachments</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
+ Settings for <strong>close joins</strong>, <strong>max members</strong>, <strong>announcement / read-only</strong>, <strong>disable attachments</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
  and <strong>delete room</strong>, plus a <strong>Profile recovery code</strong>
  (<strong>My rooms</strong> for hidden). Required message TTL, E2EE attachments, and optional
  <strong>Full Vanguards</strong> complete the stack.
@@ -626,6 +626,8 @@
  <p>Only the room creator sees Settings (manage token and/or Profile recovery code).</p>
  <ul class="at-feature-list">
  <li><strong>Close room to new members</strong>: blocks all joins (including invites); members stay</li>
+ <li><strong>Max members</strong>: optional cap (2–50); new joins rejected when full; lowering keeps people already in</li>
+ <li><strong>Announcement / read-only</strong>: only the creator can send messages and files; members see a locked composer</li>
  <li><strong>Disable file and image sending</strong>: text only when on; already-received attachments stay visible</li>
  <li><strong>Slow mode</strong>: send cooldown 1&nbsp;min … 4&nbsp;h (applies to everyone, including creator)</li>
  <li><strong>Lock later</strong>: set a password once on an open room; wipes open history</li>
@@ -1128,7 +1130,7 @@
  <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control</li>
  <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k): the host cannot derive the room key</li>
  <li>Open rooms: public encrypted channels (key from room id): use when you want a free join lobby</li>
- <li>Creator Settings: close joins, disable attachments, slow mode, lock later, delete room; Profile recovery → My rooms</li>
+ <li>Creator Settings: close joins, max members, announcement / read-only, disable attachments, slow mode, lock later, delete room; Profile recovery → My rooms</li>
  <li>Required message TTL (no forever); E2EE attachments; 1:1 safety numbers; optional Full Vanguards</li>
  </ul>
 
@@ -1304,6 +1306,8 @@
  <h4>What can room creators do in Settings?</h4>
  <p>Only the room creator sees Settings. <strong>Close room to new members</strong>
  rejects all new joins (including invites); people already in stay.
+ <strong>Max members</strong> sets an optional room size (2–50); the room rejects new joins when full.
+ <strong>Announcement / read-only</strong> lets only the creator send messages and attachments; other members get a locked composer.
  <strong>Disable file and image sending</strong> turns the room text-only
  (attachments already in history stay visible).
  <strong>Slow mode</strong> sets a send cooldown for everyone including the creator.
@@ -1356,6 +1360,8 @@
  <div id="imageModal" class="image-modal" aria-hidden="true">
  <div class="modal-content">
  <button type="button" class="close" aria-label="Close enlarged image">&times;</button>
+ <button type="button" class="modal-nav-btn modal-prev" aria-label="Previous image">‹</button>
+ <button type="button" class="modal-nav-btn modal-next" aria-label="Next image">›</button>
  <img id="modalImage" src="" alt="">
  <div class="modal-info">
  <h3 id="modalTitle"></h3>
@@ -1379,12 +1385,28 @@
  if (!modal || !modalImg) return;
 
  var closeBtn = modal.querySelector('.close');
+ var prevBtn = modal.querySelector('.modal-prev');
+ var nextBtn = modal.querySelector('.modal-next');
+ var images = Array.prototype.slice.call(
+ document.querySelectorAll('#screenshots .screenshot-card img')
+ );
+ var currentIndex = 0;
 
- function openModal(src, title, alt) {
- modalImg.src = src;
- modalImg.alt = alt || title || '';
- if (modalTitle) modalTitle.textContent = title || '';
+ function showAt(index) {
+ if (!images.length) return;
+ if (index < 0 || index >= images.length) return;
+ currentIndex = index;
+ var img = images[currentIndex];
+ modalImg.src = img.getAttribute('data-full') || img.currentSrc || img.src;
+ modalImg.alt = img.getAttribute('alt') || img.getAttribute('data-title') || '';
+ if (modalTitle) modalTitle.textContent = img.getAttribute('data-title') || '';
  if (modalDesc) modalDesc.textContent = '';
+ if (prevBtn) prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+ if (nextBtn) nextBtn.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+ }
+
+ function openModal(index) {
+ showAt(index);
  modal.classList.add('active');
  modal.style.display = 'flex';
  modal.setAttribute('aria-hidden', 'false');
@@ -1399,24 +1421,39 @@
  document.body.style.overflow = '';
  }
 
- document.querySelectorAll('#screenshots .screenshot-card img').forEach(function (img) {
+ function navigate(direction) {
+ showAt(currentIndex + direction);
+ }
+
+ images.forEach(function (img, index) {
  img.addEventListener('click', function (e) {
  e.preventDefault();
  e.stopPropagation();
- openModal(
- img.getAttribute('data-full') || img.currentSrc || img.src,
- img.getAttribute('data-title') || '',
- img.getAttribute('alt') || ''
- );
+ openModal(index);
  });
  });
 
  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+ if (prevBtn) {
+ prevBtn.addEventListener('click', function (e) {
+ e.stopPropagation();
+ navigate(-1);
+ });
+ }
+ if (nextBtn) {
+ nextBtn.addEventListener('click', function (e) {
+ e.stopPropagation();
+ navigate(1);
+ });
+ }
  modal.addEventListener('click', function (e) {
  if (e.target === modal) closeModal();
  });
  document.addEventListener('keydown', function (e) {
- if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+ if (!modal.classList.contains('active')) return;
+ if (e.key === 'Escape') closeModal();
+ else if (e.key === 'ArrowLeft') navigate(-1);
+ else if (e.key === 'ArrowRight') navigate(1);
  });
  }
 
