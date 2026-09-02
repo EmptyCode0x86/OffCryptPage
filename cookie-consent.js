@@ -31,7 +31,7 @@
         banner.innerHTML = `
             <div class="cookie-banner-content">
                 <div class="cookie-banner-text">
-                    <span class="cookie-icon">🍪</span>
+                    <span class="cookie-icon at-icon at-icon--cookie" aria-hidden="true"></span>
                     <div class="cookie-message">
                         <strong>We use cookies</strong>
                         <p>We use cookies and similar technologies for analytics and advertising. 
@@ -41,11 +41,11 @@
                 </div>
                 <div class="cookie-banner-buttons">
                     <button id="cookie-reject" class="cookie-btn cookie-btn-reject">
-                        <span class="btn-icon">✕</span>
+                        <span class="btn-icon at-icon at-icon--close" aria-hidden="true"></span>
                         <span class="btn-text">Reject</span>
                     </button>
                     <button id="cookie-accept" class="cookie-btn cookie-btn-accept">
-                        <span class="btn-icon">✓</span>
+                        <span class="btn-icon at-icon at-icon--check" aria-hidden="true"></span>
                         <span class="btn-text">Accept</span>
                     </button>
                 </div>

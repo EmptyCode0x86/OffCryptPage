@@ -58,6 +58,12 @@
     flex-shrink: 0;
 }
 
+.cookie-icon.at-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: #c45c26;
+}
+
 .cookie-message {
     color: #e0e0e0;
     font-size: 0.95rem;
@@ -112,6 +118,11 @@
 
 .cookie-btn .btn-icon {
     font-size: 1rem;
+}
+
+.cookie-btn .btn-icon.at-icon {
+    width: 1rem;
+    height: 1rem;
 }
 
 /* Reject Button */
