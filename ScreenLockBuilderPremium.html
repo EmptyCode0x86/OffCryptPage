@@ -50,7 +50,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="Premium1.png" as="image">
 
@@ -255,8 +255,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.3">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -412,6 +412,7 @@
                 <div class="at-hero__cta-row">
                     <a href="#pricing" class="at-btn at-btn--primary">Purchase Premium</a>
                     <a href="#pricing" class="at-btn at-btn--ghost">View Pricing</a>
+                    <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
                 </div>
 
                 <div class="at-hero__chips">
@@ -426,123 +427,175 @@
                 </div>
             </section>
 
-            <!-- Modern Horizontal Scrolling Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
                     <h2 class="gallery-title">Screenshots</h2>
-                    <p class="gallery-subtitle">Explore the Screen Lock Builder interface • <span class="scroll-hint"><span class="at-icon at-icon--download" aria-hidden="true"></span> Scroll horizontally</span></p>
                 </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="slbp-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="slbp-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="slbp-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="slbp-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="Screen Lock Builder Premium screenshots" tabindex="0">
 
-                <div class="image-gallery">
-
-                    <div class="image-card featured" data-image="Premium1.png"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="Premium1.png"
                         data-title="Windows Screen Lock Builder Interface"
                         data-desc="Main interface showing message customization and settings">
-                        <img src="Premium1.png"
-                            alt="Premium screen lock Windows builder - advanced interface with folder lock, website blocking, and custom themes">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="Premium1.png" data-full="Premium1.png"
+                                alt="Premium screen lock Windows builder - advanced interface with folder lock, website blocking, and custom themes"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Windows Screen Lock Builder Interface
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="LockScreen.png" data-title="Locked Screen Example"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="LockScreen.png"
+                        data-title="Locked Screen Example"
                         data-desc="Example of locked Windows screen with custom message">
-                        <img src="LockScreen.png"
-                            alt="Screen lock Windows premium in action - locked screen with AES-256 encryption and custom branding">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="LockScreen.png" data-full="LockScreen.png"
+                                alt="Screen lock Windows premium in action - locked screen with AES-256 encryption and custom branding"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Locked Screen Example
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="PremiumLockFiles.png"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PremiumLockFiles.png"
                         data-title="Lock programs & folders & websites" data-desc="Lock programs & folders & websites">
-                        <img src="PremiumLockFiles.png"
-                            alt="Premium Windows screen lock - lock programs, folders, and websites for complete security control">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="PremiumLockFiles.png" data-full="PremiumLockFiles.png"
+                                alt="Premium Windows screen lock - lock programs, folders, and websites for complete security control"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Lock programs, folders & websites
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="PremiumSelect.png"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PremiumSelect.png"
                         data-title="Select files & folders & websites to lock"
                         data-desc="Select files & folders & websites to lock">
-                        <img src="PremiumSelect.png"
-                            alt="Windows screen lock premium - select and manage files, folders, and websites to block">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="PremiumSelect.png" data-full="PremiumSelect.png"
+                                alt="Windows screen lock premium - select and manage files, folders, and websites to block"
+                                loading="lazy" decoding="async">
                         </div>
+                        <figcaption>Select files, folders & websites to lock
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PremiumSettings.png"
+                        data-title="Builder settings" data-desc="Builder settings">
+                        <div class="screenshot-frame">
+                            <img src="PremiumSettings.png" data-full="PremiumSettings.png"
+                                alt="Screen lock Windows premium settings - configure advanced security options and automation"
+                                loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Builder settings
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PremiumTheme.png"
+                        data-title="Builder colors" data-desc="Builder colors">
+                        <div class="screenshot-frame">
+                            <img src="PremiumTheme.png" data-full="PremiumTheme.png"
+                                alt="Windows screen locker premium - customize UI themes and colors for branded screen lock"
+                                loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Builder colors
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PremiumConfigs.png"
+                        data-title="Save/load configs" data-desc="Save/load configs">
+                        <div class="screenshot-frame">
+                            <img src="PremiumConfigs.png" data-full="PremiumConfigs.png"
+                                alt="Screen lock Windows premium - save and load configurations for easy deployment"
+                                loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Save/load configs
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
                     </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
+                </div>
+            </section>
 
-                    <div class="image-card" data-image="PremiumSettings.png" data-title="Builder settings"
-                        data-desc="Builder settings">
-                        <img src="PremiumSettings.png"
-                            alt="Screen lock Windows premium settings - configure advanced security options and automation">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+            <section id="videos" class="product-screens product-video-carousel">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Videos</h2>
+                </div>
+                <p class="features-carousel-hint">Browse videos with the arrows or by swiping</p>
+                <div class="features-carousel" id="slbp-videos-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous video"
+                        aria-controls="slbp-videos-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next video"
+                        aria-controls="slbp-videos-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="slbp-videos-track" role="region"
+                        aria-roledescription="carousel" aria-label="Screen Lock Builder Premium videos" tabindex="0">
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/bHJDuHsxq3w"
+                                    title="Windows Screen Lock Builder - Free Version Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
                         </div>
+                        <figcaption>Free version demo</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/FGmIlO_DfKI"
+                                    title="Windows Screen Lock Builder Premium - Website Lock Feature"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>Premium website lock</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/OeFw8-4aOaA"
+                                    title="Windows Screen Lock Builder Premium - Folder Lock Feature"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>Premium folder lock</figcaption>
+                    </figure>
+
                     </div>
-
-                    <div class="image-card" data-image="PremiumTheme.png" data-title="Builder colors"
-                        data-desc="Builder colors">
-                        <img src="PremiumTheme.png"
-                            alt="Windows screen locker premium - customize UI themes and colors for branded screen lock">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
-                        </div>
-                    </div>
-
-                    <div class="image-card" data-image="PremiumConfigs.png" data-title="Save/load configs"
-                        data-desc="Save/load configs">
-                        <img src="PremiumConfigs.png"
-                            alt="Screen lock Windows premium - save and load configurations for easy deployment">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Watch how Windows Screen Lock Builder works ( Free version )">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/bHJDuHsxq3w"
-                                title="Windows Screen Lock Builder - Free Version Demo"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
-                        </div>
-                    </div>
-
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Premium version website lock feature showcase">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/FGmIlO_DfKI"
-                                title="Windows Screen Lock Builder Premium - Website Lock Feature"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
-                        </div>
-                    </div>
-
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Premium version folder lock feature showcase">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/OeFw8-4aOaA"
-                                title="Windows Screen Lock Builder Premium - Folder Lock Feature"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
-                        </div>
-                    </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Video slides"></div>
                 </div>
             </section>
 
@@ -822,67 +875,116 @@
                     </aside>
 
                     <!-- FAQ Section -->
-                    <div class="faq-section">
+                    <div id="faq" class="faq-section">
                         <h3>Frequently Asked Questions</h3>
                         <div class="faq-container">
-                            <div class="faq-item">
-                                <h4>Is this software safe to use?</h4>
-                                <p>Yes! Screen Lock Builder uses AES-256-GCM encryption to protect your password.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Will this work on my Windows version?</h4>
-                                <p>Screen Lock Builder works on Windows 7, 8, 10, and 11. The generated .exe files are
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Is this software safe to use?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes! Screen Lock Builder uses AES-256-GCM encryption to protect your password.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Will this work on my Windows version?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Screen Lock Builder works on Windows 7, 8, 10, and 11. The generated .exe files are
                                     portable and don't require installation on the target computer.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What happens if I forget my password?</h4>
-                                <p>Unfortunately, if you forget your password, there's no way to recover it due to the
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>What happens if I forget my password?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Unfortunately, if you forget your password, there's no way to recover it due to the
                                     strong encryption. We recommend writing down your password in a secure location or
                                     using a password manager.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Is the generated .exe file detectable by antivirus?</h4>
-                                <p>Some antivirus programs may flag the .exe file as suspicious due to its screen
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Is the generated .exe file detectable by antivirus?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Some antivirus programs may flag the .exe file as suspicious due to its screen
                                     locking behavior. This is normal for security software. You can add an exception or
                                     whitelist the file if needed.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>Is the license a one-time payment?</h4>
-                                <p>Yes, the Premium license is a one-time payment for lifetime access. There are no
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Is the license a one-time payment?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes, the Premium license is a one-time payment for lifetime access. There are no
                                     recurring monthly or yearly fees.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>What is the difference between Free and Premium version?</h4>
-                                <p>Premium includes advanced features like folder and file locking, program blocking,
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>What is the difference between Free and Premium version?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Premium includes advanced features like folder and file locking, program blocking,
                                     website blocking, save/load configurations, UI customization, removing branding, and
                                     much more.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>Can I lock specific folders, programs, or websites?</h4>
-                                <p>Yes! With Premium, you can select specific folders and files to protect, block access
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Can I lock specific folders, programs, or websites?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes! With Premium, you can select specific folders and files to protect, block access
                                     to chosen programs (like web browsers), and prevent access to specific websites
                                     while the screen is locked.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>Do I get future updates for free?</h4>
-                                <p>Yes, your Premium license includes all future updates and new features at no extra
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Do I get future updates for free?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes, your Premium license includes all future updates and new features at no extra
                                     cost.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>Does the software collect any data?</h4>
-                                <p>The application only collects your computer's Hardware ID (HWID) for license
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>Does the software collect any data?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>The application only collects your computer's Hardware ID (HWID) for license
                                     verification purposes. No other personal data or usage information is
                                     collected.</p>
-                            </div>
+                                </div>
+                            </details>
 
-                            <div class="faq-item">
-                                <h4>What can I use this software for?</h4>
-                                <p>Common use cases include:
+                            <details class="faq-item" name="slbp-faq">
+                                <summary>
+                                    <h4>What can I use this software for?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Common use cases include:
                                 <ul style="margin: 10px 0 10px 20px; color: var(--text-secondary);">
                                     <li><strong>Enhanced Security:</strong> Protecting your workstation when unattended.
                                     </li>
@@ -895,7 +997,8 @@
                                         functions only.</li>
                                 </ul>
                                 </p>
-                            </div>
+                                </div>
+                            </details>
 
                         </div>
                     </div>
@@ -945,7 +1048,8 @@
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
         data-cfasync="false"></script>
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
 
     <!-- Cookie Consent Banner -->

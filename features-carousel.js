@@ -1,5 +1,5 @@
 /**
- * Features carousel — horizontal scroll-snap for #features only.
+ * Features / screenshot carousel — horizontal scroll-snap.
  * Arrows, dots, keyboard; native swipe via scroll-snap.
  */
 (function () {
@@ -16,7 +16,9 @@
     const dotsHost = root.querySelector('.features-carousel-dots');
     if (!track || !prevBtn || !nextBtn || !dotsHost) return;
 
-    const cards = () => Array.from(track.querySelectorAll('.feature-card'));
+    const cards = () => Array.from(track.querySelectorAll(
+      ':scope > .screenshot-card, :scope > .image-card, :scope > .at-feature-card, :scope > .feature-card'
+    ));
 
     function cardStep() {
       const list = cards();

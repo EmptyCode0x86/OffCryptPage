@@ -41,8 +41,8 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
-    <link rel="preload" href="styles-at-extras.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
+    <link rel="preload" href="styles-at-extras.css?v=3.1.3" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="RemoteControl1.png" as="image">
 
@@ -150,8 +150,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.3">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -280,6 +280,7 @@
                 <div class="at-hero__cta-row">
                     <a href="#pricing" class="at-btn at-btn--primary">Download Free</a>
                     <a href="#pictures" class="at-btn at-btn--ghost">View Screenshots</a>
+                    <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
                 </div>
                 <div class="at-hero__chips">
                     <span class="at-chip"><span class="at-icon at-icon--monitor" aria-hidden="true"></span> Live Screen Control</span>
@@ -289,144 +290,164 @@
                 </div>
             </section>
 
-            <!-- Modern Horizontal Scrolling Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
-                    <h2 class="gallery-title at-section__title" >Screenshot & Video Showcase</h2>
+                    <h2 class="gallery-title at-section__title">Screenshot & Video Showcase</h2>
                 </div>
 
-                <div class="image-card video-showcase-card" data-image="youtube-demo" data-title="Web Remote Control Demo"
-                    data-desc="Watch the Web Remote Control System in action.">
-                    <div class="video-ratio-wrap">
-                        <iframe src="https://www.youtube.com/embed/_gMLGK7DUUI"
-                            title="Web Remote Control Demo Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-card-label"><span class="at-icon at-icon--play" aria-hidden="true"></span> Web Remote Control: Demo Video</div>
-                </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="rc-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="rc-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="rc-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="rc-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="Web Remote Control screenshots" tabindex="0">
 
-                <div class="image-gallery">
-
-                    <div class="image-card featured" data-image="RemoteControl1.png" data-title="Remote Control Session"
-                        data-desc="Live streaming and interactive remote control in action">
-                        <img src="RemoteControl1.png" alt="Remote Control Live Stream interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="RemoteControl1.png" data-title="Remote Control Session" data-desc="Live streaming and interactive remote control in action">
+                        <div class="screenshot-frame">
+                            <img src="RemoteControl1.png" data-full="RemoteControl1.png" alt="Remote Control Live Stream interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Remote Control Session
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-
-
-                    <div class="image-card" data-image="DeviceHistory.png" data-title="Device History"
-                        data-desc="See previously connected devices with names and status for faster reconnection">
-                        <img src="DeviceHistory.png" alt="Remote Control Device History interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="DeviceHistory.png" data-title="Device History" data-desc="See previously connected devices with names and status for faster reconnection">
+                        <div class="screenshot-frame">
+                            <img src="DeviceHistory.png" data-full="DeviceHistory.png" alt="Remote Control Device History interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Device History
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="Dashboardlock.png" data-title="Dashboard Lock"
-                        data-desc="Secure your control panel with optional password protection">
-                        <img src="Dashboardlock.png" alt="Remote Control Dashboard Lock interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="Dashboardlock.png" data-title="Dashboard Lock" data-desc="Secure your control panel with optional password protection">
+                        <div class="screenshot-frame">
+                            <img src="Dashboardlock.png" data-full="Dashboardlock.png" alt="Remote Control Dashboard Lock interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Dashboard Lock
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-
-                    <div class="image-card" data-image="FileManager.png" data-title="Streaming File Manager"
-                        data-desc="Browse remote directories and transfer massive files securely">
-                        <img src="FileManager.png" alt="Remote Control File Manager interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="FileManager.png" data-title="Streaming File Manager" data-desc="Browse remote directories and transfer massive files securely">
+                        <div class="screenshot-frame">
+                            <img src="FileManager.png" data-full="FileManager.png" alt="Remote Control File Manager interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Streaming File Manager
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="TaskManager.png" data-title="Remote Task Manager"
-                        data-desc="Monitor and control active processes and resource usage">
-                        <img src="TaskManager.png" alt="Remote Control Task Manager interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="TaskManager.png" data-title="Remote Task Manager" data-desc="Monitor and control active processes and resource usage">
+                        <div class="screenshot-frame">
+                            <img src="TaskManager.png" data-full="TaskManager.png" alt="Remote Control Task Manager interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Remote Task Manager
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="SoftwareManager.png" data-title="Software Manager"
-                        data-desc="List installed applications and uninstall remotely via Windows Registry">
-                        <img src="SoftwareManager.png" alt="Remote Control Software Manager interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="SoftwareManager.png" data-title="Software Manager" data-desc="List installed applications and uninstall remotely via Windows Registry">
+                        <div class="screenshot-frame">
+                            <img src="SoftwareManager.png" data-full="SoftwareManager.png" alt="Remote Control Software Manager interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Software Manager
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="OpenProcess.png" data-title="Remote Process Execution"
-                        data-desc="Instantly execute commands and launch software on the agent machine">
-                        <img src="OpenProcess.png" alt="Remote Control Open Process interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="OpenProcess.png" data-title="Remote Process Execution" data-desc="Instantly execute commands and launch software on the agent machine">
+                        <div class="screenshot-frame">
+                            <img src="OpenProcess.png" data-full="OpenProcess.png" alt="Remote Control Open Process interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Remote Process Execution
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="RemoteTerminal.png" data-title="Remote Terminal"
-                        data-desc="Fully interactive PowerShell and Command Prompt terminal in the web dashboard">
-                        <img src="RemoteTerminal.png" alt="Remote Control Terminal interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="RemoteTerminal.png" data-title="Remote Terminal" data-desc="Fully interactive PowerShell and Command Prompt terminal in the web dashboard">
+                        <div class="screenshot-frame">
+                            <img src="RemoteTerminal.png" data-full="RemoteTerminal.png" alt="Remote Control Terminal interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Remote Terminal
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="ScriptManager.png" data-title="Script Manager"
-                        data-desc="Built-in code editor to write, save, and execute scripts on remote agent machines">
-                        <img src="ScriptManager.png" alt="Remote Control Script Manager interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScriptManager.png" data-title="Script Manager" data-desc="Built-in code editor to write, save, and execute scripts on remote agent machines">
+                        <div class="screenshot-frame">
+                            <img src="ScriptManager.png" data-full="ScriptManager.png" alt="Remote Control Script Manager interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Script Manager
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="ScriptManager2.png" data-title="Script Manager (Jobs)"
-                        data-desc="Track running and completed scripts in real-time, safely stop execution, and view output">
-                        <img src="ScriptManager2.png" alt="Remote Control Script Manager Jobs interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScriptManager2.png" data-title="Script Manager (Jobs)" data-desc="Track running and completed scripts in real-time, safely stop execution, and view output">
+                        <div class="screenshot-frame">
+                            <img src="ScriptManager2.png" data-full="ScriptManager2.png" alt="Remote Control Script Manager Jobs interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Script Manager (Jobs)
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-
-                    <div class="image-card" data-image="ComputerInfo.png" data-title="System Telemetry"
-                        data-desc="View detailed hardware metrics and operating system information">
-                        <img src="ComputerInfo.png" alt="Remote Control Computer Information interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ComputerInfo.png" data-title="System Telemetry" data-desc="View detailed hardware metrics and operating system information">
+                        <div class="screenshot-frame">
+                            <img src="ComputerInfo.png" data-full="ComputerInfo.png" alt="Remote Control Computer Information interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>System Telemetry
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="LiveRemote.png" data-title="Live Remote Control"
-                        data-desc="Real-time visual feed and interactive desktop control">
-                        <img src="LiveRemote.png" alt="Remote Control Live Remote interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="LiveRemote.png" data-title="Live Remote Control" data-desc="Real-time visual feed and interactive desktop control">
+                        <div class="screenshot-frame">
+                            <img src="LiveRemote.png" data-full="LiveRemote.png" alt="Remote Control Live Remote interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Live Remote Control
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="ChatRemote.png" data-title="Two-way Chat"
-                        data-desc="Real-time messaging between the dashboard administrator and the remote user">
-                        <img src="ChatRemote.png" alt="Remote Control Chat interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ChatRemote.png" data-title="Two-way Chat" data-desc="Real-time messaging between the dashboard administrator and the remote user">
+                        <div class="screenshot-frame">
+                            <img src="ChatRemote.png" data-full="ChatRemote.png" alt="Remote Control Chat interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Two-way Chat
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="RemotControlManager.png" data-title="Server Manager Tool"
-                        data-desc="Easily manage servers, generate security keys, and build custom agents">
-                        <img src="RemotControlManager.png" alt="Remote Control Server Manager interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="RemotControlManager.png" data-title="Server Manager Tool" data-desc="Easily manage servers, generate security keys, and build custom agents">
+                        <div class="screenshot-frame">
+                            <img src="RemotControlManager.png" data-full="RemotControlManager.png" alt="Remote Control Server Manager interface" loading="lazy" decoding="async">
                         </div>
+                        <figcaption>Server Manager Tool
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
                     </div>
-
-
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
                 </div>
             </section>
+
+            <div class="at-hero__video">
+                <iframe src="https://www.youtube.com/embed/_gMLGK7DUUI"
+                    title="Web Remote Control Demo Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
             <!-- Custom Image Modal -->
             <div id="imageModal" class="image-modal">
@@ -963,45 +984,75 @@
                     </aside>
 
                     <!-- FAQ Section -->
-                    <div class="faq-section">
+                    <div id="faq" class="faq-section">
                         <h3>Frequently Asked Questions</h3>
                         <div class="faq-container">
-                            <div class="faq-item">
-                                <h4>What is Web Remote Control System?</h4>
-                                <p>A self-hosted, web-based remote control for Windows. From the browser you get a live
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>What is Web Remote Control System?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>A self-hosted, web-based remote control for Windows. From the browser you get a live
                                     desktop stream, mouse and keyboard input, process management, streaming file
                                     transfer, remote terminal, and an optional Dashboard lock password on the control
                                     panel.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Does it work remotely over the internet?</h4>
-                                <p>Yes. The system uses an ASP.NET Core backend with SignalR for real-time
+                                </div>
+                            </details>
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>Does it work remotely over the internet?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. The system uses an ASP.NET Core backend with SignalR for real-time
                                     communication. A lightweight Windows agent runs on the target device to execute
                                     commands. You can host the server on a VPS to access it from anywhere.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Can I view and control the remote screen?</h4>
-                                <p>Yes, the Live Stream feature provides a real-time feed of the remote desktop directly
+                                </div>
+                            </details>
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>Can I view and control the remote screen?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes, the Live Stream feature provides a real-time feed of the remote desktop directly
                                     to your web browser. You can interact with the machine by sending mouse clicks and
                                     inputs instantly.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Can I transfer files securely?</h4>
-                                <p>Absolutely. The system includes a high-performance streaming file manager. You can
+                                </div>
+                            </details>
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>Can I transfer files securely?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Absolutely. The system includes a high-performance streaming file manager. You can
                                     browse directories, and reliably upload or download massive files without hitting
                                     memory limits.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Is the connection secure against packet sniffing?</h4>
-                                <p>Yes. All sensitive data is encrypted using AES-256 GCM. Even if traffic is
+                                </div>
+                            </details>
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>Is the connection secure against packet sniffing?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. All sensitive data is encrypted using AES-256 GCM. Even if traffic is
                                     intercepted, the data is completely unreadable. Keys are managed by the Server
                                     Manager tool.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What technologies does it use?</h4>
-                                <p>The system is built with ASP.NET Core, Blazor Server, SignalR, SQLite (via EF Core),
+                                </div>
+                            </details>
+                            <details class="faq-item" name="remote-faq">
+                                <summary>
+                                    <h4>What technologies does it use?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>The system is built with ASP.NET Core, Blazor Server, SignalR, SQLite (via EF Core),
                                     and a C#/.NET Windows agent.</p>
-                            </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -1030,7 +1081,8 @@
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
         data-cfasync="false"></script>
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
     
     <!-- Cookie Consent Banner -->

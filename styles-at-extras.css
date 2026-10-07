@@ -898,8 +898,8 @@
     display: block;
 }
 
-/* ===== Screenshots carousel (TorChatPage #screenshots) — same controls as #features ===== */
-#screenshots .features-carousel-hint {
+/* ===== Screenshot carousel (#screenshots / .product-screens) ===== */
+:is(#screenshots, .product-screens) .features-carousel-hint {
     text-align: center;
     color: var(--at-amber);
     font-size: 0.95rem;
@@ -909,14 +909,14 @@
     opacity: 0.9;
 }
 
-#screenshots .features-carousel {
+:is(#screenshots, .product-screens) .features-carousel {
     position: relative;
     width: 100%;
     padding: 0 2.75rem;
     margin: 0 0 1.5rem;
 }
 
-#screenshots .features-carousel-track {
+:is(#screenshots, .product-screens) .features-carousel-track {
     display: flex;
     gap: 1.25rem;
     overflow-x: auto;
@@ -929,11 +929,12 @@
     outline: none;
 }
 
-#screenshots .features-carousel-track::-webkit-scrollbar {
+:is(#screenshots, .product-screens) .features-carousel-track::-webkit-scrollbar {
     display: none;
 }
 
-#screenshots .features-carousel-track .at-feature-card.screenshot-card {
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card,
+:is(#screenshots, .product-screens) .features-carousel-track .image-card {
     flex: 0 0 calc(50% - 0.625rem);
     width: calc(50% - 0.625rem);
     max-width: calc(50% - 0.625rem);
@@ -948,11 +949,12 @@
     gap: 0.65rem;
 }
 
-#screenshots .features-carousel-track .at-feature-card.screenshot-card:hover {
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card:hover,
+:is(#screenshots, .product-screens) .features-carousel-track .image-card:hover {
     transform: translateY(-4px);
 }
 
-#screenshots .screenshot-card .screenshot-frame {
+:is(#screenshots, .product-screens) .screenshot-card .screenshot-frame {
     aspect-ratio: 16 / 10;
     width: 100%;
     display: flex;
@@ -964,7 +966,7 @@
     overflow: hidden;
 }
 
-#screenshots .screenshot-card img {
+:is(#screenshots, .product-screens) .screenshot-card img {
     display: block;
     width: 100%;
     height: 100%;
@@ -976,7 +978,23 @@
     cursor: zoom-in;
 }
 
-#screenshots .screenshot-card figcaption {
+:is(#screenshots, .product-screens) .screenshot-card .at-video-wrap,
+:is(#screenshots, .product-screens) .screenshot-card .video-ratio-wrap {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+}
+
+:is(#screenshots, .product-screens) .screenshot-card .at-video-wrap iframe,
+:is(#screenshots, .product-screens) .screenshot-card .video-ratio-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+:is(#screenshots, .product-screens) .screenshot-card figcaption {
     margin: 0;
     padding: 0 0.35rem 0.35rem;
     font-size: 0.85rem;
@@ -985,14 +1003,14 @@
     line-height: 1.4;
 }
 
-#screenshots .screenshot-card .screenshot-zoom-hint {
+:is(#screenshots, .product-screens) .screenshot-card .screenshot-zoom-hint {
     display: block;
     font-size: 0.72rem;
     color: rgba(196, 92, 38, 0.75);
     margin-top: 0.2rem;
 }
 
-#screenshots .features-carousel-btn {
+:is(#screenshots, .product-screens) .features-carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1012,25 +1030,25 @@
     transition: border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
 }
 
-#screenshots .features-carousel-btn:hover:not(:disabled) {
+:is(#screenshots, .product-screens) .features-carousel-btn:hover:not(:disabled) {
     border-color: var(--at-amber);
     background: rgba(196, 92, 38, 0.12);
 }
 
-#screenshots .features-carousel-btn:disabled {
+:is(#screenshots, .product-screens) .features-carousel-btn:disabled {
     opacity: 0.35;
     cursor: default;
 }
 
-#screenshots .features-carousel-btn.prev {
+:is(#screenshots, .product-screens) .features-carousel-btn.prev {
     left: 0;
 }
 
-#screenshots .features-carousel-btn.next {
+:is(#screenshots, .product-screens) .features-carousel-btn.next {
     right: 0;
 }
 
-#screenshots .features-carousel-dots {
+:is(#screenshots, .product-screens) .features-carousel-dots {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -1038,7 +1056,7 @@
     flex-wrap: wrap;
 }
 
-#screenshots .features-carousel-dot {
+:is(#screenshots, .product-screens) .features-carousel-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -1049,38 +1067,39 @@
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-#screenshots .features-carousel-dot[aria-selected="true"],
-#screenshots .features-carousel-dot.is-active {
+:is(#screenshots, .product-screens) .features-carousel-dot[aria-selected="true"],
+:is(#screenshots, .product-screens) .features-carousel-dot.is-active {
     background: var(--at-amber);
     border-color: var(--at-amber);
     transform: scale(1.15);
 }
 
-#screenshots .features-carousel-dot:focus-visible,
-#screenshots .features-carousel-btn:focus-visible,
-#screenshots .features-carousel-track:focus-visible {
+:is(#screenshots, .product-screens) .features-carousel-dot:focus-visible,
+:is(#screenshots, .product-screens) .features-carousel-btn:focus-visible,
+:is(#screenshots, .product-screens) .features-carousel-track:focus-visible {
     outline: 2px solid var(--at-amber);
     outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #screenshots .features-carousel-track {
+    :is(#screenshots, .product-screens) .features-carousel-track {
         scroll-behavior: auto;
     }
 
-    #screenshots .features-carousel-btn,
-    #screenshots .features-carousel-dot,
-    #screenshots .features-carousel-track .at-feature-card {
+    :is(#screenshots, .product-screens) .features-carousel-btn,
+    :is(#screenshots, .product-screens) .features-carousel-dot,
+    :is(#screenshots, .product-screens) .features-carousel-track .at-feature-card {
         transition: none;
     }
 }
 
 @media (max-width: 900px) {
-    #screenshots .features-carousel {
+    :is(#screenshots, .product-screens) .features-carousel {
         padding: 0 2.5rem;
     }
 
-    #screenshots .features-carousel-track .at-feature-card.screenshot-card {
+    :is(#screenshots, .product-screens) .features-carousel-track .screenshot-card,
+    :is(#screenshots, .product-screens) .features-carousel-track .image-card {
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
@@ -1088,15 +1107,43 @@
 }
 
 @media (max-width: 768px) {
-    #screenshots .features-carousel {
+    :is(#screenshots, .product-screens) .features-carousel {
         padding: 0 2.25rem;
     }
 
-    #screenshots .features-carousel-btn {
+    :is(#screenshots, .product-screens) .features-carousel-btn {
         width: 38px;
         height: 38px;
         font-size: 1.5rem;
     }
+}
+
+.product-screens {
+    margin: 1.5rem 0 2rem;
+}
+
+.product-screens .gallery-header {
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+/* Neutralize gallery-simple.css neon on carousel screenshot slides */
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card.image-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+    border: 1px solid var(--at-border);
+    border-left: 1px solid var(--at-border);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card.image-card:hover {
+    box-shadow: none;
+    border-left-color: var(--at-border);
+}
+
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card.image-card:hover img {
+    opacity: 1;
+    transform: none;
 }
 
 
@@ -2641,4 +2688,232 @@
     background: rgba(196, 92, 38, 0.1);
     border-color: rgba(232, 168, 74, 0.35);
     color: var(--at-amber);
+}
+
+/* ── TorChatPage denser hero + compact security (scoped) ── */
+.torchat-screens + .at-hero__video,
+.product-screens + .at-hero__video,
+.product-videos:not(.product-screens) {
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+}
+
+.product-videos:not(.product-screens) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 952px;
+}
+
+.product-videos:not(.product-screens) .at-hero__video {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.product-video-carousel .screenshot-card .at-video-wrap iframe {
+    pointer-events: auto;
+}
+
+.at-hero.at-hero--split {
+    text-align: left;
+}
+
+.at-hero--split .at-hero__rule {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.at-hero--split .at-hero__chips {
+    justify-content: flex-start;
+    max-width: none;
+    margin: 0 0 0.35rem;
+}
+
+.at-hero--split .at-hero__cta-row {
+    justify-content: flex-start;
+    margin: 1.1rem 0 0;
+}
+
+.at-hero__split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.at-hero--split .at-hero__video {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: none;
+}
+
+.at-hero--split #screenshots .features-carousel-hint {
+    margin-bottom: 0.7rem;
+    font-size: 0.82rem;
+}
+
+.at-hero--split #screenshots .features-carousel {
+    margin-bottom: 0;
+    padding: 0 2.4rem;
+}
+
+.at-hero--split #screenshots .features-carousel-track .at-feature-card.screenshot-card {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.torchat-overview {
+    margin: 1.75rem auto 0;
+    max-width: 820px;
+    text-align: left;
+    border: 1px solid var(--at-border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.15rem 1.1rem 0.35rem;
+}
+
+.torchat-overview summary {
+    cursor: pointer;
+    font-family: var(--at-font-display);
+    font-weight: 700;
+    color: var(--at-amber);
+    padding: 0.9rem 0.15rem;
+    list-style: none;
+}
+
+.torchat-overview summary::-webkit-details-marker {
+    display: none;
+}
+
+.torchat-overview summary::after {
+    content: " +";
+    color: var(--at-copper);
+}
+
+.torchat-overview[open] summary::after {
+    content: " \2013";
+}
+
+.torchat-overview .at-hero__lead,
+.torchat-overview .at-hero__body {
+    animation: none;
+}
+
+.sec-arch {
+    margin-top: 1.25rem;
+}
+
+.sec-arch__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    position: sticky;
+    top: 0.75rem;
+    z-index: 4;
+    padding: 0.35rem 0 0.85rem;
+    background: linear-gradient(180deg, var(--at-bg-deep, #0a0908) 70%, transparent);
+}
+
+.sec-arch__tab {
+    appearance: none;
+    font-family: var(--at-font-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--at-text-muted);
+    background: var(--at-bg-raised, rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--at-border);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.sec-arch__tab::after {
+    content: "";
+    position: absolute;
+    left: 0.95rem;
+    right: 0.95rem;
+    bottom: 0.2rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--at-copper, #c45c26);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+}
+
+.sec-arch__tab[aria-selected="true"] {
+    color: var(--at-amber);
+    border-color: rgba(196, 92, 38, 0.55);
+}
+
+.sec-arch__tab[aria-selected="true"]::after {
+    transform: scaleX(1);
+}
+
+.sec-arch__tab:focus-visible {
+    outline: 2px solid var(--at-copper, #c45c26);
+    outline-offset: 2px;
+}
+
+.sec-arch__panel {
+    min-height: 18rem;
+}
+
+.sec-arch__panel:not([hidden]) {
+    animation: secArchFade 180ms ease;
+}
+
+.sec-arch .security-block {
+    margin-bottom: 0;
+}
+
+#security .security-table th,
+#security .security-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+#sec-panel-server .security-table-wrapper {
+    max-height: min(70vh, 36rem);
+    overflow-y: auto;
+}
+
+@keyframes secArchFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 1180px) {
+    .at-hero.at-hero--split {
+        text-align: center;
+    }
+
+    .at-hero--split .at-hero__rule {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .at-hero--split .at-hero__chips,
+    .at-hero--split .at-hero__cta-row {
+        justify-content: center;
+    }
+
+    .at-hero__split {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .sec-arch__tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        top: 3.25rem;
+    }
+
+    .sec-arch__tab {
+        flex: 0 0 auto;
+    }
 }

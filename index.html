@@ -22,7 +22,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCrypt-Android.jpg" as="image">
 
@@ -183,8 +183,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.2">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
@@ -348,52 +348,73 @@
                 </div>
             </section>
 
-            <!-- Modern Horizontal Scrolling Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
                     <h2 class="gallery-title">Screenshots</h2>
-                    <p class="gallery-subtitle">Explore the app interface • <span class="scroll-hint"><span class="at-icon at-icon--download" aria-hidden="true"></span> Scroll
-                            horizontally</span></p>
                 </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="oc-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="oc-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="oc-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="oc-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="OffCrypt Android screenshots" tabindex="0">
 
-                <div class="image-gallery">
-
-                    <div class="image-card featured" data-image="OffCrypt-Android.jpg" data-title="" data-desc="">
-                        <img src="OffCrypt-Android.jpg" alt="OffCrypt Android app main interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="OffCrypt-Android.jpg" data-title="OffCrypt Android">
+                        <div class="screenshot-frame">
+                            <img src="OffCrypt-Android.jpg" data-full="OffCrypt-Android.jpg" alt="OffCrypt Android app main interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>OffCrypt Android app main interface
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="OffCryptDecryption.jpg" data-title="" data-desc="">
-                        <img src="OffCryptDecryption.jpg" alt="OffCrypt decryption interface with RSA 4096 encryption">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="OffCryptDecryption.jpg" data-title="Decryption">
+                        <div class="screenshot-frame">
+                            <img src="OffCryptDecryption.jpg" data-full="OffCryptDecryption.jpg" alt="OffCrypt decryption interface with RSA 4096 encryption" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Decryption with RSA 4096
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="FileSettings.jpg" data-title="" data-desc="">
-                        <img src="FileSettings.jpg" alt="OffCrypt security settings with AES-256 encryption">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="FileSettings.jpg" data-title="Security settings">
+                        <div class="screenshot-frame">
+                            <img src="FileSettings.jpg" data-full="FileSettings.jpg" alt="OffCrypt security settings with AES-256 encryption" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Security settings with AES-256
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="FileEncryption.jpg" data-title="" data-desc="">
-                        <img src="FileEncryption.jpg" alt="OffCrypt file encryption interface">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="FileEncryption.jpg" data-title="File encryption">
+                        <div class="screenshot-frame">
+                            <img src="FileEncryption.jpg" data-full="FileEncryption.jpg" alt="OffCrypt file encryption interface" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>File encryption
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="FileDecryption.jpg" data-title="" data-desc="">
-                        <img src="FileDecryption.jpg" alt="OffCrypt file decryption settings panel">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="FileDecryption.jpg" data-title="File decryption">
+                        <div class="screenshot-frame">
+                            <img src="FileDecryption.jpg" data-full="FileDecryption.jpg" alt="OffCrypt file decryption settings panel" loading="lazy" decoding="async">
                         </div>
+                        <figcaption>File decryption
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
                     </div>
-
-
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
                 </div>
             </section>
 
@@ -609,7 +630,8 @@
     </div>
 
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
 
     <!-- Cookie Consent Banner -->

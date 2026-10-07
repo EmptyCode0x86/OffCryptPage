@@ -126,3 +126,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (!href || href.charAt(0) !== '#') return;
+            var target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        });
+    });
+
+    if (reduceMotion) return;
+    var supportsView = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+    if (supportsView) return;
+
+    var nodes = document.querySelectorAll(
+        '.at-section, .product-screens, .pricing-section, .at-download, .at-badges, .product-videos'
+    );
+    if (!nodes.length) return;
+    nodes.forEach(function (el) { el.classList.add('at-reveal'); });
+    if (!('IntersectionObserver' in window)) {
+        nodes.forEach(function (el) { el.classList.add('is-inview'); });
+        return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-inview');
+            io.unobserve(entry.target);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    nodes.forEach(function (el) { io.observe(el); });
+});

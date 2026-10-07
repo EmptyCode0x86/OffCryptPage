@@ -48,8 +48,8 @@
  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
  <link rel="manifest" href="/manifest.json">
 
- <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.0.9" as="style">
+ <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.1.2" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -65,7 +65,7 @@
  "name": "OffCode Tor Chat",
  "applicationCategory": "CommunicationApplication, SecurityApplication",
  "operatingSystem": "Windows (host); Linux/Docker (host); Tor Browser (clients)",
- "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. Creator Settings (close/max members/read-only/slow mode/disable attachments/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
+ "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. v3 onion intro DoS and Equi-X Proof-of-Work on Tor 0.4.8+. Creator Settings (close/max members/read-only/slow mode/disable attachments/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
  "url": "https://www.dev-offcode.com/TorChatPage.html",
  "image": "https://www.dev-offcode.com/TorChat1.png",
  "offers": [
@@ -117,7 +117,7 @@
  ]
  },
  "datePublished": "2026-07-12",
- "dateModified": "2026-07-21"
+ "dateModified": "2026-10-03"
  }
  </script>
 
@@ -213,6 +213,14 @@
  "@type": "Answer",
  "text": "Ensure the Hidden Service is running in Server Manager, copy the full .onion link again, and open it only in Tor Browser. If the page fails to load, wait for Tor to bootstrap, try a new circuit, and verify the host PC is online with ChatServer still running."
  }
+ },
+ {
+ "@type": "Question",
+ "name": "Does Tor Chat protect the onion service from DoS?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "The Hidden Service enables Tor intro-point rate limits and Equi-X Proof-of-Work on Tor 0.4.8 or newer (man-page defaults; PoW stays idle until overload), plus per-circuit stream limits. This follows Tor Project onion DoS guidance. It does not use client IPs. Tor Browser includes the PoW client. A well-funded network-wide attack can still hurt availability."
+ }
  }
  ]
  }
@@ -253,8 +261,8 @@
  }
  </script>
 
- <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+ <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.1.2">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -376,6 +384,48 @@
  <h1 class="at-hero__title">OffCode Tor Chat</h1>
  <p class="at-hero__subtitle">Self-hosted E2EE chat over Tor Hidden Service</p>
  <div class="at-hero__rule" aria-hidden="true"></div>
+
+ <p class="at-hero__lead">
+ Setting up your own self-hosted chat on the <strong>Tor network</strong> has never been this easy.
+ Guests open your <strong>.onion</strong> link in <strong>Tor Browser</strong>: no port forwarding,
+ no cloud account, and no complicated setup. OffCode Tor Chat is designed to make secure Tor
+ Hidden Service hosting simple.
+ </p>
+
+ <p class="at-hero__lead">
+ Messages are encrypted in-browser with <strong>WebCrypto AES-256-GCM</strong> (PBKDF2-v2,
+ 600k iterations) before reaching the server: ChatServer relays and stores
+ <em>ciphertext only</em>. Password rooms use separate KDF domains so the host cannot
+ derive the key; open rooms are public encrypted channels.
+ </p>
+
+ <p class="at-hero__body">
+ Host with <strong>Server Manager</strong> on Windows, or headless <strong>Docker</strong>
+ (ChatServer + Tor HS). <strong>Password rooms</strong> are server-blind E2EE (the host cannot
+ derive the room key). <strong>Open rooms</strong> still encrypt in the browser, but the key
+ is derived from the room id: intentional public channels. <strong>Hidden rooms</strong> stay
+ off the public list and use invite links; add a password for private E2EE. Creators get
+ Settings for <strong>close joins</strong>, <strong>max members</strong>, <strong>announcement / read-only</strong>, <strong>disable attachments</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
+ and <strong>delete room</strong>, plus a <strong>Profile recovery code</strong>
+ (<strong>My rooms</strong> for hidden). Required message TTL, E2EE attachments, and optional
+ <strong>Full Vanguards</strong> complete the stack.
+ </p>
+
+ <div class="at-hero__cta-row">
+ <a href="TorChatDisclaimer.html" class="at-btn at-btn--primary">Download</a>
+ <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
+ <a href="#features" class="at-btn at-btn--ghost">Features</a>
+ </div>
+
+ <div class="at-hero__chips">
+ <span class="at-chip"><span class="at-icon at-icon--layers" aria-hidden="true"></span> Tor Hidden Service</span>
+ <span class="at-chip"><span class="at-icon at-icon--shield" aria-hidden="true"></span> Password E2EE</span>
+ <span class="at-chip"><span class="at-icon at-icon--repeat" aria-hidden="true"></span> Safety numbers</span>
+ <span class="at-chip"><span class="at-icon at-icon--database" aria-hidden="true"></span> SQLCipher at rest</span>
+ <span class="at-chip"><span class="at-icon at-icon--monitor" aria-hidden="true"></span> Server Manager</span>
+ </div>
+ </section>
+
 <div id="screenshots" class="torchat-screens">
  <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
  <div class="features-carousel" id="torchat-screens-carousel" data-features-carousel>
@@ -477,42 +527,6 @@
  allowfullscreen></iframe>
  </div>
 
- <p class="at-hero__lead" style="text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">
- Setting up your own self-hosted chat on the <strong>Tor network</strong> has never been this easy.
- Guests open your <strong>.onion</strong> link in <strong>Tor Browser</strong>: no port forwarding,
- no cloud account, and no complicated setup. OffCode Tor Chat is designed to make secure Tor
- Hidden Service hosting simple.
- </p>
-
- <p class="at-hero__lead">
- Messages are encrypted in-browser with <strong>WebCrypto AES-256-GCM</strong> (PBKDF2-v2,
- 600k iterations) before reaching the server: ChatServer relays and stores
- <em>ciphertext only</em>. Password rooms use separate KDF domains so the host cannot
- derive the key; open rooms are public encrypted channels.
- 
- </p>
-
- <p class="at-hero__body">
- Host with <strong>Server Manager</strong> on Windows, or headless <strong>Docker</strong>
- (ChatServer + Tor HS). <strong>Password rooms</strong> are server-blind E2EE (the host cannot
- derive the room key). <strong>Open rooms</strong> still encrypt in the browser, but the key
- is derived from the room id: intentional public channels. <strong>Hidden rooms</strong> stay
- off the public list and use invite links; add a password for private E2EE. Creators get
- Settings for <strong>close joins</strong>, <strong>max members</strong>, <strong>announcement / read-only</strong>, <strong>disable attachments</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
- and <strong>delete room</strong>, plus a <strong>Profile recovery code</strong>
- (<strong>My rooms</strong> for hidden). Required message TTL, E2EE attachments, and optional
- <strong>Full Vanguards</strong> complete the stack.
- </p>
-
- <div class="at-hero__chips">
- <span class="at-chip"><span class="at-icon at-icon--layers" aria-hidden="true"></span> Tor Hidden Service</span>
- <span class="at-chip"><span class="at-icon at-icon--shield" aria-hidden="true"></span> Password E2EE</span>
- <span class="at-chip"><span class="at-icon at-icon--repeat" aria-hidden="true"></span> Safety numbers</span>
- <span class="at-chip"><span class="at-icon at-icon--database" aria-hidden="true"></span> SQLCipher at rest</span>
- <span class="at-chip"><span class="at-icon at-icon--monitor" aria-hidden="true"></span> Server Manager</span>
- </div>
- </section>
-
  <section id="how-it-works" class="at-section">
  <div class="at-section__header">
  <h2 class="at-section__title">How it works</h2>
@@ -596,6 +610,7 @@
  <ul class="at-feature-list">
  <li><code>HiddenServiceVersion 3</code>, <code>ClientOnly 1</code>, <code>SafeLogging 1</code></li>
  <li>SOCKS disabled on the HS process (<code>SOCKSPort 0</code>)</li>
+ <li>Intro DoS + HS Proof-of-Work when Tor is ≥ 0.4.8 (<code>HiddenServiceEnableIntroDoSDefense</code>, <code>HiddenServicePoWDefensesEnabled</code>; man-page rates; PoW idle until overload)</li>
  <li>Open in Tor Browser: <code>http://ADDRESS.onion/</code></li>
  <li>Client clearnet banner if the page host is not <code>.onion</code> / localhost</li>
  </ul>
@@ -733,6 +748,20 @@
  <p class="at-section__subtitle">Defence-in-depth for a Tor Hidden Service chat, every layer is
  independently hardened</p>
 
+ <div class="sec-arch" data-sec-arch>
+ <nav class="sec-arch__tabs" role="tablist" aria-label="Security layers">
+ <button type="button" class="sec-arch__tab" role="tab" id="sec-tab-request"
+ aria-controls="sec-panel-request" aria-selected="true">Request Protection</button>
+ <button type="button" class="sec-arch__tab" role="tab" id="sec-tab-server"
+ aria-controls="sec-panel-server" aria-selected="false" tabindex="-1">Server-Level</button>
+ <button type="button" class="sec-arch__tab" role="tab" id="sec-tab-client"
+ aria-controls="sec-panel-client" aria-selected="false" tabindex="-1">Client-Level</button>
+ <button type="button" class="sec-arch__tab" role="tab" id="sec-tab-vanguards"
+ aria-controls="sec-panel-vanguards" aria-selected="false" tabindex="-1">Full Vanguards</button>
+ </nav>
+ <div class="sec-arch__panels">
+ <div class="sec-arch__panel" id="sec-panel-request" role="tabpanel"
+ aria-labelledby="sec-tab-request">
  <div class="security-block">
  <h3 class="at-section__title at-section__title--copper security-block-title">Request Protection</h3>
  <div class="security-table-wrapper">
@@ -783,10 +812,13 @@
  </table>
  </div>
  </div>
+ </div>
 
+ <div class="sec-arch__panel" id="sec-panel-server" role="tabpanel"
+ aria-labelledby="sec-tab-server" hidden>
  <div class="security-block">
  <h3 class="at-section__title at-section__title--copper security-block-title">Server-Level Security</h3>
- <div class="security-table-wrapper">
+ <div class="security-table-wrapper" tabindex="0">
  <table class="security-table">
  <thead>
  <tr>
@@ -799,6 +831,12 @@
  <td data-label="Component"><strong>Network exposure</strong></td>
  <td data-label="Implementation"><strong>Server Manager:</strong> ChatServer listens on <code>127.0.0.1</code> only; Tor HS forwards
  <code>.onion</code> → loopback. <strong>Docker:</strong> <code>0.0.0.0:8080</code> inside compose only (no host ports)</td>
+ </tr>
+ <tr>
+ <td data-label="Component"><strong>Onion DoS (intro + PoW)</strong></td>
+ <td data-label="Implementation">Tor ≥ 0.4.8: <code>HiddenServiceEnableIntroDoSDefense</code> (burst 200 / rate 25)
+ and <code>HiddenServicePoWDefensesEnabled</code> (Equi-X; queue 250 / burst 2500, idle until overload),
+ plus <code>HiddenServiceMaxStreams 20</code> / <code>CloseCircuit 1</code>. Older <code>tor.exe</code> skips PoW/intro keys so the daemon still starts. Docker pins Alpine <code>tor=0.4.9.13-r0</code></td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Ciphertext relay</strong></td>
@@ -905,7 +943,10 @@
  </table>
  </div>
  </div>
+ </div>
 
+ <div class="sec-arch__panel" id="sec-panel-client" role="tabpanel"
+ aria-labelledby="sec-tab-client" hidden>
  <div class="security-block">
  <h3 class="at-section__title at-section__title--copper security-block-title">Client-Level Security</h3>
  <div class="security-table-wrapper">
@@ -968,6 +1009,10 @@
  </table>
  </div>
  </div>
+ </div>
+
+ <div class="sec-arch__panel" id="sec-panel-vanguards" role="tabpanel"
+ aria-labelledby="sec-tab-vanguards" hidden>
  <div class="security-block">
  <h3 class="at-section__title at-section__title--copper security-block-title">Full Vanguards: Guard Discovery Protection</h3>
 
@@ -1102,6 +1147,9 @@
  does not hide the server from its own guard nodes; it only limits which relays can
  observe circuit-building over time.
  </p>
+ </div>
+ </div>
+ </div>
  </div>
  </div>
  </section>
@@ -1257,23 +1305,37 @@
  <h2 class="at-section__title">Frequently Asked Questions</h2>
  <div class="faq-section">
  <div class="faq-container">
- <div class="faq-item">
- <h4>What is OffCode Tor Chat?</h4>
- <p>OffCode Tor Chat is a self-hosted Tor-only realtime chat. Guests open your
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>What is OffCode Tor Chat?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>OffCode Tor Chat is a self-hosted Tor-only realtime chat. Guests open your
  <code>.onion</code> in Tor Browser; messages are encrypted in the browser with
  WebCrypto AES-GCM. ChatServer relays and stores ciphertext. Password rooms are
  server-blind E2EE; open rooms are intentional public channels.</p>
- </div>
- <div class="faq-item">
- <h4>Do I host Tor Chat myself?</h4>
- <p>Yes. Server Manager on Windows starts ChatServer (wait for health) then a Tor v3
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Do I host Tor Chat myself?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. Server Manager on Windows starts ChatServer (wait for health) then a Tor v3
  Hidden Service. Optional Full Vanguards hardens long-lived onions. Headless
  <strong>Docker</strong> compose (ChatServer + Tor, no host ports) is also supported.
  There is no OffCode-hosted chat cloud; you control the onion URL and the stack.</p>
- </div>
- <div class="faq-item">
- <h4>How does end-to-end encryption work?</h4>
- <p>Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at <strong>600&nbsp;000</strong>
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>How does end-to-end encryption work?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at <strong>600&nbsp;000</strong>
  iterations, then AES-256-GCM) before sending.
  <strong>Locked rooms:</strong> join proof and room key use separate v2 KDF domains
  (<code>torchat-join-v2</code> / <code>torchat-e2ee-v2</code>) so the server cannot
@@ -1283,39 +1345,64 @@
  <strong>Open rooms:</strong> still encrypted (<code>pbkdf2-v2</code>), but the key is
  derived from the room id: anyone who knows the id (including the host) can decrypt.
  <strong>1:1:</strong> ECDH hybrid plus a safety number for out-of-band peer verify.</p>
- </div>
- <div class="faq-item">
- <h4>Are open rooms private from the server?</h4>
- <p>No. Open rooms are public encrypted channels. Use a password (and optionally a hidden
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Are open rooms private from the server?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>No. Open rooms are public encrypted channels. Use a password (and optionally a hidden
  room with an invite link) when you need server-blind E2EE.</p>
- </div>
- <div class="faq-item">
- <h4>How does Tor Chat relate to EU Chat Control 1.0?</h4>
- <p>Chat Control 1.0 lets major messaging providers voluntarily scan private
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>How does Tor Chat relate to EU Chat Control 1.0?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Chat Control 1.0 lets major messaging providers voluntarily scan private
  communications. Tor Chat is a different model: self-hosted on Tor, not a
  centralized big-tech messenger. You avoid that scanned platform path by hosting
  your own Hidden Service with browser E2EE. This is architectural privacy, not legal
  advice.</p>
- </div>
- <div class="faq-item">
- <h4>Do clients need Tor Browser?</h4>
- <p>Yes. Guests open <code>http://ADDRESS.onion/</code> in Tor Browser. Server Manager
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Do clients need Tor Browser?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. Guests open <code>http://ADDRESS.onion/</code> in Tor Browser. Server Manager
  binds ChatServer to loopback only; Docker listens inside the compose network with no
  host ports. Tor publishes the Hidden Service. The UI is Tor
  Browser-friendly: self-hosted fonts, SRI scripts, and no third-party CDNs.</p>
- </div>
- <div class="faq-item">
- <h4>Can the host delete rooms or wipe chat data?</h4>
- <p>Yes. Server Manager can remove a room in realtime (lobby kick +
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Can the host delete rooms or wipe chat data?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. Server Manager can remove a room in realtime (lobby kick +
  <code>secure_delete</code>/VACUUM for that room’s ciphertext).
  <strong>Remove SQL data</strong> overwrites then deletes the SQLCipher DB and
  <code>db.key.dpapi</code> (optional: also wipe Tor HS keys / <code>.onion</code>).
  <strong>Generate new address</strong> securely rotates the Hidden Service identity.
  Tor clients cannot call the admin delete API.</p>
- </div>
- <div class="faq-item">
- <h4>What can room creators do in Settings?</h4>
- <p>Only the room creator sees Settings. <strong>Close room to new members</strong>
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>What can room creators do in Settings?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Only the room creator sees Settings. <strong>Close room to new members</strong>
  rejects all new joins (including invites); people already in stay.
  <strong>Max members</strong> sets an optional room size (2–50); the room rejects new joins when full.
  <strong>Announcement / read-only</strong> lets only the creator send messages and attachments; other members get a locked composer.
@@ -1326,26 +1413,56 @@
  <strong>Delete this room</strong> wipes the room like Server Manager delete.
  The <strong>creator recovery code</strong> on Profile binds rooms you create;
  <strong>My rooms</strong> lists hidden ones: Copy / Restore after Tor New Identity.</p>
- </div>
- <div class="faq-item">
- <h4>Tor Chat not working: what should I check?</h4>
- <p>If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor,
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Tor Chat not working: what should I check?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor,
  that the published <code>.onion</code> URL is copied correctly, and that guests use
  Tor Browser (not a normal browser). A Tor error or “Tor not working” on the client
  usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a
  circuit, then reopen <code>http://ADDRESS.onion/</code>.</p>
- </div>
- <div class="faq-item">
- <h4>Is Tor Chat free? Does it need port forwarding?</h4>
- <p>Yes. The prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
- </div>
- <div class="faq-item">
- <h4>My .onion address won’t open: how do I fix it?</h4>
- <p>Ensure the Hidden Service is running in Server Manager, copy the full
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Is Tor Chat free? Does it need port forwarding?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes. The prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>My .onion address won’t open: how do I fix it?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Ensure the Hidden Service is running in Server Manager, copy the full
  <code>.onion</code> link again, and open it only in Tor Browser. If the page fails
  to load, wait for Tor to bootstrap, try a new circuit, and verify the host PC is
  online with ChatServer still running.</p>
- </div>
+                                </div>
+                            </details>
+ <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Does Tor Chat protect the onion service from DoS?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>On Tor <strong>0.4.8+</strong> the Hidden Service turns on intro-point rate limits
+ (<code>HiddenServiceEnableIntroDoSDefense</code>) and Equi-X Proof-of-Work
+ (<code>HiddenServicePoWDefensesEnabled</code>, idle until overload), plus
+ <code>HiddenServiceMaxStreams</code> on rendezvous circuits. Clients should use
+ Tor Browser (PoW client included). This follows Tor Project onion DoS guidance;
+ it is not immunity against a well-funded network-wide attack.</p>
+                                </div>
+                            </details>
  </div>
  </div>
  </div>
@@ -1387,7 +1504,7 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
  integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
  data-cfasync="false"></script>
- <script src="script.js" defer></script>
+ <script src="script.js?v=3.1.0" defer></script>
  <script src="features-carousel.js" defer></script>
  <script>
  (function () {
@@ -1520,8 +1637,50 @@
  }
  }
 
- startWhenVisible(document.querySelector('[data-vg-demo]'));
  startWhenVisible(document.querySelector('[data-hiw-demo]'));
+ var vgDemo = document.querySelector('[data-vg-demo]');
+ if (vgDemo) {
+ var vgPanel = vgDemo.closest('[role="tabpanel"]');
+ if (!vgPanel || !vgPanel.hasAttribute('hidden')) startWhenVisible(vgDemo);
+ }
+
+ document.querySelectorAll('[data-sec-arch]').forEach(function (root) {
+ var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+ var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+ function setVgPlaying(panelId) {
+ if (!vgDemo) return;
+ if (panelId === 'sec-panel-vanguards') vgDemo.classList.add('force-motion', 'is-playing');
+ else vgDemo.classList.remove('is-playing');
+ }
+ function activate(tab) {
+ tabs.forEach(function (t) {
+ var on = t === tab;
+ t.setAttribute('aria-selected', on ? 'true' : 'false');
+ t.tabIndex = on ? 0 : -1;
+ });
+ var panelId = tab.getAttribute('aria-controls');
+ panels.forEach(function (p) {
+ if (p.id === panelId) p.removeAttribute('hidden');
+ else p.setAttribute('hidden', '');
+ });
+ setVgPlaying(panelId);
+ }
+ tabs.forEach(function (tab) {
+ tab.addEventListener('click', function () { activate(tab); });
+ tab.addEventListener('keydown', function (e) {
+ var i = tabs.indexOf(tab);
+ var next = -1;
+ if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+ else if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+ else if (e.key === 'Home') next = 0;
+ else if (e.key === 'End') next = tabs.length - 1;
+ if (next < 0) return;
+ e.preventDefault();
+ tabs[next].focus();
+ activate(tabs[next]);
+ });
+ });
+ });
  })();
  </script>
 

@@ -50,7 +50,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCodeAutomation.png" as="image">
 
@@ -297,8 +297,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.4">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -441,6 +441,7 @@
                 <div class="at-hero__cta-row">
                     <a href="#pricing" class="at-btn at-btn--primary">Purchase — $39 Lifetime</a>
                     <a href="#pictures" class="at-btn at-btn--ghost">View Screenshots</a>
+                    <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
                 </div>
 
                 <div class="at-hero__chips">
@@ -455,109 +456,172 @@
                 </div>
             </section>
 
-            <!-- Screenshot Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
                     <h2 class="gallery-title">Screenshots</h2>
-                    <p class="gallery-subtitle">Explore the Automation Tool interface • <span class="scroll-hint"><span class="at-icon at-icon--download" aria-hidden="true"></span> Scroll horizontally</span></p>
                 </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="at-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="at-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="at-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="at-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="OffCode Automation Tool screenshots" tabindex="0">
 
-                <div class="image-gallery">
-                    <div class="image-card featured" data-image="OffCodeAutomation.png"
-                        data-title="OffCode Automation Tool"
-                        data-desc="Powerful desktop automation interface with visual scripting">
-                        <img src="OffCodeAutomation.png" alt="OffCode Automation Tool - Main Interface">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card featured" data-image="ScriptAutomation.png"
-                        data-title="OffCode Automation Tool"
-                        data-desc="Powerful desktop automation interface with visual scripting">
-                        <img src="ScriptAutomation.png" alt="OffCode Automation Tool - Main Interface">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card featured" data-image="AiToolsAutomation.png"
-                        data-title="OffCode Automation Tool"
-                        data-desc="Create scripts with AI, Generate social media posts with AI">
-                        <img src="AiToolsAutomation.png" alt="OffCode Automation Tool - AI Tools">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card featured" data-image="ScannerTriggerP.png"
-                        data-title="OffCode Automation Tool"
-                        data-desc="Wait until text appears/disappears using scanner triggers">
-                        <img src="ScannerTriggerP.png" alt="OffCode Automation Tool - Scanner Trigger">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card featured" data-image="LoadTextFile.png" data-title="Text list for automation"
-                        data-desc="Load .txt/.md or add lines manually; use in script to feed next line to clipboard each step">
-                        <img src="LoadTextFile.png" alt="Text list - load lines and use in automation">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card" data-image="VisualReader.png" data-title="Visual Reader"
-                        data-desc="Real-time text scanner overlay for dynamic content">
-                        <img src="VisualReader.png" alt="Visual Reader - Text Detection Overlay">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card" data-image="VisualReader2.png" data-title="Visual Reader Advanced"
-                        data-desc="Advanced text scanning capabilities">
-                        <img src="VisualReader2.png" alt="Visual Reader - Advanced Text Scanning">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card" data-image="VisualMarkers.png" data-title="Visual Markers"
-                        data-desc="Precision clicking with visual markers">
-                        <img src="VisualMarkers.png" alt="Visual Markers - Precision Clicking">
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div></div>
-                    </div>
-
-                    <div class="image-card" data-image="youtube-demo" data-title="AI Script Builder & Social Media"
-                        data-desc="See how AI turns natural language into automation scripts and generates high-quality social media posts.">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/K1aVlfocH-8"
-                                title="OffCode Automation: AI Script Builder and Social Media Demo"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="OffCodeAutomation.png" data-title="OffCode Automation Tool" data-desc="Powerful desktop automation interface with visual scripting">
+                        <div class="screenshot-frame">
+                            <img src="OffCodeAutomation.png" data-full="OffCodeAutomation.png" alt="OffCode Automation Tool - Main Interface" loading="lazy" decoding="async">
                         </div>
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div></div>
-                    </div>
+                        <figcaption>OffCode Automation Tool
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Watch how Offcode Automation Tool works - Social media posts">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/sL7RCVNC8qM"
-                                title="OffCode Automation tool: Social media posts"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScriptAutomation.png" data-title="OffCode Automation Tool" data-desc="Powerful desktop automation interface with visual scripting">
+                        <div class="screenshot-frame">
+                            <img src="ScriptAutomation.png" data-full="ScriptAutomation.png" alt="OffCode Automation Tool - Main Interface" loading="lazy" decoding="async">
                         </div>
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div></div>
-                    </div>
+                        <figcaption>Visual scripting
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Watch how Offcode Automation Tool works - Getting Started">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/CxT7vXM7muM"
-                                title="OffCode Automation Tool for Windows - Getting Started"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="AiToolsAutomation.png" data-title="OffCode Automation Tool" data-desc="Create scripts with AI, Generate social media posts with AI">
+                        <div class="screenshot-frame">
+                            <img src="AiToolsAutomation.png" data-full="AiToolsAutomation.png" alt="OffCode Automation Tool - AI Tools" loading="lazy" decoding="async">
                         </div>
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div></div>
-                    </div>
+                        <figcaption>AI Tools
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="youtube-new" data-title="New Video"
-                        data-desc="How trigger scanner works?">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/KjAO9LDjgc8"
-                                title="OffCode Automation Tool - How Trigger Scan Works"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScannerTriggerP.png" data-title="OffCode Automation Tool" data-desc="Wait until text appears/disappears using scanner triggers">
+                        <div class="screenshot-frame">
+                            <img src="ScannerTriggerP.png" data-full="ScannerTriggerP.png" alt="OffCode Automation Tool - Scanner Trigger" loading="lazy" decoding="async">
                         </div>
-                        <div class="image-overlay"><div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div></div>
+                        <figcaption>Scanner Trigger
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="LoadTextFile.png" data-title="Text list for automation" data-desc="Load .txt/.md or add lines manually; use in script to feed next line to clipboard each step">
+                        <div class="screenshot-frame">
+                            <img src="LoadTextFile.png" data-full="LoadTextFile.png" alt="Text list - load lines and use in automation" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Text list for automation
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="VisualReader.png" data-title="Visual Reader" data-desc="Real-time text scanner overlay for dynamic content">
+                        <div class="screenshot-frame">
+                            <img src="VisualReader.png" data-full="VisualReader.png" alt="Visual Reader - Text Detection Overlay" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Visual Reader
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="VisualReader2.png" data-title="Visual Reader Advanced" data-desc="Advanced text scanning capabilities">
+                        <div class="screenshot-frame">
+                            <img src="VisualReader2.png" data-full="VisualReader2.png" alt="Visual Reader - Advanced Text Scanning" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Visual Reader Advanced
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card image-card" data-image="VisualMarkers.png" data-title="Visual Markers" data-desc="Precision clicking with visual markers">
+                        <div class="screenshot-frame">
+                            <img src="VisualMarkers.png" data-full="VisualMarkers.png" alt="Visual Markers - Precision Clicking" loading="lazy" decoding="async">
+                        </div>
+                        <figcaption>Visual Markers
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
+
                     </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
+                </div>
+            </section>
+
+            <section id="videos" class="product-screens product-video-carousel">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Videos</h2>
+                </div>
+                <p class="features-carousel-hint">Browse videos with the arrows or by swiping</p>
+                <div class="features-carousel" id="at-videos-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous video"
+                        aria-controls="at-videos-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next video"
+                        aria-controls="at-videos-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="at-videos-track" role="region"
+                        aria-roledescription="carousel" aria-label="OffCode Automation Tool videos" tabindex="0">
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/K1aVlfocH-8"
+                                    title="OffCode Automation: AI Script Builder and Social Media Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>AI Script Builder &amp; Social Media</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/sL7RCVNC8qM"
+                                    title="OffCode Automation tool: Social media posts"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>Social media posts demo</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/CxT7vXM7muM"
+                                    title="OffCode Automation Tool for Windows - Getting Started"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>Getting Started</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/KjAO9LDjgc8"
+                                    title="OffCode Automation Tool - How Trigger Scan Works"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>How trigger scanner works</figcaption>
+                    </figure>
+
+                    </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Video slides"></div>
                 </div>
             </section>
 
@@ -938,38 +1002,62 @@
                         </a>
                     </aside>
 
-                    <div class="faq-section">
+                    <div id="faq" class="faq-section">
                         <h3>Frequently Asked Questions</h3>
                         <div class="faq-container">
-                            <div class="faq-item">
-                                <h4>What is Offcode Automation Tool?</h4>
-                                <p>Offcode Automation Tool is a Windows desktop automation application that combines OCR
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What is Offcode Automation Tool?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Offcode Automation Tool is a Windows desktop automation application that combines OCR
                                     text detection, UI Automation, and mouse/keyboard simulation to automate virtually
                                     any computer task.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What can I automate with this tool?</h4>
-                                <p>You can automate social media tasks (posting, liking, commenting), web browsing (form
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What can I automate with this tool?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>You can automate social media tasks (posting, liking, commenting), web browsing (form
                                     filling, searches), document work (Excel, Word tasks), gaming (repetitive tasks),
                                     data collection, and more.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What is the Visual Reader?</h4>
-                                <p>The Visual Reader is a transparent overlay that shows a scanner area (circle or
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What is the Visual Reader?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>The Visual Reader is a transparent overlay that shows a scanner area (circle or
                                     rectangle) following your cursor. It continuously reads text from the selected
                                     screen region, perfect for monitoring dynamic content like game timers, chat
                                     messages, or any changing text.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>How do Visual Markers work?</h4>
-                                <p>Visual Markers are numbered green circles you can place on the screen to mark
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>How do Visual Markers work?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Visual Markers are numbered green circles you can place on the screen to mark
                                     important click positions. Choose a hotkey (e.g. 1-9, F3-F12, Numpad) in Settings
                                     and press it to add a marker at your current mouse position. Markers display their
                                     coordinates and can be used in automation scripts for precise clicking.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>How does Scheduled Start work?</h4>
-                                <p>Scheduled Start lets you run your automation script at specific times. Enter a date
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>How does Scheduled Start work?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Scheduled Start lets you run your automation script at specific times. Enter a date
                                     and time in the text field and click &quot;+Add to queue&quot; to add it to the
                                     list. You can
                                     add multiple times; they run in order. When a time is reached, the script starts
@@ -977,10 +1065,15 @@
                                     runs when due. Use &quot;Remove selected&quot; to remove a chosen time from the
                                     list. Enable
                                     &quot;Scheduled start&quot; to activate the queue.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>How do I use different text each time in my script (e.g. each loop)?</h4>
-                                <p>Use the <strong>Text list</strong> feature. Open it via &quot;+Get text from
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>How do I use different text each time in my script (e.g. each loop)?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Use the <strong>Text list</strong> feature. Open it via &quot;+Get text from
                                     file&quot;. Load
                                     lines from a .txt/.md file or add them manually. Click the button there to add a
                                     &quot;Get text from list&quot; step to your action sequence. When the script runs
@@ -989,71 +1082,127 @@
                                     following action can paste or type it (e.g. into a search box or form). You can
                                     choose random order so each run uses a random unused line. This way every loop
                                     iteration can use a different value from your list.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What is the AI Script Builder?</h4>
-                                <p>Describe your automation in plain English (e.g. &quot;Open Notepad, type Hello, save
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What is the AI Script Builder?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Describe your automation in plain English (e.g. &quot;Open Notepad, type Hello, save
                                     the file&quot;). Choose an LLM provider (OpenAI, Claude, Gemini, Groq, or Ollama, including local Ollama). The AI generates a ready-to-run action sequence that you
                                     can insert into your script with one click.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What is AI Semantic Search?</h4>
-                                <p>When OCR and UI Automation cannot find an exact text match, AI Semantic Search
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What is AI Semantic Search?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>When OCR and UI Automation cannot find an exact text match, AI Semantic Search
                                     interprets your search intent and locates the right on-screen element. For example,
                                     searching for &quot;submit&quot; might find a button labeled &quot;Send&quot; or
                                     &quot;OK&quot;.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What are Scanner Triggers?</h4>
-                                <p>Scanner Triggers enable conditional automation using the Visual Reader. Use `[WAIT
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What are Scanner Triggers?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Scanner Triggers enable conditional automation using the Visual Reader. Use `[WAIT
                                     FOR TEXT] "message"` to pause your script until specific text appears in the scanner
                                     area, or `[WAIT GONE] "message"` to wait until text disappears. The script continues
                                     automatically when the condition is met.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>How does OCR text detection work?</h4>
-                                <p>OCR (Optical Character Recognition) reads text directly from your screen, allowing
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>How does OCR text detection work?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>OCR (Optical Character Recognition) reads text directly from your screen, allowing
                                     the tool to find and interact with text elements like buttons, fields, and links in
                                     any application.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What is UI Automation mode?</h4>
-                                <p>UI Automation uses Windows' built-in accessibility features to find and interact with
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What is UI Automation mode?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>UI Automation uses Windows' built-in accessibility features to find and interact with
                                     interface elements. It's faster and more accurate than OCR for supported
                                     applications.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>How do I create an automation script?</h4>
-                                <p>Create an action sequence by adding steps like Wait for Text, Click, Type, Copy,
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>How do I create an automation script?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Create an action sequence by adding steps like Wait for Text, Click, Type, Copy,
                                     Paste, and more. Use special commands like /copy: /wait: /type:. Press F1 to start
                                     the automation and F2 to stop.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What operating systems are supported?</h4>
-                                <p>Offcode Automation Tool works on Windows 10 and 11. The tool uses Windows' built-in
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>What operating systems are supported?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Offcode Automation Tool works on Windows 10 and 11. The tool uses Windows' built-in
                                     OCR engine and accessibility features.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Does Offcode Automation Tool require coding?</h4>
-                                <p>No. Offcode Automation Tool is built for Windows users without programming
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>Does Offcode Automation Tool require coding?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>No. Offcode Automation Tool is built for Windows users without programming
                                     experience. You create automations with visual actions, simple commands and an easy
                                     script editor instead of writing code.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Can I loop automation sequences?</h4>
-                                <p>Yes! You can set the loop count to repeat the entire sequence multiple times, or set
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>Can I loop automation sequences?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes! You can set the loop count to repeat the entire sequence multiple times, or set
                                     to 0 for infinite loops (stopped with F2).</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Does the software collect any data?</h4>
-                                <p>No, the application does not collect any personal data or usage information. All
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>Does the software collect any data?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>No, the application does not collect any personal data or usage information. All
                                     automation runs locally on your computer.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Is the license a one-time payment?</h4>
-                                <p>Yes, the license is a one-time payment for lifetime access. There are no recurring
+                                </div>
+                            </details>
+                            <details class="faq-item" name="automation-faq">
+                                <summary>
+                                    <h4>Is the license a one-time payment?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes, the license is a one-time payment for lifetime access. There are no recurring
                                     monthly or yearly fees.</p>
-                            </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -1088,7 +1237,8 @@
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
         data-cfasync="false"></script>
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
 
     <!-- Semantic Footer for SEO -->

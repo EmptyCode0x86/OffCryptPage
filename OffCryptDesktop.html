@@ -25,7 +25,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCrypt-Windows.jpg" as="image">
 
@@ -169,8 +169,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.2">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
@@ -453,38 +453,55 @@
                     </div>
                 </div>
             </section>
-            <!-- Modern Horizontal Scrolling Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
                     <h2 class="gallery-title">Screenshots</h2>
-                    <p class="gallery-subtitle">Explore the desktop application • <span class="scroll-hint"><span class="at-icon at-icon--download" aria-hidden="true"></span> Scroll
-                            horizontally</span></p>
                 </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="ocdesk-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="ocdesk-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="ocdesk-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="ocdesk-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="OffCrypt Desktop screenshots" tabindex="0">
 
-                <div class="image-gallery">
-
-                    <div class="image-card featured" data-image="SettingsWindows.png" data-title="" data-desc="">
-                        <img src="SettingsWindows.png" alt="OffCrypt Desktop main interface for Windows">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="SettingsWindows.png" data-title="OffCrypt Desktop">
+                        <div class="screenshot-frame">
+                            <img src="SettingsWindows.png" data-full="SettingsWindows.png" alt="OffCrypt Desktop main interface for Windows" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>OffCrypt Desktop for Windows
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="PasswordModeWindows.png" data-title="" data-desc="">
-                        <img src="PasswordModeWindows.png" alt="OffCrypt password mode with AES-256-GCM encryption">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PasswordModeWindows.png" data-title="Password mode">
+                        <div class="screenshot-frame">
+                            <img src="PasswordModeWindows.png" data-full="PasswordModeWindows.png" alt="OffCrypt password mode with AES-256-GCM encryption" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Password mode with AES-256-GCM
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="PublicKeyModeWindows.png" data-title="" data-desc="">
-                        <img src="PublicKeyModeWindows.png"
-                            alt="Share your public key with anyone who wants to send you encrypted messages">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                    <figure class="at-feature-card screenshot-card image-card" data-image="PublicKeyModeWindows.png" data-title="Public key mode">
+                        <div class="screenshot-frame">
+                            <img src="PublicKeyModeWindows.png" data-full="PublicKeyModeWindows.png" alt="Share your public key with anyone who wants to send you encrypted messages" loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Public key mode
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
+                    </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
                 </div>
             </section>
 
@@ -669,7 +686,8 @@
     </div>
 
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
 
     <!-- Cookie Consent Banner -->

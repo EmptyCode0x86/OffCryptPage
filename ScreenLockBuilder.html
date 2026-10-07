@@ -50,7 +50,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="ScreenLock1.png" as="image">
 
@@ -252,8 +252,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.3">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -412,6 +412,7 @@
                 <div class="at-hero__cta-row">
                     <a href="#download" class="at-btn at-btn--primary">Download Free</a>
                     <a href="#pricing" class="at-btn at-btn--ghost">Compare Plans</a>
+                    <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
                 </div>
 
                 <div class="at-hero__chips">
@@ -428,84 +429,127 @@
                 </div>
             </section>
 
-            <!-- Modern Horizontal Scrolling Gallery -->
-            <section id="pictures" class="image-gallery-container">
+            <!-- Screenshot carousel -->
+            <section id="pictures" class="product-screens">
                 <div class="gallery-header">
                     <h2 class="gallery-title">Screenshots</h2>
-                    <p class="gallery-subtitle">Explore the Screen Lock Builder interface • <span class="scroll-hint"><span class="at-icon at-icon--download" aria-hidden="true"></span> Scroll horizontally</span></p>
                 </div>
+                <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+                <div class="features-carousel" id="slb-pictures-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous screenshot"
+                        aria-controls="slb-pictures-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next screenshot"
+                        aria-controls="slb-pictures-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="slb-pictures-track" role="region"
+                        aria-roledescription="carousel" aria-label="Screen Lock Builder screenshots" tabindex="0">
 
-                <div class="image-gallery">
-
-                    <div class="image-card featured" data-image="ScreenLock1.png"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScreenLock1.png"
                         data-title="Windows Screen Lock Builder Interface"
                         data-desc="Main interface showing message customization and settings">
-                        <img src="ScreenLock1.png"
-                            alt="Screen lock Windows builder interface - customize message, password, and security settings for Windows screen locker">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="ScreenLock1.png" data-full="ScreenLock1.png"
+                                alt="Screen lock Windows builder interface - customize message, password, and security settings for Windows screen locker"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Windows Screen Lock Builder Interface
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="ScreenLock2.png" data-title="Security Settings"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="ScreenLock2.png"
+                        data-title="Security Settings"
                         data-desc="Advanced security settings and encryption options">
-                        <img src="ScreenLock2.png"
-                            alt="Windows screen lock builder v2.1 changelog showing latest features and improvements">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="ScreenLock2.png" data-full="ScreenLock2.png"
+                                alt="Windows screen lock builder v2.1 changelog showing latest features and improvements"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Security Settings
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="LockScreen.png" data-title="Locked Screen Example"
+                    <figure class="at-feature-card screenshot-card image-card" data-image="LockScreen.png"
+                        data-title="Locked Screen Example"
                         data-desc="Example of locked Windows screen with custom message">
-                        <img src="LockScreen.png"
-                            alt="Screen lock Windows in action - example of locked screen with custom message and password protection">
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--search" aria-hidden="true"></div>
+                        <div class="screenshot-frame">
+                            <img src="LockScreen.png" data-full="LockScreen.png"
+                                alt="Screen lock Windows in action - example of locked screen with custom message and password protection"
+                                loading="lazy" decoding="async">
                         </div>
-                    </div>
+                        <figcaption>Locked Screen Example
+                            <span class="screenshot-zoom-hint">Click to enlarge</span>
+                        </figcaption>
+                    </figure>
 
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Watch how Windows Screen Lock Builder works ( Free version )">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/bHJDuHsxq3w"
-                                title="Windows Screen Lock Builder - Free Version Demo"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
-                        </div>
                     </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Screenshot slides"></div>
+                </div>
+            </section>
 
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Premium version website lock feature showcase">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/FGmIlO_DfKI"
-                                title="Windows Screen Lock Builder Premium - Website Lock Feature"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
-                        </div>
-                    </div>
+            <section id="videos" class="product-screens product-video-carousel">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Videos</h2>
+                </div>
+                <p class="features-carousel-hint">Browse videos with the arrows or by swiping</p>
+                <div class="features-carousel" id="slb-videos-carousel" data-features-carousel>
+                    <button type="button" class="features-carousel-btn prev"
+                        aria-label="Previous video"
+                        aria-controls="slb-videos-track">
+                        <span aria-hidden="true">‹</span>
+                    </button>
+                    <button type="button" class="features-carousel-btn next"
+                        aria-label="Next video"
+                        aria-controls="slb-videos-track">
+                        <span aria-hidden="true">›</span>
+                    </button>
+                    <div class="features-carousel-track" id="slb-videos-track" role="region"
+                        aria-roledescription="carousel" aria-label="Screen Lock Builder videos" tabindex="0">
 
-                    <div class="image-card" data-image="youtube-demo" data-title="Demo Video"
-                        data-desc="Premium version folder lock feature showcase">
-                        <div class="at-video-wrap">
-                            <iframe src="https://www.youtube.com/embed/OeFw8-4aOaA"
-                                title="Windows Screen Lock Builder Premium - Folder Lock Feature"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                            </iframe>
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/bHJDuHsxq3w"
+                                    title="Windows Screen Lock Builder - Free Version Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
                         </div>
-                        <div class="image-overlay">
-                            <div class="zoom-icon at-icon at-icon--play" aria-hidden="true"></div>
+                        <figcaption>Free version demo</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/FGmIlO_DfKI"
+                                    title="Windows Screen Lock Builder Premium - Website Lock Feature"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
                         </div>
+                        <figcaption>Premium website lock</figcaption>
+                    </figure>
+
+                    <figure class="at-feature-card screenshot-card">
+                        <div class="screenshot-frame">
+                            <div class="at-video-wrap">
+                                <iframe src="https://www.youtube.com/embed/OeFw8-4aOaA"
+                                    title="Windows Screen Lock Builder Premium - Folder Lock Feature"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <figcaption>Premium folder lock</figcaption>
+                    </figure>
+
                     </div>
+                    <div class="features-carousel-dots" role="tablist" aria-label="Video slides"></div>
                 </div>
             </section>
 
@@ -751,30 +795,50 @@
                     </div>
 
                     <!-- FAQ Section -->
-                    <div class="faq-section">
+                    <div id="faq" class="faq-section">
                         <h3>Frequently Asked Questions</h3>
                         <div class="faq-container">
-                            <div class="faq-item">
-                                <h4>Is this software safe to use?</h4>
-                                <p>Yes! Screen Lock Builder uses AES-256-GCM encryption to protect your password.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Will this work on my Windows version?</h4>
-                                <p>Screen Lock Builder works on Windows 7, 8, 10, and 11. The generated .exe files are
+                            <details class="faq-item" name="slb-faq">
+                                <summary>
+                                    <h4>Is this software safe to use?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Yes! Screen Lock Builder uses AES-256-GCM encryption to protect your password.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slb-faq">
+                                <summary>
+                                    <h4>Will this work on my Windows version?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Screen Lock Builder works on Windows 7, 8, 10, and 11. The generated .exe files are
                                     portable and don't require installation on the target computer.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>What happens if I forget my password?</h4>
-                                <p>Unfortunately, if you forget your password, there's no way to recover it due to the
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slb-faq">
+                                <summary>
+                                    <h4>What happens if I forget my password?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Unfortunately, if you forget your password, there's no way to recover it due to the
                                     strong encryption. We recommend writing down your password in a secure location or
                                     using a password manager.</p>
-                            </div>
-                            <div class="faq-item">
-                                <h4>Is the generated .exe file detectable by antivirus?</h4>
-                                <p>Some antivirus programs may flag the .exe file as suspicious due to its screen
+                                </div>
+                            </details>
+                            <details class="faq-item" name="slb-faq">
+                                <summary>
+                                    <h4>Is the generated .exe file detectable by antivirus?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Some antivirus programs may flag the .exe file as suspicious due to its screen
                                     locking behavior. This is normal for security software. You can add an exception or
                                     whitelist the file if needed.</p>
-                            </div>
+                                </div>
+                            </details>
 
                         </div>
                     </div>
@@ -849,7 +913,8 @@
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
         data-cfasync="false"></script>
     <!-- Application JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
+    <script src="features-carousel.js" defer></script>
     <script src="gallery.js?v=3.0.1" defer></script>
 
     <!-- Cookie Consent Banner -->
