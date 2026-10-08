@@ -60,6 +60,24 @@
     color: var(--at-amber);
 }
 
+/* Inline body links (mailto, DPA, SimpleX) — never browser-default blue */
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card) {
+    color: var(--at-amber);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-color: rgba(232, 160, 74, 0.55);
+}
+
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):visited {
+    color: var(--at-amber);
+}
+
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):hover,
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):focus-visible {
+    color: var(--at-copper-light);
+    text-decoration-color: var(--at-copper-light);
+}
+
 .cookie-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -300,6 +318,9 @@
 
 .at-prose a {
     color: var(--at-amber);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-color: rgba(232, 160, 74, 0.55);
 }
 
 .at-prose ul,
