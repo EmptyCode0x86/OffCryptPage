@@ -104,6 +104,13 @@
   </url>
 
   <url>
+    <loc>https://www.dev-offcode.com/Community.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/Community-og.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://www.dev-offcode.com/TorChatPage.html</loc>
     <image:image>
       <image:loc>https://www.dev-offcode.com/TorChat1.png</image:loc>
