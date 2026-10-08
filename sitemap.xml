@@ -48,4 +48,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
+
+  <url>
+    <loc>https://www.dev-offcode.com/Community.html</loc>
+    <lastmod>2026-10-08T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
 </urlset>

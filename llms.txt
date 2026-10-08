@@ -14,6 +14,10 @@
 - [Web Remote Control](https://www.dev-offcode.com/RemoteControl.html): Browser-based remote control for Windows devices
 - [Tor Chat](https://www.dev-offcode.com/TorChatPage.html): Self-hosted Tor Hidden Service E2EE realtime chat (Coming soon)
 
+## Community and support
+
+- [OffCode Discord Community](https://www.dev-offcode.com/Community.html): Official Discord for product support in #support and coding discussion. Invite: https://discord.gg/RMqBTWVVf. Discord is optional; GDPR and license questions go to support@dev-offcode.com.
+
 ## Policies
 
 - [Privacy Policy](https://www.dev-offcode.com/PrivacyPolicy.html)
