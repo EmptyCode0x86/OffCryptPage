@@ -49,7 +49,7 @@
  <link rel="manifest" href="/manifest.json">
 
  <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.1.5" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.1.6" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -262,7 +262,7 @@
  </script>
 
  <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.1.6">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -399,28 +399,25 @@
  </p>
 
  <p class="at-hero__lead">
- Messages are encrypted in-browser with <strong>WebCrypto AES-256-GCM</strong> (PBKDF2-v2,
- 600k iterations) before reaching the server: ChatServer relays and stores
- <em>ciphertext only</em>. Password rooms use separate KDF domains so the host cannot
- derive the key; open rooms are public encrypted channels.
+ Host with <strong>Server Manager</strong> on Windows, or <strong>Docker</strong>.
+ Copy the <strong>.onion</strong> URL and send it to your guests. They join in Tor Browser
+ with nothing to install on their side.
  </p>
 
  <p class="at-hero__body">
- Host with <strong>Server Manager</strong> on Windows, or headless <strong>Docker</strong>
- (ChatServer + Tor HS). <strong>Password rooms</strong> are server-blind E2EE (the host cannot
- derive the room key). <strong>Open rooms</strong> still encrypt in the browser, but the key
- is derived from the room id: intentional public channels. <strong>Hidden rooms</strong> stay
- off the public list and use invite links; add a password for private E2EE. Creators get
- Settings for <strong>close joins</strong>, <strong>max members</strong>, <strong>announcement / read-only</strong>, <strong>disable attachments</strong>, <strong>slow mode</strong>, <strong>lock later</strong>,
- and <strong>delete room</strong>, plus a <strong>Profile recovery code</strong>
- (<strong>My rooms</strong> for hidden). Required message TTL, E2EE attachments, and optional
- <strong>Full Vanguards</strong> complete the stack.
+ <strong>Password rooms</strong> stay private: the host cannot read the messages.
+ <strong>Open rooms</strong> are public channels by design. <strong>Hidden rooms</strong>
+ stay off the public list and use invite links. Creators get room settings in the app
+ (details under Features). Messages are encrypted in the browser before they reach your
+ server. How it works and Features cover the encryption design.
  </p>
 
  <div class="at-hero__cta-row">
- <a href="TorChatDisclaimer.html" class="at-btn at-btn--primary">Download</a>
+ <a href="#pricing" class="at-btn at-btn--primary">Download</a>
  <a href="#faq" class="at-btn at-btn--ghost">FAQ</a>
  <a href="#features" class="at-btn at-btn--ghost">Features</a>
+ <a href="#security" class="at-btn at-btn--ghost">Security Architecture</a>
+ <a href="#why-torchat" class="at-btn at-btn--ghost">Why Tor Chat</a>
  </div>
 
  <div class="at-hero__chips">
@@ -765,6 +762,7 @@
  <button type="button" class="sec-arch__tab" role="tab" id="sec-tab-vanguards"
  aria-controls="sec-panel-vanguards" aria-selected="false" tabindex="-1">Full Vanguards</button>
  </nav>
+ <p class="sec-arch__hint">Click a tab to stop auto-switching</p>
  <div class="sec-arch__panels">
  <div class="sec-arch__panel" id="sec-panel-request" role="tabpanel"
  aria-labelledby="sec-tab-request">
@@ -1653,6 +1651,11 @@
  document.querySelectorAll('[data-sec-arch]').forEach(function (root) {
  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
  var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+ var stopped = false;
+ var timer = null;
+ var io = null;
+ var tablist = root.querySelector('.sec-arch__tabs') || root;
+ var hint = root.querySelector('.sec-arch__hint');
  function setVgPlaying(panelId) {
  if (!vgDemo) return;
  if (panelId === 'sec-panel-vanguards') vgDemo.classList.add('force-motion', 'is-playing');
@@ -1671,8 +1674,32 @@
  });
  setVgPlaying(panelId);
  }
+ function nextTab() {
+ var i = 0;
+ for (var n = 0; n < tabs.length; n++) {
+ if (tabs[n].getAttribute('aria-selected') === 'true') { i = n; break; }
+ }
+ activate(tabs[(i + 1) % tabs.length]);
+ }
+ function pause() {
+ if (timer) { clearInterval(timer); timer = null; }
+ }
+ function play() {
+ if (stopped) return;
+ pause();
+ timer = setInterval(nextTab, 3000);
+ }
+ function stop() {
+ stopped = true;
+ pause();
+ if (io) { io.disconnect(); io = null; }
+ if (hint) hint.hidden = true;
+ }
  tabs.forEach(function (tab) {
- tab.addEventListener('click', function () { activate(tab); });
+ tab.addEventListener('click', function () {
+ stop();
+ activate(tab);
+ });
  tab.addEventListener('keydown', function (e) {
  var i = tabs.indexOf(tab);
  var next = -1;
@@ -1682,10 +1709,21 @@
  else if (e.key === 'End') next = tabs.length - 1;
  if (next < 0) return;
  e.preventDefault();
+ stop();
  tabs[next].focus();
  activate(tabs[next]);
  });
  });
+ if ('IntersectionObserver' in window) {
+ io = new IntersectionObserver(function (entries) {
+ var vis = entries.some(function (en) { return en.isIntersecting; });
+ if (vis) play();
+ else pause();
+ }, { threshold: 0.1 });
+ io.observe(tablist);
+ } else {
+ play();
+ }
  });
  })();
  </script>
