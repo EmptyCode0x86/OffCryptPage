@@ -49,7 +49,7 @@
  <link rel="manifest" href="/manifest.json">
 
  <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.1.6" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.1.7" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -262,7 +262,7 @@
  </script>
 
  <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.1.6">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.1.7">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -600,7 +600,21 @@
  <div class="at-section__inner">
  <h2 class="at-section__title">Features</h2>
 
- <div class="at-feature-grid">
+ <div class="product-screens">
+ <p class="features-carousel-hint">Browse features with the arrows or by swiping</p>
+ <div class="features-carousel" id="torchat-features-carousel" data-features-carousel>
+ <button type="button" class="features-carousel-btn prev"
+ aria-label="Previous feature"
+ aria-controls="torchat-features-track">
+ <span aria-hidden="true">‹</span>
+ </button>
+ <button type="button" class="features-carousel-btn next"
+ aria-label="Next feature"
+ aria-controls="torchat-features-track">
+ <span aria-hidden="true">›</span>
+ </button>
+ <div class="features-carousel-track" id="torchat-features-track" role="region"
+ aria-roledescription="carousel" aria-label="Tor Chat features" tabindex="0">
  <div class="at-feature-card">
  <div class="feature-icon at-icon at-icon--layers" aria-hidden="true"></div>
  <h3>Tor-only hosting</h3>
@@ -690,6 +704,10 @@
  <li>No IndexedDB / WebRTC; creator recovery may use <code>localStorage</code> (not an E2EE secret)</li>
  <li>DOM built with <code>textContent</code> / <code>createElement</code></li>
  </ul>
+ </div>
+ </div>
+ <div class="features-carousel-dots" role="tablist"
+ aria-label="Feature slides"></div>
  </div>
  </div>
  </div>
