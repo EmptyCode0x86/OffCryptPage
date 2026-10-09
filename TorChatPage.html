@@ -128,10 +128,10 @@
  "mainEntity": [
  {
  "@type": "Question",
- "name": "What is OffCode Tor Chat?",
+ "name": "Can the host read password-protected chats?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "OffCode Tor Chat is a self-hosted Tor-only realtime chat. Guests open your .onion in Tor Browser. Messages are encrypted in the browser with WebCrypto AES-GCM; ChatServer relays and stores ciphertext. Password-protected rooms are server-blind E2EE; open rooms are intentional public channels (key derived from the room id)."
+ "text": "No. The password and room key stay in the browser (separate v2 KDF domains for join proof vs message key). ChatServer sees ciphertext and a join-proof hash only. Open rooms are public encrypted channels by design."
  }
  },
  {
@@ -184,26 +184,26 @@
  },
  {
  "@type": "Question",
- "name": "What can room creators do in Settings?",
+ "name": "What are hidden rooms and invite links?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Only the room creator sees Settings. Close room to new members rejects all new joins including invites; existing members stay. Max members sets an optional room size (2–50); full rooms reject new joins. Announcement / read-only lets only the creator send messages and attachments. Slow mode sets a send cooldown for everyone including the creator. Disable file and image sending turns the room text-only (attachments already in history stay visible). Lock later sets a one-way password on an open room and wipes open history. Delete this room wipes the room like Server Manager delete. The creator recovery code on Profile binds rooms you create; My rooms lists hidden ones: Copy and Restore after Tor New Identity or clear site data."
+ "text": "Hidden rooms stay off the public list. Guests join with an invite link (?invite=); add a password if the room is locked. Close room to new members blocks all new joins, including invites; people already in stay."
  }
  },
  {
  "@type": "Question",
- "name": "Tor Chat not working: what should I check?",
+ "name": "How long do messages stay?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor, that the published .onion URL is copied correctly, and that guests use Tor Browser (not a normal browser). A Tor error or “Tor not working” on the client usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a circuit, then reopen http://ADDRESS.onion/."
+ "text": "Message expiry is required: 30 min to 1 week (default 8 h). There is no forever option. Each room keeps at most 500 messages (oldest trimmed). Expired rows are removed with secure_delete."
  }
  },
  {
  "@type": "Question",
- "name": "Does Tor Chat need port forwarding?",
+ "name": "Is Tor Chat free? Does it need port forwarding?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No. Tor Chat runs as a Tor Hidden Service: Tor itself establishes the connection through rendezvous points. The host only needs outbound Tor network access. No router ports need to be opened, no UPnP required, and no inbound connections allowed. It works behind NAT, CGNAT, firewalls, and restrictive ISPs."
+ "text": "Yes. The prebuilt binary release is free (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls."
  }
  },
  {
@@ -1310,14 +1310,14 @@
  <div class="faq-container">
  <details class="faq-item" name="torchat-faq">
                                 <summary>
-                                    <h4>What is OffCode Tor Chat?</h4>
+                                    <h4>Can the host read password-protected chats?</h4>
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>OffCode Tor Chat is a self-hosted Tor-only realtime chat. Guests open your
- <code>.onion</code> in Tor Browser; messages are encrypted in the browser with
- WebCrypto AES-GCM. ChatServer relays and stores ciphertext. Password rooms are
- server-blind E2EE; open rooms are intentional public channels.</p>
+                                    <p>No. The password and room key stay in the browser (separate v2 KDF domains for
+ join proof vs message key). ChatServer sees ciphertext and a join-proof hash
+ only. Open rooms are public encrypted channels by design; see the open-rooms
+ question below.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
@@ -1401,34 +1401,25 @@
                             </details>
  <details class="faq-item" name="torchat-faq">
                                 <summary>
-                                    <h4>What can room creators do in Settings?</h4>
+                                    <h4>What are hidden rooms and invite links?</h4>
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>Only the room creator sees Settings. <strong>Close room to new members</strong>
- rejects all new joins (including invites); people already in stay.
- <strong>Max members</strong> sets an optional room size (2–50); the room rejects new joins when full.
- <strong>Announcement / read-only</strong> lets only the creator send messages and attachments; other members get a locked composer.
- <strong>Disable file and image sending</strong> turns the room text-only
- (attachments already in history stay visible).
- <strong>Slow mode</strong> sets a send cooldown for everyone including the creator.
- <strong>Lock later</strong> sets a one-way password on an open room (wipes open history).
- <strong>Delete this room</strong> wipes the room like Server Manager delete.
- The <strong>creator recovery code</strong> on Profile binds rooms you create;
- <strong>My rooms</strong> lists hidden ones: Copy / Restore after Tor New Identity.</p>
+                                    <p>Hidden rooms stay off the public list. Guests join with an invite link
+ (<code>?invite=</code>); add a password if the room is locked.
+ <strong>Close room to new members</strong> blocks all new joins, including
+ invites; people already in stay.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
                                 <summary>
-                                    <h4>Tor Chat not working: what should I check?</h4>
+                                    <h4>How long do messages stay?</h4>
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>If Tor Chat is not working, confirm Server Manager has started ChatServer and Tor,
- that the published <code>.onion</code> URL is copied correctly, and that guests use
- Tor Browser (not a normal browser). A Tor error or “Tor not working” on the client
- usually means Tor Browser cannot reach the network. Restart Tor Browser, wait for a
- circuit, then reopen <code>http://ADDRESS.onion/</code>.</p>
+                                    <p>Message expiry is required: 30&nbsp;min to 1&nbsp;week (default 8&nbsp;h).
+ There is no forever option. Each room keeps at most 500 messages (oldest
+ trimmed). Expired rows are removed with <code>secure_delete</code>.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
