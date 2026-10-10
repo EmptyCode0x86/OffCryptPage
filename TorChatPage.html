@@ -9,7 +9,7 @@
  <meta name="description"
  content="OffCode Tor Chat: self-hosted Tor chat with browser WebCrypto AES-GCM. Password rooms are server-blind E2EE; open rooms are public encrypted channels. SignalR relay, SQLCipher, Server Manager, optional Full Vanguards.">
  <meta name="author" content="OffCrypt">
- <meta name="last-modified" content="2026-10-09">
+ <meta name="last-modified" content="2026-10-10">
  <meta name="keywords"
  content="Tor Chat, TorChat, torchat, onion chat, .onion links, E2EE chat, Tor Hidden Service, SignalR, WebCrypto, AES-GCM, SQLCipher, Vanguards, OffCode, anonymous chat">
  <meta name="robots" content="index, follow">
@@ -117,7 +117,7 @@
  ]
  },
  "datePublished": "2026-07-12",
- "dateModified": "2026-10-09"
+ "dateModified": "2026-10-10"
  }
  </script>
 
@@ -139,7 +139,7 @@
  "name": "Do I host Tor Chat myself?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Yes. Server Manager on Windows starts ChatServer (health check) then a Tor v3 Hidden Service. Optional Full Vanguards hardens long-lived onions. Docker compose (ChatServer + Tor, no host ports) is also supported. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
+ "text": "Yes. Server Manager on Windows starts ChatServer (health check) then a Tor v3 Hidden Service. You can create public rooms, cap or Disable Room Creation on the onion site, copy the Admin key into Profile Restore, and optionally start with Windows. Optional Full Vanguards hardens long-lived onions. Docker compose (ChatServer + Tor, no host ports) is also supported. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
  }
  },
  {
@@ -147,7 +147,7 @@
  "name": "How does end-to-end encryption work?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at 600000 iterations, then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate v2 KDF domains so the server cannot derive the message key; password never leaves the browser. The server stores a second PBKDF2 hash of the join proof (250000 iterations, iter:salt:hash). Open rooms encrypt too (pbkdf2-v2) but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number for out-of-band peer verification."
+ "text": "Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at 600000 iterations, then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate v2 KDF domains so the server cannot derive the message key; password never leaves the browser. The server stores a second PBKDF2 hash of the join proof (250000 iterations, iter:salt:hash). Open rooms encrypt too (pbkdf2-v2) but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number (eight groups of five digits) for out-of-band peer verification."
  }
  },
  {
@@ -179,7 +179,7 @@
  "name": "Can the host delete rooms or wipe chat data?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Yes. Server Manager can remove a room in realtime with secure_delete/VACUUM for that room’s ciphertext. Remove SQL data overwrites then deletes the SQLCipher DB and db.key.dpapi (optional: also wipe Tor HS keys / .onion). Generate new address securely rotates the Hidden Service identity. Tor clients cannot call the admin delete API."
+ "text": "Yes. Server Manager can remove a room in realtime with secure_delete/VACUUM for that room’s ciphertext. Remove SQL data overwrites then deletes the SQLCipher DB and db.key.dpapi (optional: also wipe Tor HS keys / .onion). It does not delete the Admin key (operator recovery). Generate new address securely rotates the Hidden Service identity. Tor clients cannot call the admin delete API."
  }
  },
  {
@@ -671,7 +671,7 @@
  <li><strong>Locked:</strong> password stays in the browser: server-blind E2EE</li>
  <li><strong>Open:</strong> key from <code>torchat-open-material-v2:{roomId}</code>: public by design</li>
  <li>Server stores join-proof hash as <code>250000:salt:hash</code> (250k PBKDF2)</li>
- <li>1:1 ECDH hybrid + safety number (3×5 decimal) for peer verify / TOFU</li>
+ <li>1:1 ECDH hybrid + safety number (8×5 decimal, 128-bit) for peer verify / TOFU</li>
  <li>No Double Ratchet yet; prefer short message retention if passwords may leak</li>
  </ul>
  </div>
@@ -733,6 +733,8 @@
  <li><code>tools/verify-sri.ps1</code> checks <code>index.html</code> hashes vs wwwroot JS</li>
  <li>No IndexedDB / WebRTC; creator recovery may use <code>localStorage</code> (not an E2EE secret)</li>
  <li>Fail-closed boot overlay unless loopback or v3 <code>.onion</code> (plus Web Crypto)</li>
+ <li>Three self-hosted fonts; gzip HTML/CSS/JS only</li>
+ <li>Leave / ForceLeave clears the on-screen transcript (not a logout; recovery codes stay)</li>
  <li>DOM built with <code>textContent</code> / <code>createElement</code></li>
  </ul>
  </div>
@@ -768,7 +770,7 @@
  <img src="TorManager2.png" width="960" height="540"
  alt="TorChat Server Manager - Settings with live room list and remove room"
  loading="lazy" decoding="async">
- <figcaption class="torchat-hero-hint">Settings: live rooms, remove room, wipe SQL data
+ <figcaption class="torchat-hero-hint">Settings: public rooms, Admin key, live rooms, wipe SQL data
  </figcaption>
  </figure>
  </div>
@@ -780,15 +782,25 @@
  <li>Locks CORS to your onion: <code>TORCHAT_ALLOWED_ONION</code> on start + live
  <code>POST /api/admin/cors-onion</code> (no ChatServer restart). Fail-closed until the live
  hostname is set (loopback always allowed)</li>
+ <li><strong>Create room:</strong> add an open public room by name. You own it with the
+ <strong>Admin key</strong> (copy into onion Profile Restore; the <strong>i</strong> button
+ explains this). The key is not stored in <code>config.ini</code></li>
+ <li><strong>Maximum Number of Rooms:</strong> caps how many public rooms people can create
+ from the onion page</li>
+ <li><strong>Disable Room Creation:</strong> checkbox; when on, nobody can create rooms from
+ the onion site. You can still Create room from Server Manager</li>
+ <li><strong>Start server on startup:</strong> Save writes Windows logon start (HKCU Run).
+ ChatServer (and Tor if you saved it on) then start without extra dialogs</li>
  <li>Live room list (room id, locked flag, online count only, no message content)</li>
  <li>Remove a selected room in realtime: connected users are forced back to the lobby;
  ciphertext for that room is deleted with <code>secure_delete</code> + VACUUM</li>
  <li><strong>Remove SQL data:</strong> securely overwrites (then deletes) the SQLCipher DB, WAL/SHM,
  and <code>db.key.dpapi</code>; optional checkbox also wipes Tor Hidden Service keys
- (<code>.onion</code> identity)</li>
+ (<code>.onion</code> identity). Does not delete the Admin key</li>
  <li><strong>Generate new address:</strong> securely wipes HS keys and publishes a new
  <code>.onion</code> (chat DB unchanged)</li>
- <li>Point at your ChatServer project path and load/save host config as needed</li>
+ <li>Point at your ChatServer project path and Save / Load host config
+ (<code>config.ini</code> next to the exe; not shipped in the release zip)</li>
  </ul>
  </div>
  </section>
@@ -876,8 +888,9 @@
  <td data-label="#">8</td>
  <td data-label="Protection"><strong>Admin channel</strong>: <code>TORCHAT_ADMIN_PORT</code> is a separate
  loopback port the Hidden Service never publishes.
- <code>/api/health</code>, <code>/api/rooms</code>,
- <code>DELETE /api/rooms/{id}</code>, and
+ <code>/api/health</code>, <code>/api/rooms</code> (GET/POST),
+ <code>DELETE /api/rooms/{id}</code>,
+ <code>PUT /api/admin/room-policy</code>, and
  <code>POST /api/admin/cors-onion</code> return <strong>404</strong> on the
  Tor-facing port (tor.exe forwards visitors as <code>127.0.0.1</code>)</td>
  </tr>
@@ -1003,8 +1016,8 @@
  <tr>
  <td data-label="Component"><strong>Secure erasure</strong></td>
  <td data-label="Implementation"><code>PRAGMA secure_delete</code> + reclaim on expiry/room wipe; Manager
- CSPRNG-overwrites DB/key (optional HS keys). SSD wear-leveling: absolute
- forensic wipe not guaranteed</td>
+ CSPRNG-overwrites DB/key (optional HS keys). SQL wipe does not delete the Admin key
+ (operator recovery). SSD wear-leveling: absolute forensic wipe not guaranteed</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Join error oracle</strong></td>
@@ -1018,11 +1031,19 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>Admin APIs</strong></td>
- <td data-label="Implementation"><code>GET /api/rooms</code>, <code>DELETE /api/rooms/{id}</code>,
+ <td data-label="Implementation"><code>GET /api/rooms</code>, <code>POST /api/rooms</code>,
+ <code>DELETE /api/rooms/{id}</code>, <code>PUT /api/admin/room-policy</code>,
  <code>POST /api/admin/cors-onion</code>, and <code>GET /api/health</code>
  require <code>X-TorChat-Admin</code> (CSPRNG token from Server Manager env) on
  <code>TORCHAT_ADMIN_PORT</code>. Those routes return <strong>404</strong> on
  the Tor-facing chat port; Tor clients cannot call them</td>
+ </tr>
+ <tr>
+ <td data-label="Component"><strong>Website create policy</strong></td>
+ <td data-label="Implementation">Manager <strong>Disable Room Creation</strong> and
+ <strong>Maximum Number of Rooms</strong> apply to onion hub <code>CreateRoom</code>
+ (<code>PUT /api/admin/room-policy</code>). Manager <code>POST /api/rooms</code>
+ is not blocked by those limits</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>SQL injection</strong></td>
@@ -1060,8 +1081,9 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>ECDH + safety number</strong></td>
- <td data-label="Implementation">1:1 hybrid ECDH; safety number from sorted SPKI pubs (3×5 decimal);
- Mark verified / TOFU change warning (sessionStorage)</td>
+ <td data-label="Implementation">1:1 hybrid ECDH; safety number from sorted SPKI pubs (8×5 decimal, 128-bit);
+ Mark verified / TOFU change warning (sessionStorage). Reload of a prior hybrid
+ join shows a previous-session placeholder</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Image metadata strip</strong></td>
@@ -1088,7 +1110,9 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>ForceLeave</strong></td>
- <td data-label="Implementation">Host-deleted rooms kick clients back to lobby over SignalR</td>
+ <td data-label="Implementation">Host-deleted rooms kick clients back to lobby over SignalR.
+ Leave / ForceLeave also clears the on-screen transcript (messages, draft, safety
+ number, images). Not a logout; recovery codes in the browser stay</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Pin UI</strong></td>
@@ -1286,7 +1310,8 @@
  message platform in the middle</li>
  <li>Tor-only Hidden Service, clients reach you via <code>.onion</code>; Server Manager binds
  ChatServer to loopback; Docker compose has no host ports</li>
- <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control</li>
+ <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control.
+ Manager can create public rooms, Disable Room Creation on the site, and Restore via Admin key</li>
  <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k): the host cannot derive the room key</li>
  <li>Open rooms: public encrypted channels (key from room id): use when you want a free join lobby</li>
  <li>No accounts: guests join with a display name only</li>
@@ -1366,7 +1391,7 @@
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> ASP.NET Core ChatServer source</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Vanilla HTML/CSS/JS + WebCrypto E2EE</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> SignalR Real-time Hubs</li>
- <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Server Manager (WinForms) source</li>
+ <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Server Manager (WinForms) source: public rooms, Disable Room Creation, Admin key</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> SQLCipher + DPAPI security modules</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Tor Hidden Service + optional Full Vanguards</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Hidden invites, close / disable attachments / slow mode / lock later / delete</li>
@@ -1425,7 +1450,9 @@
                                 </summary>
                                 <div class="faq-item__body">
                                     <p>Yes. Server Manager on Windows starts ChatServer (wait for health) then a Tor v3
- Hidden Service. Optional Full Vanguards hardens long-lived onions. Headless
+ Hidden Service. You can create public rooms, set Maximum Number of Rooms,
+ Disable Room Creation on the onion site, copy the Admin key into Profile Restore,
+ and optionally start with Windows. Optional Full Vanguards hardens long-lived onions. Headless
  <strong>Docker</strong> compose (ChatServer + Tor, no host ports) is also supported.
  There is no OffCode-hosted chat cloud; you control the onion URL and the stack.</p>
                                 </div>
@@ -1494,7 +1521,7 @@
  <strong>Remove SQL data</strong> overwrites then deletes the SQLCipher DB and
  <code>db.key.dpapi</code> (optional: also wipe Tor HS keys / <code>.onion</code>).
  <strong>Generate new address</strong> securely rotates the Hidden Service identity.
- Tor clients cannot call the admin delete API.</p>
+ Remove SQL data does not delete the Admin key. Tor clients cannot call the admin delete API.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
