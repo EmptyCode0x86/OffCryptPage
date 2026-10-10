@@ -7,9 +7,9 @@
 
     <title>OffCode Tor Chat: Changelog &amp; Update History</title>
     <meta name="description"
-        content="OffCode Tor Chat changelog: FileSeal attachments, creator recovery, invite tokens, JoinRoom owner bypass, and Room Settings updates.">
+        content="OffCode Tor Chat changelog: Server Manager rooms, Admin key, onion page speed, safety number, pins, and Hidden Service hardening.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-08-13">
+    <meta name="last-modified" content="2026-10-10">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
 
-    <link rel="preload" href="styles-automation.css?v=3.0.9" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
 
     <meta name="theme-color" content="#c45c26">
     <meta name="msapplication-TileColor" content="#c45c26">
@@ -37,14 +37,14 @@
     <meta property="og:url" content="https://www.dev-offcode.com/TorChatChangelog.html">
     <meta property="og:title" content="OffCode Tor Chat: Changelog">
     <meta property="og:description"
-        content="Release notes for OffCode Tor Chat — FileSeal, recovery, invites, and Room Settings.">
+        content="Release notes for OffCode Tor Chat: Server Manager rooms, Admin key, and Hidden Service hardening.">
     <meta property="og:image" content="https://www.dev-offcode.com/TorChat1.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.dev-offcode.com/TorChatChangelog.html">
     <meta name="twitter:title" content="OffCode Tor Chat: Changelog">
     <meta name="twitter:description"
-        content="Release notes for OffCode Tor Chat — FileSeal, recovery, invites, and Room Settings.">
+        content="Release notes for OffCode Tor Chat: Server Manager rooms, Admin key, and Hidden Service hardening.">
     <meta name="twitter:image" content="https://www.dev-offcode.com/TorChat1.png">
 
     <script type="application/ld+json">
@@ -60,14 +60,14 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "OffCode Tor Chat changelog",
-            "dateModified": "2026-08-13",
+            "dateModified": "2026-10-10",
             "url": "https://www.dev-offcode.com/TorChatChangelog.html"
         }
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.0.9">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.0.9">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
 </head>
 
 <body class="at-page">
@@ -124,6 +124,12 @@
                             <a href="TorChatPage.html" class="menu-link">
                                 <span class="menu-icon at-icon at-icon--layers" aria-hidden="true"></span>
                                 <span class="menu-text">Tor Chat</span>
+                            </a>
+                        </li>
+                                                <li class="menu-item">
+                            <a href="Community.html" class="menu-link">
+                                <span class="menu-icon at-icon at-icon--message" aria-hidden="true"></span>
+                                <span class="menu-text">Community</span>
                             </a>
                         </li>
                         <li class="menu-item">
@@ -208,9 +214,38 @@
                     <div class="changelog-intro">
                         <p>Release notes for <strong>OffCode Tor Chat</strong>: self-hosted Tor Hidden Service chat,
                             browser WebCrypto AES-GCM, SignalR relay, SQLCipher, and Server Manager.</p>
-                        <p><strong>Latest:</strong> VER 0.1 (2026-08-12): Max members and announcement / read-only Room Settings.</p>
+                        <p><strong>Latest:</strong> 10 October 2026: Server Manager public rooms, Admin key, website create limits, faster onion page, and extra Tor hardening.</p>
                     </div>
 
+
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.1.2</span>
+                                <span class="version-date">10/10/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>Changes</h3>
+                                <ul>
+                                    <li><strong>Create rooms in Server Manager:</strong> Use Create room with a name only. That adds an open public room. You own it with the Admin key (paste into Profile Restore on the onion site). Remove selected room still works as before.</li>
+                                    <li><strong>Admin key:</strong> Server Manager keeps one recovery code for rooms you create there. It is the same kind of code as Profile on the site. Copy it, then Restore in Tor Browser. The <strong>i</strong> button next to the key explains this. The key is not stored in config.ini. Wiping SQL data does not delete it.</li>
+                                    <li><strong>Limit website room creation:</strong> Maximum Number of Rooms caps how many public rooms people can create from the onion page. Disable Room Creation blocks all website creates immediately. You can still create rooms from Server Manager.</li>
+                                    <li><strong>Save and Windows startup:</strong> Save stores ports, Tor, room limits, and Start server on startup. If that box is on, Save also starts Server Manager at Windows logon. ChatServer (and Tor if you saved it on) then start without extra dialogs. Uncheck and Save to turn logon start off.</li>
+                                    <li><strong>Faster onion page:</strong> Fewer fonts and a smaller download. The chat page should load quicker over Tor. Still no CDN.</li>
+                                    <li><strong>Locked 1:1 after reload:</strong> Messages from a previous join in a locked two-person room show as a previous-session note. They do not decrypt with the room password. Encryption itself is unchanged.</li>
+                                    <li><strong>Leave a room:</strong> Leaving or being removed clears the chat on screen (messages, draft, safety number, images). You are not logged out. Recovery codes in the browser stay.</li>
+                                    <li><strong>Safety number:</strong> Locked 1:1 now shows eight groups of five digits. Both people need this update. Compare the numbers in person or in another app.</li>
+                                    <li><strong>Tor flood protection:</strong> The Hidden Service can slow down floods (intro DoS and Proof-of-Work) when it is under load. Needs Tor 0.4.8 or newer (this bundle is). Docker uses the same settings.</li>
+                                    <li><strong>Admin tools stay off Tor:</strong> Server Manager talks to ChatServer on a private local port. Visitors on the .onion cannot see health or room-admin tools.</li>
+                                    <li><strong>Harder to fingerprint the host:</strong> Time in headers is rounded, and build timestamps are not sent with the page. CSS and fonts still cache so the page stays reasonably fast.</li>
+                                    <li><strong>Invite guessing:</strong> Invite lookups are limited across the whole server, so spinning new Tor circuits cannot hammer invites as cheaply.</li>
+                                    <li><strong>Hidden and closed rooms:</strong> A failed join takes a similar amount of time whether the room exists or not, so timing does not give that away.</li>
+                                    <li><strong>Official Tor files:</strong> Server Manager checks bundled Tor against a known hash. If it does not match, Tor does not start. It does not download a replacement.</li>
+                                    <li><strong>Message times:</strong> Times are rounded to the minute. Rejected messages all say the same thing, so the error text does not explain why.</li>
+                                    <li><strong>Where the chat runs:</strong> The UI only opens on localhost or a real Tor v3 .onion address, and only if the browser can do Web Crypto. Otherwise it stays blocked.</li>
+                                    <li><strong>Pinned message:</strong> The room creator can pin one message. Everyone sees that pin; the server does not learn the text. The pin expires with the message.</li>
+                                </ul>
+                            </div>
+                        </div>
 
                         <div class="changelog-entry">
                             <div class="changelog-version">
@@ -260,7 +295,7 @@
         </main>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=3.1.0" defer></script>
     <link rel="stylesheet" href="cookie-consent.css">
     <script src="cookie-consent.js" defer></script>
 </body>
