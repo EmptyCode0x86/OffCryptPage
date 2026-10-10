@@ -9,7 +9,7 @@
  <meta name="description"
  content="OffCode Tor Chat: self-hosted Tor chat with browser WebCrypto AES-GCM. Password rooms are server-blind E2EE; open rooms are public encrypted channels. SignalR relay, SQLCipher, Server Manager, optional Full Vanguards.">
  <meta name="author" content="OffCrypt">
- <meta name="last-modified" content="2026-07-23">
+ <meta name="last-modified" content="2026-10-09">
  <meta name="keywords"
  content="Tor Chat, TorChat, torchat, onion chat, .onion links, E2EE chat, Tor Hidden Service, SignalR, WebCrypto, AES-GCM, SQLCipher, Vanguards, OffCode, anonymous chat">
  <meta name="robots" content="index, follow">
@@ -49,7 +49,7 @@
  <link rel="manifest" href="/manifest.json">
 
  <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.1.7" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.1.9" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -65,7 +65,7 @@
  "name": "OffCode Tor Chat",
  "applicationCategory": "CommunicationApplication, SecurityApplication",
  "operatingSystem": "Windows (host); Linux/Docker (host); Tor Browser (clients)",
- "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. v3 onion intro DoS and Equi-X Proof-of-Work on Tor 0.4.8+. Creator Settings (close/max members/read-only/slow mode/disable attachments/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
+ "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. v3 onion intro DoS and Equi-X Proof-of-Work on Tor 0.4.8+. Creator Settings (close/max members/read-only/slow mode/disable attachments/pin/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
  "url": "https://www.dev-offcode.com/TorChatPage.html",
  "image": "https://www.dev-offcode.com/TorChat1.png",
  "offers": [
@@ -117,7 +117,7 @@
  ]
  },
  "datePublished": "2026-07-12",
- "dateModified": "2026-10-03"
+ "dateModified": "2026-10-09"
  }
  </script>
 
@@ -187,7 +187,7 @@
  "name": "What are hidden rooms and invite links?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Hidden rooms stay off the public list. Guests join with an invite link (?invite=); add a password if the room is locked. Close room to new members blocks all new joins, including invites; people already in stay."
+ "text": "Hidden rooms stay off the public list. Guests join with an invite link (?invite=); add a password if the room is locked. Close room to new members blocks all new joins, including invites; people already in stay. The creator can rejoin with recovery or manage token."
  }
  },
  {
@@ -195,7 +195,7 @@
  "name": "How long do messages stay?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Message expiry is required: 30 min to 1 week (default 8 h). There is no forever option. Each room keeps at most 500 messages (oldest trimmed). Expired rows are removed with secure_delete."
+ "text": "Message expiry is required: 30 min to 1 week (default 8 h). There is no forever option. Each room keeps at most 500 messages (oldest trimmed). A creator-pinned message is kept until it expires or the room is wiped. Expired rows are removed with secure_delete."
  }
  },
  {
@@ -261,8 +261,22 @@
  }
  </script>
 
+ <!-- Video Schema: setup walkthrough -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "VideoObject",
+ "name": "Set up OffCode Tor Chat on the Tor network",
+ "description": "Here's an example of how easy it is for anyone to set up their own OffCode Tor Chat server on the Tor network, with absolutely no technical knowledge required.",
+ "thumbnailUrl": "https://img.youtube.com/vi/wLQqCrwd-NM/maxresdefault.jpg",
+ "uploadDate": "2026-10-10",
+ "embedUrl": "https://www.youtube.com/embed/wLQqCrwd-NM",
+ "contentUrl": "https://www.youtube.com/watch?v=wLQqCrwd-NM"
+ }
+ </script>
+
  <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.1.7">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.1.9">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -401,7 +415,7 @@
  <p class="at-hero__lead">
  Host with <strong>Server Manager</strong> on Windows, or <strong>Docker</strong>.
  Copy the <strong>.onion</strong> URL and send it to your guests. They join in Tor Browser
- with nothing to install on their side.
+ with a display name only: no accounts, no phone numbers, nothing to install on their side.
  </p>
 
  <p class="at-hero__body">
@@ -521,12 +535,26 @@
  </div>
  </div>
 
+ <div class="product-videos">
  <div class="at-hero__video">
  <iframe src="https://www.youtube.com/embed/BIefF56ShPc"
  title="OffCode Tor Chat product overview"
  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
  referrerpolicy="strict-origin-when-cross-origin"
  allowfullscreen></iframe>
+ </div>
+ <figure class="torchat-setup-video">
+ <div class="at-hero__video">
+ <iframe src="https://www.youtube.com/embed/wLQqCrwd-NM"
+ title="Set up OffCode Tor Chat on the Tor network"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+ referrerpolicy="strict-origin-when-cross-origin"
+ allowfullscreen></iframe>
+ </div>
+ <figcaption class="torchat-setup-video__caption">Here's an example of how easy it is for anyone to
+ set up their own OffCode Tor Chat server on the Tor network, with absolutely no
+ technical knowledge required.</figcaption>
+ </figure>
  </div>
 
  <section id="how-it-works" class="at-section">
@@ -628,7 +656,7 @@
  <li>SOCKS disabled on the HS process (<code>SOCKSPort 0</code>)</li>
  <li>Intro DoS + HS Proof-of-Work when Tor is ≥ 0.4.8 (<code>HiddenServiceEnableIntroDoSDefense</code>, <code>HiddenServicePoWDefensesEnabled</code>; man-page rates; PoW idle until overload)</li>
  <li>Open in Tor Browser: <code>http://ADDRESS.onion/</code></li>
- <li>Client clearnet banner if the page host is not <code>.onion</code> / localhost</li>
+ <li>Fail-closed overlay unless the host is loopback (<code>localhost</code> / <code>127.0.0.1</code> / <code>::1</code>) or a v3 <code>.onion</code>, with <code>isSecureContext</code> + <code>crypto.subtle</code></li>
  </ul>
  </div>
 
@@ -653,6 +681,7 @@
  <h3>Rooms, invites &amp; TTL</h3>
  <p>Open, password-protected, and/or hidden rooms with invite links and required per-message lifetime.</p>
  <ul class="at-feature-list">
+ <li>No accounts: guests join with a display name only</li>
  <li>Hidden rooms: not listed; join via <code>?invite=</code> (+ password if locked)</li>
  <li><strong>Message expiry required:</strong> 30&nbsp;min … 1&nbsp;week (default 8&nbsp;h). No forever option</li>
  <li>E2EE FileSeal attachments (max 32&nbsp;MiB): chunked AES-GCM PUT + HMAC
@@ -668,12 +697,13 @@
  <h3>Creator Settings</h3>
  <p>Only the room creator sees Settings (manage token and/or Profile recovery code).</p>
  <ul class="at-feature-list">
- <li><strong>Close room to new members</strong>: blocks all joins (including invites); members stay</li>
+ <li><strong>Close room to new members</strong>: blocks all joins (including invites); members stay; the creator can rejoin with recovery / manage token</li>
  <li><strong>Max members</strong>: optional cap (2–50); new joins rejected when full; lowering keeps people already in</li>
  <li><strong>Announcement / read-only</strong>: only the creator can send messages and files; members see a locked composer</li>
  <li><strong>Disable file and image sending</strong>: text only when on; already-received attachments stay visible</li>
  <li><strong>Slow mode</strong>: send cooldown 1&nbsp;min … 4&nbsp;h (applies to everyone, including creator)</li>
  <li><strong>Lock later</strong>: set a password once on an open room; wipes open history</li>
+ <li><strong>Pin message</strong>: creator pins one ciphertext envelope (in-app menu); TTL still applies; 500-cap keeps the pinned row</li>
  <li><strong>Delete this room</strong>: same wipe path as Server Manager room delete</li>
  <li><strong>Creator recovery code</strong>: binds rooms you create; <strong>My rooms</strong> lists hidden; Copy / Restore</li>
  </ul>
@@ -686,7 +716,7 @@
  Parameterized queries. Plaintext is never written to disk.</p>
  <ul class="at-feature-list">
  <li>Rooms + ciphertext envelopes only (<code>encryption_version</code>: pbkdf2-v2 / ecdh-hybrid-v1)</li>
- <li>Max 500 messages per room (oldest trimmed)</li>
+ <li>Max 500 messages per room (oldest trimmed; pinned row kept until TTL or wipe)</li>
  <li>Expired rows: <code>secure_delete</code> + WAL checkpoint / VACUUM</li>
  <li>Replay fingerprints + restart-gap reject via <code>server_meta</code></li>
  </ul>
@@ -702,6 +732,7 @@
  <li>CORS locked to your onion (<code>TORCHAT_ALLOWED_ONION</code> + live admin POST). Fail-closed: empty allowlist denies every <code>.onion</code> origin until locked</li>
  <li><code>tools/verify-sri.ps1</code> checks <code>index.html</code> hashes vs wwwroot JS</li>
  <li>No IndexedDB / WebRTC; creator recovery may use <code>localStorage</code> (not an E2EE secret)</li>
+ <li>Fail-closed boot overlay unless loopback or v3 <code>.onion</code> (plus Web Crypto)</li>
  <li>DOM built with <code>textContent</code> / <code>createElement</code></li>
  </ul>
  </div>
@@ -803,7 +834,9 @@
  <tr>
  <td data-label="#">2</td>
  <td data-label="Protection"><strong>Cache-Control</strong>: <code>no-store</code> for HTML and
- <code>/js/*</code> (sensitive chat shell)</td>
+ <code>/js/*</code> (sensitive chat shell); <code>/css/</code> and
+ <code>/fonts/</code> use <code>immutable</code> (<code>?v=</code> in
+ <code>index.html</code>)</td>
  </tr>
  <tr>
  <td data-label="#">3</td>
@@ -814,9 +847,13 @@
  <tr>
  <td data-label="#">4</td>
  <td data-label="Protection"><strong>Rate limiting</strong>: Global HTTP ceiling (~600/min); hub negotiate 30/min;
- health / invite / admin APIs 30/min; attachment chunk PUT/GET 240/min;
- Create / Join / Send / GetRooms / GetMyRooms / AttachBegin / invite-manage
- hub limits (ConnectionId; Tor has no useful client IP). Attach Complete/Cancel have no hub limiter</td>
+ health / invite / admin APIs 30/min; <code>/api/invite</code> also
+ <strong>120/min server-wide</strong> (per-connection partitions reset on a
+ new Tor circuit); attachment chunk PUT/GET 240/min; Create / Join / Send /
+ GetRooms / GetMyRooms (20/min; <code>IncludePublic</code> 5/min) /
+ <code>RebindCreatorSecret</code> 5/min / AttachBegin / invite-manage (includes
+ pin/unpin) hub limits (ConnectionId; Tor has no useful client IP). Attach
+ Complete/Cancel have no hub limiter</td>
  </tr>
  <tr>
  <td data-label="#">5</td>
@@ -828,6 +865,21 @@
  <tr>
  <td data-label="#">6</td>
  <td data-label="Protection"><strong>AllowedHosts</strong>: <code>127.0.0.1;localhost;*.onion</code></td>
+ </tr>
+ <tr>
+ <td data-label="#">7</td>
+ <td data-label="Protection"><strong>Host-fingerprint headers</strong>: HTTP <code>Date</code> coarsened to
+ whole UTC minutes; <code>ETag</code> / <code>Last-Modified</code> stripped from
+ static files and the <code>index.html</code> fallback</td>
+ </tr>
+ <tr>
+ <td data-label="#">8</td>
+ <td data-label="Protection"><strong>Admin channel</strong>: <code>TORCHAT_ADMIN_PORT</code> is a separate
+ loopback port the Hidden Service never publishes.
+ <code>/api/health</code>, <code>/api/rooms</code>,
+ <code>DELETE /api/rooms/{id}</code>, and
+ <code>POST /api/admin/cors-onion</code> return <strong>404</strong> on the
+ Tor-facing port (tor.exe forwards visitors as <code>127.0.0.1</code>)</td>
  </tr>
  </tbody>
  </table>
@@ -857,7 +909,10 @@
  <td data-label="Component"><strong>Onion DoS (intro + PoW)</strong></td>
  <td data-label="Implementation">Tor ≥ 0.4.8: <code>HiddenServiceEnableIntroDoSDefense</code> (burst 200 / rate 25)
  and <code>HiddenServicePoWDefensesEnabled</code> (Equi-X; queue 250 / burst 2500, idle until overload),
- plus <code>HiddenServiceMaxStreams 20</code> / <code>CloseCircuit 1</code>. Older <code>tor.exe</code> skips PoW/intro keys so the daemon still starts. Docker pins Alpine <code>tor=0.4.9.13-r0</code></td>
+ plus <code>HiddenServiceMaxStreams 20</code> / <code>CloseCircuit 1</code>. Older <code>tor.exe</code> skips PoW/intro keys so the daemon still starts. Docker pins Alpine <code>tor=0.4.9.13-r0</code>.
+ <strong>Windows:</strong> Server Manager refuses a <code>tor.exe</code> that does not
+ match <code>TorConnection/tor-expert-bundle.pin.json</code> (SHA-256); it does not
+ download Tor</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Ciphertext relay</strong></td>
@@ -905,7 +960,8 @@
  <tr>
  <td data-label="Component"><strong>Close room</strong></td>
  <td data-label="Implementation">Creator can reject all new <code>JoinRoom</code> attempts (including invites);
- existing members stay. Not the same as server-blind E2EE</td>
+ existing members stay. The creator can rejoin with recovery /
+ <code>manageToken</code>. Not the same as server-blind E2EE</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Slow mode</strong></td>
@@ -917,6 +973,21 @@
  <td data-label="Implementation">Creator can turn off file and image sending; members still send text.
  Server enforces a smaller ciphertext size gate (~16&nbsp;KiB) when disabled
  (blind relay cannot inspect content type)</td>
+ </tr>
+ <tr>
+ <td data-label="Component"><strong>Max members / announcement</strong></td>
+ <td data-label="Implementation">Optional online cap 2–50 (default off); public
+ <code>Room is full.</code>, hidden generic <code>Cannot join room.</code>.
+ Read-only: only the creator may <code>SendEncrypted</code> /
+ <code>BeginAttachmentUpload</code> (<code>IsOwner</code> proof)</td>
+ </tr>
+ <tr>
+ <td data-label="Component"><strong>Pinned message</strong></td>
+ <td data-label="Implementation">Creator pins one ciphertext envelope
+ (<code>PinMessage</code> / <code>UnpinMessage</code> → <code>PinState</code>;
+ pointer in <code>room_pins</code>). Client sends <code>nonce</code> +
+ <code>clientSentAtUnixMs</code> only; no plaintext. Invite-manage rate limit
+ (20/min). TTL CASCADE; 500-cap keeps the pinned row</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Lock later / Delete</strong></td>
@@ -938,8 +1009,8 @@
  <tr>
  <td data-label="Component"><strong>Join error oracle</strong></td>
  <td data-label="Implementation">Generic <code>Cannot join room.</code> (error <strong>text</strong> does not leak
- existence). <code>JoinRoom</code> still runs hidden/closed gates before the dummy
- PBKDF2 path, so response <strong>timing</strong> can distinguish those rooms from missing ones</td>
+ existence). Hidden/closed denials pay the same dummy PBKDF2 cost as a missing room,
+ so response <strong>timing</strong> does not distinguish those rooms from missing ones</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Create-room oracle</strong></td>
@@ -947,10 +1018,11 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>Admin APIs</strong></td>
- <td data-label="Implementation"><code>GET /api/rooms</code>, <code>DELETE /api/rooms/{id}</code>, and
- <code>POST /api/admin/cors-onion</code> require
- <code>X-TorChat-Admin</code> (CSPRNG token from Server Manager env).
- Tor clients cannot call these</td>
+ <td data-label="Implementation"><code>GET /api/rooms</code>, <code>DELETE /api/rooms/{id}</code>,
+ <code>POST /api/admin/cors-onion</code>, and <code>GET /api/health</code>
+ require <code>X-TorChat-Admin</code> (CSPRNG token from Server Manager env) on
+ <code>TORCHAT_ADMIN_PORT</code>. Those routes return <strong>404</strong> on
+ the Tor-facing chat port; Tor clients cannot call them</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>SQL injection</strong></td>
@@ -1004,8 +1076,10 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>Clearnet warning</strong></td>
- <td data-label="Implementation">Soft banner if the page host is not <code>.onion</code> /
- <code>127.0.0.1</code> / <code>localhost</code> (does not block chat)</td>
+ <td data-label="Implementation">Fail-closed overlay (<code>secure-boot.js</code>): chat UI only on loopback
+ (<code>localhost</code> / <code>127.0.0.1</code> / <code>::1</code>) or a Tor v3
+ <code>.onion</code>, and only after <code>isSecureContext</code> + <code>crypto.subtle</code>.
+ Naive <code>*.onion</code> suffixes are rejected</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>XSS hardening</strong></td>
@@ -1015,6 +1089,11 @@
  <tr>
  <td data-label="Component"><strong>ForceLeave</strong></td>
  <td data-label="Implementation">Host-deleted rooms kick clients back to lobby over SignalR</td>
+ </tr>
+ <tr>
+ <td data-label="Component"><strong>Pin UI</strong></td>
+ <td data-label="Implementation">In-app message menu (<code>room-pin.js</code>): right-click /
+ Shift+F10 / long-press. Not a document-wide native context menu</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Browser storage</strong></td>
@@ -1210,7 +1289,8 @@
  <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control</li>
  <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k): the host cannot derive the room key</li>
  <li>Open rooms: public encrypted channels (key from room id): use when you want a free join lobby</li>
- <li>Creator Settings: close joins, max members, announcement / read-only, disable attachments, slow mode, lock later, delete room; Profile recovery → My rooms</li>
+ <li>No accounts: guests join with a display name only</li>
+ <li>Creator Settings: close joins, max members, announcement / read-only, disable attachments, slow mode, pin one message, lock later, delete room; Profile recovery → My rooms</li>
  <li>Required message TTL (no forever); E2EE attachments; 1:1 safety numbers; optional Full Vanguards</li>
  </ul>
 
@@ -1426,7 +1506,8 @@
                                     <p>Hidden rooms stay off the public list. Guests join with an invite link
  (<code>?invite=</code>); add a password if the room is locked.
  <strong>Close room to new members</strong> blocks all new joins, including
- invites; people already in stay.</p>
+ invites; people already in stay. The creator can rejoin with recovery or
+ manage token.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
@@ -1437,7 +1518,8 @@
                                 <div class="faq-item__body">
                                     <p>Message expiry is required: 30&nbsp;min to 1&nbsp;week (default 8&nbsp;h).
  There is no forever option. Each room keeps at most 500 messages (oldest
- trimmed). Expired rows are removed with <code>secure_delete</code>.</p>
+ trimmed). A creator-pinned message is kept until it expires or the room is
+ wiped. Expired rows are removed with <code>secure_delete</code>.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">

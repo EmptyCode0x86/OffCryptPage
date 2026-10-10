@@ -2737,15 +2737,37 @@
 }
 
 .product-videos:not(.product-screens) {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 952px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
+    align-items: start;
+    max-width: 1100px;
 }
 
 .product-videos:not(.product-screens) .at-hero__video {
-    margin: 0 auto;
+    margin: 0;
     width: 100%;
+    max-width: none;
+}
+
+.torchat-setup-video {
+    margin: 0;
+    width: 100%;
+    min-width: 0;
+}
+
+.torchat-setup-video__caption {
+    text-align: center;
+    color: var(--at-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0.65rem 0 0;
+}
+
+@media (max-width: 768px) {
+    .product-videos:not(.product-screens) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .product-video-carousel .screenshot-card .at-video-wrap iframe {
