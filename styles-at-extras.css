@@ -2985,3 +2985,27 @@
         flex: 0 0 auto;
     }
 }
+
+/* Badge row: uniform height so all badges fit and wrap cleanly (2026-10-16) */
+.at-badges {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    gap: 0.9rem 1rem;
+}
+.at-badges a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+.at-badges img {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 220px !important;
+    object-fit: contain;
+}
+@media (max-width: 600px) {
+    .at-badges { gap: 0.7rem; padding-left: 1rem; padding-right: 1rem; }
+    .at-badges img { height: 38px !important; }
+}
