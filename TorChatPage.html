@@ -280,6 +280,7 @@
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
  <link rel="stylesheet" href="boot-gate.css?v=1">
  <link rel="stylesheet" href="torchat-gate.css?v=1">
+ <link rel="stylesheet" href="boot-code.css?v=6">
 </head>
 
 <body class="at-page">
@@ -290,6 +291,72 @@
   </style>
  </noscript>
  <div id="origin-warning" class="boot-block origin-warning boot-gate force-motion" role="alertdialog" aria-modal="true" aria-labelledby="gate-tagline" aria-describedby="boot-block-title">
+  <div class="boot-code force-motion" hidden aria-hidden="true">
+   <div class="boot-code__snip s1">
+    <span class="n40">async function deriveRoomKey(pw, salt) {</span>
+    <span class="n44">  const mat = await crypto.subtle.importKey(</span>
+    <span class="n42">    "raw", te.encode(pw.normalize("NFC")),</span>
+    <span class="n35">    "PBKDF2", false, ["deriveKey"])</span>
+    <span class="n48">  return crypto.subtle.deriveKey({name:"PBKDF2",</span>
+    <span class="n50">    hash:"SHA-256", iterations:600000, salt}, mat)</span>
+   </div>
+   <div class="boot-code__snip s2">
+    <span class="n39">async function encryptText(key, text) {</span>
+    <span class="n55">  const iv = crypto.getRandomValues(new Uint8Array(12))</span>
+    <span class="n42">  const box = await crypto.subtle.encrypt(</span>
+    <span class="n46">    {name:"AES-GCM", iv, additionalData}, key,</span>
+    <span class="n35">    new TextEncoder().encode(text))</span>
+    <span class="n26">  return {iv, cipher: box}</span>
+   </div>
+   <div class="boot-code__snip s3">
+    <span class="n38">async function generateEcdhKeyPair() {</span>
+    <span class="n47">  const pair = await crypto.subtle.generateKey(</span>
+    <span class="n45">    {name:"ECDH", namedCurve:"P-256"}, false,</span>
+    <span class="n19">    ["deriveBits"])</span>
+    <span class="n52">  const spki = await crypto.subtle.exportKey("spki",</span>
+    <span class="n19">    pair.publicKey)</span>
+   </div>
+   <div class="boot-code__snip s4">
+    <span class="n42">async function decryptText(key, buf, iv) {</span>
+    <span class="n45">  if (iv.byteLength !== 12) throw Error("iv")</span>
+    <span class="n41">  const pt = await crypto.subtle.decrypt(</span>
+    <span class="n51">    {name:"AES-GCM", iv, additionalData}, key, buf)</span>
+    <span class="n37">  return new TextDecoder().decode(pt)</span>
+    <span class="n1">}</span>
+   </div>
+   <div class="boot-code__snip s5">
+    <span class="n41">async function deriveJoinProof(rid, pw) {</span>
+    <span class="n50">  const mat = await crypto.subtle.importKey("raw",</span>
+    <span class="n52">    te.encode(pw.normalize("NFC")), "PBKDF2", false,</span>
+    <span class="n19">    ["deriveBits"])</span>
+    <span class="n49">  return crypto.subtle.deriveBits({name:"PBKDF2",</span>
+    <span class="n59">    hash:"SHA-256", iterations:600000, salt:rid}, mat, 256)</span>
+   </div>
+   <div class="boot-code__snip s6">
+    <span class="n52">public static string Encrypt(byte[] key, string p) {</span>
+    <span class="n49">  var nonce = RandomNumberGenerator.GetBytes(12);</span>
+    <span class="n25">  var tag = new byte[16];</span>
+    <span class="n36">  using var g = new AesGcm(key, 16);</span>
+    <span class="n55">  g.Encrypt(nonce, Encoding.UTF8.GetBytes(p), ct, tag);</span>
+    <span class="n37">  return Convert.ToBase64String(buf);</span>
+   </div>
+   <div class="boot-code__snip s7">
+    <span class="n54">public static (byte[] pkcs8, byte[] spki) Generate() {</span>
+    <span class="n48">  var seed = RandomNumberGenerator.GetBytes(32);</span>
+    <span class="n53">  var priv = new X25519PrivateKeyParameters(seed, 0);</span>
+    <span class="n37">  var pub = priv.GeneratePublicKey();</span>
+    <span class="n33">  return (pkInfo.GetDerEncoded(),</span>
+    <span class="n26">    spki.GetDerEncoded());</span>
+   </div>
+   <div class="boot-code__snip s8">
+    <span class="n52">public static (byte[] Ct, byte[] Tag) AesGcmEncrypt(</span>
+    <span class="n55">  byte[] key, byte[] nonce, byte[] plain, byte[] aad) {</span>
+    <span class="n32">  using var g = new AesGcm(key);</span>
+    <span class="n40">  g.Encrypt(nonce, plain, ct, tag, aad);</span>
+    <span class="n19">  return (ct, tag);</span>
+    <span class="n1">}</span>
+   </div>
+  </div>
   <div class="gate-stage" aria-hidden="true">
    <div class="gate-tilt">
     <span class="gate-orbit gate-orbit--1"></span>
