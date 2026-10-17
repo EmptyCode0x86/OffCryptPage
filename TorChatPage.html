@@ -278,9 +278,76 @@
  <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
  <link rel="stylesheet" href="styles-at-extras.css?v=3.2.0">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
+ <link rel="stylesheet" href="css/boot-gate.css">
+ <link rel="stylesheet" href="css/torchat-gate.css">
 </head>
 
 <body class="at-page">
+ <noscript>
+  <style>
+   #origin-warning { display: none !important; }
+   html { overflow: auto !important; }
+  </style>
+ </noscript>
+ <div id="origin-warning" class="boot-block origin-warning boot-gate force-motion" role="alertdialog" aria-modal="true" aria-labelledby="gate-tagline" aria-describedby="boot-block-title">
+  <div class="gate-stage" aria-hidden="true">
+   <div class="gate-tilt">
+    <span class="gate-orbit gate-orbit--1"></span>
+    <span class="gate-orbit gate-orbit--2"></span>
+    <span class="gate-orbit gate-orbit--3"></span>
+    <span class="gate-orbit gate-orbit--4"></span>
+    <span class="gate-orbit gate-orbit--5"></span>
+    <div class="gate-onion">
+     <span class="gate-layer gate-layer--3"></span>
+     <span class="gate-layer gate-layer--2"></span>
+     <span class="gate-layer gate-layer--1"></span>
+     <span class="gate-core"></span>
+     <span class="gate-tie gate-tie--1"></span>
+     <span class="gate-tie gate-tie--2"></span>
+     <span class="gate-tie gate-tie--3"></span>
+     <span class="gate-tie gate-tie--4"></span>
+     <span class="gate-tie gate-tie--5"></span>
+     <span class="gate-spark gate-spark--1"></span>
+     <span class="gate-spark gate-spark--2"></span>
+     <span class="gate-spark gate-spark--3"></span>
+     <span class="gate-blip gate-blip--1" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--2" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--3" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--4" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--5" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--6" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--7" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--8" aria-hidden="true"></span>
+    </div>
+   </div>
+  </div>
+  <p id="gate-tagline" class="gate-tagline">Privacy needs no permission.</p>
+  <p id="boot-block-title" class="gate-sub">Your conversations. Your keys. Your freedom.</p>
+  <button type="button" id="gate-continue" class="gate-continue">Continue</button>
+ </div>
+ <script>
+  (function () {
+   var gate = document.getElementById("origin-warning");
+   var skip = false;
+   try {
+    skip = sessionStorage.getItem("tc-gate") === "1";
+   } catch (e) {}
+   var hash = location.hash;
+   if (skip || (hash && hash.length > 1)) {
+    if (gate) gate.hidden = true;
+    return;
+   }
+   var btn = document.getElementById("gate-continue");
+   if (btn) {
+    btn.addEventListener("click", function () {
+     if (gate) gate.hidden = true;
+     try {
+      sessionStorage.setItem("tc-gate", "1");
+     } catch (e2) {}
+    });
+   }
+  })();
+ </script>
  <button class="mobile-menu-toggle" aria-label="Toggle Menu">
  <span class="hamburger"></span>
  </button>
@@ -758,21 +825,61 @@
  clients; password-room keys stay in browsers. Open-room keys are derivable from the room id by design.
  </p>
 
- <div class="torchat-manager-shots">
- <figure class="torchat-hero-shot">
+ <div class="product-screens">
+ <p class="features-carousel-hint">Browse screenshots with the arrows or by swiping</p>
+ <div class="features-carousel" id="torchat-manager-carousel" data-features-carousel>
+ <button type="button" class="features-carousel-btn prev"
+ aria-label="Previous Server Manager screenshot"
+ aria-controls="torchat-manager-track">
+ <span aria-hidden="true">‹</span>
+ </button>
+ <button type="button" class="features-carousel-btn next"
+ aria-label="Next Server Manager screenshot"
+ aria-controls="torchat-manager-track">
+ <span aria-hidden="true">›</span>
+ </button>
+ <div class="features-carousel-track" id="torchat-manager-track" role="region"
+ aria-roledescription="carousel" aria-label="Server Manager screenshots" tabindex="0">
+ <figure class="at-feature-card screenshot-card">
+ <div class="screenshot-frame">
  <img src="TorManager1.png" width="960" height="540"
  alt="TorChat Server Manager - Dashboard with ChatServer start and onion URL"
- loading="lazy" decoding="async">
- <figcaption class="torchat-hero-hint">Dashboard: start/stop stack and copy onion URL
+ loading="lazy" decoding="async"
+ data-full="TorManager1.png"
+ data-title="Dashboard: start/stop stack and copy onion URL">
+ </div>
+ <figcaption>Dashboard: start/stop stack and copy onion URL
+ <span class="screenshot-zoom-hint">Click to enlarge</span>
  </figcaption>
  </figure>
- <figure class="torchat-hero-shot">
+ <figure class="at-feature-card screenshot-card">
+ <div class="screenshot-frame">
  <img src="TorManager2.png" width="960" height="540"
  alt="TorChat Server Manager - Settings with live room list and remove room"
- loading="lazy" decoding="async">
- <figcaption class="torchat-hero-hint">Settings: public rooms, Admin key, live rooms, wipe SQL data
+ loading="lazy" decoding="async"
+ data-full="TorManager2.png"
+ data-title="Settings: public rooms, Admin key, live rooms, wipe SQL data">
+ </div>
+ <figcaption>Settings: public rooms, Admin key, live rooms, wipe SQL data
+ <span class="screenshot-zoom-hint">Click to enlarge</span>
  </figcaption>
  </figure>
+ <figure class="at-feature-card screenshot-card">
+ <div class="screenshot-frame">
+ <img src="TorManagerFeed.png" width="960" height="540"
+ alt="TorChat Server Manager - Feed tab with Enable feed and post moderation"
+ loading="lazy" decoding="async"
+ data-full="TorManagerFeed.png"
+ data-title="Feed: Enable feed and remove selected post">
+ </div>
+ <figcaption>Feed: Enable feed and remove selected post
+ <span class="screenshot-zoom-hint">Click to enlarge</span>
+ </figcaption>
+ </figure>
+ </div>
+ <div class="features-carousel-dots" role="tablist"
+ aria-label="Server Manager screenshot slides"></div>
+ </div>
  </div>
 
  <ul class="at-prose">
@@ -791,6 +898,8 @@
  the onion site. You can still Create room from Server Manager</li>
  <li><strong>Start server on startup:</strong> Save writes Windows logon start (HKCU Run).
  ChatServer (and Tor if you saved it on) then start without extra dialogs</li>
+ <li><strong>Enable feed:</strong> optional public Feed tab on the onion site (off by default).
+ Moderate with <strong>Remove selected post</strong></li>
  <li>Live room list (room id, locked flag, online count only, no message content)</li>
  <li>Remove a selected room in realtime: connected users are forced back to the lobby;
  ciphertext for that room is deleted with <code>secure_delete</code> + VACUUM</li>
@@ -1641,10 +1750,20 @@
  var closeBtn = modal.querySelector('.close');
  var prevBtn = modal.querySelector('.modal-prev');
  var nextBtn = modal.querySelector('.modal-next');
- var images = Array.prototype.slice.call(
- document.querySelectorAll('#screenshots .screenshot-card img')
- );
+ var images = [];
  var currentIndex = 0;
+
+ function bindGallery(selector) {
+ var set = Array.prototype.slice.call(document.querySelectorAll(selector));
+ set.forEach(function (img, index) {
+ img.addEventListener('click', function (e) {
+ e.preventDefault();
+ e.stopPropagation();
+ images = set;
+ openModal(index);
+ });
+ });
+ }
 
  function showAt(index) {
  if (!images.length) return;
@@ -1679,13 +1798,8 @@
  showAt(currentIndex + direction);
  }
 
- images.forEach(function (img, index) {
- img.addEventListener('click', function (e) {
- e.preventDefault();
- e.stopPropagation();
- openModal(index);
- });
- });
+ bindGallery('#screenshots .screenshot-card img');
+ bindGallery('#server-manager .screenshot-card img');
 
  if (closeBtn) closeBtn.addEventListener('click', closeModal);
  if (prevBtn) {
