@@ -172,11 +172,145 @@
     <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
     <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
+    <link rel="stylesheet" href="boot-gate.css?v=1">
+    <link rel="stylesheet" href="torchat-gate.css?v=1">
+    <link rel="stylesheet" href="boot-code.css?v=7">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
 </head>
 
 <body class="at-page">
+ <noscript>
+  <style>
+   #origin-warning { display: none !important; }
+   html { overflow: auto !important; }
+  </style>
+ </noscript>
+ <div id="origin-warning" class="boot-block origin-warning boot-gate force-motion" role="alertdialog" aria-modal="true" aria-labelledby="gate-tagline" aria-describedby="boot-block-title">
+  <div class="boot-code force-motion" hidden aria-hidden="true">
+   <div class="boot-code__snip s1">
+    <span class="n54">public static (byte[] pkcs8, byte[] spki) Generate() {</span>
+    <span class="n48">  var seed = RandomNumberGenerator.GetBytes(32);</span>
+    <span class="n53">  var priv = new X25519PrivateKeyParameters(seed, 0);</span>
+    <span class="n37">  var pub = priv.GeneratePublicKey();</span>
+    <span class="n33">  return (pkInfo.GetDerEncoded(),</span>
+    <span class="n26">    spki.GetDerEncoded());</span>
+   </div>
+   <div class="boot-code__snip s2">
+    <span class="n37">var psk = HKDF.Derive(z, sessionId16,</span>
+    <span class="n44">  Encoding.UTF8.GetBytes("X25519/PSK"), 32);</span>
+    <span class="n53">var key = HKDF.Derive(psk, sessionId16, keyInfo, 32);</span>
+    <span class="n41">var nonce = HKDF.Derive(psk, sessionId16,</span>
+    <span class="n17">  nonceInfo, 12);</span>
+    <span class="n1">}</span>
+   </div>
+   <div class="boot-code__snip s3">
+    <span class="n52">public static (byte[] Ct, byte[] Tag) AesGcmEncrypt(</span>
+    <span class="n55">  byte[] key, byte[] nonce, byte[] plain, byte[] aad) {</span>
+    <span class="n32">  using var g = new AesGcm(key);</span>
+    <span class="n40">  g.Encrypt(nonce, plain, ct, tag, aad);</span>
+    <span class="n19">  return (ct, tag);</span>
+    <span class="n1">}</span>
+   </div>
+   <div class="boot-code__snip s4">
+    <span class="n38">var wrappedKey = ProtectedData.Protect(</span>
+    <span class="n26">  currentPrivateKey, null,</span>
+    <span class="n35">  DataProtectionScope.CurrentUser);</span>
+    <span class="n44">currentPrivateKey = ProtectedData.Unprotect(</span>
+    <span class="n19">  wrappedKey, null,</span>
+    <span class="n35">  DataProtectionScope.CurrentUser);</span>
+   </div>
+   <div class="boot-code__snip s5">
+    <span class="n35">ECCurve curve = ECDHMode.StaticP256</span>
+    <span class="n32">  ? ECCurve.NamedCurves.nistP256</span>
+    <span class="n33">  : ECCurve.NamedCurves.nistP384;</span>
+    <span class="n47">using var ecdh = ECDiffieHellman.Create(curve);</span>
+    <span class="n42">var secret = ecdh.DeriveKeyMaterial(peer);</span>
+    <span class="n43">return HKDF.Derive(secret, salt, info, 32);</span>
+   </div>
+   <div class="boot-code__snip s6">
+    <span class="n38">public static byte[] InitiatorEncrypt(</span>
+    <span class="n32">  byte[] myPriv, byte[] peerPub,</span>
+    <span class="n41">  byte[] sessionId16, byte[] plaintext) {</span>
+    <span class="n53">  var z = X25519.CalculateAgreement(myPriv, peerPub);</span>
+    <span class="n53">  var psk = HKDF.Derive(z, sessionId16, infoPsk, 32);</span>
+    <span class="n41">  return AesGcmSeal(psk, plaintext, aad);</span>
+   </div>
+   <div class="boot-code__snip s7">
+    <span class="n37">var keyInfo = Encoding.UTF8.GetBytes(</span>
+    <span class="n40">  "PSK/KEY|" + senderIdHex + "|" + seq);</span>
+    <span class="n39">var nonceInfo = Encoding.UTF8.GetBytes(</span>
+    <span class="n42">  "PSK/NONCE|" + senderIdHex + "|" + seq);</span>
+    <span class="n50">var nonce = HKDF.Derive(psk, sess, nonceInfo, 12);</span>
+    <span class="n38">g.Encrypt(nonce, plain, ct, tag, aad);</span>
+   </div>
+   <div class="boot-code__snip s8">
+    <span class="n43">using var sha = IncrementalHash.CreateHash(</span>
+    <span class="n28">  HashAlgorithmName.SHA256);</span>
+    <span class="n23">sha.AppendData(header);</span>
+    <span class="n25">sha.AppendData(seqBytes);</span>
+    <span class="n32">var aad = sha.GetHashAndReset();</span>
+    <span class="n31">Array.Clear(currentPrivateKey);</span>
+   </div>
+  </div>
+  <div class="gate-stage" aria-hidden="true">
+   <div class="gate-tilt">
+    <span class="gate-orbit gate-orbit--1"></span>
+    <span class="gate-orbit gate-orbit--2"></span>
+    <span class="gate-orbit gate-orbit--3"></span>
+    <span class="gate-orbit gate-orbit--4"></span>
+    <span class="gate-orbit gate-orbit--5"></span>
+    <div class="gate-onion">
+     <span class="gate-layer gate-layer--3"></span>
+     <span class="gate-layer gate-layer--2"></span>
+     <span class="gate-layer gate-layer--1"></span>
+     <span class="gate-core"></span>
+     <span class="gate-tie gate-tie--1"></span>
+     <span class="gate-tie gate-tie--2"></span>
+     <span class="gate-tie gate-tie--3"></span>
+     <span class="gate-tie gate-tie--4"></span>
+     <span class="gate-tie gate-tie--5"></span>
+     <span class="gate-spark gate-spark--1"></span>
+     <span class="gate-spark gate-spark--2"></span>
+     <span class="gate-spark gate-spark--3"></span>
+     <span class="gate-blip gate-blip--1" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--2" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--3" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--4" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--5" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--6" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--7" aria-hidden="true"></span>
+     <span class="gate-blip gate-blip--8" aria-hidden="true"></span>
+    </div>
+   </div>
+  </div>
+  <p id="gate-tagline" class="gate-tagline">Math doesn't take sides.</p>
+  <p id="boot-block-title" class="gate-sub">Zero compromise, zero telemetry. Just local cryptography.</p>
+  <button type="button" id="gate-continue" class="gate-continue">Continue</button>
+ </div>
+ <script>
+  (function () {
+   var gate = document.getElementById("origin-warning");
+   var skip = false;
+   try {
+    skip = sessionStorage.getItem("oc-desktop-gate") === "1";
+   } catch (e) {}
+   var hash = location.hash;
+   if (skip || (hash && hash.length > 1)) {
+    if (gate) gate.hidden = true;
+    return;
+   }
+   var btn = document.getElementById("gate-continue");
+   if (btn) {
+    btn.addEventListener("click", function () {
+     if (gate) gate.hidden = true;
+     try {
+      sessionStorage.setItem("oc-desktop-gate", "1");
+     } catch (e2) {}
+    });
+   }
+  })();
+ </script>
     <button class="mobile-menu-toggle" aria-label="Toggle Menu">
         <span class="hamburger"></span>
     </button>
