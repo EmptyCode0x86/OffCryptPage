@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.dev-offcode.com/</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
+    <lastmod>2026-10-20T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/main.html</loc>
-    <lastmod>2026-10-19T12:00:00+00:00</lastmod>
+    <loc>https://www.dev-offcode.com/OffCryptAndroid.html</loc>
+    <lastmod>2026-10-20T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>

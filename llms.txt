@@ -6,11 +6,11 @@
 
 ## About
 
-- [About OffCode](https://www.dev-offcode.com/main.html): Independent software developer from Finland — cybersecurity, privacy, encryption and automation software, plus an overview of everything on the site
+- [About OffCode](https://www.dev-offcode.com/): Independent software developer from Finland — cybersecurity, privacy, encryption and automation software, plus an overview of everything on the site
 
 ## Products
 
-- [OffCrypt Android](https://www.dev-offcode.com/): Offline-friendly encryption and messaging for Android
+- [OffCrypt Android](https://www.dev-offcode.com/OffCryptAndroid.html): Offline-friendly encryption and messaging for Android
 - [OffCrypt Desktop](https://www.dev-offcode.com/OffCryptDesktop.html): Windows desktop encryption suite
 - [Screen Lock Builder](https://www.dev-offcode.com/ScreenLockBuilder.html): Custom Windows screen lock EXE builder
 - [Screen Lock Builder Premium](https://www.dev-offcode.com/ScreenLockBuilderPremium.html): Premium screen lock builder features

@@ -4,6 +4,13 @@
   <url>
     <loc>https://www.dev-offcode.com/</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/main-og.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dev-offcode.com/OffCryptAndroid.html</loc>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
     </image:image>
     <image:image>
