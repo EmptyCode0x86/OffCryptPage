@@ -4,6 +4,10 @@
 
 > OffCode builds privacy and security tools: encryption apps, screen lock builders, automation, web remote control, and Tor Chat.
 
+## About
+
+- [About OffCode](https://www.dev-offcode.com/main.html): Independent software developer from Finland — cybersecurity, privacy, encryption and automation software, plus an overview of everything on the site
+
 ## Products
 
 - [OffCrypt Android](https://www.dev-offcode.com/): Offline-friendly encryption and messaging for Android
