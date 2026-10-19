@@ -34,6 +34,7 @@ I develop my projects independently, focusing on practical tools, secure softwar
 | 🌐 **Website** | [dev-offcode.com](https://dev-offcode.com) |
 | 💬 **Discord** | [Join Community](#) |
 | 🐙 **GitHub** | [Profile](#) |
+| 🐦 **X / Twitter** | [@OffCryptAndroid](https://x.com/OffCryptAndroid) |
 | ☕ **Support** | [Ko-fi](#) |
 
 *Follow my website for project updates, new releases, and development progress.*
