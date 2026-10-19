@@ -9,7 +9,7 @@
  <meta name="description"
  content="OffCode Tor Chat: self-hosted Tor chat with browser WebCrypto AES-GCM. Password rooms are server-blind E2EE; open rooms are public encrypted channels. SignalR relay, SQLCipher, Server Manager, optional Full Vanguards.">
  <meta name="author" content="OffCrypt">
- <meta name="last-modified" content="2026-10-10">
+ <meta name="last-modified" content="2026-10-19">
  <meta name="keywords"
  content="Tor Chat, TorChat, torchat, onion chat, .onion links, E2EE chat, Tor Hidden Service, SignalR, WebCrypto, AES-GCM, SQLCipher, Vanguards, OffCode, anonymous chat">
  <meta name="robots" content="index, follow">
@@ -49,7 +49,7 @@
  <link rel="manifest" href="/manifest.json">
 
  <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.2.0" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.2.2" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -64,8 +64,8 @@
  "@id": "https://www.dev-offcode.com/TorChatPage.html#software",
  "name": "OffCode Tor Chat",
  "applicationCategory": "CommunicationApplication, SecurityApplication",
- "operatingSystem": "Windows (host); Linux/Docker (host); Tor Browser (clients)",
- "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v2 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. v3 onion intro DoS and Equi-X Proof-of-Work on Tor 0.4.8+. Creator Settings (close/max members/read-only/slow mode/disable attachments/pin/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
+ "operatingSystem": "Windows, macOS, Ubuntu Desktop (host); Docker (host); Tor Browser (clients)",
+ "description": "Self-hosted Tor Hidden Service chat. Browser WebCrypto AES-GCM with PBKDF2-v3 (600k). Password rooms are server-blind E2EE; open rooms use a room-id-derived key. v3 onion intro DoS and Equi-X Proof-of-Work on Tor 0.4.8+. Creator Settings (close/max members/read-only/slow mode/disable attachments/pin/lock/delete), SignalR relay, SQLCipher, Server Manager or Docker.",
  "url": "https://www.dev-offcode.com/TorChatPage.html",
  "image": "https://www.dev-offcode.com/TorChat1.png",
  "offers": [
@@ -117,7 +117,7 @@
  ]
  },
  "datePublished": "2026-07-12",
- "dateModified": "2026-10-10"
+ "dateModified": "2026-10-19"
  }
  </script>
 
@@ -131,7 +131,7 @@
  "name": "Can the host read password-protected chats?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "No. The password and room key stay in the browser (separate v2 KDF domains for join proof vs message key). ChatServer sees ciphertext and a join-proof hash only. Open rooms are public encrypted channels by design."
+ "text": "No. The password and room key stay in the browser (separate v3 KDF domains for join proof vs message key). ChatServer sees ciphertext and a join-proof hash only. Open rooms are public encrypted channels by design."
  }
  },
  {
@@ -139,7 +139,7 @@
  "name": "Do I host Tor Chat myself?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Yes. Server Manager on Windows starts ChatServer (health check) then a Tor v3 Hidden Service. You can create public rooms, cap or Disable Room Creation on the onion site, copy the Admin key into Profile Restore, and optionally start with Windows. Optional Full Vanguards hardens long-lived onions. Docker compose (ChatServer + Tor, no host ports) is also supported. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
+ "text": "Yes. Server Manager (Windows, macOS, Ubuntu Desktop) starts ChatServer (health check) then a Tor v3 Hidden Service. You can create public rooms, cap or Disable Room Creation on the onion site, copy the Admin key into Profile Restore, and optionally start with Windows. Optional Full Vanguards hardens long-lived onions. Docker compose (ChatServer + Tor, no host ports) is also supported. There is no OffCode-hosted chat cloud; you control the onion URL and the stack."
  }
  },
  {
@@ -147,7 +147,7 @@
  "name": "How does end-to-end encryption work?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at 600000 iterations, then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate v2 KDF domains so the server cannot derive the message key; password never leaves the browser. The server stores a second PBKDF2 hash of the join proof (250000 iterations, iter:salt:hash). Open rooms encrypt too (pbkdf2-v2) but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number (eight groups of five digits) for out-of-band peer verification."
+ "text": "Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at 600000 iterations, then AES-256-GCM) before sending. Locked rooms: join proof and room key use separate v3 KDF domains so the server cannot derive the message key; password never leaves the browser. The server stores a second PBKDF2 hash of the join proof (250000 iterations, iter:salt:hash). Open rooms encrypt too (pbkdf2-v3) but derive the key from the room id, so anyone who knows the id (including the host) can decrypt. 1:1 chats can use ECDH hybrid encryption plus a safety number (eight groups of five digits) for out-of-band peer verification."
  }
  },
  {
@@ -203,7 +203,7 @@
  "name": "Is Tor Chat free? Does it need port forwarding?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Yes. The prebuilt binary release is free (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls."
+ "text": "Yes. The prebuilt binary release is free (self-hosted, Server Manager on Windows, macOS or Ubuntu Desktop, or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls."
  }
  },
  {
@@ -220,6 +220,22 @@
  "acceptedAnswer": {
  "@type": "Answer",
  "text": "The Hidden Service enables Tor intro-point rate limits and Equi-X Proof-of-Work on Tor 0.4.8 or newer (man-page defaults; PoW stays idle until overload), plus per-circuit stream limits. This follows Tor Project onion DoS guidance. It does not use client IPs. Tor Browser includes the PoW client. A well-funded network-wide attack can still hurt availability."
+  }
+  },
+  {
+  "@type": "Question",
+  "name": "Which operating systems can I host Tor Chat on?",
+  "acceptedAnswer": {
+  "@type": "Answer",
+  "text": "Tor Chat runs on Windows, macOS and Ubuntu Desktop. Ubuntu Server support is in progress and will come later. Guests only need Tor Browser to open the chat."
+  }
+  },
+  {
+  "@type": "Question",
+  "name": "Is the public Feed encrypted?",
+  "acceptedAnswer": {
+  "@type": "Answer",
+  "text": "No. The optional Feed is public plain text. Anyone with the .onion address can read it, so do not post secrets. It is off by default, stored encrypted on the server disk, and moderated by the server owner. Chat rooms are different: their messages are end-to-end encrypted."
  }
  }
  ]
@@ -276,7 +292,7 @@
  </script>
 
  <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.2.0">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.2.2">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
  <link rel="stylesheet" href="boot-gate.css?v=1">
  <link rel="stylesheet" href="torchat-gate.css?v=1">
@@ -547,7 +563,7 @@
  </p>
 
  <p class="at-hero__lead">
- Host with <strong>Server Manager</strong> on Windows, or <strong>Docker</strong>.
+ Host with <strong>Server Manager</strong> on Windows, macOS or Ubuntu Desktop, or with <strong>Docker</strong>.
  Copy the <strong>.onion</strong> URL and send it to your guests. They join in Tor Browser
  with a display name only: no accounts, no phone numbers, nothing to install on their side.
  </p>
@@ -710,7 +726,7 @@
  <div class="hiw-bubble hiw-bubble--cipher">a8f3…c91e · AES-GCM</div>
  </div>
  <div class="hiw-chips">
- <span class="hiw-chip hiw-chip--kdf">PBKDF2-v2 · 600k</span>
+ <span class="hiw-chip hiw-chip--kdf">PBKDF2-v3 · 600k</span>
  <span class="hiw-chip hiw-chip--aes">AES-256-GCM</span>
  </div>
  </div>
@@ -736,7 +752,7 @@
  <div class="hiw-caption" aria-live="polite">
  <p class="hiw-caption__step">
  <strong>1 · Encrypt in the browser.</strong>
- Password → <em>PBKDF2-v2 (600k)</em> → room key + join proof.
+ Password → <em>PBKDF2-v3 (600k)</em> → room key + join proof.
  Message → <em>AES-256-GCM</em>. Plaintext never leaves Tor Browser.
  </p>
  <p class="hiw-caption__step">
@@ -796,14 +812,14 @@
 
  <div class="at-feature-card">
  <div class="feature-icon at-icon at-icon--shield" aria-hidden="true"></div>
- <h3>Browser encryption (pbkdf2-v2)</h3>
+ <h3>Browser encryption (pbkdf2-v3)</h3>
  <p>WebCrypto PBKDF2-HMAC-SHA256 (<strong>600&nbsp;000</strong> iterations) → AES-256-GCM.
- Separate v2 KDF domains for join proof vs room key on locked rooms so the server cannot
+ Separate v3 KDF domains for join proof vs room key on locked rooms so the server cannot
  derive the message key from join material.</p>
  <ul class="at-feature-list">
- <li>AAD binds <code>roomId|senderId|nonce|clientSentAtUnixMs</code></li>
+ <li>AAD binds <code>encryptionVersion|roomId|senderId|nonce|clientSentAtUnixMs</code></li>
  <li><strong>Locked:</strong> password stays in the browser: server-blind E2EE</li>
- <li><strong>Open:</strong> key from <code>torchat-open-material-v2:{roomId}</code>: public by design</li>
+ <li><strong>Open:</strong> key from <code>torchat-open-material-v3:{roomId}</code>: public by design</li>
  <li>Server stores join-proof hash as <code>250000:salt:hash</code> (250k PBKDF2)</li>
  <li>1:1 ECDH hybrid + safety number (8×5 decimal, 128-bit) for peer verify / TOFU</li>
  <li>No Double Ratchet yet; prefer short message retention if passwords may leak</li>
@@ -819,7 +835,7 @@
  <li>Hidden rooms: not listed; join via <code>?invite=</code> (+ password if locked)</li>
  <li><strong>Message expiry required:</strong> 30&nbsp;min … 1&nbsp;week (default 8&nbsp;h). No forever option</li>
  <li>E2EE FileSeal attachments (max 32&nbsp;MiB): chunked AES-GCM PUT + HMAC
- <code>X-Transfer-Token</code>; compact v2 manifest via <code>SendEncrypted</code>.
+ <code>X-Transfer-Token</code>; compact v3 manifest via <code>SendEncrypted</code>.
  Images strip EXIF/XMP in the browser before encrypt (no canvas when possible)</li>
  <li>Profile: hide date/time stamps; pick message time zone (Tor often shows UTC)</li>
  <li>Unique <code>senderId</code> per room; server binds send identity to the session</li>
@@ -849,7 +865,7 @@
  <p>SQLCipher database under LocalAppData (Windows) or Docker volume. DPAPI / env key.
  Parameterized queries. Plaintext is never written to disk.</p>
  <ul class="at-feature-list">
- <li>Rooms + ciphertext envelopes only (<code>encryption_version</code>: pbkdf2-v2 / ecdh-hybrid-v1)</li>
+ <li>Rooms + ciphertext envelopes only (<code>encryption_version</code>: pbkdf2-v3 / ecdh-hybrid-v3)</li>
  <li>Max 500 messages per room (oldest trimmed; pinned row kept until TTL or wipe)</li>
  <li>Expired rows: <code>secure_delete</code> + WAL checkpoint / VACUUM</li>
  <li>Replay fingerprints + restart-gap reject via <code>server_meta</code></li>
@@ -883,7 +899,7 @@
  <section id="server-manager" class="at-section">
  <div class="at-section__inner">
  <h2 class="at-section__title">Server Manager</h2>
- <p class="at-section__subtitle">Windows host console for your Tor chat stack</p>
+ <p class="at-section__subtitle">Host console for your Tor chat stack (Windows, macOS, Ubuntu Desktop)</p>
 
  <p class="at-prose">
  <strong>Server Manager</strong> is the host-side control panel: it starts and stops ChatServer
@@ -974,8 +990,9 @@
  and <code>db.key.dpapi</code>; optional checkbox also wipes Tor Hidden Service keys
  (<code>.onion</code> identity). Does not delete the Admin key</li>
  <li><strong>Generate new address:</strong> securely wipes HS keys and publishes a new
- <code>.onion</code> (chat DB unchanged)</li>
- <li>Point at your ChatServer project path and Save / Load host config
+ <code>.onion</code> (chat DB unchanged). Works only while Tor and Vanguards are stopped; also clears Tor's saved state and Vanguards' state. Does not start Tor automatically</li>
+ <li><strong>Reset guard data:</strong> Connection tab. Only when Tor and Vanguards are both stopped. Clears Tor's saved entry-point data (a backup is kept). Optional checkbox also clears Vanguards' data. Your .onion address and keys stay the same</li>
+  <li>Point at your ChatServer project path and Save / Load host config
  (<code>config.ini</code> next to the exe; not shipped in the release zip)</li>
  </ul>
  </div>
@@ -1136,7 +1153,7 @@
  <td data-label="Component"><strong>FileSeal attachments</strong></td>
  <td data-label="Implementation">Chunked AES-GCM (256&nbsp;KiB plaintext chunks, max 32&nbsp;MiB). Opaque
  <code>PUT /api/attachments/{id}/chunks/{n}</code> with HMAC
- <code>X-Transfer-Token</code>; compact v2 wrap+salts+downloadToken envelope
+ <code>X-Transfer-Token</code>; compact v3 wrap+salts+downloadToken envelope
  still goes through E2EE <code>SendEncrypted</code>. Server stores ciphertext chunks only.
  Image EXIF/XMP is stripped on the client before encrypt (server never sees pixels)</td>
  </tr>
@@ -1250,10 +1267,10 @@
  <tbody>
  <tr>
  <td data-label="Component"><strong>Encryption</strong></td>
- <td data-label="Implementation">WebCrypto AES-256-GCM; PBKDF2-v2 domains at <strong>600&nbsp;000</strong>
- iterations (<code>torchat-join-v2</code> / <code>torchat-e2ee-v2</code> locked =
- server-blind; <code>torchat-open-v2</code> open = public key material).
- Envelopes: <code>pbkdf2-v2</code> / <code>ecdh-hybrid-v1</code></td>
+ <td data-label="Implementation">WebCrypto AES-256-GCM; PBKDF2-v3 domains at <strong>600&nbsp;000</strong>
+ iterations (<code>torchat-join-v3</code> / <code>torchat-e2ee-v3</code> locked =
+ server-blind; <code>torchat-open-v3</code> open = public key material).
+ Envelopes: <code>pbkdf2-v3</code> / <code>ecdh-hybrid-v3</code>. Protocol v3 is not compatible with older versions: older rooms are wiped on first start and everyone needs the update</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>ECDH + safety number</strong></td>
@@ -1422,7 +1439,7 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>Python addon</strong></td>
- <td data-label="How TorChat uses it">Server Manager launches <code>vanguards.py</code> (mikeperry-tor/vanguards) after Tor bootstraps. Requires Python 3.10+ and <code>stem</code> library.</td>
+ <td data-label="How TorChat uses it">Server Manager launches <code>vanguards.py</code> (mikeperry-tor/vanguards) after Tor bootstraps. The Windows release bundles its own Python and <code>stem</code>, so no separate install is needed.</td>
  </tr>
  <tr>
  <td data-label="Component"><strong>Bandguards</strong></td>
@@ -1436,7 +1453,7 @@
  </tr>
  <tr>
  <td data-label="Component"><strong>Soft-fail design</strong></td>
- <td data-label="How TorChat uses it">If Python or <code>stem</code> is missing, the checkbox is silently ignored and the hidden service continues normally. Server Manager log shows the exact reason.</td>
+ <td data-label="How TorChat uses it">If Vanguards cannot start, the hidden service continues normally. Server Manager log shows the exact reason.</td>
  </tr>
  </tbody>
  </table>
@@ -1488,7 +1505,7 @@
  ChatServer to loopback; Docker compose has no host ports</li>
  <li>You host with Server Manager (or Docker), ChatServer + Tor, onion URL under your control.
  Manager can create public rooms, Disable Room Creation on the site, and Restore via Admin key</li>
- <li>Password-protected rooms: server-blind E2EE (PBKDF2-v2 600k): the host cannot derive the room key</li>
+ <li>Password-protected rooms: server-blind E2EE (PBKDF2-v3 600k): the host cannot derive the room key</li>
  <li>Open rooms: public encrypted channels (key from room id): use when you want a free join lobby</li>
  <li>No accounts: guests join with a display name only</li>
  <li>Creator Settings: close joins, max members, announcement / read-only, disable attachments, slow mode, pin one message, lock later, delete room; Profile recovery → My rooms</li>
@@ -1530,14 +1547,22 @@
  <p class="updates-notice">Includes future updates. Self-hosted: you control the stack.
  </p>
  </div>
- <a href="TorChatDisclaimer.html" class="plan-button premium-button">Download</a>
+  <div class="platform-box">
+  <p class="platform-box__title">Runs on</p>
+  <ul class="platform-list">
+  <li><span class="at-icon at-icon--monitor" aria-hidden="true"></span> Windows <span class="platform-badge">Supported</span></li>
+  <li><span class="at-icon at-icon--monitor" aria-hidden="true"></span> macOS <span class="platform-badge">Supported</span></li>
+  <li><span class="at-icon at-icon--monitor" aria-hidden="true"></span> Ubuntu Desktop <span class="platform-badge">Supported</span></li>
+  <li><span class="at-icon at-icon--cpu" aria-hidden="true"></span> Ubuntu Server <span class="platform-badge platform-badge--soon">Coming later</span></li>
+  </ul>
+  <p class="platform-hosting">Hosting: Server Manager app or Docker</p>
+  </div>
+  <a href="TorChatDisclaimer.html" class="plan-button premium-button">Download</a>
  <a href="TorChatChangelog.html" class="at-btn at-btn--ghost"
  style="margin-top:0.75rem;display:block;text-align:center;">Changelog</a>
  <div
  style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
- <p class="at-highlight">Free: Instant Access
- &amp; Self-Hosted</p>
- <p style="margin: 0.25rem 0;">Windows Server Manager or Docker + Tor HS</p>
+
  <p style="margin: 0.6rem 0 0; font-size: 0.78rem; opacity: 0.8;">Visitors need <strong>Tor Browser</strong> to open the chat. <a href="https://www.torproject.org/download/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Get Tor Browser</a></p>
  </div>
  </div>
@@ -1572,7 +1597,7 @@
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> SQLCipher + DPAPI security modules</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Tor Hidden Service + optional Full Vanguards</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Hidden invites, close / disable attachments / slow mode / lock later / delete</li>
- <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Creator recovery / My rooms; PBKDF2-v2 (600k / 250k)</li>
+ <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Creator recovery / My rooms; PBKDF2-v3 (600k / 250k)</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Docker compose host + SRI verify script</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Secure erasure (DB wipe / HS key wipe)</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Replay protection &amp; rate limiting</li>
@@ -1614,7 +1639,7 @@
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>No. The password and room key stay in the browser (separate v2 KDF domains for
+                                    <p>No. The password and room key stay in the browser (separate v3 KDF domains for
  join proof vs message key). ChatServer sees ciphertext and a join-proof hash
  only. Open rooms are public encrypted channels by design; see the open-rooms
  question below.</p>
@@ -1626,7 +1651,7 @@
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>Yes. Server Manager on Windows starts ChatServer (wait for health) then a Tor v3
+                                    <p>Yes. Server Manager (Windows, macOS, Ubuntu Desktop) starts ChatServer (wait for health) then a Tor v3
  Hidden Service. You can create public rooms, set Maximum Number of Rooms,
  Disable Room Creation on the onion site, copy the Admin key into Profile Restore,
  and optionally start with Windows. Optional Full Vanguards hardens long-lived onions. Headless
@@ -1642,12 +1667,12 @@
                                 <div class="faq-item__body">
                                     <p>Clients encrypt with WebCrypto (PBKDF2-HMAC-SHA256 at <strong>600&nbsp;000</strong>
  iterations, then AES-256-GCM) before sending.
- <strong>Locked rooms:</strong> join proof and room key use separate v2 KDF domains
- (<code>torchat-join-v2</code> / <code>torchat-e2ee-v2</code>) so the server cannot
+ <strong>Locked rooms:</strong> join proof and room key use separate v3 KDF domains
+ (<code>torchat-join-v3</code> / <code>torchat-e2ee-v3</code>) so the server cannot
  derive the message key; the password never leaves the browser. The server stores a
  second PBKDF2 hash of the join proof (<strong>250&nbsp;000</strong> iters,
  <code>iter:salt:hash</code>).
- <strong>Open rooms:</strong> still encrypted (<code>pbkdf2-v2</code>), but the key is
+ <strong>Open rooms:</strong> still encrypted (<code>pbkdf2-v3</code>), but the key is
  derived from the room id: anyone who knows the id (including the host) can decrypt.
  <strong>1:1:</strong> ECDH hybrid plus a safety number for out-of-band peer verify.</p>
                                 </div>
@@ -1732,7 +1757,7 @@
                                     <span class="faq-item__icon" aria-hidden="true"></span>
                                 </summary>
                                 <div class="faq-item__body">
-                                    <p>Yes. The prebuilt binary release is <strong>free</strong> (self-hosted, Windows Server Manager or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
+                                    <p>Yes. The prebuilt binary release is <strong>free</strong> (self-hosted, Server Manager on Windows, macOS or Ubuntu Desktop, or Docker). No port forwarding needed: Tor Hidden Service handles inbound connections via rendezvous; the host only needs outbound Tor access. Works behind NAT, CGNAT, and firewalls.</p>
                                 </div>
                             </details>
  <details class="faq-item" name="torchat-faq">
@@ -1760,11 +1785,33 @@
  Tor Browser (PoW client included). This follows Tor Project onion DoS guidance;
  it is not immunity against a well-funded network-wide attack.</p>
                                 </div>
+  </details>
+  <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Which operating systems can I host Tor Chat on?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>Tor Chat runs on <strong>Windows, macOS and Ubuntu Desktop</strong>. Ubuntu Server
+support is in progress and will come later. Guests only need Tor Browser to open the chat.</p>
+                                </div>
                             </details>
- </div>
- </div>
- </div>
- </section>
+  <details class="faq-item" name="torchat-faq">
+                                <summary>
+                                    <h4>Is the public Feed encrypted?</h4>
+                                    <span class="faq-item__icon" aria-hidden="true"></span>
+                                </summary>
+                                <div class="faq-item__body">
+                                    <p>No. The optional Feed is <strong>public plain text</strong>: anyone with the .onion
+address can read it, so do not post secrets. It is off by default, stored encrypted on the
+server disk, and moderated by the server owner. Chat rooms are different: their messages are
+end-to-end encrypted.</p>
+                                </div>
+                            </details>
+  </div>
+  </div>
+  </div>
+  </section>
 
  </main>
  </div>

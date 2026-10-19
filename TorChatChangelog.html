@@ -9,7 +9,7 @@
     <meta name="description"
         content="OffCode Tor Chat changelog: Server Manager rooms, Admin key, onion page speed, safety number, pins, and Hidden Service hardening.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2026-10-10">
+    <meta name="last-modified" content="2026-10-19">
     <meta name="robots" content="noindex, follow">
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -60,7 +60,7 @@
         "releaseNotes": {
             "@type": "TechArticle",
             "headline": "OffCode Tor Chat changelog",
-            "dateModified": "2026-10-10",
+            "dateModified": "2026-10-19",
             "url": "https://www.dev-offcode.com/TorChatChangelog.html"
         }
     }
@@ -214,10 +214,74 @@
                     <div class="changelog-intro">
                         <p>Release notes for <strong>OffCode Tor Chat</strong>: self-hosted Tor Hidden Service chat,
                             browser WebCrypto AES-GCM, SignalR relay, SQLCipher, and Server Manager.</p>
-                        <p><strong>Latest:</strong> 10 October 2026: Server Manager public rooms, Admin key, website create limits, faster onion page, and extra Tor hardening.</p>
+                        <p><strong>Latest:</strong> 19 October 2026: safer Tor start and stop in Server Manager, a new guard reset option, a refreshed Windows app, plus the optional public Feed, recovery code without a room, stricter browser security, replay protection, and encryption protocol v3.</p>
                     </div>
 
 
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">VER: 0.1.3</span>
+                                <span class="version-date">19/10/2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3>New: Feed</h3>
+                                <ul>
+                                    <li><strong>Public Feed:</strong> A new, optional Feed tab where people can write short text posts, comment and like. The server owner turns it on in Server Manager (<strong>Enable feed</strong>). It is off by default.</li>
+                                    <li><strong>Feed is public:</strong> Anyone who has the .onion address can read the Feed. Posts are <strong>not</strong> end-to-end encrypted like chat messages, so don't post secrets. They are still stored encrypted on the server's disk.</li>
+                                    <li><strong>Who can post:</strong> Reading needs nothing. To post, comment or like you need a recovery code. It works like an anonymous ID: no account, email or personal data. You can delete your own posts with it.</li>
+                                    <li><strong>Generate code without a room:</strong> New visitors can now create a recovery code straight from Profile. You no longer have to create a room first.</li>
+                                    <li><strong>Moderation:</strong> The server owner can remove any post from Server Manager (<strong>Remove selected post</strong>).</li>
+                                    <li><strong>Clean text only:</strong> Emojis and hidden or invisible characters are not allowed, which stops tricks that hide or flip text.</li>
+                                    <li><strong>Terms updated:</strong> The Terms of Service now say the Feed is public and moderated by the server owner. Server Manager asks you to accept them again on next start.</li>
+                                </ul>
+
+                                <h3>Security</h3>
+                                <ul>
+                                    <li><strong>Stricter page security:</strong> The chat page now tells the browser exactly what it may load and run, and blocks everything else. This makes it much harder for injected code (XSS) to run. Some of these protections work only in Chromium-based browsers. Tor Browser ignores them, which is expected.</li>
+                                    <li><strong>Extra privacy headers:</strong> Pages and server responses are no longer cached, aren't indexed by search engines, and don't trigger extra DNS lookups.</li>
+                                    <li><strong>Codes stay in this tab by default:</strong> Recovery codes and room management codes are now forgotten when you close the tab. Turn on <strong>Remember on this device</strong> in Profile if you want to keep them. Older saved codes are moved safely and you get a notice about it.</li>
+                                    <li><strong>Safer file names:</strong> Downloaded file names can no longer use hidden characters to disguise the real file type (for example a fake ".jpg" that is really a program).</li>
+                                    <li><strong>Connection checks:</strong> The server only accepts live connections from its own address. If that check blocks something, the chat still works over a slightly slower fallback connection.</li>
+                                    <li><strong>Replay protection:</strong> The app now detects and ignores messages that someone records and sends again later, or that carry a fake time. If many are ignored, you see one short summary line instead of a flood of notices.</li>
+                                    <li><strong>Encryption keys kept out of reach:</strong> Raw room keys are no longer left in the app's memory where other code could read them, and they are wiped after use.</li>
+                                    <li><strong>Encryption update (protocol v3):</strong> Encryption is tied more tightly to each room, sender and message time, and file encryption got the same upgrade. <strong>Note:</strong> this version is not compatible with older ones. Old rooms and messages are wiped on the first start, and everyone needs the update.</li>
+                                    <li><strong>Matching safety numbers:</strong> When someone leaves and rejoins, both people now see the same new safety number, plus a reminder to compare it again.</li>
+                                    <li><strong>Cleaner images:</strong> Hidden data such as location and leftover cropped image data is removed from shared images more reliably.</li>
+                                    <li><strong>Honest limits:</strong> In open rooms and in password rooms with three or more people, the app can't prove which member sent a message. Treat these rooms with that in mind.</li>
+                                    <li><strong>Startup check screen:</strong> Redesigned. The chat only opens on your own computer or a real .onion address, in a browser that supports secure encryption. If it stays blocked in Tor Browser, set the Security Level to Standard or Safer and reload.</li>
+                                    <li><strong>Checked key exchange:</strong> Keys received from the other person are checked before use, and broken or fake keys are rejected.</li>
+                                    <li><strong>Strict message format:</strong> Each message is bound to its room, its sender and its send time. Messages in unknown or old formats are rejected instead of guessed at.</li>
+                                    <li><strong>Password handling:</strong> Room passwords are converted to one standard form, so the same password typed on different devices works the same way.</li>
+                                    <li><strong>Safer file transfer:</strong> Files are split into encrypted pieces with fixed size limits (maximum 32 MiB per file). Each piece is checked, and damaged or extra pieces are rejected.</li>
+                                </ul>
+
+                                <h3>Server Manager</h3>
+                                <ul>
+                                    <li><strong>Vanguards data in a safe place:</strong> Vanguards (extra Tor protection) now keeps its data in your AppData folder. It survives updates and is never included in release packages.</li>
+                                    <li><strong>Generate new address:</strong> Works only when Tor and Vanguards are stopped, and the dialog tells you what to stop. Old address keys and Tor's saved state are then securely overwritten.</li>
+                                    <li><strong>Smoother Vanguards start and stop:</strong> Vanguards starts as soon as Tor is ready and stops in the right order when Tor is turned off.</li>
+                                    <li><strong>Less log noise:</strong> Guests no longer trigger pointless invite errors, and the remaining errors are shown on a single line.</li>
+                                    <li><strong>Reset guard data:</strong> New button on the Connection tab. Use it only when Tor and Vanguards are both stopped. It clears Tor's saved entry-point data (a backup is kept too). Tick the box to also clear Vanguards' data. Your .onion address and keys stay the same. If connections keep failing, Server Manager offers this reset once per hour.</li>
+                                    <li><strong>Cancel a stuck Tor start:</strong> Turning Tor off, pressing Stop or closing the window while Tor is starting cancels it cleanly. If Tor has not finished starting after 5 minutes, it is cancelled automatically and shows as Stopped. Stop also works while the chat server is starting.</li>
+                                    <li><strong>No leftover background programs:</strong> If Server Manager closes unexpectedly, the Tor, Vanguards and chat server processes it started are shut down. Any left over are cleaned up on the next start. Other programs, including Tor Browser, are never touched.</li>
+                                    <li><strong>Clear port warning:</strong> If the Tor control port or chat port is already used by another program, Server Manager shows that program's name and process ID before starting anything.</li>
+                                    <li><strong>Tidier Tor log:</strong> Shows when your .onion address is published to the Tor network. Routine connection messages are hidden, and a guard failure is reported only once per run.</li>
+                                    <li><strong>New window look:</strong> Named "TorChat Server Manager" with the onion icon. Minimum window size is 900 x 600. Settings on the Connection tab are collapsed under an expandable section.</li>
+                                    <li><strong>Windows app:</strong> The Windows release is a single "TorChat Server Manager.exe" file. Its settings and data are kept in %AppData%\TorChat_ServerManager_MP.</li>
+                                    <li><strong>Confirmation boxes:</strong> Popups wait for your answer without freezing the window. For example, Remove selected post no longer hangs the app.</li>
+                                    <li><strong>Error log:</strong> Unexpected errors are saved to crash.log in the data folder. It never contains admin keys, encryption keys or message text.</li>
+                                    <li><strong>Vanguards included:</strong> The Windows release comes with its own Python, so you don't need to install Python to use the Vanguards option.</li>
+                                    <li><strong>Safe releases:</strong> Release builds are checked so private files (keys, admin data, local settings) are never included.</li>
+                                </ul>
+
+                                <h3>Platforms</h3>
+                                <ul>
+                                    <li><strong>macOS:</strong> Tor Chat now works on macOS.</li>
+                                    <li><strong>Linux (Ubuntu Desktop):</strong> Tor Chat now works on Ubuntu Desktop.</li>
+                                    <li><strong>Ubuntu Server:</strong> Not supported yet. Support for Linux / Ubuntu Server is in progress and will be added later.</li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">VER: 0.1.2</span>

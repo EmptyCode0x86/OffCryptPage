@@ -3009,3 +3009,64 @@
     .at-badges { gap: 0.7rem; padding-left: 1rem; padding-right: 1rem; }
     .at-badges img { height: 38px !important; }
 }
+
+/* Platform support box (TorChatPage pricing / download, 2026-10-19) */
+.platform-box {
+    margin: 1rem 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--at-border);
+    border-radius: 14px;
+    background: rgba(196, 92, 38, 0.06);
+    text-align: left;
+}
+
+.platform-box__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--at-font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--at-amber);
+}
+
+.platform-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.platform-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--at-text);
+    font-size: 0.92rem;
+}
+
+.platform-list li .at-icon {
+    color: var(--at-amber);
+}
+
+.platform-badge {
+    margin-left: auto;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--at-border);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    color: var(--at-amber);
+}
+
+.platform-badge--soon {
+    color: var(--at-text-muted);
+}
+
+.platform-hosting {
+    margin: 0.75rem 0 0;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--at-border);
+    font-size: 0.85rem;
+    color: var(--at-text-muted);
+}
