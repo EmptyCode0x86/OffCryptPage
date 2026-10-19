@@ -18,13 +18,10 @@ I develop my projects independently, focusing on practical tools, secure softwar
 - **[OffCode Tor Chat]** — Self-hosted, end-to-end encrypted chat over Tor.
 - **[OffCrypt for Android]** — Offline text and file encryption for Android.
 - **[OffCrypt Desktop]** — Offline encryption for Windows.
-
-### 🛡️ Security & Analysis
-- **[BuildSecure]** — Browser-based code editor with AI-assisted security scanning.
 - **[Screen Lock Builder]** — Create customizable Windows screen-lock applications.
 - **[Screen Lock Builder Premium]** — Advanced screen-locking and access-control features.
 
-### ⚙️ Automation & Systems
+### ⚙️ Automation & Remote control
 - **[OffCode Automation Tool]** — Windows desktop automation with AI-assisted scripting.
 - **[Web Remote Control System]** — Free, self-hosted remote management for Windows.
 
