@@ -61,19 +61,19 @@
 }
 
 /* Inline body links (mailto, DPA, SimpleX) — never browser-default blue */
-.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card) {
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):not(.at-gate__continue) {
     color: var(--at-amber);
     text-decoration: underline;
     text-underline-offset: 0.18em;
     text-decoration-color: rgba(232, 160, 74, 0.55);
 }
 
-.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):visited {
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):not(.at-gate__continue):visited {
     color: var(--at-amber);
 }
 
-.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):hover,
-.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):focus-visible {
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):not(.at-gate__continue):hover,
+.at-main a:not(.at-btn):not(.menu-link):not(.at-chip):not(.disclaimer-btn):not(.button):not(.plan-button):not(.at-btn-changelog):not(.at-rating__link):not(.related-product-card):not(.at-gate__continue):focus-visible {
     color: var(--at-copper-light);
     text-decoration-color: var(--at-copper-light);
 }
@@ -1395,6 +1395,7 @@
     max-width: 720px;
     margin: 1.5rem auto 2rem;
 }
+
 
 .hiw-demo__kicker {
     margin: 0 0 0.35rem;
@@ -3069,4 +3070,293 @@
     border-top: 1px solid var(--at-border);
     font-size: 0.85rem;
     color: var(--at-text-muted);
+}
+
+/* =========================================================
+   Home hero — gate animation (onion + code rain)
+   The TorChat gate (`.origin-warning.boot-gate`) is a fixed
+   full-screen overlay that also locks page scrolling, so the
+   home page reuses the same animation as an inline hero panel
+   scoped to `.at-gate`. Requires boot-gate.css + boot-code.css.
+   ========================================================= */
+
+.at-hero--gate {
+    padding-top: 1.75rem;
+}
+
+.at-gate {
+    /* Map the gate token names onto the OffCode design tokens */
+    --bg-deep: var(--at-bg-deep);
+    --bg: var(--at-bg-base);
+    --text: var(--at-text);
+    --ink: var(--at-text);
+    --muted: var(--at-text-muted);
+    --copper: var(--at-copper);
+    --amber: var(--at-amber);
+    --border: var(--at-border);
+    --border-strong: var(--at-border-strong);
+    --glow-copper: var(--at-glow-copper);
+    --glow-amber: var(--at-glow-amber);
+    --gradient-copper: var(--at-gradient-copper);
+    --font-display: var(--at-font-display);
+    --font-body: var(--at-font-body);
+    --radius: var(--at-radius);
+    --transition: var(--at-transition);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem 1.75rem;
+    text-align: center;
+    color: var(--at-text);
+    /* No hard box: a soft copper halo behind the onion and a soft vignette
+       behind the text. Both fade out, so the panel melts into the page. */
+    background:
+        radial-gradient(ellipse 44% 40% at 50% 30%, var(--at-glow-copper) 0%, transparent 72%),
+        radial-gradient(ellipse 60% 30% at 50% 84%, rgba(10, 9, 8, 0.75) 0%, rgba(10, 9, 8, 0) 78%);
+}
+
+/* Starfield */
+.at-gate::before {
+    content: "";
+    position: absolute;
+    inset: -8%;
+    pointer-events: none;
+    opacity: 0.35;
+    background:
+        radial-gradient(1px 1px at 8% 18%, var(--at-text) 99%, transparent),
+        radial-gradient(1px 1px at 36% 12%, var(--at-amber) 99%, transparent),
+        radial-gradient(1px 1px at 74% 58%, var(--at-copper) 99%, transparent),
+        radial-gradient(1px 1px at 86% 16%, var(--at-amber) 99%, transparent),
+        radial-gradient(2px 2px at 94% 72%, var(--at-copper) 60%, transparent);
+}
+
+/* Everything except the code rain sits above it */
+.at-gate > *:not(.boot-code) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Bigger onion: the width and the font-size must stay in sync because the
+   orbit transforms use em units (translateZ) from boot-gate.css. */
+.at-gate .gate-stage {
+    flex: none;
+    z-index: 1;
+    width: clamp(240px, 44vmin, 440px);
+    font-size: clamp(240px, 44vmin, 440px);
+}
+
+/* Short landscape screens (phones): keep the animation out of the way */
+@media (max-height: 480px) and (orientation: landscape) {
+    .at-gate .gate-stage {
+        width: clamp(96px, 26vmin, 160px);
+        font-size: clamp(96px, 26vmin, 160px);
+    }
+}
+
+.at-gate__title {
+    margin: 0;
+    max-width: 22ch;
+    font-family: var(--at-font-display);
+    font-size: clamp(2rem, 4vw + 0.4rem, 3.15rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--at-text);
+    text-wrap: balance;
+    text-shadow: 0 2px 14px rgba(10, 9, 8, 0.85);
+    animation: atFadeUp 0.6s 0.1s ease both;
+}
+
+.at-gate__sub {
+    margin: 0;
+    max-width: 48ch;
+    font-family: var(--at-font-body);
+    font-size: clamp(1rem, 0.6vw + 0.85rem, 1.12rem);
+    line-height: 1.55;
+    color: var(--at-text);
+    opacity: 0.94;
+    text-shadow: 0 2px 14px rgba(10, 9, 8, 0.85);
+}
+
+.at-gate__lead {
+    margin: 0;
+    max-width: 66ch;
+    font-family: var(--at-font-body);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--at-text-muted);
+    text-shadow: 0 2px 14px rgba(10, 9, 8, 0.85);
+}
+
+/* Continue button – a plain anchor to #tools, so the page still works
+   without JavaScript. `html { scroll-behavior: smooth }` in
+   styles-automation.css makes the jump animated, and the reduced-motion
+   block there turns it into an instant jump. */
+.at-gate__continue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 0.35rem;
+    padding: 0.8rem 2.3rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--at-gradient-copper);
+    color: var(--at-bg-deep);
+    font-family: var(--at-font-display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--at-glow-copper);
+    transition: transform var(--at-transition), box-shadow var(--at-transition), filter var(--at-transition);
+}
+
+.at-gate__continue:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+    box-shadow: 0 10px 30px var(--at-glow-copper);
+}
+
+.at-gate__continue:active {
+    transform: translateY(0);
+}
+
+.at-gate__continue:focus-visible {
+    outline: 2px solid var(--at-amber);
+    outline-offset: 3px;
+}
+
+.at-gate__continue-arrow {
+    width: 1.05em;
+    height: 1.05em;
+    flex: none;
+    transition: transform var(--at-transition);
+}
+
+.at-gate__continue:hover .at-gate__continue-arrow,
+.at-gate__continue:focus-visible .at-gate__continue-arrow {
+    transform: translateY(2px);
+}
+
+/* Code rain dissolves at the panel edges and behind the text instead of
+   being cut off by a rectangular frame. */
+.at-gate .boot-code {
+    -webkit-mask-image: radial-gradient(ellipse 74% 76% at 50% 34%, #000 28%, transparent 100%);
+    mask-image: radial-gradient(ellipse 74% 76% at 50% 34%, #000 28%, transparent 100%);
+}
+
+/* Code rain is positioned relative to the panel, not the viewport */
+.at-gate .boot-code__snip {
+    max-width: min(46%, 20rem);
+}
+
+.at-gate .s1 { top: 7%; left: 4%; }
+.at-gate .s2 { top: 15%; right: 5%; }
+.at-gate .s3 { top: 44%; left: 3%; }
+.at-gate .s4 { bottom: 26%; right: 9%; }
+.at-gate .s5 { bottom: 7%; left: 13%; }
+.at-gate .s6 { top: 58%; left: 17%; }
+.at-gate .s7 { top: 8%; right: 24%; }
+.at-gate .s8 { top: 66%; left: 27%; }
+
+@media (max-width: 639px) {
+    .at-gate {
+        padding: 1.25rem 0.75rem 1.5rem;
+    }
+
+    .at-gate .gate-stage {
+        width: clamp(210px, 58vmin, 250px);
+        font-size: clamp(210px, 58vmin, 250px);
+    }
+
+    .at-gate .boot-code__snip {
+        max-width: min(70%, 18rem);
+    }
+}
+
+/* Windows "Animation effects off" (prefers-reduced-motion) still plays the onion */
+@media (prefers-reduced-motion: reduce) {
+    .at-gate.force-motion .gate-orbit--1::after {
+        animation: gate-spin-cw 12s linear infinite;
+    }
+
+    .at-gate.force-motion .gate-orbit--2::after {
+        animation: gate-spin-ccw 18s linear infinite;
+    }
+
+    .at-gate.force-motion .gate-layer--3::after {
+        animation: gate-spin-cw 20s linear infinite;
+    }
+
+    .at-gate.force-motion .gate-onion::before {
+        animation: gate-spin-cw 9s linear infinite;
+    }
+
+    .at-gate.force-motion .gate-onion::after {
+        animation: gate-spin-ccw 14s linear infinite;
+    }
+
+    .at-gate.force-motion .gate-tie::after {
+        animation: gate-pulse 3s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+    }
+
+    .at-gate.force-motion .gate-tie--2::after { animation-delay: 0.7s; }
+    .at-gate.force-motion .gate-tie--3::after { animation-delay: 1.4s; }
+    .at-gate.force-motion .gate-tie--4::after { animation-delay: 2.1s; }
+    .at-gate.force-motion .gate-tie--5::after { animation-delay: 2.7s; }
+
+    .at-gate.force-motion .gate-spark {
+        animation: gate-spin-cw 20s linear infinite;
+    }
+
+    .at-gate.force-motion :is(.gate-spark--1, .gate-spark--2, .gate-spark--3, .gate-orbit--3, .gate-orbit--4, .gate-orbit--5)::after {
+        animation: gate-ping 2.4s cubic-bezier(0, 0, 0.2, 1) var(--d, 0s) infinite;
+        opacity: 0.8;
+    }
+
+    .at-gate.force-motion .gate-spark--3::after {
+        animation: gate-lock 8.5s ease-in-out infinite;
+        opacity: 1;
+    }
+
+    .at-gate.force-motion .gate-blip {
+        opacity: 1;
+    }
+
+    .at-gate.force-motion .gate-blip::before {
+        animation: gate-blip-dot var(--cyc) var(--del) infinite;
+    }
+
+    .at-gate.force-motion .gate-blip::after {
+        animation: gate-blip-ring var(--cyc) var(--del) infinite;
+    }
+}
+
+@media (forced-colors: active) {
+    .at-gate {
+        background: Canvas;
+        color: CanvasText;
+    }
+
+    .at-gate::before,
+    .at-gate .gate-stage {
+        display: none;
+    }
+
+    .at-gate :is(.at-gate__title, .at-gate__sub, .at-gate__lead) {
+        color: CanvasText;
+    }
+
+    .at-gate__continue {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+        box-shadow: none;
+    }
 }
