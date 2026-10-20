@@ -1,6 +1,6 @@
-# OffCode
+# OffCode (dev-offcode.com)
 
-> OffCode (also known as OffCrypt) is an independent software developer from Finland (EmptyCode0x86) building privacy-focused encryption, security, automation and self-hosted communication tools. Contact: support@dev-offcode.com.
+> OffCode (dev-offcode.com) is an independent software brand by developer EmptyCode0x86 in Finland, not affiliated with Offcode Oy. Also known as OffCrypt, it builds privacy-focused encryption, security, automation and self-hosted communication tools. Contact: support@dev-offcode.com.
 
 The OffCrypt apps are free, open source (GPL-3.0) and work fully offline. Screen Lock Builder Premium and Automation Tool are paid one-time lifetime licences. Web Remote Control and Tor Chat are free and self-hosted, with optional paid source-code licences for developers.
 
