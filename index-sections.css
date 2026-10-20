@@ -1,0 +1,241 @@
+/* seo-sections.css – FAQ & footer. Scoped to .seo-* classes.
+   Uses tokens from styles-automation.css (--at-*). */
+
+.seo-faq {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---------- FAQ heading ---------- */
+.seo-faq > h2 {
+    font-family: var(--at-font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--at-text);
+    margin: 0 0 0.75rem;
+}
+
+/* ---------- FAQ accordion ---------- */
+.seo-faq__list { display: grid; gap: 0.75rem; }
+
+.seo-faq__item {
+    background: var(--at-bg-raised);
+    border: 1px solid var(--at-border);
+    border-radius: var(--at-radius);
+    transition: border-color var(--at-transition), background var(--at-transition);
+}
+.seo-faq__item:hover { border-color: var(--at-border-strong); }
+.seo-faq__item[open] {
+    border-color: var(--at-border-strong);
+    background: linear-gradient(160deg, var(--at-bg-card), var(--at-bg-raised));
+}
+
+.seo-faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.35rem;
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--at-radius);
+}
+.seo-faq__q::-webkit-details-marker { display: none; }
+.seo-faq__q h3 {
+    margin: 0;
+    font-family: var(--at-font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--at-text);
+}
+.seo-faq__item[open] .seo-faq__q h3 { color: var(--at-amber); }
+
+.seo-faq__chev {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+    border-right: 2px solid var(--at-amber);
+    border-bottom: 2px solid var(--at-amber);
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform var(--at-transition);
+}
+.seo-faq__item[open] .seo-faq__chev { transform: rotate(-135deg) translateY(-3px); }
+
+.seo-faq__a {
+    margin: 0 1.35rem;
+    padding: 1.15rem 0 1.4rem;
+    border-top: 1px solid var(--at-border);
+    color: var(--at-text-muted);
+    font-size: 0.975rem;
+    line-height: 1.75;
+}
+.seo-faq__a > * { max-width: 70ch; }
+.seo-faq__a p { margin: 0; }
+.seo-faq__a p + * , .seo-faq__a ul + p { margin-top: 0.9rem; }
+.seo-faq__a strong { color: var(--at-text); font-weight: 600; }
+.seo-faq__lead { color: var(--at-text); }
+.seo-faq__more { font-size: 0.9rem; color: var(--at-text-dim); }
+
+/* Product rows: name + description / chips */
+.seo-faq__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+.seo-faq__rows > li {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.7rem 0.9rem;
+    border-left: 2px solid var(--at-border-strong);
+    background: rgba(232, 160, 74, 0.04);
+    border-radius: 0 8px 8px 0;
+}
+.seo-faq__rows > li > span { display: block; }
+.seo-faq__rows--chips > li {
+    grid-template-columns: minmax(12rem, 16rem) 1fr;
+    align-items: center;
+    gap: 0.5rem 1rem;
+}
+
+.seo-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.seo-chips li {
+    padding: 0.15rem 0.65rem;
+    border: 1px solid var(--at-border);
+    border-radius: 999px;
+    background: var(--at-bg-base);
+    color: var(--at-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+/* Free / paid columns */
+.seo-faq__cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem 2rem;
+    max-width: none;
+}
+.seo-faq__label {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--at-amber);
+}
+.seo-faq__list-plain {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.35rem;
+}
+.seo-faq__list-plain li::marker { color: var(--at-copper-light); }
+
+@media (max-width: 560px) {
+    .seo-faq__a { margin: 0 1rem; }
+    .seo-faq__rows--chips > li { grid-template-columns: 1fr; }
+    .seo-chips li { white-space: normal; }
+}
+
+/* ---------- Footer ---------- */
+.seo-footer {
+    margin-top: 2rem;
+    padding: 3rem 1.5rem 1.5rem;
+    background: var(--at-bg-deep);
+    border-top: 1px solid var(--at-border);
+    position: relative;
+    color: var(--at-text-muted);
+    font-size: 0.92rem;
+}
+.seo-footer::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 1px;
+    background: var(--at-gradient-copper);
+    opacity: 0.6;
+}
+.seo-footer__grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 2rem 3rem;
+}
+.seo-footer__logo {
+    margin: 0 0 0.5rem;
+    font-family: var(--at-font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    background: var(--at-gradient-copper);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.seo-footer__brand p:not(.seo-footer__logo) { margin: 0; max-width: 32ch; line-height: 1.6; }
+.seo-footer__h {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--at-text);
+}
+.seo-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.seo-footer a {
+    color: var(--at-text-muted);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color var(--at-transition);
+}
+.seo-footer a:hover { color: var(--at-amber); }
+.seo-footer__bottom {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--at-border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--at-text-dim);
+    font-size: 0.85rem;
+}
+.seo-footer__bottom p { margin: 0; }
+
+/* ---------- Focus styles ---------- */
+.seo-faq__q:focus-visible,
+.seo-faq a:focus-visible,
+.seo-footer a:focus-visible {
+    outline: 2px solid var(--at-amber);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* ---------- Responsive ---------- */
+.seo-footer__grid > .seo-footer__col { text-align: right; }
+@media (max-width: 560px) {
+    .seo-footer__grid { grid-template-columns: 1fr; }
+    .seo-footer__grid > .seo-footer__col { text-align: left; }
+    .seo-footer__bottom { flex-direction: column; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .seo-faq__item,
+    .seo-faq__chev,
+    .seo-footer a { transition: none; }
+}
