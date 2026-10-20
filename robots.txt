@@ -1,6 +1,39 @@
-# Allow all web crawlers to access all content
-User-agent: *
-Disallow:
+# OffCode – https://www.dev-offcode.com
+# Updated 2026-10-20
 
-# Point to the sitemap file
+# All crawlers: full access (CSS, JS and images included)
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /*.bak$
+Disallow: /*.backup.html$
+Disallow: /.backup_
+Disallow: /.history/
+
+# AI search and answer engines: explicitly allowed (GEO)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# SEO tool crawlers: blocked
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
 Sitemap: https://www.dev-offcode.com/sitemap.xml
+Sitemap: https://www.dev-offcode.com/sitemap-images.xml

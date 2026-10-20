@@ -30,9 +30,6 @@
   <url>
     <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/OffCrypt-Windows.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://www.dev-offcode.com/SettingsWindows.png</image:loc>
     </image:image>
     <image:image>
@@ -100,13 +97,6 @@
     </image:image>
     <image:image>
       <image:loc>https://www.dev-offcode.com/VisualMarkers.png</image:loc>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/RemoteControlpnlPIC.png</image:loc>
     </image:image>
   </url>
 

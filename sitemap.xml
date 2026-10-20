@@ -2,64 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.dev-offcode.com/</loc>
-    <lastmod>2026-10-20T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
+    <lastmod>2026-10-20</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/OffCryptAndroid.html</loc>
-    <lastmod>2026-10-20T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-10-20</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <lastmod>2026-03-07</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-03-07</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-10-20</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-03-07</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
-    <lastmod>2026-03-07T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <lastmod>2026-03-07</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/TorChatPage.html</loc>
-    <lastmod>2026-07-12T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <lastmod>2026-07-12</lastmod>
   </url>
-
   <url>
     <loc>https://www.dev-offcode.com/Community.html</loc>
-    <lastmod>2026-10-08T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <lastmod>2026-10-08</lastmod>
   </url>
 </urlset>
