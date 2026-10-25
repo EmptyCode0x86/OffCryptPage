@@ -50,7 +50,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.8" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="ScreenLock1.png" as="image">
 
@@ -252,8 +252,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.8">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.2.1">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -272,15 +272,15 @@
         <nav class="sidebar-nav">
             <ul class="sidebar-menu">
                 <li class="menu-item">
-                    <a href="index.html" class="menu-link">
+                    <a href="main.html" class="menu-link">
                         <span class="menu-icon at-icon at-icon--home" aria-hidden="true"></span>
-                        <span class="menu-text">Home</span>
+                        <span class="menu-text">Main</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="OffCryptAndroid.html" class="menu-link">
+                    <a href="index.html" class="menu-link">
                         <span class="menu-icon at-icon at-icon--phone" aria-hidden="true"></span>
-                        <span class="menu-text">Android app</span>
+                        <span class="menu-text">Android App</span>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -565,17 +565,6 @@
                 </div>
             </section>
 
-            <!-- Custom Image Modal -->
-            <div id="imageModal" class="image-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img id="modalImage" src="" alt="">
-                    <div class="modal-info">
-                        <h3 id="modalTitle"></h3>
-                        <p id="modalDesc"></p>
-                    </div>
-                </div>
-            </div>
 
             <!-- Features Section -->
             <section id="features" class="at-section">
@@ -665,7 +654,7 @@
                         <p>Choose the plan that works best for you</p>
                     </div>
 
-                    <div class="pricing-cards">
+                    <div class="pricing-cards pricing-cards--duo">
                         <!-- Free Plan -->
                         <div class="pricing-card">
                             <div class="plan-badge free-badge">Free Plan</div>
@@ -690,8 +679,7 @@
                                         generation</span></li>
                                 <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Basic auto-close (lock
                                         screen)</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Dev-offcode branding (
-                                        lock screen )</span></li>
+                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Dev-offcode branding (lock screen)</span></li>
                             </ul>
                             <a href="ScreenLockBuilder.html" class="plan-button free-button">Get Started Free</a>
                         </div>
@@ -739,11 +727,7 @@
                                 <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Builder program
                                         lock</span></li>
                                 <li data-disabled="true"><span
-                                        class="feature-icon feature-excluded at-icon at-icon--close" aria-hidden="true"></span><span>Remote control
-                                        (web-based)</span></li>
-                                <li data-disabled="true"><span
-                                        class="feature-icon feature-excluded at-icon at-icon--close" aria-hidden="true"></span><span>Dev-offcode branding (Lock
-                                        screen)</span></li>
+                                        class="feature-icon feature-excluded at-icon at-icon--close" aria-hidden="true"></span><span>Dev-offcode branding (lock screen)</span></li>
                                 <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>All future updates</span>
                                 </li>
                             </ul>
@@ -756,53 +740,6 @@
                                 <p style="margin: 0.25rem 0;"><span class="at-icon at-icon--phone" aria-hidden="true"></span> Google Pay</p>
                                 <p style="margin: 0.25rem 0;"><span class="at-icon at-icon--apple" aria-hidden="true"></span> Apple Pay</p>
                             </div>
-                        </div>
-
-                        <!-- Remote Control Plan -->
-                        <div class="pricing-card lifetime">
-                            <div class="plan-badge lifetime-badge">Coming Soon</div>
-                            <h3>Remote Control Plan</h3>
-                            <div class="price-container">
-                                <span class="price">TBA</span>
-                                <span class="price-period">coming soon</span>
-                            </div>
-                            <p class="plan-description">Everything included, forever</p>
-                            <ul class="features-list">
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Basic screen lock
-                                        functionality</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Customizable lock screen
-                                        message</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>AES-256-GCM encrypted
-                                        password</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Enhanced blacklist
-                                        protection</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Portable .exe
-                                        generation</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Config System -
-                                        Save/Load</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>File Locker feature</span>
-                                </li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Website blocking</span>
-                                </li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Scheduled Auto Start (Lock
-                                        screen)</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Windows
-                                        Auto-startup</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>UI themes &
-                                        customization</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Builder program
-                                        lock</span></li>
-                                <li data-disabled="true"><span
-                                        class="feature-icon feature-excluded at-icon at-icon--close" aria-hidden="true"></span><span>Dev-offcode branding ( lock
-                                        screen )</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>All future updates</span>
-                                </li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Remote control
-                                        (web-based)</span></li>
-                                <li><span class="feature-icon feature-included at-icon at-icon--check" aria-hidden="true"></span><span>Priority support</span>
-                                </li>
-                            </ul>
-                            <a href="disclaimer.html" class="plan-button lifetime-button disabled">Coming Soon</a>
                         </div>
                     </div>
 
@@ -859,65 +796,76 @@
 
     <!-- Download Section -->
     <section id="download" class="at-section">
-        <div class="at-download">
-            <h2 class="at-download__title">Download Screen Lock Builder</h2>
-
-            <div class="at-download__notice">
-                <p><strong><span class="at-icon at-icon--megaphone" aria-hidden="true"></span> Latest v2.1 available.</strong></p>
-            </div>
-
-            <div class="at-download__actions">
-            <a href="disclaimer.html" class="at-btn at-btn--primary" target="_blank" rel="noopener noreferrer"
-                aria-label="Read Disclaimer and Download Windows Screen Lock Builder"><span class="at-icon at-icon--download" aria-hidden="true"></span> Download Screen Lock Builder for windows
-            </a>
-
-            <a href="https://www.virustotal.com/gui/file/16594cd92c32cde26e3df8b48feb03e6e6806d71abf12189ca405a751ab01d5b/detection"
-                class="at-btn at-btn--ghost" target="_blank" rel="noopener noreferrer"
-                aria-label="View Stub VirusTotal Scan"><span class="at-icon at-icon--search" aria-hidden="true"></span> Stub Scan
-            </a>
-
-            <a href="https://www.virustotal.com/gui/file/d9a2cb873cb748e9d4910debeac55c39b1120633456ae7e18aa4ef9bb210c612/detection"
-                class="at-btn at-btn--ghost" target="_blank" rel="noopener noreferrer"
-                aria-label="View Builder VirusTotal Scan"><span class="at-icon at-icon--search" aria-hidden="true"></span> Builder Scan
-            </a>
-            </div>
-
-            <p class="at-download__info">• Free •</p>
-            <p class="at-download__info">Note: Stub is detected by a few AV engines due to heuristics, main program is clean</p>
-
-            <div class="at-review-box">
-                <h3><span class="at-icon at-icon--star" aria-hidden="true"></span> Reviews & Recognition</h3>
-                <div class="at-download__actions">
-                    <a href="https://alternativeto.net/software/screen-lock-builder/about/" class="at-btn at-btn--ghost"
-                        target="_blank" rel="noopener noreferrer"
-                        aria-label="Review Screen Lock Builder on AlternativeTo"><span class="at-icon at-icon--star" aria-hidden="true"></span> Review Product
-                    </a>
+        <div class="at-download at-download--slb">
+            <header class="slb-dl__header">
+                <h2 class="at-download__title">Download Screen Lock Builder</h2>
+                <div class="slb-dl__pills" aria-label="Version and license">
+                    <span class="slb-dl__pill">v2.1</span>
+                    <span class="slb-dl__pill slb-dl__pill--free">Free</span>
                 </div>
-                <p>Share your experience! Visit AlternativeTo to leave a review, comment, or suggest new features.
-                    Your feedback helps us improve Screen Lock Builder.</p>
+            </header>
 
-                <div class="at-badge-row">
-                    <a href='https://www.saashub.com/dev-offcode-windows-screen-locker?utm_source=badge&utm_campaign=badge&utm_content=dev-offcode-windows-screen-locker&badge_variant=color&badge_kind=approved'
-                        target='_blank' rel='noopener noreferrer'><img
-                            src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1"
-                            alt="Dev-offcode Windows Screen Locker badge" style="max-width: 150px;" /></a>
-                    <a href="https://peerpush.net/p/window-screen-lock-builder" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="https://peerpush.net/p/window-screen-lock-builder/badge.png"
-                            alt="Window screen lock builder badge" style="max-width: 150px;" />
+            <a href="disclaimer.html" class="slb-dl__cta at-btn at-btn--primary" target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read Disclaimer and Download Windows Screen Lock Builder">
+                <span class="at-icon at-icon--monitor" aria-hidden="true"></span>
+                <span class="slb-dl__cta-text">Download for Windows</span>
+            </a>
+
+            <div class="slb-dl__verify">
+                <p class="slb-dl__verify-label">Verify the files</p>
+                <div class="slb-dl__chips">
+                    <a href="https://www.virustotal.com/gui/file/16594cd92c32cde26e3df8b48feb03e6e6806d71abf12189ca405a751ab01d5b/detection"
+                        class="slb-dl__chip" target="_blank" rel="noopener noreferrer"
+                        aria-label="View Stub VirusTotal Scan">
+                        <span class="at-icon at-icon--search" aria-hidden="true"></span>
+                        Stub Scan
                     </a>
-                    <a href="https://www.uneed.best/tool/screen-lock-builder-for-windows" target="_blank"
-                        rel="noopener noreferrer">
-                        <img src="https://www.uneed.best/EMBED2B.png" alt="Uneed Embed Badge"
-                            style="max-width: 150px;" />
+                    <a href="https://www.virustotal.com/gui/file/d9a2cb873cb748e9d4910debeac55c39b1120633456ae7e18aa4ef9bb210c612/detection"
+                        class="slb-dl__chip" target="_blank" rel="noopener noreferrer"
+                        aria-label="View Builder VirusTotal Scan">
+                        <span class="at-icon at-icon--search" aria-hidden="true"></span>
+                        Builder Scan
                     </a>
                 </div>
             </div>
+
+            <p class="slb-dl__note">
+                <span class="at-icon at-icon--shield" aria-hidden="true"></span>
+                <span>Note: Stub is detected by a few AV engines due to heuristics, main program is clean</span>
+            </p>
 
         </div>
     </section>
 
+        <!-- Launch & review badges -->
+        <div class="at-badges">
+            <a href="https://alternativeto.net/software/screen-lock-builder/about/?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
+                <img src="https://alternativeto.net/static/badges/badge-compact-dark.svg" alt="Screen Lock Builder | AlternativeTo" width="244" height="83" style="width: 244px; height: 83px;" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://www.saashub.com/dev-offcode-windows-screen-locker?utm_source=badge&utm_campaign=badge&utm_content=dev-offcode-windows-screen-locker&badge_variant=color&badge_kind=approved" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="Dev-offcode Windows Screen Locker badge" style="max-width: 150px;" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://peerpush.net/p/window-screen-lock-builder" target="_blank" rel="noopener noreferrer">
+                <img src="https://peerpush.net/p/window-screen-lock-builder/badge.png" alt="Window screen lock builder badge" style="max-width: 150px;" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://www.uneed.best/tool/screen-lock-builder-for-windows" target="_blank" rel="noopener noreferrer">
+                <img src="https://www.uneed.best/EMBED2B.png" alt="Uneed Embed Badge" style="max-width: 150px;" loading="lazy" decoding="async" />
+            </a>
+        </div>
     </main>
+    </div>
+
+    <!-- Custom Image Modal (body-level so it stacks above the fixed sidebar) -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
     </div>
 
     <!-- External JS Libraries -->
@@ -927,7 +875,7 @@
     <!-- Application JavaScript -->
     <script src="script.js?v=3.1.0" defer></script>
     <script src="features-carousel.js" defer></script>
-    <script src="gallery.js?v=3.0.1" defer></script>
+    <script src="gallery.js?v=3.0.5" defer></script>
 
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="cookie-consent.css">

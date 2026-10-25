@@ -727,16 +727,18 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
-/* ── Image Modal ── */
+/* ── Image Modal (fullscreen lightbox; must beat fixed sidebar) ── */
 .image-modal {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 2000;
-    background: rgba(10, 9, 8, 0.95);
-    backdrop-filter: blur(8px);
-    overflow: auto;
-    padding: 2rem;
+    z-index: 200000;
+    background: rgba(8, 7, 6, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .image-modal.active {
@@ -747,56 +749,91 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
 
 .modal-content {
     position: relative;
-    max-width: 1000px;
-    width: 100%;
-    background: var(--at-bg-raised);
-    border: 1px solid var(--at-border);
-    border-radius: var(--at-radius-lg);
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 86vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-.modal-content .close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 2rem;
-    color: var(--at-text-muted);
+/* Close + nav pinned to the VIEWPORT, never over the image */
+.modal-content .close,
+.image-modal .close {
+    position: fixed;
+    top: max(16px, env(safe-area-inset-top, 0px));
+    right: max(18px, env(safe-area-inset-right, 0px));
+    left: auto;
+    font-size: 2.25rem;
+    color: #f2ebe3;
     cursor: pointer;
     line-height: 1;
-    z-index: 10;
-    transition: color var(--at-transition);
+    z-index: 200010;
+    background: rgba(10, 9, 8, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--at-transition), background var(--at-transition);
 }
 
-.modal-content .close:hover {
+.modal-content .close:hover,
+.image-modal .close:hover {
     color: var(--at-amber);
+    background: rgba(10, 9, 8, 0.85);
 }
 
+.image-modal .modal-nav-btn,
 .modal-nav-btn {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    background: rgba(196, 92, 38, 0.25);
-    border: 1px solid var(--at-border-strong);
+    background: rgba(10, 9, 8, 0.6);
+    border: 1px solid rgba(196, 92, 38, 0.55);
     border-radius: 50%;
     color: var(--at-text);
     font-size: 1.75rem;
     cursor: pointer;
-    z-index: 10;
-    transition: background var(--at-transition);
+    z-index: 200010;
+    transition: background var(--at-transition), border-color var(--at-transition);
 }
 
+.image-modal .modal-nav-btn:hover,
 .modal-nav-btn:hover {
     background: rgba(196, 92, 38, 0.45);
+    border-color: var(--at-amber);
 }
 
-.modal-prev { left: -60px; }
-.modal-next { right: -60px; }
+.image-modal .modal-prev,
+.modal-prev {
+    left: max(16px, env(safe-area-inset-left, 0px));
+    right: auto;
+}
+
+.image-modal .modal-next,
+.modal-next {
+    right: max(16px, env(safe-area-inset-right, 0px));
+    left: auto;
+}
 
 .modal-info {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    padding: 0 1rem;
     text-align: center;
+    max-width: 86vw;
 }
 
 .modal-info h3 {
@@ -810,9 +847,16 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
     font-size: 0.95rem;
 }
 
+.modal-full-image,
+.modal-content img,
 #modalImage {
-    max-height: 75vh;
+    display: block;
+    max-width: min(86vw, 100%);
+    max-height: 86vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    border-radius: 4px;
 }
 
 /* ── Feature Bands ── */
@@ -1141,15 +1185,26 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
     color: var(--at-gold);
 }
 
+.features-list,
 .at-dev-list {
     list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
     color: var(--at-text-muted);
     font-size: 0.9rem;
-    margin: 1rem 0;
 }
 
+.features-list li,
 .at-dev-list li {
-    padding: 0.35rem 0;
+    position: relative;
+    padding: 0.35rem 0 0.35rem 0;
+    margin: 0;
+}
+
+/* Single marker: rely on inline check/close icons; never show browser bullets. */
+.features-list li::marker,
+.at-dev-list li::marker {
+    content: '';
 }
 
 .plan-button {
@@ -1180,6 +1235,33 @@ body.menu-open .mobile-menu-toggle .hamburger::after {
 
 .premium-button:hover {
     box-shadow: 0 8px 28px var(--at-glow-copper);
+}
+
+.free-button {
+    background: var(--at-gradient-copper);
+    color: var(--at-bg-deep);
+    box-shadow: 0 4px 20px var(--at-glow-copper);
+}
+
+.free-button:hover {
+    box-shadow: 0 8px 28px var(--at-glow-copper);
+}
+
+.plan-button:focus-visible,
+.free-button:focus-visible,
+.premium-button:focus-visible {
+    outline: 2px solid var(--at-amber);
+    outline-offset: 2px;
+}
+
+.pricing-cards--duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+    .pricing-cards--duo {
+        grid-template-columns: 1fr;
+    }
 }
 
 .at-btn-changelog {

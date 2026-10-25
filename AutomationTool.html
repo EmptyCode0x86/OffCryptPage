@@ -50,7 +50,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.8" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCodeAutomation.png" as="image">
 
@@ -297,8 +297,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.8">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.2.1">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -637,18 +637,7 @@
                 </div>
             </section>
 
-            <!-- Image Modal -->
-            <div id="imageModal" class="image-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img id="modalImage" src="" alt="">
-                    <div class="modal-info">
-                        <h3 id="modalTitle"></h3>
-                        <p id="modalDesc"></p>
-                    </div>
-                </div>
-            </div>
-
+            
             <!-- Features -->
             <section id="features" class="at-section">
                 <div class="at-section__header">
@@ -949,7 +938,7 @@
                         <p>Simple one-time pricing for lifetime access</p>
                     </div>
 
-                    <div class="pricing-cards">
+                    <div class="pricing-cards pricing-cards--duo">
                         <div class="pricing-card premium">
                             <div class="plan-badge premium-badge">Lifetime License</div>
                             <h3>Standard</h3>
@@ -1244,6 +1233,17 @@
         </main>
     </div>
 
+    <!-- Custom Image Modal (body-level so it stacks above the fixed sidebar) -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
     <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
@@ -1251,7 +1251,7 @@
     <!-- Application JavaScript -->
     <script src="script.js?v=3.1.0" defer></script>
     <script src="features-carousel.js" defer></script>
-    <script src="gallery.js?v=3.0.1" defer></script>
+    <script src="gallery.js?v=3.0.5" defer></script>
 
     <!-- Semantic Footer for SEO -->
     <footer role="contentinfo" style="display: none;">

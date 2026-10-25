@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModal() {
         modal.classList.remove('active');
         modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         
         // Remove scroll prevention
@@ -78,25 +79,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         } else {
-            // KUVA
+            // KUVA — prefer data-full (full-res), then data-image, then img src
             const imgElement = card.querySelector('img');
-            const imgSrc = dataImage || (imgElement ? imgElement.src : '');
+            const fullSrc = (imgElement && (imgElement.getAttribute('data-full') || imgElement.dataset.full)) || '';
+            const imgSrc = fullSrc || dataImage || (imgElement ? imgElement.getAttribute('src') : '') || '';
             if (imgSrc) {
                 modalContent.innerHTML = `
                     <span class="close">&times;</span>
                     <button class="modal-nav-btn modal-prev" aria-label="Previous">‹</button>
                     <button class="modal-nav-btn modal-next" aria-label="Next">›</button>
-                    <img src="" alt="" style="width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; margin: 0 auto;">
+                    <img class="modal-full-image" src="" alt="" decoding="async">
                     <div class="modal-info" style="${imgTitle || imgDesc ? '' : 'display: none;'}">
                         <h3></h3>
                         <p></p>
                     </div>
                 `;
-                const modalImg = modalContent.querySelector('img');
+                const modalImg = modalContent.querySelector('img.modal-full-image');
                 const modalInfo = modalContent.querySelector('.modal-info');
                 if (modalImg) {
+                    modalImg.alt = imgTitle || (imgElement ? imgElement.alt : '') || '';
+                    // Cap display size at native resolution so small sources are not blurry-upscaled
+                    modalImg.onload = function () {
+                        const nw = modalImg.naturalWidth || 0;
+                        const nh = modalImg.naturalHeight || 0;
+                        if (nw > 0) {
+                            modalImg.style.maxWidth = 'min(86vw, ' + nw + 'px)';
+                        }
+                        if (nh > 0) {
+                            modalImg.style.maxHeight = 'min(86vh, ' + nh + 'px)';
+                        }
+                    };
                     modalImg.src = imgSrc;
-                    modalImg.alt = imgTitle || '';
                 }
                 // XSS-suojaus: käytä textContent, älä innerHTML
                 if (modalInfo) {
@@ -111,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Näytä modal
         modal.classList.add('active');
         modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
 
         // Lisää close event uudelle napille

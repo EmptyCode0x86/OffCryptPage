@@ -48,8 +48,8 @@
  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
  <link rel="manifest" href="/manifest.json">
 
- <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
- <link rel="preload" href="styles-at-extras.css?v=3.2.2" as="style">
+ <link rel="preload" href="styles-automation.css?v=3.1.8" as="style">
+ <link rel="preload" href="styles-at-extras.css?v=3.2.7" as="style">
  <link rel="preload" href="TorChat1.png" as="image">
  <link rel="preload" href="TorManager1.png" as="image">
  <link rel="preload" href="TorManager2.png" as="image">
@@ -291,8 +291,8 @@
  }
  </script>
 
- <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
- <link rel="stylesheet" href="styles-at-extras.css?v=3.2.2">
+ <link rel="stylesheet" href="styles-automation.css?v=3.1.8">
+ <link rel="stylesheet" href="styles-at-extras.css?v=3.2.7">
  <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
  <link rel="stylesheet" href="boot-gate.css?v=1">
  <link rel="stylesheet" href="torchat-gate.css?v=1">
@@ -1534,7 +1534,7 @@
  <p>Simple and transparent access to the system</p>
  </div>
 
- <div class="pricing-cards">
+ <div class="pricing-cards pricing-cards--duo">
  <!-- Free Plan -->
  <div class="pricing-card premium">
  <div class="plan-badge premium-badge">Free</div>
@@ -1594,8 +1594,7 @@
  <span class="glow-check at-icon at-icon--check" style="color: #ffd700;" aria-hidden="true"></span>
  <p class="updates-notice">Complete system source</p>
  </div>
- <ul
- style="text-align: left; color: var(--text-secondary); margin: 1rem 0; padding-left: 1.5rem; font-size: 0.9rem;">
+ <ul class="features-list">
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> ASP.NET Core ChatServer source</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Vanilla HTML/CSS/JS + WebCrypto E2EE</li>
  <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> SignalR Real-time Hubs</li>
@@ -1890,6 +1889,13 @@ end-to-end encrypted.</p>
  if (index < 0 || index >= images.length) return;
  currentIndex = index;
  var img = images[currentIndex];
+ modalImg.classList.add('modal-full-image');
+ modalImg.onload = function () {
+ var nw = modalImg.naturalWidth || 0;
+ var nh = modalImg.naturalHeight || 0;
+ if (nw > 0) modalImg.style.maxWidth = 'min(86vw, ' + nw + 'px)';
+ if (nh > 0) modalImg.style.maxHeight = 'min(86vh, ' + nh + 'px)';
+ };
  modalImg.src = img.getAttribute('data-full') || img.currentSrc || img.src;
  modalImg.alt = img.getAttribute('alt') || img.getAttribute('data-title') || '';
  if (modalTitle) modalTitle.textContent = img.getAttribute('data-title') || '';

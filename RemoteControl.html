@@ -41,8 +41,8 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
-    <link rel="preload" href="styles-at-extras.css?v=3.1.5" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.8" as="style">
+    <link rel="preload" href="styles-at-extras.css?v=3.2.1" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="RemoteControl1.png" as="image">
 
@@ -150,8 +150,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.8">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.2.1">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 </head>
 
@@ -461,18 +461,7 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <!-- Custom Image Modal -->
-            <div id="imageModal" class="image-modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img id="modalImage" src="" alt="">
-                    <div class="modal-info">
-                        <h3 id="modalTitle"></h3>
-                        <p id="modalDesc"></p>
-                    </div>
-                </div>
-            </div>
-
+            
             <section id="features" class="at-section">
                 <div class="at-section__header">
                     <h2 class="at-section__title">Features</h2>
@@ -927,8 +916,7 @@
                                 <span class="glow-check at-icon at-icon--check" aria-hidden="true"></span>
                                 <p class="updates-notice">Guided remote setup until the system works end to end.</p>
                             </div>
-                            <ul
-                                style="text-align: left; color: var(--text-secondary); margin: 1rem 0; padding-left: 1.5rem; font-size: 0.9rem;">
+                            <ul class="features-list">
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Port forwarding &amp; firewall setup (when required)</li>
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Full install: Server Manager, dashboard &amp; agent</li>
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Access verified from outside your local network</li>
@@ -962,8 +950,7 @@
                                 <span class="glow-check at-icon at-icon--check" style="color: #ffd700;" aria-hidden="true"></span>
                                 <p class="updates-notice">Complete system source</p>
                             </div>
-                            <ul
-                                style="text-align: left; color: var(--text-secondary); margin: 1rem 0; padding-left: 1.5rem; font-size: 0.9rem;">
+                            <ul class="features-list">
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Full ASP.NET Core Backend source</li>
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> Blazor Web Dashboard source</li>
                                 <li style="margin: 0.5rem 0;"><span class="at-icon at-icon--check" aria-hidden="true"></span> SignalR Real-time Hubs</li>
@@ -1088,6 +1075,17 @@
 
     <!-- Styles in styles-automation.css + styles-at-extras.css -->
 
+    <!-- Custom Image Modal (body-level so it stacks above the fixed sidebar) -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
     <!-- External JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
         integrity="sha384-T6qkM4ANslBL/pKcwNUeB0bpsiI6pkXXzwrl7Avc6FXEC/UZaXAeBpZZ2zQ3Zbez" crossorigin="anonymous"
@@ -1095,7 +1093,7 @@
     <!-- Application JavaScript -->
     <script src="script.js?v=3.1.0" defer></script>
     <script src="features-carousel.js" defer></script>
-    <script src="gallery.js?v=3.0.1" defer></script>
+    <script src="gallery.js?v=3.0.5" defer></script>
     
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="cookie-consent.css">

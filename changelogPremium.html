@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 
 <head>
@@ -9,7 +9,7 @@
     <meta name="description"
         content="Screen Lock Builder Premium changelog - Track the latest updates, improvements, and new features for the premium Windows screen locker builder.">
     <meta name="author" content="OffCrypt">
-    <meta name="last-modified" content="2025-12-21">
+    <meta name="last-modified" content="2026-10-25">
     <meta name="robots" content="noindex, follow">
 
     <!-- Security Headers -->
@@ -88,9 +88,9 @@
         },
         "releaseNotes": {
             "@type": "TechArticle",
-            "headline": "Screen Lock Builder Premium - Service Startup and Safe Mode Support",
-            "datePublished": "2025-12-21",
-            "dateModified": "2025-12-21",
+            "headline": "Screen Lock Builder Premium 2.2 - Modern UI Redesign and Telegram Control",
+            "datePublished": "2026-10-25",
+            "dateModified": "2026-10-25",
             "url": "https://www.dev-offcode.com/changelogPremium.html"
         }
     }
@@ -238,10 +238,10 @@
                 style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;">
                 <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 0.5rem; font-size: 0.9rem;">
                     <li><a href="https://www.dev-offcode.com/">Home</a></li>
-                    <li>›</li>
+                    <li>&rsaquo;</li>
                     <li><a href="https://www.dev-offcode.com/ScreenLockBuilderPremium.html">Screen Lock Builder
                             Premium</a></li>
-                    <li>›</li>
+                    <li>&rsaquo;</li>
                     <li>Changelog</li>
                 </ol>
             </nav>
@@ -267,16 +267,103 @@
                             builder. Stay informed about the latest developments in Screen Lock Builder Premium's
                             journey to provide the most advanced and secure screen locking solution for Windows.</p>
 
-                        <p><strong>Latest Release:</strong> December 21, 2025 update introduces Windows service startup
-                            support and Safe Mode compatibility, enhancing the application's boot performance and
-                            security resilience.</p>
+                        <p><strong>Latest Release:</strong> The October 25, 2026 update (Version 2.2) is a big one &ndash; a
+                            completely redesigned, modern look for the whole Builder, a new Telegram Connection tab that
+                            lets you lock and unlock remotely, a much more reliable file locker, lifetime licensing,
+                            one-click download of the latest version, and many smaller improvements and fixes.</p>
                     </div>
 
                     <div class="changelog-wrapper">
+                        <!-- Version 2.2: Modern UI Redesign and Telegram Control -->
+                        <div class="changelog-entry">
+                            <div class="changelog-version">
+                                <span class="version-tag">Update</span>
+                                <span class="version-number">Version: 2.2</span>
+                                <span class="version-date">October 25, 2026</span>
+                            </div>
+                            <div class="changelog-changes">
+                                <h3><span class="at-icon at-icon--lock" aria-hidden="true"></span> Modern Redesign, Telegram Control &amp; Many Fixes</h3>
+
+                                <h4>Brand-New Modern Look</h4>
+                                <ul>
+                                    <li>The entire Builder has been rebuilt with a fresh, modern dark design with subtle
+                                        blue tones. It looks cleaner and more professional while working exactly the same
+                                        way you are used to.</li>
+                                    <li>The tabs now sit along the top of the window, so everything is easier to find.</li>
+                                    <li>New custom window frame with its own styled close and minimize buttons, instead of
+                                        the plain old Windows frame.</li>
+                                    <li>The app title now reads &ldquo;Screen lock builder Premium&rdquo; with a small
+                                        &ldquo;dev-offcode.com&rdquo; underneath.</li>
+                                </ul>
+
+                                <h4>New: Telegram Connection</h4>
+                                <ul>
+                                    <li>A brand-new &ldquo;Telegram connection&rdquo; tab lets you link the lock to your
+                                        own Telegram bot, with a clear step-by-step guide built right in.</li>
+                                    <li>Control the lock remotely from Telegram: send <strong>/close-screenlock</strong> to
+                                        open (unlock) the screen lock, and <strong>/open-screenlock</strong> to bring it
+                                        back up &ndash; from anywhere.</li>
+                                    <li>Your locked computer sends you a Telegram message when it comes online, and a
+                                        &ldquo;Send test&rdquo; button lets you confirm everything works before you build.</li>
+                                    <li>Only your own chat can send commands, so nobody else can control your lock.</li>
+                                </ul>
+
+                                <h4>A More Reliable File Locker</h4>
+                                <ul>
+                                    <li>Blocked programs are now properly hidden the moment they are opened, so you only
+                                        see the password window &ndash; even for multi-window apps that used to slip through.</li>
+                                    <li>Entering the wrong password, or pressing Cancel, now fully closes the blocked
+                                        program instead of leaving it running.</li>
+                                    <li>Entering the correct password unlocks everything and closes the locker cleanly, so
+                                        your programs work normally again.</li>
+                                    <li>Fixed an issue where the locker could refuse to start on some systems.</li>
+                                </ul>
+
+                                <h4>Easier Program &amp; File Selection</h4>
+                                <ul>
+                                    <li>The program picker now automatically detects the programs installed on your
+                                        computer, so you can add them with one click.</li>
+                                    <li>The lists now scroll properly, so nothing gets cut off when the window is small.</li>
+                                    <li>A small pop-up note appears in the corner to confirm each time you add something to
+                                        the block list.</li>
+                                    <li>The folder list now shows each folder&rsquo;s full path underneath its name, so it is
+                                        clear exactly what you are locking.</li>
+                                    <li>Cleaner, more modern lists and clearer buttons throughout the picker.</li>
+                                </ul>
+
+                                <h4>New: Choose Your Output Icon</h4>
+                                <ul>
+                                    <li>You can now choose the icon for the lock files you create. Both the Lock screen
+                                        and Lock files tabs have a new &ldquo;Output file icon&rdquo; option with three
+                                        choices: keep the default Windows icon, pick your own icon from your computer
+                                        (an <strong>.ico</strong> file, or a PNG, JPG or BMP image that is converted
+                                        automatically), or let the Builder create a random modern icon for you.</li>
+                                    <li>The Builder&rsquo;s own app icon stays exactly the same and cannot be changed.</li>
+                                </ul>
+
+                                <h4>Updates Tab &amp; Other Improvements</h4>
+                                <ul>
+                                    <li>The Updates tab now shows this changelog live from the website, so you always see
+                                        the latest news inside the app.</li>
+                                    <li>Your license now shows as a lifetime license (&ldquo;Expires: Never&rdquo;) for every
+                                        customer.</li>
+                                    <li>A &ldquo;Download latest version&rdquo; button on the Updates tab opens the current
+                                        download link in your browser. Your license and settings are never touched.</li>
+                                    <li>The download link is served from our servers, so we can update it without you
+                                        needing to reinstall the Builder.</li>
+                                    <li>System tray support: you can now minimize the Builder to the system tray, and if
+                                        Builder login is enabled, reopening it from the tray asks for your password
+                                        first.</li>
+                                    <li>Fixed a display glitch where the lock icon showed up as scrambled characters.</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <!-- Service Startup and Safe Mode Update -->
                         <div class="changelog-entry">
                             <div class="changelog-version">
                                 <span class="version-tag">Update</span>
+                                <span class="version-number">Version: 2.1</span>
                                 <span class="version-date">December 21, 2025</span>
                             </div>
                             <div class="changelog-changes">

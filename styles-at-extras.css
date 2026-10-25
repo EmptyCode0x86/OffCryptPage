@@ -540,8 +540,77 @@
     background: rgba(255, 255, 255, 0.02);
 }
 
-.at-page .modal-content {
-    border: 1px solid var(--at-border);
+.at-page .modal-content,
+.modal-content {
+    border: none !important;
+    background: transparent !important;
+    max-width: 86vw !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Lightbox must beat fixed sidebar (.at-nav z-index:1000) and cookie (10000) */
+.at-page .image-modal,
+.image-modal {
+    z-index: 200000 !important;
+    inset: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.at-page .modal-full-image,
+.modal-full-image,
+.at-page .modal-content img,
+.modal-content img,
+#modalImage {
+    max-width: min(86vw, 100%) !important;
+    max-height: 86vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+/* Controls fixed to viewport edges — never over the image */
+.at-page .modal-content .close,
+.at-page .image-modal .close,
+.modal-content .close,
+.image-modal .close {
+    position: fixed !important;
+    top: max(16px, env(safe-area-inset-top, 0px)) !important;
+    right: max(18px, env(safe-area-inset-right, 0px)) !important;
+    left: auto !important;
+    z-index: 200010 !important;
+    background: rgba(10, 9, 8, 0.6) !important;
+}
+
+.at-page .image-modal .modal-nav-btn,
+.at-page .modal-nav-btn,
+.image-modal .modal-nav-btn,
+.modal-nav-btn {
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 200010 !important;
+    background: rgba(10, 9, 8, 0.6) !important;
+}
+
+.at-page .image-modal .modal-prev,
+.at-page .modal-prev,
+.image-modal .modal-prev,
+.modal-prev {
+    left: max(16px, env(safe-area-inset-left, 0px)) !important;
+    right: auto !important;
+}
+
+.at-page .image-modal .modal-next,
+.at-page .modal-next,
+.image-modal .modal-next,
+.modal-next {
+    right: max(16px, env(safe-area-inset-right, 0px)) !important;
+    left: auto !important;
 }
 
 /* ── SaaS Hub / badge row ── */
@@ -932,9 +1001,32 @@
 
 :is(#screenshots, .product-screens) .features-carousel {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem 0.85rem;
     width: 100%;
-    padding: 0 2.75rem;
+    padding: 0;
     margin: 0 0 1.5rem;
+}
+
+/* Track full-width on its own row; controls (prev / dots / next) sit below */
+:is(#screenshots, .product-screens) .features-carousel-track {
+    order: 0;
+    flex: 1 0 100%;
+}
+
+:is(#screenshots, .product-screens) .features-carousel-btn.prev {
+    order: 1;
+}
+
+:is(#screenshots, .product-screens) .features-carousel-dots {
+    order: 2;
+}
+
+:is(#screenshots, .product-screens) .features-carousel-btn.next {
+    order: 3;
 }
 
 :is(#screenshots, .product-screens) .features-carousel-track {
@@ -956,14 +1048,14 @@
 
 :is(#screenshots, .product-screens) .features-carousel-track .screenshot-card,
 :is(#screenshots, .product-screens) .features-carousel-track .image-card {
-    flex: 0 0 calc(50% - 0.625rem);
-    width: calc(50% - 0.625rem);
-    max-width: calc(50% - 0.625rem);
+    flex: 0 0 min(640px, calc(72% - 0.625rem));
+    width: min(640px, calc(72% - 0.625rem));
+    max-width: min(640px, calc(72% - 0.625rem));
     scroll-snap-align: start;
     scroll-snap-stop: normal;
     min-width: 0;
     box-sizing: border-box;
-    padding: 0.65rem;
+    padding: 0.75rem;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -976,8 +1068,9 @@
 }
 
 :is(#screenshots, .product-screens) .screenshot-card .screenshot-frame {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     width: 100%;
+    min-height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -991,12 +1084,14 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: top center;
     border: none;
     border-radius: 0;
     background: transparent;
     cursor: zoom-in;
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
 }
 
 :is(#screenshots, .product-screens) .screenshot-card .at-video-wrap,
@@ -1032,10 +1127,13 @@
 }
 
 :is(#screenshots, .product-screens) .features-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    z-index: 1;
+    flex: 0 0 auto;
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -1061,19 +1159,15 @@
     cursor: default;
 }
 
-:is(#screenshots, .product-screens) .features-carousel-btn.prev {
-    left: 0;
-}
-
-:is(#screenshots, .product-screens) .features-carousel-btn.next {
-    right: 0;
-}
+/* prev/next no longer overlay the track; order set with carousel flex controls */
 
 :is(#screenshots, .product-screens) .features-carousel-dots {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
-    margin-top: 0.25rem;
+    margin: 0;
+    flex: 0 1 auto;
     flex-wrap: wrap;
 }
 
@@ -1132,7 +1226,7 @@
 
 @media (max-width: 900px) {
     :is(#screenshots, .product-screens) .features-carousel {
-        padding: 0 2.5rem;
+        padding: 0;
     }
 
     :is(#screenshots, .product-screens) .features-carousel-track .screenshot-card,
@@ -1146,10 +1240,16 @@
 
 @media (max-width: 768px) {
     :is(#screenshots, .product-screens) .features-carousel {
-        padding: 0 2.25rem;
+        padding: 0;
+        gap: 0.5rem 0.65rem;
     }
 
     :is(#screenshots, .product-screens) .features-carousel-btn {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
         width: 38px;
         height: 38px;
         font-size: 1.5rem;
@@ -1182,6 +1282,15 @@
 :is(#screenshots, .product-screens) .features-carousel-track .screenshot-card.image-card:hover img {
     opacity: 1;
     transform: none;
+}
+
+/* Ensure carousel thumbs win over generic .image-card img { height:260px } */
+:is(#screenshots, .product-screens) .features-carousel-track .screenshot-card.image-card img,
+:is(#screenshots, .product-screens) .features-carousel-track .image-card img {
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: top center;
 }
 
 
@@ -2815,7 +2924,7 @@
 
 .at-hero--split #screenshots .features-carousel {
     margin-bottom: 0;
-    padding: 0 2.4rem;
+    padding: 0;
 }
 
 .at-hero--split #screenshots .features-carousel-track .at-feature-card.screenshot-card {
@@ -3358,5 +3467,234 @@
         color: ButtonText;
         border: 1px solid ButtonText;
         box-shadow: none;
+    }
+}
+
+
+/* ── Screen Lock Builder download panel (scoped; does not affect .at-download elsewhere) ── */
+.at-download--slb {
+    max-width: 640px;
+    padding: 2.25rem 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.35rem;
+}
+
+.at-download--slb .at-download__title {
+    margin: 0;
+    font-size: clamp(1.65rem, 3.2vw, 2.1rem);
+    letter-spacing: -0.01em;
+}
+
+.slb-dl__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.slb-dl__pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.slb-dl__pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.75rem;
+    font-family: var(--at-font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--at-amber);
+    border: 1px solid rgba(196, 92, 38, 0.4);
+    border-radius: 999px;
+    background: rgba(196, 92, 38, 0.12);
+}
+
+.slb-dl__pill--free {
+    color: var(--at-bg-deep, #0a0908);
+    background: var(--at-gradient-copper);
+    border-color: transparent;
+}
+
+.slb-dl__cta {
+    width: min(100%, 420px);
+    padding: 1.05rem 1.75rem;
+    font-size: 1.05rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 28px var(--at-glow-copper);
+}
+
+.slb-dl__cta .at-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.slb-dl__cta-text {
+    white-space: nowrap;
+}
+
+.slb-dl__verify {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    padding-top: 0.25rem;
+}
+
+.slb-dl__verify-label {
+    margin: 0;
+    font-family: var(--at-font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--at-text-muted);
+}
+
+.slb-dl__chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem;
+    width: 100%;
+}
+
+.slb-dl__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex: 1 1 140px;
+    max-width: 200px;
+    padding: 0.55rem 0.95rem;
+    font-family: var(--at-font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--at-text-muted);
+    border: 1px solid var(--at-border);
+    border-radius: 999px;
+    background: transparent;
+    transition: border-color var(--at-transition, 0.2s ease),
+        color var(--at-transition, 0.2s ease),
+        background var(--at-transition, 0.2s ease);
+}
+
+.slb-dl__chip .at-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--at-copper, #c45c26);
+}
+
+.slb-dl__chip:hover,
+.slb-dl__chip:focus-visible {
+    color: var(--at-amber);
+    border-color: rgba(196, 92, 38, 0.55);
+    background: rgba(196, 92, 38, 0.08);
+    outline: none;
+}
+
+.slb-dl__note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    width: 100%;
+    max-width: 480px;
+    margin: 0;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--at-text-muted);
+    border-top: 1px solid var(--at-border);
+    border-radius: 0 0 10px 10px;
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.slb-dl__note .at-icon {
+    flex: 0 0 auto;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.1rem;
+    color: var(--at-copper, #c45c26);
+}
+
+.slb-dl__reviews {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 1.5rem 1.25rem 1.35rem;
+    border-top: 1px solid var(--at-border);
+    border-radius: var(--at-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.slb-dl__reviews h3 {
+    margin: 0;
+}
+
+.slb-dl__reviews > p {
+    margin: 0;
+    max-width: 36rem;
+}
+
+.slb-dl__review-btn {
+    margin: 0;
+}
+
+.slb-dl__badges {
+    margin: 0.35rem 0 0;
+    gap: 0.85rem;
+    align-items: center;
+}
+
+.slb-dl__badges a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.slb-dl__badges img {
+    height: 44px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+@media (max-width: 520px) {
+    .at-download--slb {
+        padding: 1.75rem 1.15rem 1.5rem;
+        gap: 1.15rem;
+    }
+
+    .slb-dl__cta {
+        width: 100%;
+        font-size: 0.98rem;
+        padding: 0.95rem 1.25rem;
+    }
+
+    .slb-dl__cta-text {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .slb-dl__chip {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+
+    .slb-dl__note {
+        font-size: 0.8rem;
     }
 }

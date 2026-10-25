@@ -22,7 +22,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles-automation.css?v=3.1.1" as="style">
+    <link rel="preload" href="styles-automation.css?v=3.1.8" as="style">
     <link rel="preload" href="gallery-simple.css?v=3.0.2" as="style">
     <link rel="preload" href="OffCrypt-Android.jpg" as="image">
 
@@ -183,8 +183,8 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+    <link rel="stylesheet" href="styles-automation.css?v=3.1.8">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.2.1">
     <link rel="stylesheet" href="gallery-simple.css?v=3.0.2">
 
     <!-- Tracking scripts loaded via cookie-consent.js after user consent -->
@@ -430,26 +430,7 @@
                 </div>
             </section>
 
-            <!-- Custom Image Modal -->
-            <div id="imageModal" class="image-modal">
-                <div class="modal-backdrop"></div>
-                <div class="modal-content">
-                    <button class="modal-close" aria-label="Close">&times;</button>
-                    <div class="modal-nav">
-                        <button class="modal-prev" aria-label="Previous">‹</button>
-                        <button class="modal-next" aria-label="Next">›</button>
-                    </div>
-                    <img id="modalImage" src="" alt="">
-                    <div class="modal-info">
-                        <h3 id="modalTitle"></h3>
-                        <p id="modalDesc"></p>
-                    </div>
-                    <div class="modal-counter">
-                        <span id="modalCounter">1 / 4</span>
-                    </div>
-                </div>
-            </div>
-
+            
             <!-- Features Section -->
             <section id="features" class="at-section">
                 <div class="at-section__header">
@@ -641,10 +622,21 @@
         </main>
     </div>
 
+    <!-- Custom Image Modal (body-level so it stacks above the fixed sidebar) -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" aria-label="Close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
     <!-- Application JavaScript -->
     <script src="script.js?v=3.1.0" defer></script>
     <script src="features-carousel.js" defer></script>
-    <script src="gallery.js?v=3.0.1" defer></script>
+    <script src="gallery.js?v=3.0.5" defer></script>
 
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="cookie-consent.css">
