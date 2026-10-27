@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add scroll prevention for mobile
-    document.addEventListener('touchmove', preventScroll, { passive: false });
-    document.addEventListener('wheel', preventScroll, { passive: false });
+    // Poistettu: globaalit touchmove/wheel preventDefault -kuuntelijat (passive:false)
+    // hidastivat jokaista sivun vieritystä ja estivät nipistyszoomin lightboxissa.
+    // Taustan vierityksen lukitus hoidetaan mobile-fix.js:ssä.
 });

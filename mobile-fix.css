@@ -1,0 +1,56 @@
+/* mobile-fix.css — puhelinoptimoinnit (lightbox + vaakavieritys). Desktop ennallaan. */
+html body .image-modal {
+    touch-action: pan-x pan-y pinch-zoom;
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 768px) {
+    /* Otsikko "Screenshots" 40px ylitti 390px näytön -> sivu heilui sivuttain */
+    html body .gallery-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        overflow-wrap: anywhere;
+    }
+
+    /* Lightbox: kuva koko näytön levyiseksi */
+    html body .image-modal .modal-content {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+    }
+    html body .image-modal .modal-content img,
+    html body .image-modal #modalImage,
+    html body .image-modal .modal-full-image {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        max-height: 85vh !important;
+        max-height: 85dvh !important;
+        object-fit: contain !important;
+        border-radius: 0 !important;
+        cursor: zoom-in;
+    }
+    html body .image-modal .modal-info { max-width: 100vw; }
+    html body .image-modal .modal-content iframe { height: 56vw !important; }
+
+    /* Napautus -> zoomattu tila: kuva näytön korkuiseksi, vieritä sormella sivuttain */
+    html body .image-modal.mf-zoomed .modal-content {
+        display: block !important;
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: none !important;
+    }
+    html body .image-modal.mf-zoomed .modal-content img,
+    html body .image-modal.mf-zoomed #modalImage {
+        width: auto !important;
+        max-width: none !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: none !important;
+        cursor: zoom-out;
+    }
+    html body .image-modal.mf-zoomed .modal-info,
+    html body .image-modal.mf-zoomed .modal-nav-btn { display: none !important; }
+}
