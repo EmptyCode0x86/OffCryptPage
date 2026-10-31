@@ -1,4 +1,4 @@
-# OffCode | Independent Software Developer
+# OffCode | Software
 
 <p align="left">
   <img src="https://img.shields.io/badge/Location-Finland-blue?style=flat-square" alt="Location">
