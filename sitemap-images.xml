@@ -11,6 +11,9 @@
   <url>
     <loc>https://www.dev-offcode.com/OffCryptAndroid.html</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/og-offcrypt-android.png</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
     </image:image>
     <image:image>
@@ -30,6 +33,9 @@
   <url>
     <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/og-offcrypt-desktop.png</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/SettingsWindows.png</image:loc>
     </image:image>
     <image:image>
@@ -43,6 +49,9 @@
   <url>
     <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/og-screenlockbuilder.png</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/ScreenLock1.png</image:loc>
     </image:image>
     <image:image>
@@ -55,6 +64,9 @@
 
   <url>
     <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/og-screenlockbuilder-premium.png</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>
     </image:image>
@@ -81,6 +93,9 @@
   <url>
     <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/og-automation-tool.png</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/OffCodeAutomation.png</image:loc>
     </image:image>
     <image:image>
@@ -103,12 +118,18 @@
   <url>
     <loc>https://www.dev-offcode.com/Community.html</loc>
     <image:image>
+      <image:loc>https://www.dev-offcode.com/og-community.png</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://www.dev-offcode.com/Community-og.png</image:loc>
     </image:image>
   </url>
 
   <url>
     <loc>https://www.dev-offcode.com/TorChatPage.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/og-tor-chat.png</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://www.dev-offcode.com/TorChat1.png</image:loc>
     </image:image>
@@ -120,6 +141,12 @@
     </image:image>
     <image:image>
       <image:loc>https://www.dev-offcode.com/TorManagerFeed.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/og-remote-control.png</image:loc>
     </image:image>
   </url>
 </urlset>
