@@ -48,7 +48,7 @@
 
 
         <link rel="stylesheet" href="styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="styles-at-extras.css?v=3.1.5">
+    <link rel="stylesheet" href="styles-at-extras.css?v=3.2.4">
 </head>
 
 <body class="at-page">
@@ -277,19 +277,34 @@
                     </div>
 
                     <!-- Purchase CTA Box -->
-                    <div class="glass-panel primary-purchase-panel instructions-contact">
-                        <h3 class="panel-title" style="justify-content: center; border: none; font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 800;"><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Purchase Premium License</h3>
-                        <p style="color: #a5b4fc; font-size: 1.1rem; margin-bottom: 1.5rem;">Get lifetime access to all premium features</p>
-                        
-                        <div>
-                            <a href="https://buy.stripe.com/fZu6oJgMg55S0ve7UI3sI00" class="buy-btn-large" target="_blank" rel="noopener noreferrer" aria-label="Read Disclaimer and Purchase Windows Screen Lock Builder Premium"><span class="at-icon at-icon--download" aria-hidden="true"></span> Purchase Lifetime license | $45
-                            </a>
+                    <div class="glass-panel primary-purchase-panel purchase-cta">
+                        <p class="purchase-cta__kicker">Lifetime license</p>
+                        <h3 class="purchase-cta__title">Screen Lock Builder Premium</h3>
+                        <p class="purchase-cta__lead">One payment. Instant delivery. All future updates included.</p>
+
+                        <div class="purchase-cta__price">
+                            <span class="purchase-cta__was" aria-label="Regular price 45 US dollars">$45</span>
+                            <span class="purchase-cta__now">$25</span>
+                            <span class="purchase-cta__period">USD · lifetime</span>
                         </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <p style="margin-bottom: 0.75rem; color: #94a3b8; font-size: 0.9rem;"><strong><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Accepted Payment Methods:</strong></p>
-                            <div class="payment-badge"><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Stripe</div>
+
+                        <div class="purchase-cta__promo">
+                            <p class="purchase-cta__promo-label"><span class="at-icon at-icon--clock" aria-hidden="true"></span> Limited-time 44% off</p>
+                            <p class="purchase-cta__code-row">Discount code <code>PREMIUM_OFF_44</code></p>
+                            <p class="purchase-cta__code-hint">Applied automatically at Stripe checkout</p>
                         </div>
+
+                        <a href="https://buy.stripe.com/fZu6oJgMg55S0ve7UI3sI00?prefilled_promo_code=PREMIUM_OFF_44"
+                           class="buy-btn-large buy-btn-large--fill"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Purchase Windows Screen Lock Builder Premium lifetime license for 25 US dollars">
+                            Continue to checkout — $25
+                        </a>
+
+                        <ul class="purchase-cta__notes">
+                            <li><span class="at-icon at-icon--lock" aria-hidden="true"></span> Secure payment with Stripe</li>
+                            <li><span class="at-icon at-icon--check" aria-hidden="true"></span> License delivered instantly</li>
+                        </ul>
                     </div>
 
                     <!-- Footer Areas -->
@@ -356,47 +371,11 @@
             if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
                 console.log('Applying discount code:', refCode);
 
-                // 1. Update Stripe Link
-                const stripeButton = document.querySelector('a[href*="buy.stripe.com"]');
+                    const stripeButton = document.querySelector('a[href*="buy.stripe.com"]');
                 if (stripeButton) {
-                    const currentHref = stripeButton.getAttribute('href');
-                    // Stripe expects "prefilled_promo_code" parameter
-                    stripeButton.setAttribute('href', `${currentHref}?prefilled_promo_code=${encodeURIComponent(refCode)}`);
-                }
-
-                // 2. Show Discount Banner (using textContent to prevent XSS)
-                const purchaseBox = document.querySelector('.instructions-contact');
-                if (purchaseBox) {
-                    const banner = document.createElement('div');
-                    banner.style.backgroundColor = 'rgba(196, 92, 38, 0.15)';
-                    banner.style.border = '1px solid #c45c26';
-                    banner.style.borderRadius = '8px';
-                    banner.style.padding = '10px';
-                    banner.style.marginBottom = '15px';
-                    banner.style.textAlign = 'center';
-                    banner.style.color = '#e8a84a';
-
-                    const strong = document.createElement('strong');
-                    strong.innerHTML = '<span class="at-icon at-icon--sparkles" aria-hidden="true"></span> Best Deal Active!';
-                    banner.appendChild(strong);
-                    banner.appendChild(document.createElement('br'));
-                    const small = document.createElement('small');
-                    small.textContent = 'Discount code ';
-                    const code = document.createElement('code');
-                    code.textContent = refCode;
-                    small.appendChild(code);
-                    small.appendChild(document.createTextNode(' applied at checkout'));
-                    banner.appendChild(small);
-
-                    // Insert after title
-                    const title = purchaseBox.querySelector('h4');
-                    purchaseBox.insertBefore(banner, title.nextSibling);
-
-                    // Update price text to indicate discount
-                    const priceText = stripeButton.innerText;
-                    if (priceText.includes('$45')) {
-                        stripeButton.innerHTML = '<span class="at-icon at-icon--download" aria-hidden="true"></span> Purchase with Discount';
-                    }
+                    const stripeUrl = new URL(stripeButton.getAttribute('href'));
+                    stripeUrl.searchParams.set('prefilled_promo_code', refCode);
+                    stripeButton.setAttribute('href', stripeUrl.toString());
                 }
             }
         });

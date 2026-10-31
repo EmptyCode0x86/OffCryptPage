@@ -972,6 +972,162 @@
     color: var(--at-amber);
 }
 
+.at-price-notice p + p {
+    margin-top: 0.4rem;
+}
+
+.at-price-notice code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--at-amber);
+    padding: 0.12em 0.45em;
+    border-radius: 6px;
+    border: 1px solid rgba(196, 92, 38, 0.45);
+    background: rgba(10, 9, 8, 0.45);
+}
+
+.purchase-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.6rem 2rem 2.2rem;
+}
+
+.purchase-cta__kicker {
+    margin: 0 0 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--at-amber);
+}
+
+.purchase-cta__title {
+    margin: 0;
+    font-family: var(--at-font-display);
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--at-text);
+    border: 0;
+    padding: 0;
+}
+
+.purchase-cta__lead {
+    margin: 0.7rem 0 0;
+    max-width: 28rem;
+    color: var(--at-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.purchase-cta__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.55rem 0.85rem;
+    margin: 1.55rem 0 1.2rem;
+}
+
+.purchase-cta__was {
+    font-family: var(--at-font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--at-text-muted);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.purchase-cta__now {
+    font-family: var(--at-font-display);
+    font-size: clamp(2.6rem, 6vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1;
+    background: var(--at-gradient-copper);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.purchase-cta__period {
+    width: 100%;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--at-text-muted);
+}
+
+.purchase-cta__promo {
+    width: min(100%, 26rem);
+    margin: 0 0 1.35rem;
+    padding: 0.9rem 1rem 0.95rem;
+    border-radius: 12px;
+    border: 1px solid rgba(196, 92, 38, 0.38);
+    background: linear-gradient(180deg, rgba(196, 92, 38, 0.12), rgba(196, 92, 38, 0.05));
+}
+
+.purchase-cta__promo-label {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--at-amber);
+}
+
+.purchase-cta__code-row {
+    margin: 0.4rem 0 0;
+    color: var(--at-text-muted);
+    font-size: 0.88rem;
+}
+
+.purchase-cta__code-row code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--at-amber);
+    padding: 0.18em 0.5em;
+    border-radius: 6px;
+    border: 1px solid rgba(196, 92, 38, 0.45);
+    background: rgba(10, 9, 8, 0.5);
+}
+
+.purchase-cta__code-hint {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--at-text-muted);
+}
+
+.purchase-cta__notes {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem 1.25rem;
+    color: var(--at-text-muted);
+    font-size: 0.82rem;
+}
+
+.purchase-cta__notes li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buy-btn-large--fill:hover {
+        transform: none;
+        filter: none;
+    }
+}
+
 .at-video-wrap {
     position: relative;
     width: 100%;
@@ -2562,6 +2718,28 @@
     box-shadow: 0 0 15px rgba(196, 92, 38, 0.2);
     transform: translateY(-2px);
     color: var(--at-text) !important;
+}
+
+.buy-btn-large.buy-btn-large--fill {
+    margin: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 0.7rem 1.35rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    background: var(--at-gradient-copper);
+    color: var(--at-bg-deep) !important;
+    border-color: transparent;
+    font-family: var(--at-font-display);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.buy-btn-large.buy-btn-large--fill:hover {
+    background: var(--at-gradient-copper);
+    color: var(--at-bg-deep) !important;
+    border-color: transparent;
+    filter: brightness(1.06);
 }
 
 .payment-badge {
