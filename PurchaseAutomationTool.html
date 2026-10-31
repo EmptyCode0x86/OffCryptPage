@@ -224,7 +224,8 @@
                         <div class="terms-grid">
                             <div class="term-box">
                                 <h4>Refund Policy</h4>
-                                <p><strong>No refunds</strong> - All sales are final. Once the purchase is completed and the license is activated, no refunds will be issued.</p>
+                                <p><strong>Seller / contact.</strong> OffCode (dev-offcode.com), independent software developer in Finland. Contact: <a href="mailto:support@dev-offcode.com">support@dev-offcode.com</a>. Payments are processed by Stripe; see <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe's Privacy Policy</a> and our <a href="PrivacyPolicy.html">Privacy Policy</a>. We do not sell your personal data.</p>
+                                <p><strong>Digital content &amp; right of withdrawal.</strong> The Automation Tool lifetime license is digital content supplied electronically (software download and activation code), not on a tangible medium. By purchasing it you give your <strong>prior express consent</strong> for delivery to begin immediately, within the 14-day withdrawal period, and you <strong>acknowledge that you thereby lose your right of withdrawal</strong> under EU and Finnish consumer law once delivery has begun. A <strong>confirmation of this consent and acknowledgment</strong> is provided to you on a durable medium (the Stripe payment receipt / order confirmation email sent to your email address). Therefore, to the maximum extent permitted by applicable law, all sales are final and no refunds are issued. This does not affect your statutory rights if the product is faulty or not as described.</p>
                             </div>
                             <div class="term-box">
                                 <h4>License Terms</h4>
@@ -282,7 +283,13 @@
                         <p style="color: #a5b4fc; font-size: 1.1rem; margin-bottom: 1.5rem;">Get lifetime access to all automation features</p>
                         
                         <div>
-                            <a href="https://buy.stripe.com/8x228t53y1TGguc4Iw3sI02" class="buy-btn-large" target="_blank" rel="noopener noreferrer" aria-label="Read Disclaimer and Purchase Automation Tool"><span class="at-icon at-icon--download" aria-hidden="true"></span> Purchase Lifetime license | $39
+                            <div class="withdrawal-consent" style="margin: 1rem auto 1.25rem; max-width: 640px; text-align: left; padding: 1rem 1.25rem; border: 1px solid rgba(165,180,252,0.35); border-radius: 12px; background: rgba(15,23,42,0.45);">
+                            <label for="withdrawal-consent-checkbox" style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; font-size: 0.95rem; line-height: 1.5;">
+                                <input type="checkbox" id="withdrawal-consent-checkbox" style="margin-top: 0.3rem; width: 1.1rem; height: 1.1rem; flex-shrink: 0;">
+                                <span>I consent to immediate delivery of this digital content (Automation Tool lifetime license) and acknowledge that I thereby lose my right of withdrawal. I understand that confirmation of this consent will be sent to me on a durable medium (Stripe receipt / order confirmation email).</span>
+                            </label>
+                        </div>
+                        <a id="stripe-checkout-btn" href="https://buy.stripe.com/8x228t53y1TGguc4Iw3sI02" class="buy-btn-large" target="_blank" rel="noopener noreferrer" aria-label="Read Disclaimer and Purchase Automation Tool"><span class="at-icon at-icon--download" aria-hidden="true"></span> Purchase Lifetime license | $39
                             </a>
                         </div>
                         
@@ -334,6 +341,25 @@
     <!-- Cookie Consent Banner -->
     <link rel="stylesheet" href="cookie-consent.css">
     <script src="cookie-consent.js" defer></script>
+
+    <script>
+        (function () {
+            var cb = document.getElementById('withdrawal-consent-checkbox');
+            var btn = document.getElementById('stripe-checkout-btn');
+            if (!cb || !btn) return;
+            function sync() {
+                var on = cb.checked;
+                btn.setAttribute('aria-disabled', on ? 'false' : 'true');
+                btn.style.opacity = on ? '' : '0.5';
+                btn.style.cursor = on ? '' : 'not-allowed';
+            }
+            btn.addEventListener('click', function (e) {
+                if (!cb.checked) { e.preventDefault(); cb.focus(); alert('Please tick the consent box before continuing to checkout.'); }
+            });
+            cb.addEventListener('change', sync);
+            sync();
+        })();
+    </script>
 </body>
 
 </html>
