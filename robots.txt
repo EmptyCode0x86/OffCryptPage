@@ -1,5 +1,5 @@
 # OffCode – https://www.dev-offcode.com
-# Updated 2026-10-20
+# Updated 2026-10-31
 
 # All crawlers: full access (CSS, JS and images included)
 User-agent: *

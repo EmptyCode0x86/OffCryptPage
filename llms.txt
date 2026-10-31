@@ -2,13 +2,13 @@
 
 > OffCode (dev-offcode.com) is an independent software brand by developer EmptyCode0x86 in Finland, not affiliated with Offcode Oy. Also known as OffCrypt, it builds privacy-focused encryption, security, automation and self-hosted communication tools. Contact: support@dev-offcode.com.
 
-The OffCrypt apps are free, open source (GPL-3.0) and work fully offline. Screen Lock Builder Premium and Automation Tool are paid one-time lifetime licences. Web Remote Control and Tor Chat are free and self-hosted, with optional paid source-code licences for developers.
+The OffCrypt apps are free, open source (GPL-3.0) and work fully offline. Screen Lock Builder Premium and Automation Tool are paid one-time lifetime licences. Web Remote Control and Tor Chat are free and self-hosted. Optional paid Developer Licences with source code are available for Tor Chat and for the Screen Lock Builder Free version ($99, Premium source not included); Web Remote Control has no paid source licence.
 
 ## Products
 
 - [OffCrypt for Android](https://www.dev-offcode.com/OffCryptAndroid.html): Free, open-source (GPL-3.0) offline encryption for messages and files on Android 5.0+. AES-256 and RSA-4096, self-destructing messages.
 - [OffCrypt Desktop](https://www.dev-offcode.com/OffCryptDesktop.html): Free, open-source (GPL-3.0) offline message and file encryption for Windows 10 and 11.
-- [Screen Lock Builder](https://www.dev-offcode.com/ScreenLockBuilder.html): Free builder for custom Windows screen lockers (Windows 7, 8, 10, 11) without writing code.
+- [Screen Lock Builder](https://www.dev-offcode.com/ScreenLockBuilder.html): Free builder for custom Windows screen lockers (Windows 7, 8, 10, 11) without writing code. Optional paid Developer License ($99) for the Free version source code (Premium source not included).
 - [Screen Lock Builder Premium](https://www.dev-offcode.com/ScreenLockBuilderPremium.html): Paid lifetime edition that adds folder, program and website locking, saved configs and themes. Uses a hardware ID only for licence activation.
 - [Automation Tool](https://www.dev-offcode.com/AutomationTool.html): Paid lifetime Windows 10/11 automation with OCR, UI Automation, macro recording and an AI Script Builder (OpenAI, Claude, Gemini, Groq or local Ollama).
 - [Web Remote Control](https://www.dev-offcode.com/RemoteControl.html): Free, self-hosted, browser-based remote control for Windows: live screen, file transfer, task manager and remote terminal.
