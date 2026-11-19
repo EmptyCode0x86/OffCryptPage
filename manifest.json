@@ -46,14 +46,14 @@
               ],
     "screenshots":  [
                         {
-                            "src":  "/OffCrypt-Android.jpg",
+                            "src":  "/offcrypt-android/images/OffCrypt-Android.jpg",
                             "sizes":  "1280x720",
                             "type":  "image/jpeg",
                             "form_factor":  "wide",
                             "label":  "OffCrypt Android App Interface"
                         },
                         {
-                            "src":  "/ScreenLock1.png",
+                            "src":  "/screen-lock/images/ScreenLock1.png",
                             "sizes":  "1280x720",
                             "type":  "image/png",
                             "form_factor":  "wide",
@@ -65,7 +65,7 @@
                           "name":  "Android App",
                           "short_name":  "Android",
                           "description":  "Download OffCrypt for Android",
-                          "url":  "/OffCryptAndroid.html",
+                          "url":  "/offcrypt-android/",
                           "icons":  [
                                         {
                                             "src":  "/favicon-32x32.png",
@@ -77,7 +77,7 @@
                           "name":  "Screen Lock Builder",
                           "short_name":  "Screen Lock",
                           "description":  "Windows Screen Lock Generator",
-                          "url":  "/ScreenLockBuilder.html",
+                          "url":  "/screen-lock/",
                           "icons":  [
                                         {
                                             "src":  "/favicon-32x32.png",
@@ -89,7 +89,7 @@
                           "name":  "OffCrypt Desktop",
                           "short_name":  "OffCrypt desktop",
                           "description":  "OffCrypt Desktop for Windows",
-                          "url":  "/OffCryptDesktop.html",
+                          "url":  "/offcrypt-desktop/",
                           "icons":  [
                                         {
                                             "src":  "/favicon-32x32.png",

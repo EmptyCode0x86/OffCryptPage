@@ -1,0 +1,156 @@
+document.addEventListener('DOMContentLoaded', function () { function initNavigation() { const navTabs = document.getElementById('navTabs'); const navLinks = document.querySelectorAll('.nav-link'), sections = document.querySelectorAll('#pictures,#features,#download'); navLinks.forEach(link => { link.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (!href.startsWith('#')) { return; } e.preventDefault(); const targetId = href, targetSection = document.querySelector(targetId); if (targetSection) { const offsetTop = targetSection.offsetTop - 80; window.scrollTo({ top: offsetTop, behavior: 'smooth' }) } }) }); function updateActiveNav() { let current = ''; const scrollPosition = window.scrollY + 150; sections.forEach(section => { const sectionTop = section.offsetTop, sectionHeight = section.offsetHeight; scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight && (current = section.getAttribute('id')) }); navLinks.forEach(link => { link.classList.remove('active'); link.getAttribute('href') === `#${current}` && link.classList.add('active') }) } window.addEventListener('scroll', updateActiveNav); updateActiveNav() } function initSwiper() { const isMobile = window.matchMedia('(max-width: 768px)').matches, opts = { direction: 'horizontal', loop: false, centeredSlides: true, slidesPerView: 1, spaceBetween: 20, touchRatio: isMobile ? 0 : 1, allowTouchMove: !isMobile, touchAngle: 45, grabCursor: true, autoHeight: true, effect: isMobile ? 'slide' : 'cards', navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true, dynamicMainBullets: 3 }, scrollbar: { el: '.swiper-scrollbar', draggable: true }, keyboard: { enabled: true }, mousewheel: { enabled: true, forceToAxis: true }, breakpoints: { 640: { slidesPerView: 1.2, spaceBetween: 20 }, 768: { slidesPerView: 1.5, spaceBetween: 30 }, 1024: { slidesPerView: 1.8, spaceBetween: 40 } } }; isMobile || (opts.cardsEffect = { slideShadows: true, transformEl: '.product-card' }); const swiper = new Swiper('.security-swiper', Object.assign({}, opts, { autoHeight: true, observeParents: true, observer: true })); swiper.on('imagesReady', () => swiper.updateAutoHeight()); swiper.on('slideChangeTransitionEnd', () => swiper.updateAutoHeight()); window.addEventListener('resize', () => swiper.updateAutoHeight()); } function initHowToUseTabs() { const init = () => { const tabButtons = document.querySelectorAll('.tab-btn'), tabPanels = document.querySelectorAll('.tab-panel'); if (!tabButtons || !tabButtons.length || !tabPanels || !tabPanels.length) return; for (let i = 0; i < tabButtons.length; i++) { const button = tabButtons[i]; button.addEventListener('click', function (e) { if (e) { e.preventDefault(); e.stopPropagation() } const targetTab = this.getAttribute('data-tab'); for (let j = 0; j < tabButtons.length; j++) { tabButtons[j].classList.remove('active') } for (let k = 0; k < tabPanels.length; k++) { tabPanels[k].classList.remove('active') } this.classList.add('active'); const targetPanel = document.getElementById(targetTab + '-tab'); if (targetPanel) { targetPanel.classList.add('active') } }, false) } }; if (document.readyState === 'loading') { setTimeout(init, 150) } else { init() } } initNavigation(); initSwiper(); initHowToUseTabs() });
+// Sidebar mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const body = document.body;
+    const sidebar = document.querySelector('.sidebar');
+    const mainWrapper = document.querySelector('.main-wrapper');
+
+    if (menuToggle && sidebar) {
+        // Toggle menu on button click
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (body.classList.contains('menu-open')) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    body.classList.remove('menu-open');
+                }
+            }
+        });
+
+        // Close menu when clicking on a menu link
+        const menuLinks = sidebar.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                body.classList.remove('menu-open');
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && body.classList.contains('menu-open')) {
+                body.classList.remove('menu-open');
+            }
+        });
+    }
+
+    // Set active menu item based on current page
+    function normalizeMenuPath(pathname) {
+        let path = decodeURIComponent(pathname || '/').replace(/\\/g, '/');
+        path = path.split('?')[0].split('#')[0];
+        if (!path || path === '/') {
+            return '/index.html';
+        }
+        if (path.endsWith('/')) {
+            path += 'index.html';
+        }
+        return path.toLowerCase();
+    }
+
+    function setActiveMenuItem() {
+        const currentPath = normalizeMenuPath(window.location.pathname);
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        menuItems.forEach(item => {
+            const link = item.querySelector('.menu-link');
+            if (!link) return;
+
+            const linkHref = link.getAttribute('href');
+            if (!linkHref || linkHref.startsWith('#') || linkHref.startsWith('mailto:')) {
+                item.classList.remove('active');
+                return;
+            }
+
+            try {
+                const linkUrl = new URL(linkHref, window.location.href);
+                const isHttp = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+                if (isHttp && linkUrl.origin !== window.location.origin) {
+                    item.classList.remove('active');
+                    return;
+                }
+
+                const linkPath = normalizeMenuPath(linkUrl.pathname);
+                item.classList.toggle('active', linkPath === currentPath);
+            } catch (e) {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Run on page load
+    setActiveMenuItem();
+
+    // Also run after a small delay to handle any dynamic content
+    setTimeout(setActiveMenuItem, 100);
+
+    // Re-run when page becomes visible (handles browser back/forward)
+    document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) {
+            setActiveMenuItem();
+        }
+    });
+
+    // Re-run when page is shown (handles browser back/forward on some browsers)
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            setActiveMenuItem();
+        }
+    });
+
+    // Update active menu when clicking menu links (before navigation)
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            // Remove all active classes first
+            const allMenuItems = document.querySelectorAll('.menu-item');
+            allMenuItems.forEach(item => item.classList.remove('active'));
+
+            // Add active to clicked item
+            const parentItem = this.closest('.menu-item');
+            if (parentItem) {
+                parentItem.classList.add('active');
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (!href || href.charAt(0) !== '#') return;
+            var target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        });
+    });
+
+    if (reduceMotion) return;
+    var supportsView = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
+    if (supportsView) return;
+
+    var nodes = document.querySelectorAll(
+        '.at-section, .product-screens, .pricing-section, .at-download, .at-badges, .product-videos'
+    );
+    if (!nodes.length) return;
+    nodes.forEach(function (el) { el.classList.add('at-reveal'); });
+    if (!('IntersectionObserver' in window)) {
+        nodes.forEach(function (el) { el.classList.add('is-inview'); });
+        return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-inview');
+            io.unobserve(entry.target);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    nodes.forEach(function (el) { io.observe(el); });
+});

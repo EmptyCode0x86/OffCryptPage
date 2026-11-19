@@ -4,149 +4,182 @@
   <url>
     <loc>https://www.dev-offcode.com/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/main-og-2026-10.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/main-og-2026-10.png</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/OffCryptAndroid.html</loc>
+    <loc>https://www.dev-offcode.com/offcrypt-android/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-offcrypt-android.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-offcrypt-android.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/OffCrypt-Android.jpg</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-android/images/OffCrypt-Android.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/OffCryptDecryption.jpg</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-android/images/OffCryptDecryption.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/FileSettings.jpg</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-android/images/FileSettings.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/FileEncryption.jpg</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-android/images/FileEncryption.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/FileDecryption.jpg</image:loc>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://www.dev-offcode.com/OffCryptDesktop.html</loc>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/og-offcrypt-desktop.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/SettingsWindows.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PasswordModeWindows.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PublicKeyModeWindows.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-android/images/FileDecryption.jpg</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/ScreenLockBuilder.html</loc>
+    <loc>https://www.dev-offcode.com/offcrypt-desktop/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-screenlockbuilder.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-offcrypt-desktop.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/ScreenLock1.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-desktop/images/SettingsWindows.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/ScreenLock2.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-desktop/images/PasswordModeWindows.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/LockScreen.png</image:loc>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://www.dev-offcode.com/ScreenLockBuilderPremium.html</loc>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/og-screenlockbuilder-premium.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/Premium1.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/LockScreen.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PremiumLockFiles.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PremiumSelect.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PremiumSettings.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PremiumTheme.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/PremiumConfigs.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/offcrypt-desktop/images/PublicKeyModeWindows.png</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/AutomationTool.html</loc>
+    <loc>https://www.dev-offcode.com/screen-lock/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-automation-tool.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-screenlockbuilder.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/OffCodeAutomation.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/ScreenLock1.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/ScannerTriggerP.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/ScreenLock2.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/LoadTextFile.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/VisualReader.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/VisualReader2.png</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.dev-offcode.com/VisualMarkers.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/LockScreen.png</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/Community.html</loc>
+    <loc>https://www.dev-offcode.com/screen-lock/premium.html</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-community.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-screenlockbuilder-premium.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/Community-og.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/Premium1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/LockScreen.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/PremiumLockFiles.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/PremiumSelect.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/PremiumSettings.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/screen-lock/images/PremiumConfigs.png</image:loc>
     </image:image>
   </url>
 
   <url>
-    <loc>https://www.dev-offcode.com/TorChatPage.html</loc>
+    <loc>https://www.dev-offcode.com/automation-tool/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-tor-chat.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-automation-tool.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/TorChat1.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/ScriptBuilder1.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/TorManager1.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/ScriptBuilderAddCommand2.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/TorManager2.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/ScriptBuilder3.png</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/TorManagerFeed.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/AddTrigger4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/AiScriptAssistant5.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/RunSchedule6.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/VisualReader7.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/VisualReader8.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/TextList9.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/VisionAgent10.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/VisionAgent11.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/Schedules12.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/NewSchedule13.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/UsageTab14.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/UsageTab15.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/LogTab16.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/SettingsTab17.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/automation-tool/images/UpdatesTab18.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dev-offcode.com/community/</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-community.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/assets/og/Community-og.png</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dev-offcode.com/tor-chat/</loc>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-tor-chat.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/tor-chat/images/TorChat1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/tor-chat/images/TorManager1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/tor-chat/images/TorManager2.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.dev-offcode.com/tor-chat/images/TorManagerFeed.png</image:loc>
     </image:image>
   </url>
   <url>
-    <loc>https://www.dev-offcode.com/RemoteControl.html</loc>
+    <loc>https://www.dev-offcode.com/remote-control/</loc>
     <image:image>
-      <image:loc>https://www.dev-offcode.com/og-remote-control.png</image:loc>
+      <image:loc>https://www.dev-offcode.com/assets/og/og-remote-control.png</image:loc>
     </image:image>
   </url>
 </urlset>

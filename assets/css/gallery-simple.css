@@ -1,0 +1,101 @@
+/* SCREENSHOT GALLERY - Layout only, modal styles are in styles.css */
+
+/* Gallery Container */
+.image-gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.gallery-subtitle {
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Grid Layout */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Image Card */
+.image-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    border-left: 2px solid #00ff88;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.image-card iframe {
+    width: 100%;
+    pointer-events: none;
+}
+
+.image-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.15);
+    border-left-color: #00d4ff;
+}
+
+.image-card:hover img {
+    opacity: 0.85;
+    transform: scale(1.01);
+}
+
+/* Featured card */
+.image-card.featured {
+    border-left-color: #00d4ff;
+    border-left-width: 3px;
+}
+
+/* Image Overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.zoom-icon {
+    font-size: 2.5rem;
+    color: #00ff88;
+}

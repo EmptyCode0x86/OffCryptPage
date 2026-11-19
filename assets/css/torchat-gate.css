@@ -1,0 +1,110 @@
+/* Map ChatServer gate tokens onto OffCode --at-* names. */
+:root {
+    --bg-deep: var(--at-bg-deep);
+    --bg: var(--at-bg-base);
+    --text: var(--at-text);
+    --ink: var(--at-text);
+    --muted: var(--at-text-muted);
+    --copper: var(--at-copper);
+    --amber: var(--at-amber);
+    --border: var(--at-border);
+    --border-strong: var(--at-border-strong);
+    --glow-copper: var(--at-glow-copper);
+    --glow-amber: var(--at-glow-amber);
+    --gradient-copper: var(--at-gradient-copper);
+    --font-display: var(--at-font-display);
+    --font-body: var(--at-font-body);
+    --radius: var(--at-radius);
+    --transition: var(--at-transition);
+}
+
+.origin-warning.boot-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 10050;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: auto;
+}
+
+html:has(.origin-warning.boot-gate:not([hidden])) .cookie-banner {
+    display: none !important;
+}
+
+.origin-warning.boot-gate[hidden] {
+    display: none !important;
+}
+
+.origin-warning.boot-gate .gate-continue {
+    display: inline-block;
+}
+
+.origin-warning.boot-gate .gate-continue:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px var(--glow-copper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Same as hiw/vg demos: Windows Animation effects off still plays the globe. */
+    .origin-warning.boot-gate.force-motion .gate-orbit--1::after {
+        animation: gate-spin-cw 12s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-orbit--2::after {
+        animation: gate-spin-ccw 18s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-layer--3::after {
+        animation: gate-spin-cw 20s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-onion::before {
+        animation: gate-spin-cw 9s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-onion::after {
+        animation: gate-spin-ccw 14s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-tie::after {
+        animation: gate-pulse 3s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-tie--2::after { animation-delay: 0.7s; }
+    .origin-warning.boot-gate.force-motion .gate-tie--3::after { animation-delay: 1.4s; }
+    .origin-warning.boot-gate.force-motion .gate-tie--4::after { animation-delay: 2.1s; }
+    .origin-warning.boot-gate.force-motion .gate-tie--5::after { animation-delay: 2.7s; }
+
+    .origin-warning.boot-gate.force-motion .gate-spark {
+        animation: gate-spin-cw 20s linear infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion :is(.gate-spark--1, .gate-spark--2, .gate-orbit--3, .gate-orbit--4, .gate-orbit--5)::after {
+        animation: gate-ping 2.4s cubic-bezier(0, 0, 0.2, 1) var(--d, 0s) infinite;
+        opacity: 0.8;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-spark--3::after {
+        animation: gate-lock 8.5s ease-in-out infinite;
+        opacity: 1;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-blip {
+        opacity: 1;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-blip::before {
+        animation: gate-blip-dot var(--cyc) var(--del) infinite;
+    }
+
+    .origin-warning.boot-gate.force-motion .gate-blip::after {
+        animation: gate-blip-ring var(--cyc) var(--del) infinite;
+    }
+
+    .origin-warning.boot-gate:not(.force-motion) .gate-continue:hover {
+        transform: none;
+    }
+}
