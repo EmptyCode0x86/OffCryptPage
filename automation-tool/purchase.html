@@ -48,7 +48,7 @@
 
 
         <link rel="stylesheet" href="../assets/css/styles-automation.css?v=3.1.1">
-    <link rel="stylesheet" href="../assets/css/styles-at-extras.css?v=3.3.1">
+    <link rel="stylesheet" href="../assets/css/styles-at-extras.css?v=3.3.3">
 </head>
 
 <body class="at-page">
@@ -278,25 +278,40 @@
                     </div>
 
                     <!-- Purchase CTA Box -->
-                    <div class="glass-panel primary-purchase-panel instructions-contact">
-                        <h3 class="panel-title" style="justify-content: center; border: none; font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 800;"><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Purchase Automation Tool</h3>
-                        <p style="color: #a5b4fc; font-size: 1.1rem; margin-bottom: 1.5rem;">Get lifetime access to all automation features</p>
-                        
-                        <div>
-                            <div class="withdrawal-consent" style="margin: 1rem auto 1.25rem; max-width: 640px; text-align: left; padding: 1rem 1.25rem; border: 1px solid rgba(165,180,252,0.35); border-radius: 12px; background: rgba(15,23,42,0.45);">
+                    <div class="glass-panel primary-purchase-panel purchase-cta">
+                        <p class="purchase-cta__kicker">Lifetime license</p>
+                        <h3 class="purchase-cta__title">Automation Tool</h3>
+                        <p class="purchase-cta__lead">One payment. Instant delivery. All future updates included.</p>
+
+                        <div class="purchase-cta__price">
+                            <span class="purchase-cta__was" aria-label="Regular price 39 US dollars">$39</span>
+                            <span class="purchase-cta__now">$25</span>
+                            <span class="purchase-cta__period">USD · lifetime</span>
+                        </div>
+
+                        <div class="purchase-cta__promo">
+                            <p class="purchase-cta__promo-label"><span class="at-icon at-icon--clock" aria-hidden="true"></span> Limited-time 35% off</p>
+                            <p class="purchase-cta__code-row">Discount code <code>AUTOMATIONCPN35</code></p>
+                            <p class="purchase-cta__code-hint">Applied automatically at Stripe checkout</p>
+                        </div>
+
+                        <div class="withdrawal-consent" style="margin: 1rem auto 1.25rem; max-width: 640px; text-align: left; padding: 1rem 1.25rem; border: 1px solid rgba(196, 92, 38, 0.35); border-radius: 12px; background: rgba(15, 12, 10, 0.45);">
                             <label for="withdrawal-consent-checkbox" style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; font-size: 0.95rem; line-height: 1.5;">
                                 <input type="checkbox" id="withdrawal-consent-checkbox" style="margin-top: 0.3rem; width: 1.1rem; height: 1.1rem; flex-shrink: 0;">
                                 <span>I consent to immediate delivery of this digital content (Automation Tool lifetime license) and acknowledge that I thereby lose my right of withdrawal. I understand that confirmation of this consent will be sent to me on a durable medium (Stripe receipt / order confirmation email).</span>
                             </label>
                         </div>
-                        <a id="stripe-checkout-btn" href="https://buy.stripe.com/8x228t53y1TGguc4Iw3sI02" class="buy-btn-large" target="_blank" rel="noopener noreferrer" aria-label="Read Disclaimer and Purchase Automation Tool"><span class="at-icon at-icon--download" aria-hidden="true"></span> Purchase Lifetime license | $25
-                            </a>
-                        </div>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <p style="margin-bottom: 0.75rem; color: #94a3b8; font-size: 0.9rem;"><strong><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Accepted Payment Methods:</strong></p>
-                            <div class="payment-badge"><span class="at-icon at-icon--briefcase" aria-hidden="true"></span> Stripe</div>
-                        </div>
+                        <a id="stripe-checkout-btn" href="https://buy.stripe.com/8x228t53y1TGguc4Iw3sI02?prefilled_promo_code=AUTOMATIONCPN35"
+                           class="buy-btn-large buy-btn-large--fill"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Purchase Automation Tool lifetime license for 25 US dollars">
+                            Continue to checkout: $25
+                        </a>
+
+                        <ul class="purchase-cta__notes">
+                            <li><span class="at-icon at-icon--lock" aria-hidden="true"></span> Secure payment with Stripe</li>
+                            <li><span class="at-icon at-icon--check" aria-hidden="true"></span> License delivered instantly</li>
+                        </ul>
                     </div>
 
                     <!-- Footer Areas -->
@@ -342,6 +357,20 @@
     <link rel="stylesheet" href="../assets/css/cookie-consent.css">
     <script src="../assets/js/cookie-consent.js" defer></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            let refCode = urlParams.get('ref') || localStorage.getItem('offcrypt_ref') || 'AUTOMATIONCPN35';
+            if (refCode && /^[A-Za-z0-9_-]{1,50}$/.test(refCode)) {
+                const stripeButton = document.querySelector('a[href*="buy.stripe.com"]');
+                if (stripeButton) {
+                    const stripeUrl = new URL(stripeButton.getAttribute('href'));
+                    stripeUrl.searchParams.set('prefilled_promo_code', refCode);
+                    stripeButton.setAttribute('href', stripeUrl.toString());
+                }
+            }
+        });
+    </script>
     <script>
         (function () {
             var cb = document.getElementById('withdrawal-consent-checkbox');
